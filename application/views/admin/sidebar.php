@@ -10,18 +10,10 @@
                 </ul>
             </li>
 
-            <li><a><i class="fa fa-newspaper-o"></i> Posting <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-user"></i> Karyawan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin/posts') ?>">Daftar Posting</a>
-                    <li><a href="<?php echo site_url('admin/posts/category') ?>">Category Posting</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li><a><i class="fa fa-picture-o"></i> Media Manager <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin/media_manager') ?>">Image List</a>
-                    <li><a href="<?php echo site_url('admin/media_album') ?>">Album List</a>
+                    <li><a href="<?php echo site_url('admin/employe') ?>">Daftar Karyawan</a>
+                    <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Posting</a>
                     </li>
                 </ul>
             </li>

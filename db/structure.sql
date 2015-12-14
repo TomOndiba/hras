@@ -163,6 +163,7 @@ CREATE  TABLE IF NOT EXISTS `employe` (
   `employe_divisi` VARCHAR(255) NULL ,
   `employe_position` VARCHAR(100) NULL ,
   `employe_departement` VARCHAR(255) NULL ,
+  `employe_is_active` TINYINT(1) NULL DEFAULT 0 ,
   `employe_date_register` DATE NULL ,
   `employe_input_date` TIMESTAMP NULL ,
   `employe_last_update` TIMESTAMP NULL ,
