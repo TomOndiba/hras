@@ -13,7 +13,7 @@
             <li><a><i class="fa fa-user"></i> Karyawan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/employe') ?>">Daftar Karyawan</a>
-                    <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Posting</a>
+                    <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Karyawan</a>
                     </li>
                 </ul>
             </li>
