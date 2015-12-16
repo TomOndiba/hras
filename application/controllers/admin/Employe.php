@@ -19,6 +19,7 @@ class Employe extends CI_Controller {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('Employe_model', 'Activity_log_model'));
+        $this->load->helper('string');
     }
 
     // Employe view in list
@@ -63,6 +64,7 @@ class Employe extends CI_Controller {
                 $params['employe_id'] = $this->input->post('employe_id');
             } else {
                 $params['employe_input_date'] = date('Y-m-d H:i:s');
+                $params['employe_nik'] = random_string('numeric', 6);
             }
 
             $params['employe_name'] = $this->input->post('employe_name');
