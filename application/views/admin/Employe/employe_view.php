@@ -28,34 +28,34 @@
                             <td><?php echo $employe['employe_name'] ?></td>
                         </tr>
                         <tr>
-                            <td>Status</td>
+                            <td>Jabatan</td>
                             <td>:</td>
-                            <td><?php echo $employe['employe_is_active'] == 1? 'Aktif' : 'Non-Aktif'; ?></td>
-                        </tr>
-                        <tr>
-                            <td>No. Telepon</td>
+                            <td><?php echo $employe['employe_position'] ?></td>
+                        </tr>                        
+                        <tr>                            
+                            <td>Divisi</td>
                             <td>:</td>
-                            <td><?php echo $employe['employe_phone'] ?></td>
+                            <td><?php echo $employe['employe_divisi'] ?></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
                             <td>:</td>
                             <td><?php echo $employe['employe_address'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Bagian</td>
+                        </tr>  
+                        <tr>         
+                            <td>No. Telepon</td>
                             <td>:</td>
-                            <td><?php echo $employe['employe_divisi'] ?></td>
-                        </tr>
-                        <tr>
-                            <td>Position</td>
-                            <td>:</td>
-                            <td><?php echo $employe['employe_position'] ?></td>
-                        </tr>
+                            <td><?php echo $employe['employe_phone'] ?></td>
+                        </tr>                                                              
                         <tr>
                             <td>Tanggal Bekerja</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($employe['employe_date_register']) ?></td>
+                            <td><?php echo pretty_date($employe['employe_date_register'], 'd F Y', False) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td><?php echo $employe['employe_is_active'] == 1? 'Aktif' : 'Non-Aktif'; ?></td>
                         </tr>
                     </tbody>
                 </table>

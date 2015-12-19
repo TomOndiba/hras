@@ -11,8 +11,8 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA</th>
-                        <th class="controls" align="center">DIVISI</th>
                         <th class="controls" align="center">JABATAN</th>
                         <th class="controls" align="center">DEPARTEMEN</th>
                         <th class="controls" align="center">STATUS</th>
@@ -25,8 +25,8 @@
                         ?>
                         <tbody>
                             <tr>
+                                <td ><?php echo $row['employe_nik']; ?></td>
                                 <td ><?php echo $row['employe_name']; ?></td>
-                                <td ><?php echo $row['employe_divisi']; ?></td>
                                 <td ><?php echo $row['employe_position']; ?></td>
                                 <td ><?php echo $row['employe_departement']; ?></td>
                                 <td ><?php echo $row['employe_is_active'] == 1? 'Aktif' : 'Non-Aktif'; ?></td>

@@ -34,19 +34,19 @@ if (isset($employe)) {
                 <?php if (isset($employe)): ?>
                     <input type="hidden" name="employe_id" value="<?php echo $employe['employe_id']; ?>" />
                 <?php else: ?>
-                <label >Nik Karyawan *</label>
-                <input name="employe_nik" placeholder="Nik Karyawan" type="text" class="form-control" value="<?php echo set_value('employe_nik'); ?>"><br>
+                <label >NIK *</label>
+                <input name="employe_nik" placeholder="NIK Karyawan" type="text" class="form-control" value="<?php echo set_value('employe_nik'); ?>"><br>
                 <?php endif; ?>
                 <label >Nama Karyawan *</label>
                 <input name="employe_name" placeholder="Nama Karyawan" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>
-                <label >No. Telepon *</label>
-                <input name="employe_phone" placeholder="No. telepon" type="text" class="form-control" value="<?php echo $inputPhone; ?>"><br>
-                <label >Bagian *</label>
-                <input name="employe_divisi" placeholder="Bagian" type="text" class="form-control" value="<?php echo $inputDivisi; ?>"><br>
                 <label >Jabatan *</label>
                 <input name="employe_position" placeholder="Jabatan" type="text" class="form-control" value="<?php echo $inputPosition; ?>"><br>
                 <label >Departement *</label>
                 <input name="employe_departement" placeholder="Departement" type="text" class="form-control" value="<?php echo $inputDepartement; ?>"><br>
+                <label >Divisi *</label>
+                <input name="employe_divisi" placeholder="Divisi" type="text" class="form-control" value="<?php echo $inputDivisi; ?>"><br>
+                <label >No. Telepon *</label>
+                <input name="employe_phone" placeholder="No. telepon" type="text" class="form-control" value="<?php echo $inputPhone; ?>"><br>                           
                 <label >Tanggal Bekerja *</label>
                 <input name="employe_date_register" placeholder="Tanggal Bekerja" type="text" class="datepicker form-control" value="<?php echo $inputRegister; ?>"><br>
                 <label >Alamat *</label>
