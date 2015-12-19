@@ -178,7 +178,12 @@ CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
   `memorandum_number` VARCHAR(45) NULL ,
   `memorandum_email_date` DATE NULL ,
+  `memorandum_absent_date` DATE NULL ,
+  `memorandum_date_sent` DATE NULL ,
+  `memorandum_call_date` DATE NULL ,
   `employe_employe_id` INT NULL ,
+  `memorandum_input_date` TIMESTAMP NULL ,
+  `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
   INDEX `fk_memorandum1_employe1_idx` (`employe_employe_id` ASC) ,
   CONSTRAINT `fk_memorandum1_employe1`
@@ -186,6 +191,58 @@ CREATE  TABLE IF NOT EXISTS `memorandum1` (
     REFERENCES `employe` (`employe_id` )
     ON DELETE SET NULL
     ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `memorandum2`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `memorandum2` (
+  `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
+  `memorandum_number` VARCHAR(45) NULL ,
+  `memorandum_date_sent` DATE NULL ,
+  `memorandum_call_date` DATE NULL ,
+  `memorandum1_memorandum_id` INT NOT NULL ,
+  `memorandum_input_date` TIMESTAMP NULL ,
+  `memorandum_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`memorandum_id`) ,
+  INDEX `fk_memorandum2_memorandum11_idx` (`memorandum1_memorandum_id` ASC) ,
+  CONSTRAINT `fk_memorandum2_memorandum11`
+    FOREIGN KEY (`memorandum1_memorandum_id` )
+    REFERENCES `memorandum1` (`memorandum_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `memorandum3`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `memorandum3` (
+  `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
+  `memorandum_number` VARCHAR(45) NULL ,
+  `memorandum_date_sent` DATE NULL ,
+  `memorandum_call_date` DATE NULL ,
+  `memorandum2_memorandum_id` INT NOT NULL ,
+  `memorandum_input_date` TIMESTAMP NULL ,
+  `memorandum_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`memorandum_id`) ,
+  INDEX `fk_memorandum2_memorandum21_idx` (`memorandum2_memorandum_id` ASC) ,
+  CONSTRAINT `fk_memorandum2_memorandum21`
+    FOREIGN KEY (`memorandum2_memorandum_id` )
+    REFERENCES `memorandum2` (`memorandum_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bank`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `bank` (
+  `idbank` INT NOT NULL AUTO_INCREMENT ,
+  `bank_name` VARCHAR(100) NULL ,
+  PRIMARY KEY (`idbank`) )
 ENGINE = InnoDB;
 
 
