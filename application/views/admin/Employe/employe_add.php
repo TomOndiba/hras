@@ -33,6 +33,9 @@ if (isset($employe)) {
             <div class="col-sm-9 col-md-9">
                 <?php if (isset($employe)): ?>
                     <input type="hidden" name="employe_id" value="<?php echo $employe['employe_id']; ?>" />
+                <?php else: ?>
+                <label >Nik Karyawan *</label>
+                <input name="employe_nik" placeholder="Nik Karyawan" type="text" class="form-control" value="<?php echo set_value('employe_nik'); ?>"><br>
                 <?php endif; ?>
                 <label >Nama Karyawan *</label>
                 <input name="employe_name" placeholder="Nama Karyawan" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>

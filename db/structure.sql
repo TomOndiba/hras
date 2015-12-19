@@ -171,6 +171,24 @@ CREATE  TABLE IF NOT EXISTS `employe` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `memorandum1`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `memorandum1` (
+  `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
+  `memorandum_number` VARCHAR(45) NULL ,
+  `memorandum_email_date` DATE NULL ,
+  `employe_employe_id` INT NULL ,
+  PRIMARY KEY (`memorandum_id`) ,
+  INDEX `fk_memorandum1_employe1_idx` (`employe_employe_id` ASC) ,
+  CONSTRAINT `fk_memorandum1_employe1`
+    FOREIGN KEY (`employe_employe_id` )
+    REFERENCES `employe` (`employe_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

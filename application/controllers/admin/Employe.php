@@ -64,7 +64,7 @@ class Employe extends CI_Controller {
                 $params['employe_id'] = $this->input->post('employe_id');
             } else {
                 $params['employe_input_date'] = date('Y-m-d H:i:s');
-                $params['employe_nik'] = random_string('numeric', 6);
+                $params['employe_nik'] = $this->input->post('employe_nik');
             }
 
             $params['employe_name'] = $this->input->post('employe_name');
