@@ -202,7 +202,7 @@ CREATE  TABLE IF NOT EXISTS `memorandum2` (
   `memorandum_number` VARCHAR(45) NULL ,
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
-  `memorandum1_memorandum_id` INT NOT NULL ,
+  `memorandum1_memorandum_id` INT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
@@ -223,7 +223,7 @@ CREATE  TABLE IF NOT EXISTS `memorandum3` (
   `memorandum_number` VARCHAR(45) NULL ,
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
-  `memorandum2_memorandum_id` INT NOT NULL ,
+  `memorandum2_memorandum_id` INT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
@@ -240,9 +240,9 @@ ENGINE = InnoDB;
 -- Table `bank`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `bank` (
-  `idbank` INT NOT NULL AUTO_INCREMENT ,
+  `bank_id` INT NOT NULL AUTO_INCREMENT ,
   `bank_name` VARCHAR(100) NULL ,
-  PRIMARY KEY (`idbank`) )
+  PRIMARY KEY (`bank_id`) )
 ENGINE = InnoDB;
 
 
