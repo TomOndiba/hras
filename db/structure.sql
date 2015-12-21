@@ -167,6 +167,7 @@ CREATE  TABLE IF NOT EXISTS `employe` (
   `employe_date_register` DATE NULL ,
   `employe_input_date` TIMESTAMP NULL ,
   `employe_last_update` TIMESTAMP NULL ,
+  `user_user_id` INT NULL ,
   PRIMARY KEY (`employe_id`) )
 ENGINE = InnoDB;
 
@@ -182,6 +183,7 @@ CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
   `employe_employe_id` INT NULL ,
+  `user_user_id` INT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
@@ -203,6 +205,7 @@ CREATE  TABLE IF NOT EXISTS `memorandum2` (
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
   `memorandum1_memorandum_id` INT NULL ,
+  `user_user_id` INT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
@@ -224,6 +227,7 @@ CREATE  TABLE IF NOT EXISTS `memorandum3` (
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
   `memorandum2_memorandum_id` INT NULL ,
+  `user_user_id` INT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`memorandum_id`) ,
@@ -243,6 +247,70 @@ CREATE  TABLE IF NOT EXISTS `bank` (
   `bank_id` INT NOT NULL AUTO_INCREMENT ,
   `bank_name` VARCHAR(100) NULL ,
   PRIMARY KEY (`bank_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `spb`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `spb` (
+  `spb_id` INT NOT NULL AUTO_INCREMENT ,
+  `spb_number` VARCHAR(45) NULL ,
+  `spb_date` DATE NULL ,
+  `bank_bank_id` INT NULL ,
+  `user_user_id` INT NULL ,
+  `spb_input_date` TIMESTAMP NULL ,
+  `spb_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`spb_id`) ,
+  INDEX `fk_spb_bank1_idx` (`bank_bank_id` ASC) ,
+  CONSTRAINT `fk_spb_bank1`
+    FOREIGN KEY (`bank_bank_id` )
+    REFERENCES `bank` (`bank_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `spb_user`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `spb_user` (
+  `user_id` INT NOT NULL AUTO_INCREMENT ,
+  `user_name` VARCHAR(255) NULL ,
+  `user_nik` DECIMAL(10,0) NULL ,
+  `spb_spb_id` INT NULL ,
+  `user_user_id` INT NULL ,
+  `user_input_date` TIMESTAMP NULL ,
+  `user_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`user_id`) ,
+  INDEX `fk_spb_user_spb1_idx` (`spb_spb_id` ASC) ,
+  CONSTRAINT `fk_spb_user_spb1`
+    FOREIGN KEY (`spb_spb_id` )
+    REFERENCES `spb` (`spb_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `sk`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `sk` (
+  `sk_id` INT NOT NULL AUTO_INCREMENT ,
+  `sk_number` VARCHAR(45) NULL ,
+  `sk_description` TEXT NULL ,
+  `sk_date` DATE NULL ,
+  `employe_employe_id` INT NULL ,
+  `user_user_id` INT NULL ,
+  `sk_input_date` TIMESTAMP NULL ,
+  `sk_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`sk_id`) ,
+  INDEX `fk_sk_employe1_idx` (`employe_employe_id` ASC) ,
+  CONSTRAINT `fk_sk_employe1`
+    FOREIGN KEY (`employe_employe_id` )
+    REFERENCES `employe` (`employe_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
