@@ -10,10 +10,26 @@
                 </ul>
             </li>
 
+            <li><a><i class="fa fa-envelope"></i> Surat Panggilan <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/memorandum1') ?>">Daftar Surat Panggilan 1</a>
+                    <li><a href="<?php echo site_url('admin/memorandum2') ?>">Daftar Suart Panggilan 2</a>
+                    </li>
+                </ul>
+            </li>
+
             <li><a><i class="fa fa-user"></i> Karyawan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/employe') ?>">Daftar Karyawan</a>
                     <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Karyawan</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a><i class="fa fa-newspaper-o"></i> Posting <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/posts') ?>">Daftar Postingan</a>
+                    <li><a href="<?php echo site_url('admin/posts/add') ?>">Tambah Postingan</a>
                     </li>
                 </ul>
             </li>

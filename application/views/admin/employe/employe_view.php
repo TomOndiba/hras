@@ -57,6 +57,16 @@
                             <td>:</td>
                             <td><?php echo $employe['employe_is_active'] == 1? 'Aktif' : 'Non-Aktif'; ?></td>
                         </tr>
+                        <tr>
+                            <td>Tanggal Input</td>
+                            <td>:</td>
+                            <td><?php echo pretty_date($employe['employe_input_date']) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Penulis</td>
+                            <td>:</td>
+                            <td><?php echo $employe['user_name']; ?></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

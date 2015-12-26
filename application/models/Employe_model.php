@@ -60,7 +60,9 @@ class Employe_model extends CI_Model {
 
         $this->db->select('employe.employe_id, employe_nik, employe_name, employe_phone, employe_address,
             employe_divisi, employe_position, employe_departement, employe_date_register, employe_is_active,
+            user_name,
             employe_input_date, employe_last_update');
+        $this->db->join('user', 'user.user_id = employe.user_user_id', 'left');
         $res = $this->db->get('employe');
 
         if(isset($params['id']))
@@ -114,6 +116,10 @@ class Employe_model extends CI_Model {
         
          if(isset($data['employe_date_register'])) {
             $this->db->set('employe_date_register', $data['employe_date_register']);
+        }
+        
+         if(isset($data['user_id'])) {
+            $this->db->set('user_user_id', $data['user_id']);
         }
         
          if(isset($data['employe_input_date'])) {
