@@ -3,18 +3,14 @@
 <?php
 if (isset($memorandum)) {
     $inputNumber= $memorandum['memorandum_number'];
-    $inputEmailDate= $memorandum['memorandum_email_date'];
-    $inputAbsentDate = $memorandum['memorandum_absent_date'];
     $inputDateSent = $memorandum['memorandum_date_sent'];
     $inputCallDate = $memorandum['memorandum_call_date'];
-    $inputEmploye = $memorandum['employe_employe_id'];
+    $inputMemorandum1 = $memorandum['memorandum1_memorandum_id'];
 } else {
     $inputNumber = set_value('memorandum_number');
-    $inputEmailDate = set_value('memorandum_email_date');
-    $inputAbsentDate = set_value('memorandum_absent_date');
     $inputDateSent = set_value('memorandum_date_sent');
     $inputCallDate = set_value('memorandum_call_date');
-    $inputEmploye = set_value('employe_id');
+    $inputMemorandum1 = set_value('memorandum1_id');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -22,7 +18,7 @@ if (isset($memorandum)) {
         <?php if (!isset($memorandum)) echo validation_errors(); ?>
         <?php echo form_open_multipart(current_url()); ?>
         <div>
-            <h3><?php echo $operation; ?> Surat Panggilan Pertama</h3><br>
+            <h3><?php echo $operation; ?> Surat Panggilan Kedua</h3><br>
         </div>
 
         <div class="row">
@@ -30,16 +26,12 @@ if (isset($memorandum)) {
                 <?php if (isset($memorandum)): ?>
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
-                <label >Karyawan *</label>
-                <select name="employe_id" class="form-control">
-                    <?php foreach ($employe as $row): ?>
-                    <option value="<?php echo $row['employe_id'] ?>"><?php echo $row['employe_name'] ?></option>
+                <label >Surat Panggilan Pertama *</label>
+                <select name="memorandum1_id" class="form-control">
+                    <?php foreach ($memorandum1 as $row): ?>
+                    <option value="<?php echo $row['memorandum_id'] ?>"><?php echo $row['memorandum_number'] ?></option>
                     <?php endforeach; ?>
                 </select><br>
-                <label >Tanggal email *</label>
-                <input name="memorandum_email_date" placeholder="Tanggal Email" type="text" class="form-control datepicker" value="<?php echo $inputNumber; ?>"><br>
-                <label >Tanggal Mangkir *</label>
-                <input name="memorandum_absent_date" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker" value="<?php echo $inputAbsentDate; ?>"><br>
                 <label >Tanggal Dikirim *</label>
                 <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker" value="<?php echo $inputDateSent; ?>"><br>
                 <label >Tanggal Panggilan *</label>
@@ -49,9 +41,9 @@ if (isset($memorandum)) {
             <div class="col-sm-9 col-md-3">
                 <div class="form-group">
                     <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
-                    <a href="<?php echo site_url('admin/memorandum1'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
+                    <a href="<?php echo site_url('admin/memorandum2'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
                     <?php if (isset($memorandum)): ?>
-                        <a href="<?php echo site_url('admin/memorandum1/delete/' . $memorandum['memorandum_id']); ?>" class="btn btn-danger btn-form" ><i class="fa fa-trash"></i> Hapus</a>
+                        <a href="<?php echo site_url('admin/memorandum2/delete/' . $memorandum['memorandum_id']); ?>" class="btn btn-danger btn-form" ><i class="fa fa-trash"></i> Hapus</a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -72,7 +64,7 @@ if (isset($memorandum)) {
                 <div class="modal-body">
                     <p>Data yang dipilih akan dihapus oleh sistem, apakah anda yakin?;</p>
                 </div>
-                <?php echo form_open('admin/memorandum1/delete/' . $memorandum['memorandum_id']); ?>
+                <?php echo form_open('admin/memorandum2/delete/' . $memorandum['memorandum_id']); ?>
                 <div class="modal-footer">
                     <a><button style="float: right;margin-left: 10px" type="button" class="btn btn-default" data-dismiss="modal">Tidak</button></a>
                     <input type="hidden" name="del_id" value="<?php echo $memorandum['memorandum_id'] ?>" />
