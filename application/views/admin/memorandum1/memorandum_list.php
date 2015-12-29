@@ -11,7 +11,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="controls" align="center">No. SURAT</th>
+                        <th class="controls" align="center">NO. SURAT</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
                         <th class="controls" align="center">TGL MANGKIR</th>
                         <th class="controls" align="center">TGL DIKIRIM</th>

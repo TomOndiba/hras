@@ -2,8 +2,8 @@
 
 <?php
 if (isset($memorandum)) {
-    $inputNumber= $memorandum['memorandum_number'];
-    $inputEmailDate= $memorandum['memorandum_email_date'];
+    $inputNumber = $memorandum['memorandum_number'];
+    $inputEmailDate = $memorandum['memorandum_email_date'];
     $inputAbsentDate = $memorandum['memorandum_absent_date'];
     $inputDateSent = $memorandum['memorandum_date_sent'];
     $inputCallDate = $memorandum['memorandum_call_date'];
@@ -31,11 +31,9 @@ if (isset($memorandum)) {
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <select name="employe_id" class="form-control">
-                    <?php foreach ($employe as $row): ?>
-                    <option value="<?php echo $row['employe_id'] ?>"><?php echo $row['employe_name'] ?></option>
-                    <?php endforeach; ?>
-                </select><br>
+                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
+                <br>
                 <label >Tanggal email *</label>
                 <input name="memorandum_email_date" placeholder="Tanggal Email" type="text" class="form-control datepicker" value="<?php echo $inputNumber; ?>"><br>
                 <label >Tanggal Mangkir *</label>
@@ -92,3 +90,57 @@ if (isset($memorandum)) {
     <?php }
     ?>
 <?php endif; ?>
+
+<script>
+    $(function() {
+
+        var employe_list = [
+<?php foreach ($employe as $row): ?>
+                {
+                    "id": "<?php echo $row['employe_id'] ?>",
+                    "value": "<?php echo $row['employe_name'] ?>",
+                    "label": "<?php echo $row['employe_name'] ?>",
+                    "label_nik": "<?php echo $row['employe_nik'] ?>"
+                },
+<?php endforeach; ?>
+        ];
+        function custom_source(request, response) {
+            var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+            response($.grep(employe_list, function(value) {
+                return matcher.test(value.label)
+                        || matcher.test(value.label_nik);
+            }));
+        }
+
+        $("#field").autocomplete({
+            source: custom_source,
+            minLength: 1,
+            select: function(event, ui) {
+                // feed hidden id field
+                $("#field_id").val(ui.item.id);
+                // update number of returned rows
+            },
+            open: function(event, ui) {
+                // update number of returned rows
+                var len = $('.ui-autocomplete > li').length;
+            },
+            close: function(event, ui) {
+                // update number of returned rows
+            },
+            // mustMatch implementation
+            change: function(event, ui) {
+                if (ui.item === null) {
+                    $(this).val('');
+                    $('#field_id').val('');
+                }
+            }
+        });
+
+        // mustMatch (no value) implementation
+        $("#field").focusout(function() {
+            if ($("#field").val() === '') {
+                $('#field_id').val('');
+            }
+        });
+    });
+</script>

@@ -26,17 +26,7 @@
                             <td>Karyawan</td>
                             <td>:</td>
                             <td><?php echo $memorandum['employe_name'] ?></td>
-                        </tr>  
-                        <tr>
-                            <td>Tanggal Email</td>
-                            <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_email_date'], 'd M Y') ?></td>
-                        </tr>
-                        <tr>
-                            <td>Tanggal Mangkir</td>
-                            <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_absent_date'], 'd M Y') ?></td>
-                        </tr>                        
+                        </tr>                   
                         <tr>                            
                             <td>Tanggal Dikirim</td>
                             <td>:</td>
