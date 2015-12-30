@@ -14,6 +14,7 @@
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/memorandum1') ?>">Daftar Surat Panggilan 1</a>
                     <li><a href="<?php echo site_url('admin/memorandum2') ?>">Daftar Suart Panggilan 2</a>
+                    <li><a href="<?php echo site_url('admin/memorandum3') ?>">Daftar Suart Panggilan 3</a>
                     </li>
                 </ul>
             </li>
