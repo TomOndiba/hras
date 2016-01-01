@@ -18,7 +18,7 @@ class Memorandum3 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum1_model'));
+        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum2_model'));
         $this->load->helper('string');
     }
 
@@ -50,7 +50,7 @@ class Memorandum3 extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('memorandum_date_sent', 'Tanggal Kirim', 'trim|required|xss_clean');
         $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean'); 
-        $this->form_validation->set_rules('memorandum1_id', 'Memorandum 1', 'trim|required|xss_clean'); 
+        $this->form_validation->set_rules('memorandum2_id', 'Memorandum 2', 'trim|required|xss_clean'); 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -65,7 +65,7 @@ class Memorandum3 extends CI_Controller {
 
             $params['memorandum_date_sent'] = $this->input->post('memorandum_date_sent');
             $params['memorandum_call_date'] = $this->input->post('memorandum_call_date');
-            $params['memorandum1_id'] = $this->input->post('memorandum1_id');
+            $params['memorandum2_id'] = $this->input->post('memorandum2_id');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['memorandum_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Memorandum3_model->add($params);
@@ -93,7 +93,7 @@ class Memorandum3 extends CI_Controller {
             if (!is_null($id)) {
                 $data['memorandum'] = $this->Memorandum3_model->get(array('id' => $id));
             }
-            $data['memorandum2'] = $this->Memorandum2_model->get();
+            $data['memorandum2'] = $this->Memorandum2_model->get(); 
             $data['title'] = $data['operation'] . ' Surat Panggilan 3';
             $data['main'] = 'admin/Memorandum3/memorandum_add';
             $this->load->view('admin/layout', $data);

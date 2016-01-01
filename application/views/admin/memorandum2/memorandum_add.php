@@ -26,7 +26,7 @@ if (isset($memorandum)) {
                 <?php if (isset($memorandum)): ?>
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
-                <label >Surat Panggilan Pertama *</label>
+                <label >Pilih Dari Panggilan Pertama *</label>
                 <select name="memorandum1_id" class="form-control">
                     <?php foreach ($memorandum1 as $row): ?>
                     <option value="<?php echo $row['memorandum_id'] ?>"><?php echo $row['memorandum_number'] ?></option>

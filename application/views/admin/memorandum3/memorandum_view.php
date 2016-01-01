@@ -8,8 +8,8 @@
             </div>
             <div class="col-md-4">
                 <span class=" pull-right">
-                    <a href="<?php echo site_url('admin/memorandum1') ?>" class="btn btn-info"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a> 
-                    <a href="<?php echo site_url('admin/memorandum1/edit/' . $memorandum['memorandum_id']) ?>" class="btn btn-success"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
+                    <a href="<?php echo site_url('admin/memorandum3') ?>" class="btn btn-info"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a> 
+                    <a href="<?php echo site_url('admin/memorandum3/edit/' . $memorandum['memorandum_id']) ?>" class="btn btn-success"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
                 </span>
             </div>
         </div><br>

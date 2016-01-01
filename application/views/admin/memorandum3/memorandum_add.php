@@ -5,12 +5,12 @@ if (isset($memorandum)) {
     $inputNumber= $memorandum['memorandum_number'];
     $inputDateSent = $memorandum['memorandum_date_sent'];
     $inputCallDate = $memorandum['memorandum_call_date'];
-    $inputMemorandum2 = $memorandum['memorandum2_memorandum_id'];
+    $inputMemorandum1 = $memorandum['memorandum1_memorandum_id'];
 } else {
     $inputNumber = set_value('memorandum_number');
     $inputDateSent = set_value('memorandum_date_sent');
     $inputCallDate = set_value('memorandum_call_date');
-    $inputMemorandum1 = set_value('memorandum1_id');
+    $inputMemorandum2 = set_value('memorandum2_id');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -26,9 +26,9 @@ if (isset($memorandum)) {
                 <?php if (isset($memorandum)): ?>
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
-                <label >Surat Panggilan Pertama *</label>
-                <select name="memorandum1_id" class="form-control">
-                    <?php foreach ($memorandum1 as $row): ?>
+                <label >Pilih Dari Panggilan Kedua *</label>
+                <select name="memorandum2_id" class="form-control">
+                    <?php foreach ($memorandum2 as $row): ?>
                     <option value="<?php echo $row['memorandum_id'] ?>"><?php echo $row['memorandum_number'] ?></option>
                     <?php endforeach; ?>
                 </select><br>
