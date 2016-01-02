@@ -36,12 +36,13 @@
     </head>
 
 
-    <body style="background:#F7F7F7;">
-
-        <div class="">
-
-            <div id="wrapper">
-                <div id="login" class="animate form">
+    <body role="login">
+<div class="container" style="margin-top:70px">
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+    <div class="panel panel-default">
+    
+      <div class="panel-body">
                     <section class="login_content">
                         <form role="form" action="<?php echo site_url('admin/auth/login') ?>" method="post">
                             <?php
@@ -54,7 +55,11 @@
                                 echo '" />';
                             }
                             ?>
-                            <h1>Admin Login</h1>
+                            <h1>Halaman Login</h1>
+                            <div class="row">
+                           <div class="center-block"> <img width=270 height=100 src="<?php echo media_url() ?>/images/alfa.png" alt="">
+                            </div>
+                            <hr>
                             <div>
                                 <input autofocus type="text" class="form-control" placeholder="Username" name="username" required="" />
                             </div>
@@ -62,7 +67,7 @@
                                 <input type="password" class="form-control" placeholder="Password" name="password" required="" />
                             </div>
                             <div>
-                                <button class="btn btn-default submit" type="submit" >Log in</button>
+                                <button class="btn btn-success" type="submit" >Login</button>
                             </div>
                             <div class="clearfix"></div>
                             <div class="separator">
@@ -70,7 +75,7 @@
                                 <div class="clearfix"></div>
                                 <br />
                                 <div>
-                                    <p>©2015 All Rights Reserved. Syscms. Privacy and Terms</p>
+                                    <p>&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> All Rights Reserved. Privacy and Terms</p>
                                 </div>
                             </div>
                         </form>

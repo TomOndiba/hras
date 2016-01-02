@@ -45,8 +45,8 @@ class Memorandum2_model extends CI_Model {
         $this->db->select('Memorandum2.memorandum_id, memorandum2.memorandum_number, memorandum2.memorandum_date_sent,
             memorandum2.memorandum_call_date, memorandum1_memorandum_id, Memorandum2.user_user_id,
             memorandum1.memorandum_number AS memorandum1_number,
-            employe_name,
-            user_name,
+            employe_name, employe_nik,
+            user_name, user_full_name,
             memorandum2.memorandum_input_date, memorandum2.memorandum_last_update');
         $this->db->join('memorandum1', 'memorandum1.memorandum_id = memorandum1_memorandum_id', 'left');
         $this->db->join('employe', 'employe.employe_id = memorandum1.employe_employe_id', 'left');

@@ -23,6 +23,11 @@
                             <td><?php echo $memorandum['memorandum_number'] ?></td>
                         </tr>
                         <tr>         
+                            <td>NIK</td>
+                            <td>:</td>
+                            <td><?php echo $memorandum['employe_nik'] ?></td>
+                        </tr>  
+                        <tr>         
                             <td>Karyawan</td>
                             <td>:</td>
                             <td><?php echo $memorandum['employe_name'] ?></td>
@@ -30,32 +35,32 @@
                         <tr>
                             <td>Tanggal Email</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_email_date'], 'd M Y') ?></td>
+                            <td><?php echo pretty_date($memorandum['memorandum_email_date'], 'd F Y',false) ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Mangkir</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_absent_date'], 'd M Y') ?></td>
+                            <td><?php echo pretty_date($memorandum['memorandum_absent_date'], 'd F Y',false) ?></td>
                         </tr>                        
                         <tr>                            
                             <td>Tanggal Dikirim</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_date_sent'], 'd M Y') ?></td>
+                            <td><?php echo pretty_date($memorandum['memorandum_date_sent'], 'd F Y',false) ?></td>
                         </tr>
                         <tr>
                             <td>Tanggal Panggilan</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_call_date'], 'd M Y') ?></td>
+                            <td><?php echo pretty_date($memorandum['memorandum_call_date'], 'd F Y',false) ?></td>
                         </tr>         
                         <tr>
                             <td>Tanggal Input</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($memorandum['memorandum_input_date']) ?></td>
+                            <td><?php echo pretty_date($memorandum['memorandum_input_date'], 'l, d F Y',false) ?></td>
                         </tr>
                         <tr>
                             <td>Penulis</td>
                             <td>:</td>
-                            <td><?php echo $memorandum['user_name']; ?></td>
+                            <td><?php echo $memorandum['user_full_name']; ?></td>
                         </tr>
                     </tbody>
                 </table>

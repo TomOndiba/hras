@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>
+                        <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
                         <th class="controls" align="center">TGL DIKIRIM</th>
                         <th class="controls" align="center">TGL PANGGILAN</th>
@@ -25,9 +26,10 @@
                         <tbody>
                             <tr>
                                 <td ><?php echo $row['memorandum_number']; ?></td>
+                                <td ><?php echo $row['employe_nik']; ?></td>
                                 <td ><?php echo $row['employe_name']; ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd M Y'); ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_call_date'], 'd M Y'); ?></td>
+                                <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y',false); ?></td>
+                                <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum2/edit/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
