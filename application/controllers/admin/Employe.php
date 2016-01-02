@@ -45,6 +45,16 @@ class Employe extends CI_Controller {
         $this->load->view('admin/layout', $data);
     }
 
+    function upload($id = NULL) {
+        if ($this->Employe_model->get(array('id' => $id)) == NULL) {
+            redirect('admin/employe');
+        }
+        $data['employe'] = $this->Employe_model->get(array('id' => $id));
+        $data['title'] = 'Detail Karyawan';
+        $data['main'] = 'admin/employe/employe_upload';
+        $this->load->view('admin/layout', $data);
+    }
+
     // Add Employe and Update
     public function add($id = NULL) {
         $this->load->library('form_validation');
@@ -129,6 +139,54 @@ class Employe extends CI_Controller {
             redirect('admin/employe/edit/' . $id);
         }
     }
+
+    //fungsi import
+ public function do_upload()
+ {
+  if ($this->session->userdata('logged') == NULL) {
+            header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
+        }
+$config['upload_path'] = './temp_upload/';
+  $config['allowed_types'] = 'xls';
+              
+  $this->load->library('upload', $config);
+              
+  if ( ! $this->upload->do_upload())
+  {
+   $data = array('error' => $this->upload->display_errors());
+     }
+  else
+  {
+            $data = array('error' => false);
+   $upload_data = $this->upload->data();
+            $this->load->library('excel_reader2');
+   $this->excel_reader->setOutputEncoding('230787');
+   $file =  $upload_data['full_path'];
+   $this->excel_reader2->read($file);
+   error_reporting(E_ALL ^ E_NOTICE);
+   // Sheet 1
+   $data = $this->excel_reader2->sheets[0] ;
+                        $dataexcel = Array();
+   for ($i = 1; $i <= $data['numRows']; $i++) {
+                            if($data['cells'][$i][1] == '') break;
+                            $dataexcel[$i-1]['employe_nik'] = $data['cells'][$i][1];
+                            $dataexcel[$i-1]['employe_name'] = $data['cells'][$i][2];
+                            $dataexcel[$i-1]['employe_position'] = $data['cells'][$i][3];
+                            $dataexcel[$i-1]['employe_departement'] = $data['cells'][$i][4];
+                            $dataexcel[$i-1]['employe_divisi'] = $data['cells'][$i][5];
+                            $dataexcel[$i-1]['employe_phone'] = $data['cells'][$i][6];
+                            $dataexcel[$i-1]['employe_date_register'] = $data['cells'][$i][7];
+                            $dataexcel[$i-1]['employe_address'] = $data['cells'][$i][8];
+
+   }         
+            delete_files($upload_data['file_path']);
+            $this->load->model('Employe_model');
+            $this->Employe_model->importkaryawan($dataexcel);
+  }
+   header('location:'.base_url().'employe');
+  
+  
+ }
 
 }
 

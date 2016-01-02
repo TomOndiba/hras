@@ -148,5 +148,25 @@ class Employe_model extends CI_Model {
         $this->db->where('employe_id', $id);
         $this->db->delete('employe');
     }
-    
+   
+   //import
+   function importkaryawan($dataarray)
+    {
+        for($i=0;$i<count($dataarray);$i++){
+            $data = array(
+                'employe_nik'           =>$dataarray[$i]['employe_nik'],
+                'employe_name'          =>$dataarray[$i]['employe_name'],
+                'employe_position'      =>$dataarray[$i]['employe_position'],
+                'employe_departement'   =>$dataarray[$i]['employe_departement'],
+                'employe_divisi'        =>$dataarray[$i]['employe_divisi'],
+                'employe_phone'         =>$dataarray[$i]['employe_phone'],
+                'employe_date_register' =>$dataarray[$i]['employe_date_register'],
+                'employe_address'       =>$dataarray[$i]['employe_address']
+            );
+            $this->db->insert('employe', $data);
+        }
+    }
+
+            
+ 
 }

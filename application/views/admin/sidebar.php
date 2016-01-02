@@ -26,7 +26,7 @@
                     </li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-envelope"></i> Surat BANK <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-bank"></i> Surat BANK <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/bank') ?>">Master BANK</a>                    
                     </li>
@@ -37,6 +37,7 @@
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/employe') ?>">Daftar Karyawan</a>
                     <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Karyawan</a>
+                    <li><a href="<?php echo site_url('admin/employe/upload') ?>">Upload Karyawan</a>
                     </li>
                 </ul>
             </li>
