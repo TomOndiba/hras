@@ -3,9 +3,10 @@
         
         <!-- Indicates a successful or positive action -->
 
-        <div class="jumbotron">
-            <h1>Selamat datang!</h1>
-            <p>Sistem Informasi Surat Peringatan Karyawan, adalah aplikasi yang digunakan untuk membuat surat peringatan berbasis aplikasi web. </p>
+        <div class="strong">
+            <h1>Human Resources Administration System</h1>
+            <p>PT. Sumber Alfaria Trijaya, Tbk </p>
+            <p>Aplikasi Surat Berbasis Web. </p>
         </div>
     </div>
 </div>
