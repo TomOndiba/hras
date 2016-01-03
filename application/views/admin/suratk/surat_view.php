@@ -40,12 +40,12 @@
                         <tr>
                             <td>Tanggal Input</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($surat['sk_input_date']) ?></td>
+                            <td><?php echo pretty_date($surat['sk_input_date'],'l, d F Y',false) ?></td>
                         </tr>
                         <tr>
-                            <td>Penulis</td>
+                            <td>User Input</td>
                             <td>:</td>
-                            <td><?php echo $surat['user_name']; ?></td>
+                            <td><?php echo $surat['user_full_name']; ?></td>
                         </tr>
                     </tbody>
                 </table>
