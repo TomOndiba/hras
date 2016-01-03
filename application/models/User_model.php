@@ -20,7 +20,7 @@ class User_model extends CI_Model {
     // Get From Databases
     function get($params = array()) {
         $this->db->select('user.user_id, user_name, user_password, user_full_name, user_description,
-            user_email, user_input_date, user_last_update, user_role_role_id, user_role.role_name');
+            user_email, user_image, user_input_date, user_last_update, user_role_role_id, user_role.role_name');
 
         if (isset($params['id'])) {
             $this->db->where('user.user_id', $params['id']);
@@ -117,6 +117,10 @@ class User_model extends CI_Model {
 
         if (isset($data['user_email'])) {
             $this->db->set('user_email', $data['user_email']);
+        }
+
+        if (isset($data['user_image'])) {
+            $this->db->set('user_image', $data['user_image']);
         }
 
         if (isset($data['user_description'])) {

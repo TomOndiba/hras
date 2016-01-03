@@ -64,10 +64,15 @@ if (isset($user)) {
                 <p style="color:#9C9C9C;margin-top: 5px"><i>Contoh : example@yahoo.com / example@example.com</i></p>
                 <label>Deskripsi </label>
                 <textarea name="user_description" class="form-control mce-init" rows="5" placeholder="Deskripsi pengguna"><?php echo $inputDescValue; ?></textarea><br>
-                <p style="color:#9C9C9C;margin-top: 5px"><i>*) Wajib diisi</i></p>
+                <p style="color:#9C9C9C;margin-top: 5px"><i>*) Wajib diisi</i></p>                
             </div>
             <div class="col-sm-12 col-xs-12 col-md-3">
                 <div class="form-group">
+                    <label >Upload Photo </label>
+                    <input type="file" name="user_image" class="form-control" ><br>
+                    <?php if (isset($user) AND $user['user_image'] != NULL) { ?>
+                    <img src="<?php echo upload_url('temp_upload/' . pretty_date($user['user_input_date'],'Y/m/d/', FALSE).$user['user_image']) ?>" class="img-responsive ava-detail"><br>
+                    <?php } ?>             
                     <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button><br>
                     <a href="<?php echo site_url('admin/user'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a><br>
                     <?php if (isset($user)): ?>

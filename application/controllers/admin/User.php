@@ -70,6 +70,17 @@ class User extends CI_Controller {
             $params['user_email'] = $this->input->post('user_email');
             $status = $this->User_model->add($params);
 
+            if (!empty($_FILES['user_image']['name'])) {
+                if ($this->input->post('user_id')) {
+                    $createdate = $this->input->post('user_input_date');
+                } else {
+                    $createdate = date('Y-m-d H:i');
+                }
+                $paramsupdate['user_image'] = $this->do_upload($user = 'user_image', $createdate);
+            }
+            $paramsupdate['user_id'] = $status;
+            $this->User_model->add($paramsupdate);
+
             // activity log
             $this->Activity_log_model->add(
                     array(
@@ -114,6 +125,35 @@ class User extends CI_Controller {
         $this->load->view('admin/layout', $data);
     }
 
+// Setting Upload File Requied
+    function do_upload($createdate) {
+        $config['upload_path'] = FCPATH . 'assets/';
+
+        $paramsupload = array('date' => $createdate);
+        list($date, $time) = explode(' ', $paramsupload['date']);
+        list($year, $month, $day) = explode('-', $date);
+        $config['upload_path'] = FCPATH . 'assets/temp_upload/' . $year . '/' . $month . '/' . $day . '/';
+
+        /* create directory if not exist */
+        if (!is_dir($config['upload_path'])) {
+            mkdir($config['upload_path'], 0777, TRUE);
+        }
+
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size'] = '32000';
+        $config['file_name'] = $createdate;
+                $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload($createdate)) {
+            echo $config['upload_path'];
+            $this->session->set_flashdata('success', $this->upload->display_errors(''));
+            redirect(uri_string());
+        }
+
+        $upload_data = $this->upload->data();
+
+        return $upload_data['file_name'];
+    }
     function rpw($id = NULL) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('user_password', 'Password', 'trim|required|xss_clean|min_length[6]');
