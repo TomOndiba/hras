@@ -18,7 +18,7 @@ class Memorandum1 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum1_model', 'Activity_log_model', 'Employe_model'));
+        $this->load->model(array('Memorandum1_model', 'Activity_log_model', 'Employe_model', 'Memorandum2_model'));
         $this->load->helper('string');
     }
 
@@ -40,6 +40,7 @@ class Memorandum1 extends CI_Controller {
             redirect('admin/memorandum1');
         }
         $data['memorandum'] = $this->Memorandum1_model->get(array('id' => $id));
+        $data['memorandum2'] = $this->Memorandum2_model->get(array('memorandum1_id' => $id));
         $data['title'] = 'Surat Panggilan 1';
         $data['main'] = 'admin/memorandum1/memorandum_view';
         $this->load->view('admin/layout', $data);

@@ -18,7 +18,7 @@ class Memorandum2 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum2_model', 'Activity_log_model', 'Memorandum1_model'));
+        $this->load->model(array('Memorandum2_model', 'Activity_log_model', 'Memorandum1_model', 'Memorandum3_model'));
         $this->load->helper('string');
     }
 
@@ -40,6 +40,7 @@ class Memorandum2 extends CI_Controller {
             redirect('admin/Memorandum2');
         }
         $data['memorandum'] = $this->Memorandum2_model->get(array('id' => $id));
+        $data['memorandum3'] = $this->Memorandum3_model->get(array('memorandum2_id' => $id));
         $data['title'] = 'Surat Panggilan 2';
         $data['main'] = 'admin/Memorandum2/memorandum_view';
         $this->load->view('admin/layout', $data);
@@ -49,8 +50,8 @@ class Memorandum2 extends CI_Controller {
     public function add($id = NULL) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('memorandum_date_sent', 'Tanggal Kirim', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean'); 
-        $this->form_validation->set_rules('memorandum1_id', 'Memorandum 1', 'trim|required|xss_clean'); 
+        $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('memorandum1_id', 'Memorandum 1', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -78,12 +79,17 @@ class Memorandum2 extends CI_Controller {
                         'user_id' => $this->session->userdata('user_id'),
                         'log_module' => 'Surat Panggilan 2',
                         'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:NULL'
+                        'log_info' => 'ID:' . $status . ';Title:NULL'
                     )
             );
 
-            $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
-            redirect('admin/Memorandum2');
+            if ($this->input->post('from_memorandum1')) {
+                $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
+                redirect('admin/Memorandum1/detail/'.$params['memorandum1_id']);
+            } else {
+                $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
+                redirect('admin/Memorandum2');
+            }
         } else {
             if ($this->input->post('memorandum_id')) {
                 redirect('admin/memorandum/edit/' . $this->input->post('memorandum_id'));

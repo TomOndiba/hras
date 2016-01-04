@@ -22,6 +22,11 @@ class Memorandum2_model extends CI_Model {
         {
             $this->db->where('Memorandum2.memorandum_id', $params['id']);
         }
+        
+        if(isset($params['memorandum1_id']))
+        {
+            $this->db->where('Memorandum2.memorandum1_memorandum_id', $params['memorandum1_id']);
+        }
 
         if(isset($params['limit']))
         {

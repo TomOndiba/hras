@@ -49,8 +49,8 @@ class Memorandum3 extends CI_Controller {
     public function add($id = NULL) {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('memorandum_date_sent', 'Tanggal Kirim', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean'); 
-        $this->form_validation->set_rules('memorandum2_id', 'Memorandum 2', 'trim|required|xss_clean'); 
+        $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('memorandum2_id', 'Memorandum 2', 'trim|required|xss_clean');
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -78,12 +78,17 @@ class Memorandum3 extends CI_Controller {
                         'user_id' => $this->session->userdata('user_id'),
                         'log_module' => 'Surat Panggilan 2',
                         'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:NULL'
+                        'log_info' => 'ID:' . $status . ';Title:NULL'
                     )
             );
 
-            $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
-            redirect('admin/Memorandum3');
+            if ($this->input->post('from_memorandum2')) {
+                $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
+                redirect('admin/Memorandum2/detail/' . $params['memorandum2_id']);
+            } else {
+                $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
+                redirect('admin/Memorandum3');
+            }
         } else {
             if ($this->input->post('memorandum_id')) {
                 redirect('admin/memorandum/edit/' . $this->input->post('memorandum_id'));
@@ -93,7 +98,7 @@ class Memorandum3 extends CI_Controller {
             if (!is_null($id)) {
                 $data['memorandum'] = $this->Memorandum3_model->get(array('id' => $id));
             }
-            $data['memorandum2'] = $this->Memorandum2_model->get(); 
+            $data['memorandum2'] = $this->Memorandum2_model->get();
             $data['title'] = $data['operation'] . ' Surat Panggilan 3';
             $data['main'] = 'admin/Memorandum3/memorandum_add';
             $this->load->view('admin/layout', $data);
