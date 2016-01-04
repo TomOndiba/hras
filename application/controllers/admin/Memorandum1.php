@@ -125,6 +125,18 @@ class Memorandum1 extends CI_Controller {
         }
     }
 
+    function printPdf($id = NULL) {
+        $this->load->helper(array('dompdf'));
+        $this->load->helper(array('tanggal'));
+        if ($id == NULL)
+            redirect('admin/memorandum1');
+
+        $data['memorandum'] = $this->Memorandum1_model->get(array('id' => $id));
+
+        $html = $this->load->view('admin/memorandum1/memorandum_pdf', $data, true);
+        $data = pdf_create($html, '', TRUE);
+    }
+
 }
 
 /* End of file memorandum.php */
