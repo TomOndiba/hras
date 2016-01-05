@@ -30,6 +30,7 @@ if (isset($user)) {
             <div class="col-sm-12 col-md-9">
                 <?php if (isset($user)): ?>
                     <input type="hidden" name="user_id" value="<?php echo $user['user_id'] ?>" />
+                    <input type="hidden" name="user_input_date" value="<?php echo $user['user_input_date'] ?>" />
                 <?php endif; ?>
                 <label >Username *</label>
                 <input name="user_name" type="text" <?php echo (isset($user)) ? 'readonly' : '' ?> placeholder="Username" class="form-control" value="<?php echo $inputNameValue; ?>"><br>
@@ -71,7 +72,7 @@ if (isset($user)) {
                     <label >Upload Photo </label>
                     <input type="file" name="user_image" class="form-control" ><br>
                     <?php if (isset($user) AND $user['user_image'] != NULL) { ?>
-                    <img src="<?php echo upload_url('temp_upload/' . pretty_date($user['user_input_date'],'Y/m/d/', FALSE).$user['user_image']) ?>" class="img-responsive ava-detail"><br>
+                    <img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="img-responsive ava-detail"><br>
                     <?php } ?>             
                     <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button><br>
                     <a href="<?php echo site_url('admin/user'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a><br>

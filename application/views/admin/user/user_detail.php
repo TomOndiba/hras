@@ -8,14 +8,15 @@
                     <a href="<?php echo site_url('admin/user/edit/' . $user['user_id']) ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
                 </span>
             </h3><br>
+        </div>
             <div class="col-md-2">
             <?php if (!empty($user['user_image'])) { ?>
-            <img src="<?php echo upload_url('temp_upload/'.  pretty_date($user['user_input_date'], 'Y/m/d/', FALSE).$user['user_image']) ?>" class="img-responsive ava-detail">
+            <img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="img-responsive ava-detail">
             <?php } else { ?>
                 <img src="<?php echo base_url('media/image/missing-image.png') ?>" class="img-responsive ava-detail">
             <?php } ?>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-10">
             <table class="table table-striped">
                 <tbody>
                     <tr>

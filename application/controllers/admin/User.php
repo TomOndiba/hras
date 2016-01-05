@@ -59,10 +59,10 @@ class User extends CI_Controller {
             if ($this->input->post('user_id')) {
                 $params['user_id'] = $this->input->post('user_id');
             } else {
-                $params['user_name'] = $this->input->post('user_name');
                 $params['user_input_date'] = date('Y-m-d H:i:s');
                 $params['user_password'] = sha1($this->input->post('user_password'));
             }
+            $params['user_name'] = $this->input->post('user_name');
             $params['user_role_role_id'] = $this->input->post('role_id');
             $params['user_last_update'] = date('Y-m-d H:i:s');
             $params['user_full_name'] = $this->input->post('user_full_name');
@@ -71,12 +71,7 @@ class User extends CI_Controller {
             $status = $this->User_model->add($params);
 
             if (!empty($_FILES['user_image']['name'])) {
-                if ($this->input->post('user_id')) {
-                    $createdate = $this->input->post('user_input_date');
-                } else {
-                    $createdate = date('Y-m-d H:i');
-                }
-                $paramsupdate['user_image'] = $this->do_upload($user = 'user_image', $createdate);
+                $paramsupdate['user_image'] = $this->do_upload($name = 'user_image', $fileName = $params['user_name']);
             }
             $paramsupdate['user_id'] = $status;
             $this->User_model->add($paramsupdate);
@@ -126,13 +121,10 @@ class User extends CI_Controller {
     }
 
 // Setting Upload File Requied
-    function do_upload($createdate) {
-        $config['upload_path'] = FCPATH . 'assets/';
+    function do_upload($name=NULL, $fileName=NULL) {
+        $this->load->library('upload');
 
-        $paramsupload = array('date' => $createdate);
-        list($date, $time) = explode(' ', $paramsupload['date']);
-        list($year, $month, $day) = explode('-', $date);
-        $config['upload_path'] = FCPATH . 'assets/temp_upload/' . $year . '/' . $month . '/' . $day . '/';
+        $config['upload_path'] = FCPATH . 'uploads/users/';
 
         /* create directory if not exist */
         if (!is_dir($config['upload_path'])) {
@@ -141,10 +133,10 @@ class User extends CI_Controller {
 
         $config['allowed_types'] = 'gif|jpg|jpeg|png';
         $config['max_size'] = '32000';
-        $config['file_name'] = $createdate;
+        $config['file_name'] = $fileName;
                 $this->upload->initialize($config);
 
-        if (!$this->upload->do_upload($createdate)) {
+        if (!$this->upload->do_upload($name)) {
             echo $config['upload_path'];
             $this->session->set_flashdata('success', $this->upload->display_errors(''));
             redirect(uri_string());
