@@ -121,7 +121,21 @@ class Suratk extends CI_Controller {
         }
     }
 
+    function printPdf($id = NULL) {
+        $this->load->helper(array('dompdf'));
+        $this->load->helper(array('tanggal'));
+        if ($id == NULL)
+            redirect('admin/suratk');
+
+        $data['suratk'] = $this->Suratk_model->get(array('id' => $id));
+
+        $html = $this->load->view('admin/suratk/suratk_pdf', $data, true);
+        $data = pdf_create($html, '', TRUE);
+    }
+
 }
+
+
 
 /* End of file Suratk.php */
 /* Location: ./application/controllers/admin/Suratk.php */

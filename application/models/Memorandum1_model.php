@@ -50,7 +50,7 @@ class Memorandum1_model extends CI_Model {
 
         $this->db->select('memorandum1.memorandum_id, memorandum_number, memorandum_email_date, 
             memorandum_absent_date, memorandum_date_sent, memorandum_call_date, employe_employe_id, memorandum1.user_user_id,
-            employe_name, employe_nik,
+            employe_name, employe_nik, employe_position, employe_address,
             user_name, user_full_name,
             memorandum_input_date, memorandum_last_update');
         $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left');

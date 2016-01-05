@@ -10,6 +10,7 @@
                 <span class=" pull-right">
                     <a href="<?php echo site_url('admin/suratk') ?>" class="btn btn-info"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a> 
                     <a href="<?php echo site_url('admin/suratk/edit/' . $surat['sk_id']) ?>" class="btn btn-success"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
+                    <a href="<?php echo site_url('admin/suratk/printPdf/' . $surat['sk_id']) ?>" target="_blank" class="btn btn-primary"><span class="fa fa-print"></span>&nbsp; Cetak</a>
                 </span>
             </div>
         </div><br>

@@ -49,7 +49,7 @@ class Suratk_model extends CI_Model {
         }
 
         $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, employe_employe_id,  employe_name,            
-            sk.user_user_id,   user_name, user_full_name,
+            sk.user_user_id,   user_name, user_full_name, employe_nik, employe_position, employe_date_register,
             sk_input_date, sk_last_update');
         $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left'); 
         $this->db->join('user', 'user.user_id = sk.user_user_id', 'left');       

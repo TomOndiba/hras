@@ -5,13 +5,13 @@
    .lower { text-transform: lowercase; }
    .cap   { text-transform: capitalize; }
    .small { font-variant:   small-caps; }
-.style10 {font-size: 12px}
     </style>
 	<style type="text/css">
 		@page {
-				margin-top: 0.3em;
-				margin-bottom: 0.3em;
-				} </style>
+				margin-top: 0.2em;
+				margin-bottom: 0.1em;
+				} .style12 {font-size: 10px}
+    </style>
     </head>
     <body>
     <div style="padding:0px 0px;">
@@ -30,7 +30,7 @@
           <tr>
             <td>Perihal</td>
             <td>:</td>
-            <td>Surat Panggilan Ke-I (Satu) </td>
+            <td>Surat Panggilan Ke-II (Dua) </td>
           </tr>
       </table>      
             
@@ -60,7 +60,9 @@
               </tr>
             </table><br>
             <p>Dengan Hormat,</p>
-			<p align="justify">Sehubungan dengan ketidakhadiran Sdr/i pada tanggal <?php echo pretty_date( $memorandum['memorandum_absent_date'],'d F Y',false) ?> tanpa memberikan keterangan keperusahaan, maka dengan ini kami meminta kehadiran Sdr/i : </p>
+			<p align="justify">Menindaklanjuti Surat Panggilan ke-I (satu) No: <?php echo $memorandum['memorandum1_number'] ?>
+      /SAT-IR/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($memorandum['memorandum1_date_sent'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $memorandum['memorandum1_date_sent'],'Y',false) ?>
+       yang sudah kami kirimkan kepada Sdr/i dan tidak tanggapan, maka dengan ini kami meminta Sdr/i pada : </p>
             
                         
             <table width="669" border="0">
@@ -94,8 +96,13 @@
                 <td>&nbsp;</td>
                 <td>2. Memberikan keterangan dan menyerahkan bukti yang sah atas ketidakhadiran Sdr/i </td>
               </tr>
-            </table>      <br>      
-            <p>Demikian panggilan ini kami sampaikan, atas perhatiannya kami ucapkan terima kasih.</p>
+            </table><br>
+			<p align="justify">Apabila Apabila Sdr/i tidak hadir pada penggilan yeng ke-II (dua) ini, dan atau apabila Sdr/i hadir namun
+			tidak dapat memberikan keterangan tertulis dengan bukti yang sah, maka sesuai Pasal 168
+			Ayat 1 (satu) Undang-undang Nomor 13 Tahun 2003 tentang Ketenagakerjaan, jo Pasal 43
+			Ayat 3 (tiga) Peraturan Perusahaan PT Sumber Alfaria Trijaya Tbk. Tahun 2013-2015 Sdr/i akan
+			dikualifikasikan mengundurkan diri.<br>    
+            Demikian panggilan ke-II ini kami sampaikan, atas perhatiannya kami ucapkan terima kasih.</p>
             <table border="0">
                 <tbody>
                     <tr>
@@ -106,9 +113,8 @@
                         <td><strong>PT. Sumber Alfaria Trijaya, Tbk</strong></td>
                         <td></td>                        
                     </tr>
-              </tbody></table>             
-           
-                <br>
+              </tbody></table>        
+                      
                 <br>
                 <br>
                 <br>
@@ -123,13 +129,10 @@
                         <td></td>                        
                     </tr>
                   </tbody></table>
-    </div>	
-	<span class="style10">
-	</span>
-	<p class="style10">&nbsp;</p>
+    
 	<p>Tembusan : <br>
 	1. Atasan (Manager)<br>
-	2. People Development Manager</p>
-	<p class="style10">No. NRA : SAT/FRM/PI/163 </p>
+	2. People Development Manager<br>
+	<span class="style12">No. NRA : SAT/FRM/PI/163</span> </p>
     </body>
 </html>

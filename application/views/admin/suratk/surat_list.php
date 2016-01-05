@@ -31,6 +31,7 @@
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/suratk/detail/' . $row['sk_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/suratk/edit/' . $row['sk_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a class="btn btn-danger btn-xs" href="<?php echo site_url('admin/suratk/printPdf/' . $row['sk_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
                                 </td>
                             </tr>
                         </tbody>
