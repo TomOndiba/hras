@@ -134,7 +134,7 @@ class Memorandum1 extends CI_Controller {
         $data['memorandum'] = $this->Memorandum1_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/memorandum1/memorandum_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE);
+        $data = pdf_create($html, '$paper', TRUE);
     }
 
 }
