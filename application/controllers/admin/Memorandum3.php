@@ -26,22 +26,22 @@ class Memorandum3 extends CI_Controller {
     public function index($offset = NULL) {
         $this->load->library('pagination');
         $data['memorandum'] = $this->Memorandum3_model->get(array('limit' => 10, 'offset' => $offset));
-        $config['base_url'] = site_url('admin/Memorandum3/index');
+        $config['base_url'] = site_url('admin/memorandum3/index');
         $config['total_rows'] = count($this->Memorandum3_model->get(array('status' => TRUE)));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan 3';
-        $data['main'] = 'admin/Memorandum3/memorandum_list';
+        $data['main'] = 'admin/memorandum3/memorandum_list';
         $this->load->view('admin/layout', $data);
     }
 
     function detail($id = NULL) {
         if ($this->Memorandum3_model->get(array('id' => $id)) == NULL) {
-            redirect('admin/Memorandum3');
+            redirect('admin/memorandum3');
         }
         $data['memorandum'] = $this->Memorandum3_model->get(array('id' => $id));
         $data['title'] = 'Surat Panggilan 3';
-        $data['main'] = 'admin/Memorandum3/memorandum_view';
+        $data['main'] = 'admin/memorandum3/memorandum_view';
         $this->load->view('admin/layout', $data);
     }
 
@@ -60,7 +60,7 @@ class Memorandum3 extends CI_Controller {
                 $params['memorandum_id'] = $this->input->post('memorandum_id');
             } else {
                 $params['memorandum_input_date'] = date('Y-m-d H:i:s');
-                $params['memorandum_number'] = random_string('numeric', 4);
+                $params['memorandum_number'] = sprintf('%04d', 01);
             }
 
             $params['memorandum_date_sent'] = $this->input->post('memorandum_date_sent');
@@ -87,7 +87,7 @@ class Memorandum3 extends CI_Controller {
                 redirect('admin/Memorandum2/detail/' . $params['memorandum2_id']);
             } else {
                 $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
-                redirect('admin/Memorandum3');
+                redirect('admin/memorandum3');
             }
         } else {
             if ($this->input->post('memorandum_id')) {
@@ -100,7 +100,7 @@ class Memorandum3 extends CI_Controller {
             }
             $data['memorandum2'] = $this->Memorandum2_model->get();
             $data['title'] = $data['operation'] . ' Surat Panggilan 3';
-            $data['main'] = 'admin/Memorandum3/memorandum_add';
+            $data['main'] = 'admin/memorandum3/memorandum_add';
             $this->load->view('admin/layout', $data);
         }
     }
@@ -120,10 +120,10 @@ class Memorandum3 extends CI_Controller {
                     )
             );
             $this->session->set_flashdata('success', 'Hapus Surat Panggilan berhasil');
-            redirect('admin/Memorandum3');
+            redirect('admin/memorandum3');
         } elseif (!$_POST) {
             $this->session->set_flashdata('delete', 'Delete');
-            redirect('admin/Memorandum3/edit/' . $id);
+            redirect('admin/memorandum3/edit/' . $id);
         }
     }
 

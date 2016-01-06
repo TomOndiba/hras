@@ -61,7 +61,7 @@ class Memorandum1 extends CI_Controller {
                 $params['memorandum_id'] = $this->input->post('memorandum_id');
             } else {
                 $params['memorandum_input_date'] = date('Y-m-d H:i:s');
-                $params['memorandum_number'] = random_string('numeric', 4);
+                $params['memorandum_number'] = sprintf('%04d', 01);
             }
 
             $params['memorandum_email_date'] = $this->input->post('memorandum_email_date');

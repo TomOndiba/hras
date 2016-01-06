@@ -59,7 +59,7 @@ class Suratk extends CI_Controller {
                 $params['sk_id'] = $this->input->post('sk_id');
             } else {
                 $params['sk_input_date'] = date('Y-m-d H:i:s');
-                $params['sk_number'] = random_string('numeric', 4);
+                $params['sk_number'] = sprintf('%04d', 01);
             }
 
             $params['sk_description'] = $this->input->post('sk_description');
@@ -130,7 +130,7 @@ class Suratk extends CI_Controller {
         $data['suratk'] = $this->Suratk_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/suratk/suratk_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE);
+        $data = pdf_create2($html, '', TRUE);
     }
 
 }
