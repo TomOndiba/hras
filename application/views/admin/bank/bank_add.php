@@ -21,7 +21,7 @@ if (isset($bank)) {
                     <input type="hidden" name="bank_id" value="<?php echo $bank['bank_id']; ?>" />
                 <?php endif; ?>
                 <label >Nama BANK *</label>
-                <input name="bank_name" placeholder="Nama Bank" type="text" class="form-control" value="<?php echo set_value('bank_name'); ?>"><br>
+                <input name="bank_name" placeholder="Nama Bank" type="text" class="form-control" value="<?php echo $inputName ?>"><br>
                 
                 
             </div>            

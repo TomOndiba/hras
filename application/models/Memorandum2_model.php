@@ -48,7 +48,7 @@ class Memorandum2_model extends CI_Model {
         }
 
         $this->db->select('memorandum2.memorandum_id, memorandum2.memorandum_number, memorandum2.memorandum_date_sent,
-            memorandum2.memorandum_call_date, memorandum1_memorandum_id, memorandum2.user_user_id,
+            memorandum2.memorandum_call_date, memorandum2.memorandum_is_present, memorandum1_memorandum_id, memorandum2.user_user_id,
             memorandum1.memorandum_number AS memorandum1_number, memorandum1.memorandum_date_sent AS memorandum1_date_sent,
             employe_name, employe_nik, employe_position, employe_address,
             user_name, user_full_name,

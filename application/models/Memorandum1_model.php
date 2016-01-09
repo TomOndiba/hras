@@ -49,7 +49,7 @@ class Memorandum1_model extends CI_Model {
         }
 
         $this->db->select('memorandum1.memorandum_id, memorandum_number, memorandum_email_date, 
-            memorandum_absent_date, memorandum_date_sent, memorandum_call_date, employe_employe_id, memorandum1.user_user_id,
+            memorandum_absent_date, memorandum_date_sent, memorandum_call_date, memorandum_is_present, employe_employe_id, memorandum1.user_user_id,
             employe_name, employe_nik, employe_position, employe_address,
             user_name, user_full_name,
             memorandum_input_date, memorandum_last_update');
@@ -108,7 +108,11 @@ class Memorandum1_model extends CI_Model {
         
          if(isset($data['memorandum_last_update'])) {
             $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
-        }   
+        }  
+
+        if(isset($data['memorandum_is_present'])) {
+            $this->db->set('memorandum_is_present', $data['memorandum_is_present']);
+        }    
         
         if (isset($data['memorandum_id'])) {
             $this->db->where('memorandum_id', $data['memorandum_id']);

@@ -26,6 +26,7 @@ class Memorandum1 extends CI_Controller {
     public function index($offset = NULL) {
         $this->load->library('pagination');
         $data['memorandum'] = $this->Memorandum1_model->get(array('limit' => 10, 'offset' => $offset));
+        $data['memorandum2'] = $this->Memorandum2_model->get();
         $config['base_url'] = site_url('admin/memorandum1/index');
         $config['total_rows'] = count($this->Memorandum1_model->get(array('status' => TRUE)));
         $this->pagination->initialize($config);
@@ -135,6 +136,11 @@ class Memorandum1 extends CI_Controller {
 
         $html = $this->load->view('admin/memorandum1/memorandum_pdf', $data, true);
         $data = pdf_create($html, '$paper', TRUE);
+    }
+    function present($id = NULL) {
+        $this->Memorandum1_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));
+        $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
+            redirect('admin/memorandum1');
     }
 
 }
