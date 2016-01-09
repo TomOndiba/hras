@@ -32,14 +32,202 @@
               <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
+             <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            #clock {
+                position: relative;
+                width: 250px;
+                height: 250px;
+                margin: 0px auto 0 auto;
+                background: url(<?php echo media_url() ?>/images/clockface.png);
+                list-style: none;
+            }
+
+            #sec, #min, #hour {
+                position: absolute;
+                width: 10px;
+                height: 250px;
+                top: 0px;
+                left: 120px;
+            }
+
+            #sec {
+                background: url(<?php echo media_url() ?>/images/sechand.png);
+                z-index: 3;
+            }
+
+            #min {
+                background: url(<?php echo media_url() ?>/images/minhand.png);
+                z-index: 2;
+            }
+
+            #hour {
+                background: url(<?php echo media_url() ?>/images/hourhand.png);
+                z-index: 1;
+            }
+
+            .carousel-indicators .active{ background: #31708f; } .adjust1{ float:left; width:100%; margin-bottom:0; } .adjust2{ margin:0; } .carousel-indicators li{ border :1px solid #ccc; } .carousel-control{ color:#31708f; width:5%; } .carousel-control:hover, .carousel-control:focus{ color:#31708f; } .carousel-control.left, .carousel-control.right { background-image: none; } .media-object{ margin:auto; margin-top:15%; } @media screen and (max-width: 768px) { .media-object{ margin-top:0; } }
+        
+        table.tbl-present {
+                width: 100%;
+            }
+
+            thead.thead-present, tbody.tbody-present, tr.tr-present,tbody.tbody-present td,tbody.thead-present  th { display: block; }
+
+            tr:after {
+                content: ' ';
+                display: block;
+                visibility: hidden;
+                clear: both;
+            }
+
+            thead.thead-present th {
+                height: 30px;
+
+                /*text-align: left;*/
+            }
+
+            tbody.tbody-present {
+                height: 250px;
+                overflow-y: auto;
+            }
+
+            thead {
+                /* fallback */
+            }
+
+
+            tbody.tbody-present td, thead.thead-present th {
+                width: 16.5%;
+                float: left;
+            }
+
+            tbody.tbody-present td.col-date, thead.thead-present th.col-date {
+                width: 18%;
+                float: left;
+            }
+
+            tbody.tbody-present td.col-name, thead.thead-present th.col-name {
+                width: 29%;
+                float: left;
+            }
+
+            tbody.tbody-present td.col-ket, thead.thead-present th.col-ket {
+                width: 12%;
+                float: left;
+            }
+
+            tbody.tbody-present td.col-no, thead.thead-present th.col-no {
+                width: 5%;
+                float: left;
+        }
+        
+        .carousel-indicators .active{ background: #31708f; } .adjust1{ float:left; width:100%; margin-bottom:0; } .adjust2{ margin:0; } .carousel-indicators li{ border :1px solid #ccc; } .carousel-control{ color:#31708f; width:5%; } .carousel-control:hover, .carousel-control:focus{ color:#31708f; } .carousel-control.left, .carousel-control.right { background-image: none; } .media-object{ margin:auto; margin-top:15%; } @media screen and (max-width: 768px) { .media-object{ margin-top:0; } }
+            .text-footer{
+                margin-top:15px;
+            }
+            .footer{
+                background-color: #446CB3;
+                color:white;
+            }
+            .icons{
+                color: white;
+                background-color:#52B3D9;
+                font-size: 70pt;
+                /*padding-left: 50px;*/
+                height:140px;
+            }
+            .texts{
+                color: #E4F1FE;
+                background-color:#52B3D9;
+                font-size: 40pt;
+                padding-left: 30px;
+                padding-top: 20px;
+                padding-bottom: 48px;
+                height:140px;
+            }
+            .modul{
+                margin-top:40px;
+            }
+            
+        </style>
+        <script type="text/javascript">
+
+            $(document).ready(function() {
+
+                setInterval(function() {
+                    var seconds = new Date().getSeconds();
+                    var sdegree = seconds * 6;
+                    var srotate = "rotate(" + sdegree + "deg)";
+
+                    $("#sec").css({"-moz-transform": srotate, "-webkit-transform": srotate});
+
+                }, 1000);
+
+
+                setInterval(function() {
+                    var hours = new Date().getHours();
+                    var mins = new Date().getMinutes();
+                    var hdegree = hours * 30 + (mins / 2);
+                    var hrotate = "rotate(" + hdegree + "deg)";
+
+                    $("#hour").css({"-moz-transform": hrotate, "-webkit-transform": hrotate});
+
+                }, 1000);
+
+
+                setInterval(function() {
+                    var mins = new Date().getMinutes();
+                    var mdegree = mins * 6;
+                    var mrotate = "rotate(" + mdegree + "deg)";
+
+                    $("#min").css({"-moz-transform": mrotate, "-webkit-transform": mrotate});
+
+                }, 1000);
+
+            });
+
+
+        </script>
+        <?php if ($this->session->flashdata('alert')) { ?>
+            <script type="text/javascript">
+                alert('<?php echo $this->session->flashdata('alert') ?>');
+            </script>
+        <?php } ?>
 
     </head>
 
 
     <body role="login">
-<div class="container" style="margin-top:70px">
-<div class="row">
-  <div class="col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-4">
+<div class="row" style="margin-top:1px">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 header-login">
+                <center>
+                    <h1>HUMAN RESOURCES ADMINISTRATION SYSTEM</h1>                    
+                </center>
+            </div>
+        </div>
+        <div class="row" style="margin-top:1px">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-header">
+                <marquee><h5>Human Resources Administration Application | People Development Branch Cileungsi 2</h5></marquee>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="col-md-8 col-lg-4 col-sm-12 col-xs-12">
+                        <div class="row">
+                        <center>
+                            <h2><strong><?php echo pretty_date(date('Y-m-d'), 'l, d F Y',FALSE) ?></strong></h2>
+                        </center>
+                        </div>
+                                                                        
+                    <div class="row">
+                    <div class="col-sm-12 col-md-10 col-sm-offset-10 col-md-offset-1">
+                          
     <div class="panel panel-default">
     
       <div class="panel-body">
@@ -86,6 +274,18 @@
             </div>
         </div>
 
+        <div class="row" id="footer">
+        <div class="col-sm-8 col-md-12 col-sm-offset-8 col-md-offset-1">
+             <h3>PT. Sumber Alfaria Trijaya, Tbk <i onclick="initialize()" class="icon-map-marker"></i></h3>
+             <address>
+  
+              Kawasan Industri Menara Permai Kav. 18<br/>
+              Cileungsi - Bogor Indonesia<br/>
+  
+            </address>
+
+        </div>
+        
     </body>
 
 </html>

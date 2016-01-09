@@ -6428,7 +6428,7 @@ ul.notifications {
 /* =====Login=====*/
 body[role="login"] {
     font-family: 'Roboto', sans-serif;
-    background: #62C1F5;
+    background-image: url('../images/banner.jpg');
     background-size: cover;
     color: #EFEFEF
 }
