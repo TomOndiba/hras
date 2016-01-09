@@ -35,19 +35,9 @@
                                 <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum1/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                    <?php
-                                    foreach ($memorandum2 as $key) {
-                                        echo $key['memorandum1_memorandum_id'];
-                                        if(($row['memorandum_is_present'] == 0 AND count($key['memorandum1_memorandum_id'] == $row['memorandum_id']) == 0) OR (empty($memorandum2))) {
-
-                                      ?>
-                                      <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalKedua"><span class="fa fa-plus"></span>&nbsp; SP_2</button> 
-                         
+                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>                                    
                                     <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
-                                
-                                   <?php } 
-                                   } ?>
+                                    
                                 </td>
                             </tr>
                         </tbody>

@@ -16,13 +16,18 @@ class Memorandum1_model extends CI_Model {
     }
 
     // Get From Databases
-    function get($params = array())
+    function get($params = array()) 
     {
         if(isset($params['id']))
         {
             $this->db->where('memorandum1.memorandum_id', $params['id']);
         }
         
+        if(isset($params['present']))
+        {
+            $this->db->where('memorandum1.memorandum_is_present', $params['present']);
+        }
+
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
             $this->db->where('memorandum_email_date', $params['date_start']);
@@ -57,7 +62,7 @@ class Memorandum1_model extends CI_Model {
         $this->db->join('user', 'user.user_id = memorandum1.user_user_id', 'left');
         $res = $this->db->get('memorandum1');
 
-        if(isset($params['id']))
+        if(isset($params['id']) OR (isset($params['limit']) AND $params['limit']==1))
         {
             return $res->row_array();
         }

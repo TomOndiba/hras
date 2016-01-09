@@ -25,7 +25,7 @@ class Memorandum2 extends CI_Controller {
     // Memorandum view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-        $data['memorandum'] = $this->Memorandum2_model->get(array('limit' => 10, 'offset' => $offset));
+        $data['memorandum'] = $this->Memorandum2_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
         $config['base_url'] = site_url('admin/memorandum2/index');
         $config['total_rows'] = count($this->Memorandum2_model->get(array('status' => TRUE)));
         $this->pagination->initialize($config);
@@ -60,8 +60,10 @@ class Memorandum2 extends CI_Controller {
             if ($this->input->post('memorandum_id')) {
                 $params['memorandum_id'] = $this->input->post('memorandum_id');
             } else {
+                $lastnumber = $this->Memorandum2_model->get(array('limit' => 1, 'order_by' => 'memorandum_id'));
+                $num = $lastnumber['memorandum_number'];
+                $params['memorandum_number'] = sprintf('%04d', $num + 01);
                 $params['memorandum_input_date'] = date('Y-m-d H:i:s');
-                $params['memorandum_number'] = sprintf('%04d', 01);
             }
 
             $params['memorandum_date_sent'] = $this->input->post('memorandum_date_sent');
@@ -140,6 +142,11 @@ class Memorandum2 extends CI_Controller {
         $data = pdf_create($html, '', TRUE);
     }
 
+    function present($id = NULL) {
+        $this->Memorandum2_model->add(array('memorandum_id'=> $id, 'memorandum2.memorandum_is_present' => 1));
+        $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
+            redirect('admin/memorandum2');
+    }
 }
 
 

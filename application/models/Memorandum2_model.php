@@ -22,6 +22,11 @@ class Memorandum2_model extends CI_Model {
         {
             $this->db->where('memorandum2.memorandum_id', $params['id']);
         }
+
+        if(isset($params['present']))
+        {
+            $this->db->where('memorandum2.memorandum_is_present', $params['present']);
+        }
         
         if(isset($params['memorandum1_id']))
         {
@@ -48,7 +53,7 @@ class Memorandum2_model extends CI_Model {
         }
 
         $this->db->select('memorandum2.memorandum_id, memorandum2.memorandum_number, memorandum2.memorandum_date_sent,
-            memorandum2.memorandum_call_date, memorandum2.memorandum_is_present, memorandum1_memorandum_id, memorandum2.user_user_id,
+            memorandum2.memorandum_call_date, memorandum2.memorandum_is_present, memorandum1_memorandum_id, memorandum2.user_user_id, 
             memorandum1.memorandum_number AS memorandum1_number, memorandum1.memorandum_date_sent AS memorandum1_date_sent,
             employe_name, employe_nik, employe_position, employe_address,
             user_name, user_full_name,
@@ -58,7 +63,7 @@ class Memorandum2_model extends CI_Model {
         $this->db->join('user', 'user.user_id = memorandum2.user_user_id', 'left');
         $res = $this->db->get('memorandum2');
 
-        if(isset($params['id']))
+        if(isset($params['id']) OR (isset($params['limit']) AND $params['limit']==1))
         {
             return $res->row_array();
         }
@@ -101,7 +106,11 @@ class Memorandum2_model extends CI_Model {
         
          if(isset($data['memorandum_last_update'])) {
             $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
-        }   
+        }
+
+        if(isset($data['memorandum2.memorandum_is_present'])) {
+            $this->db->set('memorandum2.memorandum_is_present', $data['memorandum2.memorandum_is_present']);
+        }     
         
         if (isset($data['memorandum_id'])) {
             $this->db->where('memorandum_id', $data['memorandum_id']);

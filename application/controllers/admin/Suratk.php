@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Suratk controllers class
+ * Suratk controllers class 
  *
  * @package     SYSCMS
  * @subpackage  Controllers

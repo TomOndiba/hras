@@ -9,7 +9,6 @@ if (isset($memorandum)) {
     $inputCallDate = $memorandum['memorandum_call_date'];
     $inputEmploye = $memorandum['employe_employe_id'];
 } else {
-    $inputNumber = set_value('memorandum_number');
     $inputEmailDate = set_value('memorandum_email_date');
     $inputAbsentDate = set_value('memorandum_absent_date');
     $inputDateSent = set_value('memorandum_date_sent');
@@ -35,7 +34,7 @@ if (isset($memorandum)) {
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal email *</label>
-                <input name="memorandum_email_date" placeholder="Tanggal Email" type="text" class="form-control datepicker" value="<?php echo $inputNumber; ?>"><br>
+                <input name="memorandum_email_date" placeholder="Tanggal Email" type="text" class="form-control datepicker" value="<?php echo $inputEmailDate; ?>"><br>
                 <label >Tanggal Mangkir *</label>
                 <input name="memorandum_absent_date" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker" value="<?php echo $inputAbsentDate; ?>"><br>
                 <label >Tanggal Dikirim *</label>

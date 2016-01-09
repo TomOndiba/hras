@@ -22,6 +22,11 @@ class Memorandum3_model extends CI_Model {
         {
             $this->db->where('memorandum3.memorandum_id', $params['id']);
         }
+
+        if(isset($params['present']))
+        {
+            $this->db->where('memorandum3.memorandum_is_present', $params['present']);
+        }
         
         if(isset($params['memorandum2_id']))
         {
@@ -61,7 +66,7 @@ class Memorandum3_model extends CI_Model {
         $this->db->join('user', 'user.user_id = memorandum3.user_user_id', 'left');
         $res = $this->db->get('memorandum3'); 
 
-        if(isset($params['id']))
+        if(isset($params['id']) OR (isset($params['limit']) AND $params['limit']==1))
         {
             return $res->row_array();
         }
@@ -104,6 +109,10 @@ class Memorandum3_model extends CI_Model {
         
          if(isset($data['memorandum_last_update'])) {
             $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
+        }   
+        
+        if(isset($data['memorandum3.memorandum_is_present'])) {
+            $this->db->set('memorandum3.memorandum_is_present', $data['memorandum3.memorandum_is_present']);
         }   
         
         if (isset($data['memorandum_id'])) {

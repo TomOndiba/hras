@@ -34,9 +34,7 @@
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum2/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                    <?php if(empty($memorandum3)){ ?>
-                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalKetiga"><span class="fa fa-plus"></span>&nbsp; SP_3</button> 
-                        <?php } ?>
+                                  <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
                                 </td>
                             </tr>
                         </tbody>

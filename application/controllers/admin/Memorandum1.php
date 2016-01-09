@@ -5,7 +5,7 @@ if (!defined('BASEPATH'))
 
 /**
  * Memorandum1 controllers class
- *
+ * 
  * @package     SYSCMS
  * @subpackage  Controllers
  * @category    Controllers
@@ -25,7 +25,7 @@ class Memorandum1 extends CI_Controller {
     // Memorandum view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-        $data['memorandum'] = $this->Memorandum1_model->get(array('limit' => 10, 'offset' => $offset));
+        $data['memorandum'] = $this->Memorandum1_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
         $data['memorandum2'] = $this->Memorandum2_model->get();
         $config['base_url'] = site_url('admin/memorandum1/index');
         $config['total_rows'] = count($this->Memorandum1_model->get(array('status' => TRUE)));
@@ -61,8 +61,11 @@ class Memorandum1 extends CI_Controller {
             if ($this->input->post('memorandum_id')) {
                 $params['memorandum_id'] = $this->input->post('memorandum_id');
             } else {
+                $lastnumber = $this->Memorandum1_model->get(array('limit' => 1, 'order_by' => 'memorandum_id'));
+                $num = $lastnumber['memorandum_number'];
+                $params['memorandum_number'] = sprintf('%04d', $num + 01);
                 $params['memorandum_input_date'] = date('Y-m-d H:i:s');
-                $params['memorandum_number'] = sprintf('%04d', 01);
+                
             }
 
             $params['memorandum_email_date'] = $this->input->post('memorandum_email_date');
