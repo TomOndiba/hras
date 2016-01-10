@@ -59,30 +59,30 @@
             <?php echo $this->pagination->create_links(); ?>
         </div>
     </div>
-    </div>
-        <div class="modal fade" id="modalKedua" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <?php echo form_open(site_url('admin/memorandum2/add')) ?>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Kedua</h4>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="memorandum1_id" value="<?php echo $row['memorandum_id']; ?>" />
-                        <input type="hidden" name="from_memorandum1" value="TRUE" >
-                        <label >Tanggal Dikirim *</label>
-                        <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
-                        <label >Tanggal Panggilan *</label>
-                        <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
-                        <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                    <?php echo form_close() ?>
-                </div>
+</div>
+<div class="modal fade" id="modalKedua" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <?php echo form_open(site_url('admin/memorandum2/add')) ?>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Kedua</h4>
             </div>
+            <div class="modal-body">
+                <input type="hidden" name="memorandum1_id" value="<?php echo $row['memorandum_id']; ?>" />
+                <input type="hidden" name="from_memorandum1" value="TRUE" >
+                <label >Tanggal Dikirim *</label>
+                <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
+                <label >Tanggal Panggilan *</label>
+                <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
+                <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </div>
+            <?php echo form_close() ?>
         </div>
+    </div>
+</div>
 </div>

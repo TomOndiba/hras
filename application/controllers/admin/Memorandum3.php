@@ -75,14 +75,14 @@ class Memorandum3 extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 2',
-                        'log_action' => $data['operation'],
-                        'log_info' => 'ID:' . $status . ';Title:NULL'
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 2',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:' . $status . ';Title:NULL'
                     )
-            );
+                );
 
             if ($this->input->post('from_memorandum2')) {
                 $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
@@ -113,14 +113,14 @@ class Memorandum3 extends CI_Controller {
             $this->Memorandum3_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 3',
-                        'log_action' => 'Hapus',
-                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 3',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-            );
+                );
             $this->session->set_flashdata('success', 'Hapus Surat Panggilan berhasil');
             redirect('admin/memorandum3');
         } elseif (!$_POST) {
@@ -129,7 +129,7 @@ class Memorandum3 extends CI_Controller {
         }
     }
 
-function printPdf($id = NULL) {
+    function printPdf($id = NULL) {
         $this->load->helper(array('dompdf'));
         $this->load->helper(array('tanggal'));
         if ($id == NULL)
@@ -141,10 +141,10 @@ function printPdf($id = NULL) {
         $data = pdf_create($html, '', TRUE);
     }
 
-function present($id = NULL) {
+    function present($id = NULL) {
         $this->Memorandum3_model->add(array('memorandum_id'=> $id, 'memorandum3.memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
-            redirect('admin/memorandum3');
+        redirect('admin/memorandum3');
     }
 
 }

@@ -22,7 +22,7 @@
                             <td>:</td>
                             <td><?php echo $bank['bank_name'] ?></td>
                         </tr>          
-                       
+                        
                     </tbody>
                 </table>
             </div>

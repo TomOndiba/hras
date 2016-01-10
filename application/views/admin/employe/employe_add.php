@@ -34,8 +34,8 @@ if (isset($employe)) {
                 <?php if (isset($employe)): ?>
                     <input type="hidden" name="employe_id" value="<?php echo $employe['employe_id']; ?>" />
                 <?php else: ?>
-                <label >NIK *</label>
-                <input name="employe_nik" placeholder="NIK Karyawan" type="text" class="form-control" value="<?php echo set_value('employe_nik'); ?>"><br>
+                    <label >NIK *</label>
+                    <input name="employe_nik" placeholder="NIK Karyawan" type="text" class="form-control" value="<?php echo set_value('employe_nik'); ?>"><br>
                 <?php endif; ?>
                 <label >Nama Karyawan *</label>
                 <input name="employe_name" placeholder="Nama Karyawan" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>
@@ -103,11 +103,11 @@ if (isset($employe)) {
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
-        <script type="text/javascript">
-            $(window).load(function() {
-                $('#confirm-del').modal('show');
-            });
-        </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#confirm-del').modal('show');
+        });
+    </script>
     <?php }
     ?>
 <?php endif; ?>

@@ -64,7 +64,7 @@
                     Surat Panggilan ketiga
                     <span class="pull-right">
                         <?php if (empty($memorandum3)) { ?>
-                            <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalKetiga"><span class="fa fa-plus"></span>&nbsp; Buat Surat Panggilan ketiga</button> 
+                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modalKetiga"><span class="fa fa-plus"></span>&nbsp; Buat Surat Panggilan ketiga</button> 
                         <?php } ?>
                     </span>
                 </h4>

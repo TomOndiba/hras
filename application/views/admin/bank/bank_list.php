@@ -16,22 +16,22 @@
                 </thead>
                 <?php
                 $i=1;
-                  
-                        foreach ($bank as $row): 
-                        ?>
-                        <tbody>
-                            <tr>
-                                <td ><?php echo $i ?></td>
-                                <td ><?php echo $row['bank_name']; ?></td>
-                                
-                                <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bank/detail/' . $row['bank_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/bank/edit/' . $row['bank_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
-                                    
-                                </td>
-                            </tr>
-                                                            
-                        </tbody> <?php $i++; endforeach; ?>                        
+                
+                foreach ($bank as $row): 
+                    ?>
+                <tbody>
+                    <tr>
+                        <td ><?php echo $i ?></td>
+                        <td ><?php echo $row['bank_name']; ?></td>
+                        
+                        <td>
+                            <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bank/detail/' . $row['bank_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/bank/edit/' . $row['bank_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody> <?php $i++; endforeach; ?>                        
             </table>
         </div>
         <div >

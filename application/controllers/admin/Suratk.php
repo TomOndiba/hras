@@ -75,14 +75,14 @@ class Suratk extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Keterangan',
-                        'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:NULL' 
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Keterangan',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:'.$status.';Title:NULL' 
                     )
-            );
+                );
 
             $this->session->set_flashdata('success', $data['operation'] . ' Surat Keterangan berhasil');
             redirect('admin/suratk');
@@ -108,14 +108,14 @@ class Suratk extends CI_Controller {
             $this->Suratk_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Keterangan',
-                        'log_action' => 'Hapus',
-                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Keterangan',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-            );
+                );
             $this->session->set_flashdata('success', 'Hapus Surat Keterangan berhasil');
             redirect('admin/suratk');
         } elseif (!$_POST) {

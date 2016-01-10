@@ -80,14 +80,14 @@ class Memorandum1 extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 1',
-                        'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:NULL' 
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 1',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:'.$status.';Title:NULL' 
                     )
-            );
+                );
 
             $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
             redirect('admin/memorandum1');
@@ -113,14 +113,14 @@ class Memorandum1 extends CI_Controller {
             $this->Memorandum1_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 1',
-                        'log_action' => 'Hapus',
-                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 1',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-            );
+                );
             $this->session->set_flashdata('success', 'Hapus Surat Panggilan berhasil');
             redirect('admin/memorandum1');
         } elseif (!$_POST) {
@@ -143,7 +143,7 @@ class Memorandum1 extends CI_Controller {
     function present($id = NULL) {
         $this->Memorandum1_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
-            redirect('admin/memorandum1');
+        redirect('admin/memorandum1');
     }
 
 }

@@ -34,7 +34,7 @@
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum2/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                  <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                    <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -57,28 +57,28 @@
         </div>
     </div>
     <div class="modal fade" id="modalKetiga" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <?php echo form_open(site_url('admin/memorandum3/add')) ?>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Ketiga</h4>
-                    </div>
-                    <div class="modal-body">
-                        <input type="hidden" name="memorandum2_id" value="<?php echo $row['memorandum_id']; ?>" />
-                        <input type="hidden" name="from_memorandum2" value="TRUE" >
-                        <label >Tanggal Dikirim *</label>
-                        <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
-                        <label >Tanggal Panggilan *</label>
-                        <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
-                        <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                    <?php echo form_close() ?>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <?php echo form_open(site_url('admin/memorandum3/add')) ?>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Ketiga</h4>
                 </div>
+                <div class="modal-body">
+                    <input type="hidden" name="memorandum2_id" value="<?php echo $row['memorandum_id']; ?>" />
+                    <input type="hidden" name="from_memorandum2" value="TRUE" >
+                    <label >Tanggal Dikirim *</label>
+                    <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
+                    <label >Tanggal Panggilan *</label>
+                    <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
+                    <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+                <?php echo form_close() ?>
             </div>
         </div>
+    </div>
 </div>

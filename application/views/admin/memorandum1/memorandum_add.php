@@ -81,11 +81,11 @@ if (isset($memorandum)) {
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
-        <script type="text/javascript">
-            $(window).load(function() {
-                $('#confirm-del').modal('show');
-            });
-        </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#confirm-del').modal('show');
+        });
+    </script>
     <?php }
     ?>
 <?php endif; ?>
@@ -94,27 +94,27 @@ if (isset($memorandum)) {
     $(function() {
 
         var employe_list = [
-<?php foreach ($employe as $row): ?>
-                {
-                    "id": "<?php echo $row['employe_id'] ?>",
-                    "value": "<?php echo $row['employe_name'] ?>",
-                    "label": "<?php echo $row['employe_name'] ?>",
-                    "label_nik": "<?php echo $row['employe_nik'] ?>"
-                },
-<?php endforeach; ?>
-        ];
-        function custom_source(request, response) {
-            var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-            response($.grep(employe_list, function(value) {
-                return matcher.test(value.label)
-                        || matcher.test(value.label_nik);
-            }));
-        }
+        <?php foreach ($employe as $row): ?>
+        {
+            "id": "<?php echo $row['employe_id'] ?>",
+            "value": "<?php echo $row['employe_name'] ?>",
+            "label": "<?php echo $row['employe_name'] ?>",
+            "label_nik": "<?php echo $row['employe_nik'] ?>"
+        },
+    <?php endforeach; ?>
+    ];
+    function custom_source(request, response) {
+        var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+        response($.grep(employe_list, function(value) {
+            return matcher.test(value.label)
+            || matcher.test(value.label_nik);
+        }));
+    }
 
-        $("#field").autocomplete({
-            source: custom_source,
-            minLength: 1,
-            select: function(event, ui) {
+    $("#field").autocomplete({
+        source: custom_source,
+        minLength: 1,
+        select: function(event, ui) {
                 // feed hidden id field
                 $("#field_id").val(ui.item.id);
                 // update number of returned rows

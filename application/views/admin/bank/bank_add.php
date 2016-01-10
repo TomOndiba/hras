@@ -25,17 +25,17 @@ if (isset($bank)) {
                 
                 
             </div>            
-                    <br>
-                    <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
-                    <a href="<?php echo site_url('admin/bank'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
-                    <?php if (isset($bank)): ?>
-                        <a href="<?php echo site_url('admin/bank/delete/' . $bank['bank_id']); ?>" class="btn btn-danger btn-form" ><i class="fa fa-trash"></i> Hapus</a>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <br>
+            <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
+            <a href="<?php echo site_url('admin/bank'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
+            <?php if (isset($bank)): ?>
+                <a href="<?php echo site_url('admin/bank/delete/' . $bank['bank_id']); ?>" class="btn btn-danger btn-form" ><i class="fa fa-trash"></i> Hapus</a>
+            <?php endif; ?>
         </div>
-        <?php echo form_close(); ?>
     </div>
+</div>
+<?php echo form_close(); ?>
+</div>
 </div>
 
 <?php if (isset($bank)): ?>
@@ -62,11 +62,11 @@ if (isset($bank)) {
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
-        <script type="text/javascript">
-            $(window).load(function() {
-                $('#confirm-del').modal('show');
-            });
-        </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#confirm-del').modal('show');
+        });
+    </script>
     <?php }
     ?>
 <?php endif; ?>

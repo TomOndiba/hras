@@ -66,14 +66,14 @@ class Bank extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Bank',
-                        'log_action' => $data['operation'],
-                        'log_info' => 'ID:'.$status.';Title:' . $params['bank_name']
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Bank',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:'.$status.';Title:' . $params['bank_name']
                     )
-            );
+                );
 
             $this->session->set_flashdata('success', $data['operation'] . ' Bank berhasil');
             redirect('admin/bank');
@@ -98,14 +98,14 @@ class Bank extends CI_Controller {
             $this->Bank_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Bank',
-                        'log_action' => 'Hapus',
-                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Bank',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-            );
+                );
             $this->session->set_flashdata('success', 'Hapus Bank berhasil');
             redirect('admin/bank');
         } elseif (!$_POST) {

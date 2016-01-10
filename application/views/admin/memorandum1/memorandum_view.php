@@ -81,43 +81,43 @@
             </div>
             <div class="col-md-12">
                 <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th class="controls" align="center">NO. SURAT</th>
-                        <th class="controls" align="center">TGL DIKIRIM</th>
-                        <th class="controls" align="center">TGL PANGGILAN</th>
-                        <th class="controls" align="center">AKSI</th>
-                    </tr>
-                </thead>
-                <?php
-                if (!empty($memorandum2)) {
-                    foreach ($memorandum2 as $row) {
-                        ?>
-                        <tbody>
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td ><?php echo $row['memorandum_number']; ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y',false); ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
-                                <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                </td>
+                                <th class="controls" align="center">NO. SURAT</th>
+                                <th class="controls" align="center">TGL DIKIRIM</th>
+                                <th class="controls" align="center">TGL PANGGILAN</th>
+                                <th class="controls" align="center">AKSI</th>
                             </tr>
-                        </tbody>
+                        </thead>
                         <?php
-                    }
-                } else {
-                    ?>
-                    <tbody>
-                        <tr id="row">
-                            <td colspan="4" align="center">Data Kosong</td>
-                        </tr>
-                    </tbody>
-                    <?php
-                }
-                ?>   
-            </table>
-        </div>
+                        if (!empty($memorandum2)) {
+                            foreach ($memorandum2 as $row) {
+                                ?>
+                                <tbody>
+                                    <tr>
+                                        <td ><?php echo $row['memorandum_number']; ?></td>
+                                        <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y',false); ?></td>
+                                        <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
+                                        <td>
+                                            <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <?php
+                            }
+                        } else {
+                            ?>
+                            <tbody>
+                                <tr id="row">
+                                    <td colspan="4" align="center">Data Kosong</td>
+                                </tr>
+                            </tbody>
+                            <?php
+                        }
+                        ?>   
+                    </table>
+                </div>
             </div>
             
         </div>

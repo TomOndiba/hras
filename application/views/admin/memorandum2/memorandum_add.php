@@ -29,7 +29,7 @@ if (isset($memorandum)) {
                 <label >Pilih Dari Panggilan Pertama *</label>
                 <select name="memorandum1_id" class="form-control">
                     <?php foreach ($memorandum1 as $row): ?>
-                    <option value="<?php echo $row['memorandum_id'] ?>"><?php echo $row['memorandum_number'] ?></option>
+                        <option value="<?php echo $row['memorandum_id'] ?>"><?php echo $row['memorandum_number'] ?></option>
                     <?php endforeach; ?>
                 </select><br>
                 <label >Tanggal Dikirim *</label>
@@ -76,11 +76,11 @@ if (isset($memorandum)) {
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
-        <script type="text/javascript">
-            $(window).load(function() {
-                $('#confirm-del').modal('show');
-            });
-        </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#confirm-del').modal('show');
+        });
+    </script>
     <?php }
     ?>
 <?php endif; ?>
