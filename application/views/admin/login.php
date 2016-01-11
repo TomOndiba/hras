@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SYSCMS | LOGIN</title>
+    <title>HRA Information System</title>
     <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
@@ -261,19 +261,19 @@
                                                 echo '" />';
                                             }
                                             ?>
-                                            <h1>Halaman Login</h1>
+                                            <h1>Sign HRD Here</h1>
                                             <div class="row">
                                              <div class="center-block"> <img width=270 height=100 src="<?php echo media_url() ?>/images/alfa.png" alt="">
                                              </div>
                                              <hr>
                                              <div>
-                                                <input autofocus type="text" class="form-control" placeholder="Username" name="username" required="" />
+                                                <input autofocus type="text" class="form-control" placeholder="NIK" name="username" required="" />
                                             </div>
                                             <div>
                                                 <input type="password" class="form-control" placeholder="Password" name="password" required="" />
                                             </div>
                                             <div>
-                                                <button class="btn btn-success" type="submit" >Login</button>
+                                                <button class="btn btn-success" type="submit" >Sign</button>
                                             </div>
                                             <div class="clearfix"></div>
                                             <div class="separator">
