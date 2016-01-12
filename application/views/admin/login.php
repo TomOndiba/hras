@@ -263,10 +263,10 @@
                                             ?>
                                             <h1>Sign HRD Here</h1>
                                             <div class="row">
-                                             <div class="center-block"> <img width=270 height=100 src="<?php echo media_url() ?>/images/alfa.png" alt="">
-                                             </div>
-                                             <hr>
-                                             <div>
+                                               <div class="center-block"> <img width=270 height=100 src="<?php echo media_url() ?>/images/alfa.png" alt="">
+                                               </div>
+                                               <hr>
+                                               <div>
                                                 <input autofocus type="text" class="form-control" placeholder="NIK" name="username" required="" />
                                             </div>
                                             <div>
@@ -294,16 +294,16 @@
 
                         <div class="row" id="footer">
                             <div class="col-sm-8 col-md-12 col-sm-offset-8 col-md-offset-1">
-                               <h3>PT. Sumber Alfaria Trijaya, Tbk <i onclick="initialize()" class="icon-map-marker"></i></h3>
-                               <address>
+                             <h3>PT. Sumber Alfaria Trijaya, Tbk <i onclick="initialize()" class="icon-map-marker"></i></h3>
+                             <address>
 
-                                  Kawasan Industri Menara Permai Kav. 18<br/>
-                                  Cileungsi - Bogor Indonesia<br/>
+                              Kawasan Industri Menara Permai Kav. 18<br/>
+                              Cileungsi - Bogor Indonesia<br/>
 
-                              </address>
+                          </address>
 
-                          </div>
+                      </div>
 
-                      </body>
+                  </body>
 
-                      </html>
+                  </html>
