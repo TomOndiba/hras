@@ -2,8 +2,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
         <h3>
-            Daftar Surat Panggilan Pertama
-            <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+            Daftar Surat Panggilan Selesai
         </h3>
 
         <!-- Indicates a successful or positive action -->
@@ -34,44 +33,27 @@
                                 <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y', false); ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y', false); ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum1/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>                                    
-                                    <?php
-                                    foreach ($memorandum2 as $key) {
-                                        if ($key['memorandum1_memorandum_id'] == $row['memorandum_id']) {
-                                            $matchid = $row['memorandum_id'];
-                                            $sp_2 = $key['memorandum_id'];
-                                        }
-                                    }
-                                    ?>
-                                    <?php if ((isset($matchid) AND $matchid == $row['memorandum_id'])) { ?>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $sp_2); ?>" ><span class="fa fa-eye"></span> Lihat SP 2</a>
-                                    <?php } elseif (empty($memorandum2)) { ?>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
-                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
-                                    <?php } else { ?>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
-                                        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
+                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
+                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>                                    
+                                    <?php if ($row['memorandum_finished_desc'] == NULL) { ?>
+                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
                                     <?php } ?>
                                 </td>
                             </tr>
                         </tbody>
-
                         <div class="modal fade" id="modal<?php echo $row['memorandum_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
-                                    <?php echo form_open(site_url('admin/memorandum2/add')) ?>
+                                    <?php echo form_open(site_url('admin/memorandum1/add/' . $row['memorandum_id'])) ?>
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Kedua</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Keterangan Pemanggilan Selesai</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <input type="hidden" name="memorandum1_id" value="<?php echo $row['memorandum_id']; ?>" />
-                                        <input type="hidden" name="from_list" value="TRUE" >
-                                        <label >Tanggal Dikirim *</label>
-                                        <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
-                                        <label >Tanggal Panggilan *</label>
-                                        <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
+                                        <input type="hidden" name="memorandum_id" value="<?php echo $row['memorandum_id']; ?>" />
+                                        <input type="hidden" name="from_finished" value="TRUE" >
+                                        <label >Keterangan *</label>
+                                        <textarea required="" name='memorandum_finished_desc' class='form-control'></textarea>
                                         <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
                                     </div>
                                     <div class="modal-footer">

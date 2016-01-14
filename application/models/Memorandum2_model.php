@@ -108,8 +108,8 @@ class Memorandum2_model extends CI_Model {
             $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
         }
 
-        if(isset($data['memorandum2.memorandum_is_present'])) {
-            $this->db->set('memorandum2.memorandum_is_present', $data['memorandum2.memorandum_is_present']);
+        if(isset($data['memorandum_is_present'])) {
+            $this->db->set('memorandum_is_present', $data['memorandum_is_present']);
         }     
         
         if (isset($data['memorandum_id'])) {

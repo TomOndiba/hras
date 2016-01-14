@@ -28,7 +28,7 @@ class Memorandum1 extends CI_Controller {
         $data['memorandum'] = $this->Memorandum1_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
         $data['memorandum2'] = $this->Memorandum2_model->get();
         $config['base_url'] = site_url('admin/memorandum1/index');
-        $config['total_rows'] = count($this->Memorandum1_model->get(array('status' => TRUE)));
+        $config['total_rows'] = count($this->Memorandum1_model->get(array('present' => 0)));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan 1';
@@ -50,9 +50,13 @@ class Memorandum1 extends CI_Controller {
     // Add Memorandum and Update
     public function add($id = NULL) {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('memorandum_absent_date', 'Tanggal Mangkir', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('memorandum_date_sent', 'Tanggal Kirim', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean'); 
+        if ($this->input->post('from_finished')) {
+            $this->form_validation->set_rules('memorandum_finished_desc', 'Keterangan', 'trim|required|xss_clean');
+        } else {
+            $this->form_validation->set_rules('memorandum_absent_date', 'Tanggal Mangkir', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('memorandum_date_sent', 'Tanggal Kirim', 'trim|required|xss_clean');
+            $this->form_validation->set_rules('memorandum_call_date', 'Tanggal Panggilan', 'trim|required|xss_clean');
+        }
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
@@ -65,9 +69,9 @@ class Memorandum1 extends CI_Controller {
                 $num = $lastnumber['memorandum_number'];
                 $params['memorandum_number'] = sprintf('%04d', $num + 01);
                 $params['memorandum_input_date'] = date('Y-m-d H:i:s');
-                
             }
 
+            $params['memorandum_finished_desc'] = $this->input->post('memorandum_finished_desc');
             $params['memorandum_email_date'] = $this->input->post('memorandum_email_date');
             $params['memorandum_absent_date'] = $this->input->post('memorandum_absent_date');
             $params['memorandum_date_sent'] = $this->input->post('memorandum_date_sent');
@@ -80,17 +84,21 @@ class Memorandum1 extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                array(
-                    'log_date' => date('Y-m-d H:i:s'),
-                    'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'Surat Panggilan 1',
-                    'log_action' => $data['operation'],
-                    'log_info' => 'ID:'.$status.';Title:NULL' 
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'Surat Panggilan 1',
+                        'log_action' => $data['operation'],
+                        'log_info' => 'ID:' . $status . ';Title:NULL'
                     )
-                );
-
-            $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
-            redirect('admin/memorandum1');
+            );
+            if ($this->input->post('from_finished')) {
+                $this->session->set_flashdata('success', ' Surat Panggilan Selesai');
+                redirect('admin/memorandum');
+            } else {
+                $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
+                redirect('admin/memorandum1');
+            }
         } else {
             if ($this->input->post('memorandum_id')) {
                 redirect('admin/memorandum/edit/' . $this->input->post('memorandum_id'));
@@ -113,14 +121,14 @@ class Memorandum1 extends CI_Controller {
             $this->Memorandum1_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                array(
-                    'log_date' => date('Y-m-d H:i:s'),
-                    'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'Surat Panggilan 1',
-                    'log_action' => 'Hapus',
-                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'Surat Panggilan 1',
+                        'log_action' => 'Hapus',
+                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-                );
+            );
             $this->session->set_flashdata('success', 'Hapus Surat Panggilan berhasil');
             redirect('admin/memorandum1');
         } elseif (!$_POST) {
@@ -140,8 +148,9 @@ class Memorandum1 extends CI_Controller {
         $html = $this->load->view('admin/memorandum1/memorandum_pdf', $data, true);
         $data = pdf_create($html, '$paper', TRUE);
     }
+
     function present($id = NULL) {
-        $this->Memorandum1_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));
+        $this->Memorandum1_model->add(array('memorandum_id' => $id, 'memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
         redirect('admin/memorandum1');
     }

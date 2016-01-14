@@ -18,7 +18,7 @@ class Memorandum3 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum2_model'));
+        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum2_model', 'Memorandum1_model'));
         $this->load->helper('string');
     }
 
@@ -27,7 +27,7 @@ class Memorandum3 extends CI_Controller {
         $this->load->library('pagination');
         $data['memorandum'] = $this->Memorandum3_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
         $config['base_url'] = site_url('admin/memorandum3/index');
-        $config['total_rows'] = count($this->Memorandum3_model->get(array('status' => TRUE)));
+        $config['total_rows'] = count($this->Memorandum3_model->get(array('present' => 0)));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan 3';
@@ -142,7 +142,11 @@ class Memorandum3 extends CI_Controller {
     }
 
     function present($id = NULL) {
-        $this->Memorandum3_model->add(array('memorandum_id'=> $id, 'memorandum3.memorandum_is_present' => 1));
+        $this->Memorandum3_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));
+        
+        $memorandum3 = $this->Memorandum3_model->get(array('id' => $id));
+        $memorandum2 = $this->Memorandum2_model->get(array('id' => $memorandum3['memorandum2_memorandum_id']));
+        $this->Memorandum1_model->add(array('memorandum_id'=> $memorandum2['memorandum1_memorandum_id'], 'memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
         redirect('admin/memorandum3');
     }

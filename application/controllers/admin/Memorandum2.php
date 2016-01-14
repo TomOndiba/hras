@@ -26,8 +26,9 @@ class Memorandum2 extends CI_Controller {
     public function index($offset = NULL) {
         $this->load->library('pagination');
         $data['memorandum'] = $this->Memorandum2_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
+        $data['memorandum3'] = $this->Memorandum3_model->get();
         $config['base_url'] = site_url('admin/memorandum2/index');
-        $config['total_rows'] = count($this->Memorandum2_model->get(array('status' => TRUE)));
+        $config['total_rows'] = count($this->Memorandum2_model->get(array('present' => 0)));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan 2';
@@ -143,7 +144,9 @@ class Memorandum2 extends CI_Controller {
     }
 
     function present($id = NULL) {
-        $this->Memorandum2_model->add(array('memorandum_id'=> $id, 'memorandum2.memorandum_is_present' => 1));
+        $memorandum2 = $this->Memorandum2_model->get(array('id' => $id));
+        $this->Memorandum2_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));
+        $this->Memorandum1_model->add(array('memorandum_id'=> $memorandum2['memorandum1_memorandum_id'], 'memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
         redirect('admin/memorandum2');
     }
