@@ -65,7 +65,7 @@ class Memorandum3_model extends CI_Model {
         $this->db->join('memorandum1', 'memorandum1.memorandum_id = memorandum2.memorandum1_memorandum_id', 'left');
         $this->db->join('employe', 'employe.employe_id = memorandum1.employe_employe_id', 'left');
         $this->db->join('user', 'user.user_id = memorandum3.user_user_id', 'left');
-        $res = $this->db->get('memorandum3'); 
+        $res = $this->db->get('memorandum3');  
 
         if(isset($params['id']) OR (isset($params['limit']) AND $params['limit']==1))
         {

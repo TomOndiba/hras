@@ -4,14 +4,36 @@
         <h3>
             Daftar Surat Panggilan Selesai
         </h3>
+        <span class="pull-right">
+                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
+                <a class="btn btn-sm btn-success" href="<?php echo site_url('admin/memorandum/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
+                
+            </span>
+        </h3>
+        <div class="collapse" id="collapseExample">
+            <?php echo form_open(current_url(), array('method'=>'get')) ?>
+            <div class="row">                
+                <div class="col-md-3">
+                    <input type="text" name="ds" placeholder="Tanggal Mulai" value="" class="form-control datepicker">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="de" placeholder="Tanggal Akhir" value="" class="form-control datepicker">
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-success" value="Filter">
+                </div>
+            </div>
+            <?php echo form_close() ?>
+        </div>
+        <?php echo validation_errors() ?>
+        <br>
 
         <!-- Indicates a successful or positive action -->
 
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
-                    <tr>
-                        <th class="controls" align="center">NO. SURAT</th>
+                    <tr>                    
                         <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
                         <th class="controls" align="center">TGL EMAIL</th>
@@ -25,8 +47,7 @@
                     foreach ($memorandum as $row) {
                         ?>
                         <tbody>
-                            <tr>
-                                <td ><?php echo $row['memorandum_number']; ?></td>
+                            <tr>                                
                                 <td ><?php echo $row['employe_nik']; ?></td>
                                 <td ><?php echo $row['employe_name']; ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_email_date'], 'd F Y', false); ?></td>
