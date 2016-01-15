@@ -14,9 +14,9 @@
                         <th class="controls" align="center">NO. SURAT</th>
                         <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
+                        <th class="controls" align="center">TGL EMAIL</th>
                         <th class="controls" align="center">TGL MANGKIR</th>
-                        <th class="controls" align="center">TGL DIKIRIM</th>
-                        <th class="controls" align="center">TGL PANGGILAN</th>
+                        <th class="controls" align="center">STATUS</th>
                         <th class="controls" align="center">AKSI</th>
                     </tr>
                 </thead>
@@ -29,14 +29,13 @@
                                 <td ><?php echo $row['memorandum_number']; ?></td>
                                 <td ><?php echo $row['employe_nik']; ?></td>
                                 <td ><?php echo $row['employe_name']; ?></td>
+                                <td ><?php echo pretty_date($row['memorandum_email_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_absent_date'], 'd F Y', false); ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y', false); ?></td>
-                                <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y', false); ?></td>
+                                <td ><?php echo $row['memorandum_finished_desc']; ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>                                    
+                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
                                     <?php if ($row['memorandum_finished_desc'] == NULL) { ?>
-                                        <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
+                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
                                     <?php } ?>
                                 </td>
                             </tr>

@@ -147,6 +147,7 @@ class Memorandum3 extends CI_Controller {
         $memorandum3 = $this->Memorandum3_model->get(array('id' => $id));
         $memorandum2 = $this->Memorandum2_model->get(array('id' => $memorandum3['memorandum2_memorandum_id']));
         $this->Memorandum1_model->add(array('memorandum_id'=> $memorandum2['memorandum1_memorandum_id'], 'memorandum_is_present' => 1));
+        $this->Memorandum2_model->add(array('memorandum_id'=> $memorandum3['memorandum2_memorandum_id'], 'memorandum_is_present' => 1));
         $this->session->set_flashdata('success', 'Sunting Surat Panggilan berhasil');
         redirect('admin/memorandum3');
     }

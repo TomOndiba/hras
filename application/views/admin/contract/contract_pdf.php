@@ -58,7 +58,7 @@
       <p>Dengan Hormat, </p>
       <br>
       <p align="justify">Sesuai dengan ketentuan Perjanjian Kerja Waktu Tertentu (PKWT), dengan ini kami beritahukan bahwa hubungan kerja antara saudara/i akan berakhir pada hari
-        <?php echo pretty_date( $contract['contract_date'],'l, d F Y',false) ?>.</p>
+        <strong><?php echo pretty_date( $contract['contract_date'],'l, d F Y',false) ?>.</strong></p>
         <p align="justify">Kami mengucapkan banyak terima kasih atas hasil kerja dan kerja sama yang telah Saudara/i berikan kepada perusahaan. <br>
         </p><br>
         <p align="justify">Demikian surat ini kami sampaikan, atas perhatiannya kami mengucapkan terima kasih. </p>
