@@ -2,7 +2,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
         <h3>
-            Daftar Surat Panggilan Selesai
+            Daftar History Surat Panggilan
         </h3>
         <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>

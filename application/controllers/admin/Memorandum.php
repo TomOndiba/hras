@@ -42,12 +42,17 @@ class Memorandum extends CI_Controller {
         if (isset($q['de']) && !empty($q['de']) && $q['de'] != '') {
             $params['date_end'] = $q['de'];
         }
+        $params['present'] = 1;
+        $paramsPage = $params;
+        $params['limit'] = 10;
+        $params['offset'] = $offset;
 
-        $data['memorandum'] = $this->Memorandum1_model->get(array('limit' => 10, 'present' => 1, 'offset' => $offset));
+
+        $data['memorandum'] = $this->Memorandum1_model->get($params);
         $data['memorandum2'] = $this->Memorandum2_model->get();
         $data['memorandum3'] = $this->Memorandum3_model->get();
         $config['base_url'] = site_url('admin/memorandum/index');
-        $config['total_rows'] = count($this->Memorandum1_model->get(array('present' => 1,)));
+        $config['total_rows'] = count($this->Memorandum1_model->get($paramsPage));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan Selesai';
@@ -100,23 +105,31 @@ class Memorandum extends CI_Controller {
         }
         
 
-        $data['memorandum'] = $this->Memorandum1_model->get($params);
+        $data['memorandum'] = $this->Memorandum1_model->get($params);        
         $csv = array(
             0 => array(
-                'No.', 'NIK', 'Nama', 'Tanggal Email', 'Tanggal Mangkir', 'Tanggal SP 1', 'Tanggal SP 2', 'Tanggal Kualifikasi', 'Keterangan'
+                'No.', 'NIK', 'Nama', 'Tanggal Email', 'Tanggal Mangkir', 'Tanggal SP 1', 'Tanggal SP 2', 'Tanggal SP 3', 'Tanggal Kualifikasi', 'Keterangan'
                 
-            )
-        );
+                )
+            );
         $i = 1;
         foreach ($data['memorandum'] as $row) {
             $csv[] = array( $i,
                 $row['employe_nik'], $row['employe_name'],
-                $row['memorandum_email_date'], pretty_date($row['memorandum_email_date'], 'm/d/Y', FALSE),
-                $row['memorandum_absent_date'], pretty_date($row['memorandum_absent_date'], 'm/d/Y', FALSE),
+                pretty_date($row['memorandum_email_date'], 'm/d/Y', FALSE),
+                pretty_date($row['memorandum_absent_date'], 'm/d/Y', FALSE),
+                pretty_date($row['memorandum_date_sent'], 'm/d/Y', FALSE),
+                ($row['memorandum2_date_sent'] != NULL)? pretty_date($row['memorandum2_date_sent'], 'm/d/Y', FALSE) : '',
+                ($row['memorandum3_date_sent'] != NULL)? pretty_date($row['memorandum3_date_sent'], 'm/d/Y', FALSE) : '',
+                ($row['memorandum2_call_date'] != NULL)? pretty_date($row['memorandum2_call_date'], 'm/d/Y', FALSE) : '',
                 $row['memorandum_finished_desc']
-            );
+                );
             $i++;
         }
+       // echo "<pre>";
+        // echo print_r($csv);
+        // echo "</pre>";
+        // die();
         array_to_csv($csv, 'Report_Surat_Panggilan.csv');
     }
 

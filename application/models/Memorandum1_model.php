@@ -30,8 +30,8 @@ class Memorandum1_model extends CI_Model {
 
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
-            $this->db->where('memorandum_email_date', $params['date_start']);
-            $this->db->or_where('memorandum_email_date', $params['date_end']);
+            $this->db->where('memorandum1.memorandum_absent_date >=', $params['date_start'].' 00:00:00');
+            $this->db->where('memorandum1.memorandum_absent_date <=', $params['date_end'].' 23:59:59');
         }
 
         if(isset($params['limit']))
@@ -50,14 +50,19 @@ class Memorandum1_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('memorandum_last_update', 'desc');
+            $this->db->order_by('memorandum1.memorandum_last_update', 'desc');
         }
 
-        $this->db->select('memorandum1.memorandum_id, memorandum_number, memorandum_email_date, memorandum_finished_desc,
-            memorandum_absent_date, memorandum_date_sent, memorandum_call_date, memorandum_is_present, employe_employe_id, memorandum1.user_user_id,
+        $this->db->select('memorandum1.memorandum_id, memorandum1.memorandum_number, memorandum_email_date, memorandum_finished_desc,
+            memorandum_absent_date, memorandum1.memorandum_date_sent, memorandum1.memorandum_call_date, memorandum1.memorandum_is_present, employe_employe_id, memorandum1.user_user_id,
             employe_name, employe_nik, employe_position, employe_address,
             user_name, user_full_name,
-            memorandum_input_date, memorandum_last_update');
+            memorandum1.memorandum_input_date, memorandum1.memorandum_last_update');
+            $this->db->select('memorandum2.memorandum_date_sent AS memorandum2_date_sent');
+            $this->db->select('memorandum3.memorandum_date_sent AS memorandum3_date_sent');
+            $this->db->select('memorandum2.memorandum_call_date AS memorandum2_call_date');
+        $this->db->join('memorandum2', 'memorandum2.memorandum1_memorandum_id = memorandum1.memorandum_id', 'left');
+        $this->db->join('memorandum3', 'memorandum3.memorandum2_memorandum_id = memorandum2.memorandum_id', 'left');
         $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left');
         $this->db->join('user', 'user.user_id = memorandum1.user_user_id', 'left');
         $res = $this->db->get('memorandum1');
