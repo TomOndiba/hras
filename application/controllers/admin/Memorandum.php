@@ -61,7 +61,7 @@ class Memorandum extends CI_Controller {
         }
         $data['memorandum'] = $this->Memorandum1_model->get(array('id' => $id));
         $data['memorandum2'] = $this->Memorandum2_model->get(array('memorandum1_id' => $id));
-        $data['memorandum3'] = $this->Memorandum3_model->get(array('memorandum2_id' => $id));
+        $data['memorandum3'] = $this->Memorandum3_model->get(array('memorandum1_id' => $id));
         $data['title'] = 'Surat Panggilan Selesai';
         $data['main'] = 'admin/memorandum/memorandum_view';
         $this->load->view('admin/layout', $data);
@@ -103,7 +103,7 @@ class Memorandum extends CI_Controller {
         $data['memorandum'] = $this->Memorandum1_model->get($params);
         $csv = array(
             0 => array(
-                'No.', 'NIK', 'Nama', 'Tanggal Email', 'Tanggal Mangkir', 'Keterangan'
+                'No.', 'NIK', 'Nama', 'Tanggal Email', 'Tanggal Mangkir', 'Tanggal SP 1', 'Tanggal SP 2', 'Tanggal Kualifikasi', 'Keterangan'
                 
             )
         );

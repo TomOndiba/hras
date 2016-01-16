@@ -54,7 +54,7 @@
                                 <td ><?php echo pretty_date($row['memorandum_absent_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo $row['memorandum_finished_desc']; ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
+                                    <a class="btn btn-danger btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
                                     <?php if ($row['memorandum_finished_desc'] == NULL) { ?>
                                     <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
                                     <?php } ?>

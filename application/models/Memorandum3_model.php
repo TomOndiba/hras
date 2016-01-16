@@ -33,6 +33,11 @@ class Memorandum3_model extends CI_Model {
             $this->db->where('memorandum3.memorandum2_memorandum_id', $params['memorandum2_id']);
         }
 
+        if(isset($params['memorandum1_id']))
+        {
+            $this->db->where('memorandum2.memorandum1_memorandum_id', $params['memorandum1_id']);
+        }
+
         if(isset($params['limit']))
         {
             if(!isset($params['offset']))
