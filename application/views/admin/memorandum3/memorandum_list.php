@@ -35,10 +35,10 @@
                                 <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
                                 <td ><?php echo pretty_date($row['memorandum2_call_date'], 'd F Y',false); ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum3/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum3/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                    <a class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum3/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>
-                                    <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum3/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum3/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum3/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Print Amlop" class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum3/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum3/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
                                 </td>
                             </tr>
                         </tbody>

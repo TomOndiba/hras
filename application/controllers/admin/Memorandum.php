@@ -31,7 +31,7 @@ class Memorandum extends CI_Controller {
         $q = $this->input->get(NULL, TRUE);
 
         $data['q'] = $q;
-        $params = array();
+        $params = array(); 
 
         // Date start
         if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {

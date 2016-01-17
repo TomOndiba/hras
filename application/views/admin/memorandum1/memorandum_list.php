@@ -34,9 +34,9 @@
                                 <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y', false); ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y', false); ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum1/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                    <a class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum1/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>                                    
+                                    <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum1/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
+                                    <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Print Amplop" class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum1/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>                                    
                                     <?php
                                     foreach ($memorandum2 as $key) {
                                         if ($key['memorandum1_memorandum_id'] == $row['memorandum_id']) {
@@ -48,10 +48,10 @@
                                     <?php if ((isset($matchid) AND $matchid == $row['memorandum_id'])) { ?>
                                         <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $sp_2); ?>" ><span class="fa fa-eye"></span> Lihat SP 2</a>
                                     <?php } elseif (empty($memorandum2)) { ?>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                        <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
                                         <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
                                     <?php } else { ?>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                        <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
                                         <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
                                     <?php } ?>
                                 </td>

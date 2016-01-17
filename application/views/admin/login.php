@@ -281,7 +281,7 @@
                                                 <div class="clearfix"></div>
                                                 <br />
                                                 <div>
-                                                    <p>&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> All Rights Reserved. Privacy and Terms</p>
+                                                    <p>&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> All Rights Reserved. Achyar Anshorie&trade;</p>
                                                 </div>
                                             </div>
                                         </form>
