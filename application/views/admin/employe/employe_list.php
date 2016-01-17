@@ -3,8 +3,24 @@
         <h3>
             Daftar Karyawan
             <a href="<?php echo site_url('admin/employe/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+        </h3>       
+        <span class="pull-right">
+                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>               
+            </span>
         </h3>
-
+        <div class="collapse" id="collapseExample">
+            <?php echo form_open(current_url(), array('method'=>'get')) ?>
+            <div class="row">                
+                <div class="col-md-3">
+                    <input type="text" name="n" placeholder="NIK" class="form-control">
+                </div>                
+                    <input type="submit" class="btn btn-success" value="Filter">
+                </div>
+            </div>
+            <?php echo form_close() ?>
+        </div>
+        <?php echo validation_errors() ?>
+        <br>
         <!-- Indicates a successful or positive action -->
 
         <div class="table-responsive">

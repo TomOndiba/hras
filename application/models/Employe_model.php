@@ -35,8 +35,8 @@ class Employe_model extends CI_Model {
         
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
-            $this->db->where('employe_published_date', $params['date_start']);
-            $this->db->or_where('employe_published_date', $params['date_end']);
+            $this->db->where('employe_published_date >=', $params['date_start'] . ' 00:00:00');
+            $this->db->where('employe_published_date <=', $params['date_end'] . ' 23:59:59');
         }
 
         if(isset($params['limit']))
@@ -65,12 +65,9 @@ class Employe_model extends CI_Model {
         $this->db->join('user', 'user.user_id = employe.user_user_id', 'left');
         $res = $this->db->get('employe');
 
-        if(isset($params['id']))
-        {
+        if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['member_nip']))) {
             return $res->row_array();
-        }
-        else
-        {
+        } else {
             return $res->result_array();
         }
     }

@@ -25,9 +25,28 @@ class Employe extends CI_Controller {
     // Employe view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-        $data['employe'] = $this->Employe_model->get(array('limit' => 10, 'offset' => $offset));
+        // Apply Filter
+        // Get $_GET variable
+        $f = $this->input->get(NULL, TRUE);
+
+        $data['f'] = $f;
+
+        $params = array();
+        // Nip
+        if (isset($f['n']) && !empty($f['n']) && $f['n'] != '') {
+            $params['employe_nik'] = $f['n'];
+        }
+
+        $paramsPage = $params;
+        $params['limit'] = 10;
+        $params['offset'] = $offset;
+        $data['employe'] = $this->Employe_model->get($params);
+
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 4;
         $config['base_url'] = site_url('admin/employe/index');
-        $config['total_rows'] = count($this->Employe_model->get(array('status' => TRUE)));
+        $config['suffix'] = '?' . http_build_query($_GET, '', "&");
+        $config['total_rows'] = count($this->Employe_model->get($paramsPage));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Karyawan';
