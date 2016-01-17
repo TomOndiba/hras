@@ -56,7 +56,7 @@
                         <div class="left_col scroll-view">
 
                             <div class="navbar nav_title" style="border: 0;">
-                                <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>SYSCMS</span></a>
+                            <a href="#" class="site_title"><i class="fa fa-cube"></i> <span>HRA CMS</span></a>                                
                             </div>
                             <div class="clearfix"></div>
 
@@ -108,7 +108,7 @@
                                     <li class="">
                                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                             <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = ucfirst($this->session->userdata('user_full_name')); ?>
-                                            <span class=" fa fa-angle-down"></span>
+                                            <span class=" fa fa-angle-down"></span> 
                                         </a>
                                         <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                             <li><a href="<?php echo site_url('admin/dashboard') ?>">  Home</a>
@@ -144,7 +144,7 @@
                             <!-- footer content -->
                             <footer class="bottom">
                                 <div class="">
-                                    <p class="pull-right">© 2015 SYSCMS-APP By Sistiandy
+                                    <p class="pull-right">&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> HRA CMS
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>

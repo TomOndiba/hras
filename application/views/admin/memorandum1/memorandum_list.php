@@ -35,7 +35,8 @@
                                 <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y', false); ?></td>
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum1/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                    
-                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>                                    
+                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum1/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum1/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>                                    
                                     <?php
                                     foreach ($memorandum2 as $key) {
                                         if ($key['memorandum1_memorandum_id'] == $row['memorandum_id']) {

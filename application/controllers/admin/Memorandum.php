@@ -108,8 +108,9 @@ class Memorandum extends CI_Controller {
         $data['memorandum'] = $this->Memorandum1_model->get($params);        
         $csv = array(
             0 => array(
-                'No.', 'NIK', 'Nama', 'Tanggal Email', 'Tanggal Mangkir', 'Tanggal SP 1', 'Tanggal SP 2', 'Tanggal SP 3', 'Tanggal Kualifikasi', 'Keterangan'
-                
+                'NO.', 'NIK', 'NAMA', 'EMAIL', 'MANGKIR', 'SP 1', 'PANGGILAN 1', 'SP 2',
+                'PANGGILAN 2', 'SP 3', 'PANGGILAN 3', 'KETERANGAN'
+            
                 )
             );
         $i = 1;
@@ -119,9 +120,11 @@ class Memorandum extends CI_Controller {
                 pretty_date($row['memorandum_email_date'], 'm/d/Y', FALSE),
                 pretty_date($row['memorandum_absent_date'], 'm/d/Y', FALSE),
                 pretty_date($row['memorandum_date_sent'], 'm/d/Y', FALSE),
+                pretty_date($row['memorandum_call_date'], 'm/d/Y', FALSE),
                 ($row['memorandum2_date_sent'] != NULL)? pretty_date($row['memorandum2_date_sent'], 'm/d/Y', FALSE) : '',
-                ($row['memorandum3_date_sent'] != NULL)? pretty_date($row['memorandum3_date_sent'], 'm/d/Y', FALSE) : '',
                 ($row['memorandum2_call_date'] != NULL)? pretty_date($row['memorandum2_call_date'], 'm/d/Y', FALSE) : '',
+                ($row['memorandum3_date_sent'] != NULL)? pretty_date($row['memorandum3_date_sent'], 'm/d/Y', FALSE) : '',
+                ($row['memorandum3_call_date'] != NULL)? pretty_date($row['memorandum3_call_date'], 'm/d/Y', FALSE) : '',
                 $row['memorandum_finished_desc']
                 );
             $i++;

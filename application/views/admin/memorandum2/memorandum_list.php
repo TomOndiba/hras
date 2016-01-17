@@ -34,6 +34,7 @@
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum2/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a class="btn btn-info btn-xs" href="<?php echo site_url('admin/memorandum2/printEnvl/' . $row['memorandum_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>
                                     <?php
                                     foreach ($memorandum3 as $key) {
                                         if ($key['memorandum2_memorandum_id'] == $row['memorandum_id']) {

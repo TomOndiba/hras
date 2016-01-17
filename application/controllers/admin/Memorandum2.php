@@ -143,6 +143,18 @@ class Memorandum2 extends CI_Controller {
         $data = pdf_create($html, '', TRUE);
     }
 
+    function printEnvl($id = NULL) {
+        $this->load->helper(array('dompdf'));
+        $this->load->helper(array('tanggal'));
+        if ($id == NULL)
+            redirect('admin/memorandum2');
+
+        $data['memorandum'] = $this->Memorandum2_model->get(array('id' => $id));
+
+        $html = $this->load->view('admin/memorandum2/memorandum_envelope', $data, true);
+        $data = pdf_create($html, '', TRUE, 'A4', TRUE);
+    }
+
     function present($id = NULL) {
         $memorandum2 = $this->Memorandum2_model->get(array('id' => $id));
         $this->Memorandum2_model->add(array('memorandum_id'=> $id, 'memorandum_is_present' => 1));

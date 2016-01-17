@@ -55,12 +55,13 @@ class Memorandum1_model extends CI_Model {
 
         $this->db->select('memorandum1.memorandum_id, memorandum1.memorandum_number, memorandum_email_date, memorandum_finished_desc,
             memorandum_absent_date, memorandum1.memorandum_date_sent, memorandum1.memorandum_call_date, memorandum1.memorandum_is_present, employe_employe_id, memorandum1.user_user_id,
-            employe_name, employe_nik, employe_position, employe_address,
+            employe_name, employe_nik, employe_position, employe_address, employe_phone,
             user_name, user_full_name,
             memorandum1.memorandum_input_date, memorandum1.memorandum_last_update');
-            $this->db->select('memorandum2.memorandum_date_sent AS memorandum2_date_sent');
-            $this->db->select('memorandum3.memorandum_date_sent AS memorandum3_date_sent');
-            $this->db->select('memorandum2.memorandum_call_date AS memorandum2_call_date');
+        $this->db->select('memorandum2.memorandum_date_sent AS memorandum2_date_sent');
+        $this->db->select('memorandum3.memorandum_date_sent AS memorandum3_date_sent');
+        $this->db->select('memorandum2.memorandum_call_date AS memorandum2_call_date');
+        $this->db->select('memorandum3.memorandum_call_date AS memorandum3_call_date');
         $this->db->join('memorandum2', 'memorandum2.memorandum1_memorandum_id = memorandum1.memorandum_id', 'left');
         $this->db->join('memorandum3', 'memorandum3.memorandum2_memorandum_id = memorandum2.memorandum_id', 'left');
         $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left');
@@ -79,72 +80,72 @@ class Memorandum1_model extends CI_Model {
 
     // Add and update to database
     function add($data = array()) {
-        
-         if(isset($data['memorandum_id'])) {
-            $this->db->set('memorandum_id', $data['memorandum_id']);
-        }
-        
-         if(isset($data['memorandum_number'])) {
-            $this->db->set('memorandum_number', $data['memorandum_number']);
-        }
-        
-         if(isset($data['memorandum_email_date'])) {
-            $this->db->set('memorandum_email_date', $data['memorandum_email_date']);
-        }
-        
-         if(isset($data['memorandum_absent_date'])) {
-            $this->db->set('memorandum_absent_date', $data['memorandum_absent_date']);
-        }
-        
-         if(isset($data['memorandum_date_sent'])) {
-            $this->db->set('memorandum_date_sent', $data['memorandum_date_sent']);
-        }
-        
-         if(isset($data['memorandum_call_date'])) {
-            $this->db->set('memorandum_call_date', $data['memorandum_call_date']);
-        }
-        
-         if(isset($data['employe_id'])) {
-            $this->db->set('employe_employe_id', $data['employe_id']);
-        }
-        
-         if(isset($data['user_id'])) {
-            $this->db->set('user_user_id', $data['user_id']);
-        }
-        
-         if(isset($data['memorandum_input_date'])) {
-            $this->db->set('memorandum_input_date', $data['memorandum_input_date']);
-        }
-        
-         if(isset($data['memorandum_last_update'])) {
-            $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
-        }  
 
-        if(isset($data['memorandum_is_present'])) {
-            $this->db->set('memorandum_is_present', $data['memorandum_is_present']);
-        }    
-
-        if(isset($data['memorandum_finished_desc'])) {
-            $this->db->set('memorandum_finished_desc', $data['memorandum_finished_desc']);
-        }    
-        
-        if (isset($data['memorandum_id'])) {
-            $this->db->where('memorandum_id', $data['memorandum_id']);
-            $this->db->update('memorandum1');
-            $id = $data['memorandum_id'];
-        } else {
-            $this->db->insert('memorandum1');
-            $id = $this->db->insert_id();
-        }
-
-        $status = $this->db->affected_rows();
-        return ($status == 0) ? FALSE : $id;
+       if(isset($data['memorandum_id'])) {
+        $this->db->set('memorandum_id', $data['memorandum_id']);
     }
-    
+
+    if(isset($data['memorandum_number'])) {
+        $this->db->set('memorandum_number', $data['memorandum_number']);
+    }
+
+    if(isset($data['memorandum_email_date'])) {
+        $this->db->set('memorandum_email_date', $data['memorandum_email_date']);
+    }
+
+    if(isset($data['memorandum_absent_date'])) {
+        $this->db->set('memorandum_absent_date', $data['memorandum_absent_date']);
+    }
+
+    if(isset($data['memorandum_date_sent'])) {
+        $this->db->set('memorandum_date_sent', $data['memorandum_date_sent']);
+    }
+
+    if(isset($data['memorandum_call_date'])) {
+        $this->db->set('memorandum_call_date', $data['memorandum_call_date']);
+    }
+
+    if(isset($data['employe_id'])) {
+        $this->db->set('employe_employe_id', $data['employe_id']);
+    }
+
+    if(isset($data['user_id'])) {
+        $this->db->set('user_user_id', $data['user_id']);
+    }
+
+    if(isset($data['memorandum_input_date'])) {
+        $this->db->set('memorandum_input_date', $data['memorandum_input_date']);
+    }
+
+    if(isset($data['memorandum_last_update'])) {
+        $this->db->set('memorandum_last_update', $data['memorandum_last_update']);
+    }  
+
+    if(isset($data['memorandum_is_present'])) {
+        $this->db->set('memorandum_is_present', $data['memorandum_is_present']);
+    }    
+
+    if(isset($data['memorandum_finished_desc'])) {
+        $this->db->set('memorandum_finished_desc', $data['memorandum_finished_desc']);
+    }    
+
+    if (isset($data['memorandum_id'])) {
+        $this->db->where('memorandum_id', $data['memorandum_id']);
+        $this->db->update('memorandum1');
+        $id = $data['memorandum_id'];
+    } else {
+        $this->db->insert('memorandum1');
+        $id = $this->db->insert_id();
+    }
+
+    $status = $this->db->affected_rows();
+    return ($status == 0) ? FALSE : $id;
+}
+
     // Delete to database
-    function delete($id) {
-        $this->db->where('memorandum_id', $id);
-        $this->db->delete('memorandum1');
-    }
-    
+function delete($id) {
+    $this->db->where('memorandum_id', $id);
+    $this->db->delete('memorandum1');
+}
+
 }

@@ -6,7 +6,7 @@
         </h3>
         <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
-                <a class="btn btn-sm btn-success" href="<?php echo site_url('admin/memorandum/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
+                <a class="btn btn-sm btn-primary" href="<?php echo site_url('admin/memorandum/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
                 
             </span>
         </h3>
@@ -54,9 +54,9 @@
                                 <td ><?php echo pretty_date($row['memorandum_absent_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo $row['memorandum_finished_desc']; ?></td>
                                 <td>
-                                    <a class="btn btn-danger btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
+                                    <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
                                     <?php if ($row['memorandum_finished_desc'] == NULL) { ?>
-                                    <button class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
+                                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
                                     <?php } ?>
                                 </td>
                             </tr>
