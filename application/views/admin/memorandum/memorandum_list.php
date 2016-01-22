@@ -3,16 +3,19 @@
     <div class="x_panel post-inherit">
         <h3>
             Daftar History Surat Panggilan
-        </h3>
-        <span class="pull-right">
+            <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
                 <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/memorandum/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
-                
+
             </span>
         </h3>
+        </h3>
         <div class="collapse" id="collapseExample">
-            <?php echo form_open(current_url(), array('method'=>'get')) ?>
+            <?php echo form_open(current_url(), array('method' => 'get')) ?>
             <div class="row">                
+                <div class="col-md-3">
+                    <input type="text" name="n" placeholder="Nik" value="" class="form-control">
+                </div>
                 <div class="col-md-3">
                     <input type="text" name="ds" placeholder="Tanggal Mulai" value="" class="form-control datepicker">
                 </div>
@@ -56,7 +59,7 @@
                                 <td>
                                     <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                  
                                     <?php if ($row['memorandum_finished_desc'] == NULL) { ?>
-                                    <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
+                                        <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-check"></span>&nbsp; Selesai</button> 
                                     <?php } ?>
                                 </td>
                             </tr>

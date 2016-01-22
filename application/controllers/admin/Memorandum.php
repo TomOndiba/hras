@@ -33,6 +33,11 @@ class Memorandum extends CI_Controller {
         $data['q'] = $q;
         $params = array(); 
 
+        // Employe Nik
+        if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
+            $params['employe_nik'] = $q['n'];
+        }
+
         // Date start
         if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {
             $params['date_start'] = $q['ds'];

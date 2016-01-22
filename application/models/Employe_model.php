@@ -23,7 +23,7 @@ class Employe_model extends CI_Model {
             $this->db->where('employe.employe_id', $params['id']);
         }
         
-        if(isset($params['nik']))
+        if(isset($params['employe_nik']))
         {
             $this->db->where('employe.employe_nik', $params['employe_nik']);
         }
