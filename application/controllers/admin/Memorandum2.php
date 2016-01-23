@@ -131,6 +131,11 @@ class Memorandum2 extends CI_Controller {
         }
     }
 
+    function delete_multiple () {       
+        $this->Memorandum2_model->remove_checked($this->input->post('del_id'));
+        redirect('admin/memorandum2');
+    }
+
     function printPdf($id = NULL) {
         $this->load->helper(array('dompdf'));
         $this->load->helper(array('tanggal'));

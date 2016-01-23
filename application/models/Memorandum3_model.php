@@ -140,4 +140,15 @@ class Memorandum3_model extends CI_Model {
         $this->db->delete('memorandum3');
     }
     
+    function remove_checked() {
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i=0; $i < count($delete) ; $i++) { 
+                $this->db->where('memorandum_id', $delete[$i]);
+                $this->db->delete('memorandum3');
+            }
+        }
+    }
+
 }
