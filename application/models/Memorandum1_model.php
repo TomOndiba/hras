@@ -136,7 +136,7 @@ class Memorandum1_model extends CI_Model {
             $id = $this->db->insert_id();
         }
 
-        $status = $this->db->affected_rows();
+        $status = $this->db->affected_rows(); 
         return ($status == 0) ? FALSE : $id;
     }
 

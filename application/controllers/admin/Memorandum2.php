@@ -148,8 +148,14 @@ class Memorandum2 extends CI_Controller {
         }
     }
 
-    function delete_multiple () {       
-        $this->Memorandum2_model->remove_checked($this->input->post('del_id'));
+    function delete_multiple() { 
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i = 0; $i < count($delete); $i++) {
+                $this->Memorandum2_model->delete($delete[$i]);
+            }
+        }
         redirect('admin/memorandum2');
     }
 

@@ -1,12 +1,11 @@
 <?php $this->load->view('admin/datepicker') ?>
-<?php $this->load->view('admin/checkAll') ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
         <h3>
             Daftar Surat Panggilan Ketiga
-            <a href="<?php echo site_url('admin/memorandum3/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+            <a href="<?php echo site_url('admin/memorandum3/add'); ?>" ><span class="fa fa-plus-square"></span></a>
         <span class="pull-right">
-                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
+                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
             </span>
             <div class="collapse" id="collapseExample">
                 <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
@@ -33,7 +32,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" value="checkbox" name="checkbox" onclick="checkUncheckAll(this);"/></th>
+                        <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                         <th class="controls" align="center">NO. SURAT</th>
                         <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>                        
@@ -49,7 +48,7 @@
                         ?>
                         <tbody>
                             <tr>
-                                <td><input type="checkbox" name="msg[]" value="<?php echo $row['memorandum_id']; ?>"></td>
+                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['memorandum_id']; ?>"></td>
                                 <td ><?php echo $row['memorandum_number']; ?></td>
                                 <td ><?php echo $row['employe_nik']; ?></td>
                                 <td ><?php echo $row['employe_name']; ?></td>                                
@@ -64,6 +63,7 @@
                                 </td>
                             </tr>
                         </tbody>
+                        </form>
                         <?php
                     }
                 } else {
@@ -83,3 +83,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $("#selectall").change(function() {
+            $(".checkbox").prop('checked', $(this).prop("checked"));
+        });
+    });
+</script>

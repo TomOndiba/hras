@@ -156,7 +156,7 @@ class Memorandum1 extends CI_Controller {
         }
     }
 
-    function delete_multiple() {
+    function delete_multiple() { 
         $action = $this->input->post('action');
         if ($action == "delete") {
             $delete = $this->input->post('msg');

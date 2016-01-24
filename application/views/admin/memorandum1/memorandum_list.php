@@ -1,8 +1,9 @@
+<?php $this->load->view('admin/datepicker') ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
         <h3>
             Daftar Surat Panggilan Pertama
-            <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+            <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="fa fa-plus-square"></span></a>
             <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
             </span>
