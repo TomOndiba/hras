@@ -25,10 +25,27 @@ class Memorandum2 extends CI_Controller {
     // Memorandum view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-        $data['memorandum'] = $this->Memorandum2_model->get(array('limit' => 10, 'present' => 0, 'offset' => $offset));
+        // Apply Filter
+        // Get $_GET variable
+        $q = $this->input->get(NULL, TRUE);
+
+        $data['q'] = $q;
+        $params = array(); 
+
+        // Employe Nik
+        if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
+            $params['employe_nik'] = $q['n'];
+        }
+        
+        $params['present'] = 0;
+        $paramsPage = $params;
+        $params['limit'] = 10;
+        $params['offset'] = $offset;
+
+        $data['memorandum'] = $this->Memorandum2_model->get($params);
         $data['memorandum3'] = $this->Memorandum3_model->get();
         $config['base_url'] = site_url('admin/memorandum2/index');
-        $config['total_rows'] = count($this->Memorandum2_model->get(array('present' => 0)));
+        $config['total_rows'] = count($this->Memorandum2_model->get($paramsPage));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Surat Panggilan 2';

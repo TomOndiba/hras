@@ -5,7 +5,22 @@
         <h3>
             Daftar Surat Panggilan Ketiga
             <a href="<?php echo site_url('admin/memorandum3/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>
+        <span class="pull-right">
+                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
+            </span>
+            <div class="collapse" id="collapseExample">
+                <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
+                <div class="row">                
+                    <div class="col-md-2">
+                        <input type="text" name="n" placeholder="NIK" value="" class="form-control">
+                    </div>                
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-success" value="Cari">
+                    </div>
+                </div>
+                <?php echo form_close() ?>
+            </div>
+            <?php echo validation_errors() ?>    </h3>
         <form action="<?php echo site_url('admin/memorandum3/delete_multiple'); ?>" method="post">
             <select name="action">
                 <option value="null">Pilih Action</option>

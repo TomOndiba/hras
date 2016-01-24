@@ -5,13 +5,28 @@
         <h3>
             Daftar Surat Panggilan Pertama
             <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3> 
-        <form action="<?php echo site_url('admin/memorandum1/delete_multiple'); ?>" method="post">
-            <select name="action">
-                <option value="null">Pilih Action</option>
-                <option value="delete">Delete</option>
-            </select>
-            <input type="submit" name="submit" value="Action">                 
+            <span class="pull-right">
+                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
+            </span>
+            <div class="collapse" id="collapseExample">
+                <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
+                <div class="row">                
+                    <div class="col-md-2">
+                        <input type="text" name="n" placeholder="NIK" value="" class="form-control">
+                    </div>                
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-success" value="Cari">
+                    </div>
+                </div>
+                <?php echo form_close() ?>
+            </div>
+            <?php echo validation_errors() ?>    </h3>                  
+            <form action="<?php echo site_url('admin/memorandum1/delete_multiple'); ?>" method="post">
+                <select name="action">
+                    <option value="null">Pilih Action</option>
+                    <option value="delete">Delete</option>
+                </select>
+                <input type="submit" name="submit" value="Action">          
                 <!-- Indicates a successful or positive action -->
 
                 <div class="table-responsive">
@@ -65,7 +80,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-
+                                </form>
                                 <div class="modal fade" id="modal<?php echo $row['memorandum_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
