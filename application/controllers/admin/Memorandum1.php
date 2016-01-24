@@ -31,13 +31,13 @@ class Memorandum1 extends CI_Controller {
         $q = $this->input->get(NULL, TRUE);
 
         $data['q'] = $q;
-        $params = array(); 
+        $params = array();
 
         // Employe Nik
         if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
             $params['employe_nik'] = $q['n'];
         }
-        
+
         $params['present'] = 0;
         $paramsPage = $params;
         $params['limit'] = 10;
@@ -156,8 +156,14 @@ class Memorandum1 extends CI_Controller {
         }
     }
 
-    function delete_multiple () {       
-        $this->Memorandum1_model->remove_checked($this->input->post('del_id'));
+    function delete_multiple() {
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i = 0; $i < count($delete); $i++) {
+                $this->Memorandum1_model->delete($delete[$i]);
+            }
+        }
         redirect('admin/memorandum1');
     }
 
@@ -184,7 +190,6 @@ class Memorandum1 extends CI_Controller {
         $html = $this->load->view('admin/memorandum1/memorandum_envelope', $data, true);
         $data = pdf_create($html, '', TRUE, 'A4', TRUE);
     }
-
 
     function present($id = NULL) {
         $this->Memorandum1_model->add(array('memorandum_id' => $id, 'memorandum_is_present' => 1));
