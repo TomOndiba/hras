@@ -45,7 +45,7 @@ if (isset($user)) {
                     <p style="color:#9C9C9C;margin-top: 5px"><i>Password minimal 6 karakter</i></p>
                 <?php endif; ?>
                 <label >Role *</label>
-                <select name="role_id" class="form-control">
+                <select name="role_id" class="form-control"> 
                     <?php
                     if (!empty($role)) {
                         foreach ($role as $row):

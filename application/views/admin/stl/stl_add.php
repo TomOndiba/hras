@@ -26,7 +26,7 @@ if (isset($stl)) {
         </div>
 
         <div class="row">
-            <div class="col-sm-9 col-md-9">
+            <div class="col-sm-9 col-md-9"> 
                 <?php if (isset($stl)): ?>
                     <input type="hidden" name="stl_id" value="<?php echo $stl['stl_id']; ?>" />
                 <?php endif; ?>
