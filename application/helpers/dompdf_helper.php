@@ -6,7 +6,6 @@ function pdf_create($html, $filename='', $stream=TRUE, $paper = 'Letter', $orien
     
     $dompdf = new DOMPDF();
     $dompdf->load_html($html);
-
     $dompdf->set_paper($paper, $orientation);
 
     $dompdf->render();

@@ -27,6 +27,12 @@
                     </li>
                 </ul>
             </li>
+            <li><a><i class="fa fa-cubes"></i> Surat Tanda Lulus <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/stl') ?>">Daftar Surat Tanda Lulus</a>                    
+                    </li>
+                </ul>
+            </li>
             <li><a><i class="fa fa-bank"></i> Surat BANK <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/bank') ?>">Master BANK</a>                    
