@@ -51,7 +51,7 @@ class Stl extends CI_Controller {
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
 
-            if ($this->input->post('stl')) {
+            if ($this->input->post('stl_id')) {
                 $params['stl_id'] = $this->input->post('stl_id');
             } else {
                 $lastnumber = $this->Stl_model->get(array('limit' => 1, 'order_by' => 'stl_id'));

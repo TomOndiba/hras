@@ -108,4 +108,8 @@
     'italic' => DOMPDF_FONT_DIR . 'DejaVuSerifCondensed-Italic',
     'normal' => DOMPDF_FONT_DIR . 'DejaVuSerifCondensed',
   ),
+  'open sans' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . 'bf11512877ef2223afd06e89358ef2fc',
+  ),
 ) ?>
