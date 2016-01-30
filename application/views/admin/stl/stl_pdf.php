@@ -1,5 +1,4 @@
 <html>
-<<<<<<< HEAD
 <head>
   <style type="text/css">
    .upper { text-transform: uppercase; }
@@ -8,7 +7,11 @@
    .small { font-variant:   small-caps; }
  </style>
  <style type="text/css">
-   @page {
+
+  body {
+    font-family: calibri;
+  }
+  @page {
     margin-top: 0.3cm;
     margin-bottom: 0.2cm;
     margin-left: 2cm;
@@ -34,14 +37,14 @@
         </tr>
       </table>              
       <strong><img src="<?php echo media_url() ?>/images/stl.jpg" alt=""></strong></div>       
-</div>
+    </div>
     <hr size="4">
     <p align="center" class="style18"><strong><span class="style16">Surat Tanda Lulus</span><br>
       NO : 001/MDPJM-PROPDEV/III/2015</strong></p>
       <span class="style18"><br>
       </span>
       <p align="justify" class="style18">Fakultas Operation PT. Sumber Alfaria Trijaya, Tbk. dengan ini menerangkan bahwa peserta terlampir telah mengikuti :
-<table width="558" border="0">
+        <table width="558" border="0">
           <tr>
             <td width="154" class="style18" scope="col">Nama Program Studi</td>
             <td width="10" class="style18" scope="col">:</td>
@@ -57,7 +60,7 @@
             <td class="style18">:</td>
             <td class="style18"><?php echo pretty_date($stl['stl_date'], 'd F Y',false)?></td>
           </tr>
-</table>
+        </table>
         <p class="style18">&nbsp;</p>     
         <p align="justify" class="style18">Dengan nilai peserta disajikan dalam lampiran terpisah. Selanjutnya, peserta tersebut akan ditempatkan sesuai dengan kebutuhan perusahaan.</p>
         <span class="style18"><br>        
@@ -78,62 +81,9 @@
               <td class="style18"><div align="center"></div></td>                        
             </tr>
           </tbody></table>        
-=======
-    <head>
-        <style type="text/css">
-            .upper { text-transform: uppercase; }
-            .lower { text-transform: lowercase; }
-            .cap   { text-transform: capitalize; }
-            .small { font-variant:   small-caps; }
-        </style>
-        <style type="text/css">
 
-            body {
-                font-family: calibri;
-            }
-            @page {
-                margin-top: 7.2em;
-                margin-bottom: 0.1em;
-                margin-left: 2cm;
-                margin-right: 2cm;
-            }
-            .style16 {font-size: 24px}
-            .style17 {font-size: 12px}
-        </style>
-    </head>
-    <body>
-        <p align="center"><strong><span class="style16">Surat Tanda Lulus</span><br>
-                NO : 001/MDPJM-PROPDEV/III/2015</strong></p>
-        <br>
-        <p align="justify">Fakultas Operation PT. Sumber Alfaria Trijaya, Tbk. dengan ini menerangkan bahwa peserta terlampir telah mengikuti :
-        <table width="558" style="border:1px solid">
-            <tr>
-                <td style="border:1px solid; background: #0cf" width="154" scope="col">Nama Program Studi</td>
-                <td width="10" scope="col">:</td>
-                <td width="386" scope="col">Store Leader Development Program 7P</td>
-            </tr>
-            <tr>
-                <td>Batch</td>
-                <td>:</td>
-                <td><?php echo $stl['stl_batch'] ?></td>
-            </tr>
-            <tr>
-                <td>Periode Studi </td>
-                <td>:</td>
-                <td><?php echo pretty_date($stl['stl_date'], 'd F Y', false) ?></td>
-            </tr>
-        </table>
-        <p>&nbsp;</p>     
-        <p align="justify">Dengan nilai peserta disajikan dalam lampiran terpisah. Selanjutnya, peserta tersebut akan ditempatkan sesuai dengan kebutuhan perusahaan.
-        </p><br>        
-        <p align="justify">Demikianlah surat tanda lulus ini dibuat hanya untuk kepentingan PT. Sumber Alfaria Trijaya,Tbk. </p>
-        <br><br>
-        <br>
->>>>>>> d4cf15cbbda890574202dadb33ef45c393e98726
-
-        <table border="0" align="right">
+          <table width="166" border="0" align="left">
             <tbody>
-<<<<<<< HEAD
               <tr>
                 <td width="88" class="style18">&nbsp;</td>
                 <td width="10" class="style18"></td>
@@ -185,7 +135,7 @@
             <p class="style18">&nbsp;</p>
             <p class="style18">
               <span class="style17">NRA: SAT/FRM/TR/061_Rev:001_220915</span> <br><br>
-<div style="padding:0px 0px;">
+              <div style="padding:0px 0px;">
                 <div align="right">
                   <table width="317" border="0" align="left">
                     <tr>
@@ -196,7 +146,7 @@
                     </tr>
                   </table>              
                   <strong><img src="<?php echo media_url() ?>/images/stl.jpg" alt=""></strong></div>       
-</div>
+                </div>
                 <hr size="4">                                
                 <p align="center" class="style18"><strong><span class="style16">Transkrip Nilai</span><br>
                   NO : 001/MDPJM-PROPDEV/III/2015</strong><span class="style18"><br>
@@ -322,69 +272,5 @@
                       </tr>
                     </table>
                     <p>&nbsp;</p>
-</body>
+                  </body>
                   </html>
-=======
-                <tr>
-                    <td><div align="center">Cileungsi, <?php echo pretty_date(date('Y-m-d'), 'd F Y', FALSE) ?> </div></td>
-                    <td><div align="center"></div></td>                        
-                </tr>
-                <tr>
-                    <td height="19"><div align="center">Mengesahkan,</div></td>
-                    <td><div align="center"></div></td>                        
-                </tr>
-            </tbody></table>        
-
-        <table width="166" border="0" align="left">
-            <tbody>
-                <tr>
-                    <td width="88">&nbsp;</td>
-                    <td width="10"></td>
-                </tr>
-                <tr>
-                    <td><div align="center">Mengetahui,</div></td>
-                    <td><div align="center"></div></td>
-                </tr>
-            </tbody>
-        </table>
-        <p><br>
-            <br>
-        </p>
-        <p><br>
-        </p>
-        <p>&nbsp;</p>
-        <table border="0" align="right">
-            <tbody>
-                <tr>
-                    <td><div align="center"><u>( RINEKSO WIDYANTO)</u></div></td>
-                    <td></td>                        
-                </tr>
-                <tr>
-                    <td><div align="center"><em>Branch Manager</em></div></td>
-                    <td></td>                        
-                </tr>
-            </tbody></table>
-        <table border="0" align="left">
-            <tbody>
-                <tr>
-                    <td><div align="center"><u>( TATI NURHAYATI )</u></div></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><div align="center"><em>People Development Manager</em></div></td>
-                    <td><div align="center"></div></td>
-                </tr>
-            </tbody>
-        </table>
-        <p><br>
-
-            <br>
-            <br>
-        </p>
-        <p>&nbsp;</p>
-        <p><br>
-            <span class="style17">NRA: SAT/FRM/TR/061_Rev:001_220915</span> <br>
-        </p>
-    </body>
-</html>
->>>>>>> d4cf15cbbda890574202dadb33ef45c393e98726
