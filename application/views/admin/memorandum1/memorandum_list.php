@@ -4,22 +4,24 @@
         <h3>
             Daftar Surat Panggilan Pertama
             <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="fa fa-plus-square"></span></a>
-            <span class="pull-right">
-                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
-            </span>
-            <div class="collapse" id="collapseExample">
-                <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
-                <div class="row">                
-                    <div class="col-md-2">
-                        <input type="text" name="n" placeholder="NIK" value="" class="form-control">
-                    </div>                
-                    <div class="col-md-2">
-                        <input type="submit" class="btn btn-success" value="Cari">
-                    </div>
+            <button type="button" class="btn btn-success pull-right btn-sm" data-toggle="modal" data-target="#myForm"><span class="glyphicon glyphicon-plus-sign"></span></button>
+        </h3>
+        <span class="pull-right">
+            <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
+        </span>
+        <div class="collapse" id="collapseExample">
+            <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
+            <div class="row">                
+                <div class="col-md-2">
+                    <input type="text" name="n" placeholder="NIK" value="" class="form-control">
+                </div>                
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-success" value="Cari">
                 </div>
-                <?php echo form_close() ?>
             </div>
-            <?php echo validation_errors() ?>    </h3>                  
+            <?php echo form_close() ?>
+        </div>
+        <?php echo validation_errors() ?>    </h3>                  
         <form action="<?php echo site_url('admin/memorandum1/delete_multiple'); ?>" method="post">
             <select name="action">
                 <option value="null">Pilih Action</option>
@@ -68,63 +70,152 @@
                                         }
                                         ?>
                                         <?php if ((isset($matchid) AND $matchid == $row['memorandum_id'])) { ?>
-                                            <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $sp_2); ?>" ><span class="fa fa-eye"></span> Lihat SP 2</a>
+                                        <a class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum2/detail/' . $sp_2); ?>" ><span class="fa fa-eye"></span> Lihat SP 2</a>
                                         <?php } elseif (empty($memorandum2)) { ?>
-                                            <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
-                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
+                                        <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
                                         <?php } else { ?>
-                                            <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
-                                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
+                                        <a data-toggle="tooltip" data-placement="top" title="Selesai Panggilan" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/memorandum1/present/' . $row['memorandum_id']); ?>" ><span class="fa fa-check"></span></a>
+                                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#modal<?php echo $row['memorandum_id'] ?>"><span class="fa fa-plus"></span>&nbsp; SP 2</button> 
                                         <?php } ?>
                                     </td>
                                 </tr>
                             </tbody>
 
-                            </form>
-                            <div class="modal fade" id="modal<?php echo $row['memorandum_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <?php echo form_open(site_url('admin/memorandum2/add')) ?>
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Kedua</h4>
+                        </form>
+                        <div class="modal fade" id="modal<?php echo $row['memorandum_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <?php echo form_open(site_url('admin/memorandum2/add')) ?>
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Tambah Surat Panggilan Kedua</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <input type="hidden" name="memorandum1_id" value="<?php echo $row['memorandum_id']; ?>" />
+                                        <input type="hidden" name="from_list" value="TRUE" >
+                                        <label >Tanggal Dikirim *</label>
+                                        <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
+                                        <label >Tanggal Panggilan *</label>
+                                        <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
+                                        <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                    </div>
+                                    <?php echo form_close() ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <tbody>
+                        <tr id="row">
+                            <td colspan="8" align="center">Data Kosong</td>
+                        </tr>
+                    </tbody>
+                    <?php
+                }
+                ?>   
+            </table>
+        </div>
+        <div >
+            <?php echo $this->pagination->create_links(); ?>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Tambah Panggilan</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12" id="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <?php echo form_open('admin/memorandum1/add') ?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="pull-left"><input class="form-control datepicker" required type="text" placeholder="Tanggal" name="memorandum_date_sent" value="<?php echo date('Y-m-d') ?>"></span>
+                                        <span class="pull-right"><input class="form-control datepicker" required type="text" placeholder="Tanggal" name="memorandum_call_date" value="<?php echo date('Y-m-d') ?>"></span>
+                                        <table class="table table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th class="head">NIK Karyawan</th>
+                                                    <th class="head">Tanggal Email</th>
+                                                    <th class="head">Tanggal Mangkir</th>
+                                                    <th></th>
+                                                </b></tr>
+                                            </thead>
+                                            <tbody id="p_scents">
+                                                <tr>
+                                                <td>
+                                                <input name="employe_id" id="field_id" type="hidden" class="form-control">
+                                                        <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan..">
+                                                    </td>
+                                                    <td><input class="form-control datepicker" required type="text" placeholder="Tanggal Email" name="memorandum_email_date"></td>
+                                                    <td><input class="form-control datepicker" required type="text" placeholder="Tanggal Mangkir" name="memorandum_absent_date"></td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <a href="#" id="addScnt"><span class="mdi mdi-plus-circle"></span> Tambah </a>
+                                        <br>
+                                        <br>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-4 pull-right" >
+                                                            <input type="submit" name="save" class="col-md-12 btn btn-primary" value="Simpan">
+                                                        </div>
+                                                        <div class="col-md-2" >
+                                                            <button class="col-md-12 btn btn-info" data-dismiss="modal"><i class="ion-arrow-left-a"></i> Batal</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <input type="hidden" name="memorandum1_id" value="<?php echo $row['memorandum_id']; ?>" />
-                                            <input type="hidden" name="from_list" value="TRUE" >
-                                            <label >Tanggal Dikirim *</label>
-                                            <input name="memorandum_date_sent" placeholder="Tanggal Dikirim" type="text" class="form-control datepicker"><br>
-                                            <label >Tanggal Panggilan *</label>
-                                            <input name="memorandum_call_date" placeholder="Tanggal Panggilan" type="text" class="form-control datepicker"><br>
-                                            <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </div>
-                                        <?php echo form_close() ?>
+                                        <?php echo form_close(); ?>
                                     </div>
                                 </div>
                             </div>
-                            <?php
-                        }
-                    } else {
-                        ?>
-                        <tbody>
-                            <tr id="row">
-                                <td colspan="8" align="center">Data Kosong</td>
-                            </tr>
-                        </tbody>
-                        <?php
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(function() {
+                var scntDiv = $('#p_scents');
+                var scntAdd = $('#form');
+                var i = $('#p_scents tr').size() + 1;
+
+                $("#addScnt").click(function() {
+                    $('<tr><input name="employe_id[]" id="field_id" type="hidden" class="form-control">
+                    <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.."></td><td><input name="memorandum_email_date[]" placeholder="Tanggal Email" type="text" class="form-control datepicker"><input name="memorandum_absent_date[]" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker"></td><td><a href="#" class="remScnt"><span class="mdi mdi-minus-circle"></span></a></td></tr>').appendTo(scntDiv);
+                    i++;
+                    return false;
+                });
+
+                $(document).on("click", ".remScnt", function() {
+                    if (i > 2) {
+                        $(this).parents('tr').remove();
+                        i--;
                     }
-                    ?>   
-                </table>
-            </div>
-            <div >
-                <?php echo $this->pagination->create_links(); ?>
-            </div>
-    </div>
-</div>
+                    return false;
+                });
+            });
+</script>
 <script>
     $(document).ready(function() {
         $("#selectall").change(function() {
