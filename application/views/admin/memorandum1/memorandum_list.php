@@ -156,8 +156,8 @@
                                             </thead>
                                             <tbody id="p_scents">
                                                 <tr>
-                                                <td>
-                                                <input name="employe_id" id="field_id" type="hidden" class="form-control">
+                                                    <td>
+                                                        <input name="employe_id" id="field_id" type="hidden" class="form-control">
                                                         <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan..">
                                                     </td>
                                                     <td><input class="form-control datepicker" required type="text" placeholder="Tanggal Email" name="memorandum_email_date"></td>
@@ -202,7 +202,7 @@
 
                 $("#addScnt").click(function() {
                     $('<tr><input name="employe_id[]" id="field_id" type="hidden" class="form-control">
-                    <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.."></td><td><input name="memorandum_email_date[]" placeholder="Tanggal Email" type="text" class="form-control datepicker"><input name="memorandum_absent_date[]" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker"></td><td><a href="#" class="remScnt"><span class="mdi mdi-minus-circle"></span></a></td></tr>').appendTo(scntDiv);
+                        <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.."></td><td><input name="memorandum_email_date[]" placeholder="Tanggal Email" type="text" class="form-control datepicker"><input name="memorandum_absent_date[]" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker"></td><td><a href="#" class="remScnt"><span class="mdi mdi-minus-circle"></span></a></td></tr>').appendTo(scntDiv);
                     i++;
                     return false;
                 });
