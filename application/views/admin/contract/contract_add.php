@@ -5,12 +5,12 @@ if (isset($contract)) {
     $inputNumber = $contract['contract_number'];
     $inputKe = $contract['contract_ke'];
     $inputDate = $contract['contract_date'];    
-    $inputEmploye = $contract['employe_employe_id'];
+    $inputEmploye = $contract['employe_employe_nik'];
 } else {
     $inputNumber = set_value('contract_number');
     $inputKe = set_value('contract_ke');
     $inputDate = set_value('contract_date');    
-    $inputEmploye = set_value('employe_id');
+    $inputEmploye = set_value('employe_nik');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -27,7 +27,7 @@ if (isset($contract)) {
                     <input type="hidden" name="contract_id" value="<?php echo $contract['contract_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($contract)) ? $contract['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal Habis Kontrak *</label>
@@ -89,7 +89,7 @@ if (isset($contract)) {
         var employe_list = [
 <?php foreach ($employe as $row): ?>
                 {
-                    "id": "<?php echo $row['employe_id'] ?>",
+                    "id": "<?php echo $row['employe_nik'] ?>",
                     "value": "<?php echo $row['employe_name'] ?>",
                     "label": "<?php echo $row['employe_name'] ?>",
                     "label_nik": "<?php echo $row['employe_nik'] ?>"

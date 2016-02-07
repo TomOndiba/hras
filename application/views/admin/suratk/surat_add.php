@@ -5,12 +5,12 @@ if (isset($surat)) {
     $inputNumber = $surat['sk_number'];
     $inputDescription = $surat['sk_description'];
     $inputSkDate = $surat['sk_date'];    
-    $inputEmploye = $surat['employe_employe_id'];
+    $inputEmploye = $surat['employe_employe_nik'];
 } else {
     $inputNumber = set_value('sk_number');
     $inputDescription = set_value('sk_description');
     $inputSkDate = set_value('sk_date');    
-    $inputEmploye = set_value('employe_id');
+    $inputEmploye = set_value('employe_nik');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -27,7 +27,7 @@ if (isset($surat)) {
                     <input type="hidden" name="sk_id" value="<?php echo $surat['sk_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($surat)) ? $surat['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal Surat *</label>
@@ -89,7 +89,7 @@ if (isset($surat)) {
         var employe_list = [
 <?php foreach ($employe as $row): ?>
                 {
-                    "id": "<?php echo $row['employe_id'] ?>",
+                    "id": "<?php echo $row['employe_nik'] ?>",
                     "value": "<?php echo $row['employe_name'] ?>",
                     "label": "<?php echo $row['employe_name'] ?>",
                     "label_nik": "<?php echo $row['employe_nik'] ?>"

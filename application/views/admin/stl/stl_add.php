@@ -7,14 +7,14 @@ if (isset($stl)) {
     $inputIpk = $stl['stl_ipk'];
     $inputDesc = $stl['stl_desc'];
     $inputDate = $stl['stl_date'];    
-    $inputEmploye = $stl['employe_employe_id'];
+    $inputEmploye = $stl['employe_employe_nik'];
 } else {
     $inputNumber = set_value('stl_number');
     $inputBatch = set_value('stl_batch');
     $inputIpk = set_value('stl_ipk');
     $inputDesc = set_value('stl_desc');
     $inputDate = set_value('stl_date');    
-    $inputEmploye = set_value('employe_employe_id');
+    $inputEmploye = set_value('employe_employe_nik');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -31,7 +31,7 @@ if (isset($stl)) {
                     <input type="hidden" name="stl_id" value="<?php echo $stl['stl_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($stl)) ? $stl['employe_name'] : '' ?>">
                 <br>
                 <label >Periode Studi *</label>
@@ -41,7 +41,15 @@ if (isset($stl)) {
                 <label >Nilai IPK *</label>
                 <input name="stl_ipk" placeholder="Nilai" type="text" class="form-control" value="<?php echo $inputIpk; ?>"><br> 
                 <label >Predikat *</label>
-                <input name="stl_desc" placeholder="Predikat" type="text" class="form-control" value="<?php echo $inputDesc; ?>"><br>               
+                <select name="stl_desc" class="form-control">
+                <option value="">--- Pilih Predikat ---</option>
+                <option value="Cum Laude">Cum Laude</option>
+                <option value="Sangat Memuaskan">Sangat Memuaskan</option>
+                <option value="Memuaskan">Memuaskan</option>
+                <option value="Kurang Memuaskan">Kurang Memuaskan</option>
+                <option value="Tidak Memuaskan">Tidak Memuaskan</option>
+                    
+                </select><br>               
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
             </div>
             <div class="col-sm-9 col-md-3">
@@ -97,7 +105,7 @@ if (isset($stl)) {
         var employe_list = [
         <?php foreach ($employe as $row): ?>
         {
-            "id": "<?php echo $row['employe_id'] ?>",
+            "id": "<?php echo $row['employe_nik'] ?>",
             "value": "<?php echo $row['employe_name'] ?>",
             "label": "<?php echo $row['employe_name'] ?>",
             "label_nik": "<?php echo $row['employe_nik'] ?>"

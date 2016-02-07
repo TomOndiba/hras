@@ -99,8 +99,8 @@
       </table><br>
       <p align="justify">Apabila Apabila Sdr/i tidak hadir pada penggilan yeng ke-II (dua) ini, dan atau apabila Sdr/i hadir namun
        tidak dapat memberikan keterangan tertulis dengan bukti yang sah, maka sesuai Pasal 168
-       Ayat 1 (satu) Undang-undang Nomor 13 Tahun 2003 tentang Ketenagakerjaan, jo Pasal 43
-       Ayat 3 (tiga) Peraturan Perusahaan PT Sumber Alfaria Trijaya Tbk. Tahun 2013-2015 Sdr/i akan
+       Ayat 1 (satu) Undang-undang Nomor 13 Tahun 2003 tentang Ketenagakerjaan, jo Pasal 44
+       Ayat 3 (tiga) Peraturan Perusahaan PT Sumber Alfaria Trijaya Tbk. Tahun 2015-2016 Sdr/i akan
        dikualifikasikan mengundurkan diri.<br>    
        Demikian panggilan ke-II ini kami sampaikan, atas perhatiannya kami ucapkan terima kasih.</p>
        <table border="0">

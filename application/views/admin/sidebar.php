@@ -35,7 +35,8 @@
             </li>
             <li><a><i class="fa fa-bank"></i> Surat BANK <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin/bank') ?>">Master BANK</a>                    
+                    <li><a href="<?php echo site_url('admin/bank') ?>">Master BANK</a> 
+                    <li><a href="<?php echo site_url('admin/spb') ?>">Daftar Surat Pengantar</a>                   
                     </li>
                 </ul>
             </li>
@@ -49,7 +50,7 @@
                 </ul>
             </li>
 
-            <li><a><i class="fa fa-newspaper-o"></i> Posting <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-newspaper-o"></i> Posting Info <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/posts') ?>">Daftar Postingan</a>
                     <li><a href="<?php echo site_url('admin/posts/add') ?>">Tambah Postingan</a>
@@ -57,9 +58,9 @@
                 </ul>
             </li>
 
-            <li><a><i class="fa fa-users"></i> Pengguna <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-users"></i> User Management <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin/user') ?>">Daftar Pengguna</a>
+                    <li><a href="<?php echo site_url('admin/user') ?>">Daftar User</a>
                     </li>
                 </ul>
             </li>

@@ -144,7 +144,7 @@
                             <!-- footer content -->
                             <footer class="bottom">
                                 <div class="">
-                                    <p class="pull-right">&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> HRA CMS
+                                    <p class="pull-right">&copy; <?php echo pretty_date(date('Y-m-d'), 'Y',FALSE) ?> HRA CMS by Achyar Anshorie
                                     </p>
                                 </div>
                                 <div class="clearfix"></div>

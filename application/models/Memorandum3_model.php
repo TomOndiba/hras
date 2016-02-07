@@ -73,7 +73,7 @@ class Memorandum3_model extends CI_Model {
             memorandum3.memorandum_input_date, memorandum3.memorandum_last_update');
         $this->db->join('memorandum2', 'memorandum2.memorandum_id = memorandum2_memorandum_id', 'left');
         $this->db->join('memorandum1', 'memorandum1.memorandum_id = memorandum2.memorandum1_memorandum_id', 'left');
-        $this->db->join('employe', 'employe.employe_id = memorandum1.employe_employe_id', 'left');
+        $this->db->join('employe', 'employe.employe_nik = memorandum1.employe_employe_nik', 'left');
         $this->db->join('user', 'user.user_id = memorandum3.user_user_id', 'left');
         $res = $this->db->get('memorandum3');  
 

@@ -7,13 +7,13 @@ if (isset($memorandum)) {
     $inputAbsentDate = $memorandum['memorandum_absent_date'];
     $inputDateSent = $memorandum['memorandum_date_sent'];
     $inputCallDate = $memorandum['memorandum_call_date'];
-    $inputEmploye = $memorandum['employe_employe_id'];
+    $inputEmploye = $memorandum['employe_employe_nik'];
 } else {
     $inputEmailDate = set_value('memorandum_email_date');
     $inputAbsentDate = set_value('memorandum_absent_date');
     $inputDateSent = set_value('memorandum_date_sent');
     $inputCallDate = set_value('memorandum_call_date');
-    $inputEmploye = set_value('employe_id');
+    $inputEmploye = set_value('employe_nik');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -30,7 +30,7 @@ if (isset($memorandum)) {
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal email *</label>
@@ -96,7 +96,7 @@ if (isset($memorandum)) {
         var employe_list = [
         <?php foreach ($employe as $row): ?>
         {
-            "id": "<?php echo $row['employe_id'] ?>",
+            "id": "<?php echo $row['employe_nik'] ?>",
             "value": "<?php echo $row['employe_name'] ?>",
             "label": "<?php echo $row['employe_name'] ?>",
             "label_nik": "<?php echo $row['employe_nik'] ?>"

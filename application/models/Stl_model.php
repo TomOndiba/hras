@@ -47,10 +47,10 @@ class Stl_model extends CI_Model {
             $this->db->order_by('stl_last_update', 'desc');
         }
 
-        $this->db->select('stl.stl_id, stl_number, stl_date, stl_batch, stl_ipk, stl_desc, employe_employe_id,  employe_name,            
+        $this->db->select('stl.stl_id, stl_number, stl_date, stl_batch, stl_ipk, stl_desc, employe_employe_nik,  employe_name,            
             stl.user_user_id,   user_name, user_full_name, employe_nik, employe_position, 
             stl_input_date, stl_last_update');
-        $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left'); 
+        $this->db->join('employe', 'employe.employe_nik = employe_employe_nik', 'left'); 
         $this->db->join('user', 'user.user_id = stl.user_user_id', 'left');       
         $res = $this->db->get('stl');
 
@@ -91,8 +91,8 @@ class Stl_model extends CI_Model {
             $this->db->set('stl_desc', $data['stl_desc']);
         }   
            
-         if(isset($data['employe_id'])) {
-            $this->db->set('employe_employe_id', $data['employe_id']);
+         if(isset($data['employe_nik'])) {
+            $this->db->set('employe_employe_nik', $data['employe_nik']);
         }
         
          if(isset($data['user_id'])) {
