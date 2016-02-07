@@ -2,8 +2,7 @@
     <div class="x_panel post-inherit">
         <h3>
             Daftar Surat Pengantar Bank
-            <a href="<?php echo site_url('admin/spb/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-            <button type="button" class="btn btn-info pull-right btn-sm" data-toggle="modal" data-target="#myForm"><span class="fa fa-plus"></span></button>
+            <a href="<?php echo site_url('admin/spb/add'); ?>" ><span class="fa fa-plus-square"></span></a>
         </h3>
 
         <!-- Indicates a successful or positive action -->
@@ -53,95 +52,3 @@
         </div>
     </div>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="myForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Tambah Surat Pengantar</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12" id="form">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <?php echo form_open('admin/spb/add') ?>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <span class="pull-left"><input class="form-control datepicker" required type="text" placeholder="Tanggal" name="spb_date" value="<?php echo date('Y-m-d') ?>"></span></div>
-                                        <label >Pilih Bank</label>
-                                        <tr>
-                                            <td><select name="bank_id[]" class="form-control" required>
-                                                <option value="">-- Pilih Bank --</option>
-                                                <?php foreach ($bank as $row): ?>
-                                                    <option value="<?php echo $row['bank_id'] ?>" >
-                                                        <?php echo $row['bank_name'] ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </td>
-                                            <table class="table table-condensed">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="head">Nama</th>
-                                                        <th class="head">Keluar</th>
-                                                        <th></th>
-                                                    </b></tr>
-                                                </thead>
-                                                <tbody id="p_scents">
-
-                                                    <td><input class="form-control" type="text" name="saving_debet[]"></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" id="addScnt"><span class="fa fa-plus"></span> Tambah </a>
-                                        <br>
-                                        <br>
-
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4 pull-right" >
-                                                            <input type="submit" class="col-md-12 btn btn-primary" value="Simpan">
-                                                        </div>
-                                                        <div class="col-md-2" >
-                                                            <button class="col-md-12 btn btn-info" data-dismiss="modal"><i class="ion-arrow-left-a"></i> Batal</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php echo form_close(); ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            $(function() {
-                var scntDiv = $('#p_scents');
-                var scntAdd = $('#form');
-                var i = $('#p_scents tr').size() + 1;
-
-                $("#addScnt").click(function() {
-                    $('<tr><td><select name="member_id[]" class="form-control" required><option value="">-- Pilih Nama --</option><?php foreach ($member as $row): ?><option value="<?php echo $row['member_id'] ?>" ><?php echo $row['member_full_name'] ?></option><?php endforeach; ?></select></td><td><input class="form-control" type="text" name="saving_debet[]"></td><td><a href="#" class="remScnt"><span class="mdi mdi-minus-circle"></span></a></td></tr>').appendTo(scntDiv);
-                    i++;
-                    return false;
-                });
-
-                $(document).on("click", ".remScnt", function() {
-                    if (i > 2) {
-                        $(this).parents('tr').remove();
-                        i--;
-                    }
-                    return false;
-                });
-            });
-</script>

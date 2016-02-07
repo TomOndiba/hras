@@ -12,7 +12,7 @@
     font-family: sans-serif;
   }
   @page {
-    margin-top: 0.3cm;
+    margin-top: 0.7cm;
     margin-bottom: 0.2cm;
     margin-left: 2cm;
     margin-right: 2cm;

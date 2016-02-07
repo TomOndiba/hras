@@ -10,7 +10,7 @@ function pdf_create($html, $filename='', $stream=TRUE, $paper = 'Letter', $orien
 
     $dompdf->render();
     if ($stream) {
-        $dompdf->stream($filename.".pdf", array("Attachment" => 0));
+        $dompdf->stream($filename."report.pdf", array("Attachment" => 0));
     } else {
         return $dompdf->output();
     }

@@ -4,7 +4,6 @@
         <h3>
             Daftar Surat Panggilan Pertama
             <a href="<?php echo site_url('admin/memorandum1/add'); ?>" ><span class="fa fa-plus-square"></span></a>
-            <button type="button" class="btn btn-success pull-right btn-sm" data-toggle="modal" data-target="#myForm"><span class="glyphicon glyphicon-plus-sign"></span></button>
         </h3>
         <span class="pull-right">
             <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"></span></a>
@@ -127,95 +126,7 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
-<div class="modal fade" id="myForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Tambah Panggilan</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12" id="form">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <?php echo form_open('admin/memorandum1/add') ?>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <span class="pull-left"><input class="form-control datepicker" required type="text" placeholder="Tanggal" name="memorandum_date_sent" value="<?php echo date('Y-m-d') ?>"></span>
-                                        <span class="pull-right"><input class="form-control datepicker" required type="text" placeholder="Tanggal" name="memorandum_call_date" value="<?php echo date('Y-m-d') ?>"></span>
-                                        <table class="table table-condensed">
-                                            <thead>
-                                                <tr>
-                                                    <th class="head">NIK Karyawan</th>
-                                                    <th class="head">Tanggal Email</th>
-                                                    <th class="head">Tanggal Mangkir</th>
-                                                    <th></th>
-                                                </b></tr>
-                                            </thead>
-                                            <tbody id="p_scents">
-                                                <tr>
-                                                    <td>
-                                                        <input name="employe_nik" id="field_id" type="hidden" class="form-control">
-                                                        <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan..">
-                                                    </td>
-                                                    <td><input class="form-control datepicker" required type="text" placeholder="Tanggal Email" name="memorandum_email_date"></td>
-                                                    <td><input class="form-control datepicker" required type="text" placeholder="Tanggal Mangkir" name="memorandum_absent_date"></td>
-                                                    <td></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <a href="#" id="addScnt"><span class="mdi mdi-plus-circle"></span> Tambah </a>
-                                        <br>
-                                        <br>
 
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="col-md-12">
-                                                    <div class="row">
-                                                        <div class="col-md-4 pull-right" >
-                                                            <input type="submit" name="save" class="col-md-12 btn btn-primary" value="Simpan">
-                                                        </div>
-                                                        <div class="col-md-2" >
-                                                            <button class="col-md-12 btn btn-info" data-dismiss="modal"><i class="ion-arrow-left-a"></i> Batal</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <?php echo form_close(); ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            $(function() {
-                var scntDiv = $('#p_scents');
-                var scntAdd = $('#form');
-                var i = $('#p_scents tr').size() + 1;
-
-                $("#addScnt").click(function() {
-                    $('<tr><input name="employe_nik[]" id="field_id" type="hidden" class="form-control">
-                        <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.."></td><td><input name="memorandum_email_date[]" placeholder="Tanggal Email" type="text" class="form-control datepicker"><input name="memorandum_absent_date[]" placeholder="Tanggal Mangkir" type="text" class="form-control datepicker"></td><td><a href="#" class="remScnt"><span class="mdi mdi-minus-circle"></span></a></td></tr>').appendTo(scntDiv);
-                    i++;
-                    return false;
-                });
-
-                $(document).on("click", ".remScnt", function() {
-                    if (i > 2) {
-                        $(this).parents('tr').remove();
-                        i--;
-                    }
-                    return false;
-                });
-            });
-</script>
 <script>
     $(document).ready(function() {
         $("#selectall").change(function() {
