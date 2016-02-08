@@ -67,7 +67,7 @@ class Suratk extends CI_Controller {
 
             $params['sk_description'] = $this->input->post('sk_description');
             $params['sk_date'] = $this->input->post('sk_date');            
-            $params['employe_nik'] = $this->input->post('employe_nik');
+            $params['employe_id'] = $this->input->post('employe_id');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['sk_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Suratk_model->add($params);

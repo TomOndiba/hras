@@ -48,10 +48,10 @@ class Suratk_model extends CI_Model {
             $this->db->order_by('sk_last_update', 'desc');
         }
 
-        $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, employe_employe_nik,  employe_name,            
+        $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, employe_employe_id,  employe_name,            
             sk.user_user_id,   user_name, user_full_name, employe_nik, employe_position, employe_date_register,
             sk_input_date, sk_last_update');
-        $this->db->join('employe', 'employe.employe_nik = employe_employe_nik', 'left'); 
+        $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left'); 
         $this->db->join('user', 'user.user_id = sk.user_user_id', 'left');       
         $res = $this->db->get('sk');
 
@@ -84,8 +84,8 @@ class Suratk_model extends CI_Model {
             $this->db->set('sk_date', $data['sk_date']);
         }        
            
-         if(isset($data['employe_nik'])) {
-            $this->db->set('employe_employe_nik', $data['employe_nik']);
+         if(isset($data['employe_id'])) {
+            $this->db->set('employe_employe_id', $data['employe_id']);
         }
         
          if(isset($data['user_id'])) {

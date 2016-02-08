@@ -65,7 +65,7 @@ class Stl extends CI_Controller {
             $params['stl_batch'] = $this->input->post('stl_batch'); 
             $params['stl_ipk'] = $this->input->post('stl_ipk');
             $params['stl_desc'] = $this->input->post('stl_desc');            
-            $params['employe_nik'] = $this->input->post('employe_nik');
+            $params['employe_id'] = $this->input->post('employe_id');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['stl_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Stl_model->add($params);

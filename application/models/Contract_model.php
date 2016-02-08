@@ -48,10 +48,10 @@ class Contract_model extends CI_Model {
             $this->db->order_by('contract_last_update', 'desc');
         }
 
-        $this->db->select('contract.contract_id, contract_number, contract_ke, contract_date, employe_employe_nik,  employe_name,            
+        $this->db->select('contract.contract_id, contract_number, contract_ke, contract_date, employe_employe_id,  employe_name,            
             contract.user_user_id,   user_name, user_full_name, employe_nik, employe_position, employe_date_register,
             contract_input_date, contract_last_update');
-        $this->db->join('employe', 'employe.employe_nik = employe_employe_nik', 'left'); 
+        $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left'); 
         $this->db->join('user', 'user.user_id = contract.user_user_id', 'left');       
         $res = $this->db->get('contract');
 
@@ -84,8 +84,8 @@ class Contract_model extends CI_Model {
             $this->db->set('contract_date', $data['contract_date']);
         }        
            
-         if(isset($data['employe_nik'])) {
-            $this->db->set('employe_employe_nik', $data['employe_nik']);
+         if(isset($data['employe_id'])) {
+            $this->db->set('employe_employe_id', $data['employe_id']);
         }
         
          if(isset($data['user_id'])) {
