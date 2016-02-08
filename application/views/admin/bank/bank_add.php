@@ -16,7 +16,7 @@ if (isset($bank)) {
         </div>
 
         <div class="row">
-            <div class="col-sm-9 col-md-9">
+            <div class="col-sm-9 col-md-3">
                 <?php if (isset($bank)): ?>
                     <input type="hidden" name="bank_id" value="<?php echo $bank['bank_id']; ?>" />
                 <?php endif; ?>
@@ -24,8 +24,10 @@ if (isset($bank)) {
                 <input name="bank_name" placeholder="Nama Bank" type="text" class="form-control" value="<?php echo $inputName ?>"><br>
                 
                 
-            </div>            
-            <br>
+            </div> </div>           
+            
+            <div class="row">
+            <div class="col-sm-6 col-md-3 col-xs-3">
             <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
             <a href="<?php echo site_url('admin/bank'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>
             <?php if (isset($bank)): ?>

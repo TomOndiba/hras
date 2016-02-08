@@ -20,7 +20,7 @@
                 </ul>
             </li>
 
-            <li><a><i class="fa fa-envelope"></i> Surat Keterangan <span class="fa fa-chevron-down"></span></a>
+            <li><a><i class="fa fa-print"></i> Surat Keterangan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/suratk') ?>">Surat Keterangan</a>
                     <li><a href="<?php echo site_url('admin/contract') ?>">Surat Habis Kontrak</a>
