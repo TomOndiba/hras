@@ -62,52 +62,52 @@
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name1'] == NULL) ? '' : '1.' ?></td>
-          <td><?php echo $spb['spb_name1'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name1'] ?></span></td> 
           <td><?php echo $spb['spb_nik1'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name2'] == NULL) ? '' : '2.' ?></td>
-          <td><?php echo $spb['spb_name2'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name2'] ?></span></td>
           <td><?php echo $spb['spb_nik2'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name3'] == NULL) ? '' : '3.' ?></td>
-          <td><?php echo $spb['spb_name3'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name3'] ?></span></td>
           <td><?php echo $spb['spb_nik3'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name4'] == NULL) ? '' : '4.' ?></td>
-          <td><?php echo $spb['spb_name4'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name4'] ?></span></td>
           <td><?php echo $spb['spb_nik4'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name5'] == NULL) ? '' : '5.' ?></td>
-          <td><?php echo $spb['spb_name5'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name5'] ?></span></td>
           <td><?php echo $spb['spb_nik5'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name6'] == NULL) ? '' : '6.' ?></td>
-          <td><?php echo $spb['spb_name6'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name6'] ?></span></td>
           <td><?php echo $spb['spb_nik6'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name7'] == NULL) ? '' : '7.' ?></td>
-          <td><?php echo $spb['spb_name7'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name7'] ?></span></td>
           <td><?php echo $spb['spb_nik7'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name8'] == NULL) ? '' : '8.' ?></td>
-          <td><?php echo $spb['spb_name8'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name8'] ?></span></td>
           <td><?php echo $spb['spb_nik8'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name9'] == NULL) ? '' : '9.' ?></td>
-          <td><?php echo $spb['spb_name9'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name9'] ?></span></td>
           <td><?php echo $spb['spb_nik9'] ?></td>
         </tr>
         <tr>
           <td><?php echo ($spb['spb_name10'] == NULL) ? '' : '10.' ?></td>
-          <td><?php echo $spb['spb_name10'] ?></td>
+          <td><span class="upper"><?php echo $spb['spb_name10'] ?></span></td>
           <td><?php echo $spb['spb_nik10'] ?></td>
         </tr>
       </table><br>
