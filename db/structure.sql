@@ -178,24 +178,19 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
+  `memorandum_employe_nik` INT NULL ,
+  `memorandum_employe_name` VARCHAR(255) NULL ,
   `memorandum_number` VARCHAR(45) NULL ,
   `memorandum_email_date` DATE NULL ,
   `memorandum_absent_date` DATE NULL ,
   `memorandum_date_sent` DATE NULL ,
   `memorandum_call_date` DATE NULL ,
-  `employe_employe_id` INT NULL ,
   `user_user_id` INT NULL ,
   `memorandum_is_present` TINYINT(1) NULL DEFAULT 0 ,
   `memorandum_finished_desc` TEXT NULL ,
   `memorandum_input_date` TIMESTAMP NULL ,
   `memorandum_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`memorandum_id`) ,
-  INDEX `fk_memorandum1_employe1_idx` (`employe_employe_id` ASC) ,
-  CONSTRAINT `fk_memorandum1_employe1`
-    FOREIGN KEY (`employe_employe_id` )
-    REFERENCES `employe` (`employe_id` )
-    ON DELETE SET NULL
-    ON UPDATE SET NULL)
+  PRIMARY KEY (`memorandum_id`) )
 ENGINE = InnoDB;
 
 
