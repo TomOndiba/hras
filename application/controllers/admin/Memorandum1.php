@@ -95,7 +95,8 @@ class Memorandum1 extends CI_Controller {
             $params['memorandum_absent_date'] = $this->input->post('memorandum_absent_date');
             $params['memorandum_date_sent'] = $this->input->post('memorandum_date_sent');
             $params['memorandum_call_date'] = $this->input->post('memorandum_call_date');
-            $params['employe_id'] = $this->input->post('employe_id');
+            $params['memorandum_employe_nik'] = $this->input->post('employe_nik');
+            $params['memorandum_employe_name'] = $this->input->post('employe_name');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['memorandum_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Memorandum1_model->add($params);

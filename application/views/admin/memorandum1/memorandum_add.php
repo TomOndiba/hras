@@ -7,13 +7,15 @@ if (isset($memorandum)) {
     $inputAbsentDate = $memorandum['memorandum_absent_date'];
     $inputDateSent = $memorandum['memorandum_date_sent'];
     $inputCallDate = $memorandum['memorandum_call_date'];
-    $inputEmploye = $memorandum['employe_employe_id'];
+    $inputEmployeNik = $memorandum['memorandum_employe_nik'];
+    $inputEmployeName = $memorandum['memorandum_employe_name'];
 } else {
     $inputEmailDate = set_value('memorandum_email_date');
     $inputAbsentDate = set_value('memorandum_absent_date');
     $inputDateSent = set_value('memorandum_date_sent');
     $inputCallDate = set_value('memorandum_call_date');
-    $inputEmploye = set_value('employe_id');
+    $inputEmployeNik = set_value('employe_nik');
+    $inputEmployeName = set_value('employe_name');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -30,7 +32,8 @@ if (isset($memorandum)) {
                     <input type="hidden" name="memorandum_id" value="<?php echo $memorandum['memorandum_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
+                <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal email *</label>
@@ -116,7 +119,8 @@ if (isset($memorandum)) {
         minLength: 1,
         select: function(event, ui) {
                 // feed hidden id field
-                $("#field_id").val(ui.item.id);
+                $("#field_id").val(ui.item.label_nik);
+                $("#field_name").val(ui.item.value);
                 // update number of returned rows
             },
             open: function(event, ui) {

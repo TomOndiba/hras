@@ -23,16 +23,13 @@ class Memorandum1_model extends CI_Model {
             $this->db->where('memorandum1.memorandum_id', $params['id']);
         }
 
-        if (isset($params['present'])) {
-            $this->db->where('memorandum1.memorandum_is_present', $params['present']);
-        }
 
         if (isset($params['present'])) {
             $this->db->where('memorandum1.memorandum_is_present', $params['present']);
         }
 
-        if (isset($params['employe_id'])) {
-            $this->db->where('employe.employe_id', $params['employe_id']);
+        if (isset($params['employe_nik'])) {
+            $this->db->where('employe.memorandum_employe_nik', $params['employe_nik']);
         }
 
         if (isset($params['date_start']) AND isset($params['date_end'])) {
@@ -55,8 +52,8 @@ class Memorandum1_model extends CI_Model {
         }
 
         $this->db->select('memorandum1.memorandum_id, memorandum1.memorandum_number, memorandum_email_date, memorandum_finished_desc,
-            memorandum_absent_date, memorandum1.memorandum_date_sent, memorandum1.memorandum_call_date, memorandum1.memorandum_is_present, employe_employe_id, memorandum1.user_user_id,
-            employe_name, employe_nik, employe_position, employe_address, employe_phone,
+            memorandum_absent_date, memorandum1.memorandum_date_sent, memorandum1.memorandum_call_date, memorandum1.memorandum_is_present, memorandum1.user_user_id,
+            memorandum_employe_name, memorandum_employe_nik, employe_position, employe_address, employe_phone,
             user_name, user_full_name,
             memorandum1.memorandum_input_date, memorandum1.memorandum_last_update');
         $this->db->select('memorandum2.memorandum_date_sent AS memorandum2_date_sent');
@@ -65,7 +62,7 @@ class Memorandum1_model extends CI_Model {
         $this->db->select('memorandum3.memorandum_call_date AS memorandum3_call_date');
         $this->db->join('memorandum2', 'memorandum2.memorandum1_memorandum_id = memorandum1.memorandum_id', 'left');
         $this->db->join('memorandum3', 'memorandum3.memorandum2_memorandum_id = memorandum2.memorandum_id', 'left');
-        $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left');
+        $this->db->join('employe', 'employe.employe_nik = memorandum_employe_nik', 'left');
         $this->db->join('user', 'user.user_id = memorandum1.user_user_id', 'left');
         $res = $this->db->get('memorandum1');
 
@@ -103,8 +100,12 @@ class Memorandum1_model extends CI_Model {
             $this->db->set('memorandum_call_date', $data['memorandum_call_date']);
         }
 
-        if (isset($data['employe_id'])) {
-            $this->db->set('employe_employe_id', $data['employe_id']);
+        if (isset($data['memorandum_employe_nik'])) {
+            $this->db->set('memorandum_employe_nik', $data['memorandum_employe_nik']);
+        }
+
+        if (isset($data['memorandum_employe_name'])) {
+            $this->db->set('memorandum_employe_name', $data['memorandum_employe_name']);
         }
 
         if (isset($data['user_id'])) {

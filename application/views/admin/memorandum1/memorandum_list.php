@@ -51,8 +51,8 @@
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['memorandum_id']; ?>"></td>
                                     <td ><?php echo $row['memorandum_number']; ?></td>
-                                    <td ><?php echo $row['employe_nik']; ?></td>
-                                    <td ><?php echo $row['employe_name']; ?></td>
+                                    <td ><?php echo $row['memorandum_employe_nik']; ?></td>
+                                    <td ><?php echo $row['memorandum_employe_name']; ?></td>
                                     <td ><?php echo pretty_date($row['memorandum_absent_date'], 'd F Y', false); ?></td>
                                     <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y', false); ?></td>
                                     <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y', false); ?></td>

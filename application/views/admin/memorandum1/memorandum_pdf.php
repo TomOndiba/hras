@@ -41,12 +41,12 @@
       <tr>
         <td width="78" scope="col">Nama</td>
         <td width="10" scope="col">:</td>
-        <td width="752" scope="col"><span class="cap"><?php echo $memorandum['employe_name'] ?></span></td>
+        <td width="752" scope="col"><span class="cap"><?php echo $memorandum['memorandum_employe_name'] ?></span></td>
       </tr>
       <tr>
         <td>NIK</td>
         <td>:</td>
-        <td><?php echo $memorandum['employe_nik'] ?></td>
+        <td><?php echo $memorandum['memorandum_employe_nik'] ?></td>
       </tr>
       <tr>
         <td>Jabatan</td>
