@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>
+                        <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
                         <th class="controls" align="center">TGL SURAT</th>
                         <th class="controls" align="center">DESKRIPSI</th>                        
@@ -25,7 +26,8 @@
                         <tbody>
                             <tr>
                                 <td ><?php echo $row['sk_number']; ?></td>
-                                <td ><?php echo $row['employe_name']; ?></td>
+                                <td ><?php echo $row['sk_employe_nik']; ?></td>
+                                <td ><?php echo $row['sk_employe_name']; ?></td>
                                 <td ><?php echo pretty_date($row['sk_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo $row['sk_description']; ?></td>                                
                                 <td>

@@ -23,13 +23,13 @@
       <td width="154">Surat Panggilan Ke-1 </td>
     </tr>
     <tr>
-      <td colspan="2"><?php echo $memorandum['employe_address'] ?></td>
+      <td colspan="2"><?php echo $memorandum['memorandum_employe_address'] ?></td>
     </tr><br>
 </table>
   <table width="406" border="0">
     <tr>
       <td width="66">TLP/HP : </td>
-      <td width="330"><?php echo $memorandum['employe_phone'] ?></td>
+      <td width="330"><?php echo $memorandum['memorandum_employe_phone'] ?></td>
     </tr>
 </table>
   <p>&nbsp;</p>

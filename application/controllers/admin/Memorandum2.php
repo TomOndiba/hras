@@ -34,7 +34,7 @@ class Memorandum2 extends CI_Controller {
 
         // Employe Nik
         if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
-            $params['employe_nik'] = $q['n'];
+            $params['memorandum_employe_nik'] = $q['n'];
         }
         
         $params['present'] = 0;

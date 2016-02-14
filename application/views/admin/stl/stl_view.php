@@ -26,17 +26,17 @@
                         <tr>         
                             <td>NIK</td>
                             <td>:</td>
-                            <td><?php echo $stl['employe_nik'] ?></td>
+                            <td><?php echo $stl['stl_employe_nik'] ?></td>
                         </tr>
                         <tr>         
                             <td>Karyawan</td>
                             <td>:</td>
-                            <td><?php echo $stl['employe_name'] ?></td>
+                            <td><?php echo $stl['stl_employe_name'] ?></td>
                         </tr>
                         <tr>         
                             <td>Jabatan</td>
                             <td>:</td>
-                            <td><?php echo $stl['employe_position'] ?></td>
+                            <td><?php echo $stl['stl_employe_position'] ?></td>
                         </tr>    
                         <tr>
                             <td>Tanggal Periode</td>

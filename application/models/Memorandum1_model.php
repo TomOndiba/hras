@@ -53,7 +53,7 @@ class Memorandum1_model extends CI_Model {
 
         $this->db->select('memorandum1.memorandum_id, memorandum1.memorandum_number, memorandum_email_date, memorandum_finished_desc,
             memorandum_absent_date, memorandum1.memorandum_date_sent, memorandum1.memorandum_call_date, memorandum1.memorandum_is_present, memorandum1.user_user_id,
-            memorandum_employe_name, memorandum_employe_nik, employe_position, employe_address, employe_phone,
+            memorandum_employe_name, memorandum_employe_nik, memorandum_employe_position, memorandum_employe_address, memorandum_employe_phone,
             user_name, user_full_name,
             memorandum1.memorandum_input_date, memorandum1.memorandum_last_update');
         $this->db->select('memorandum2.memorandum_date_sent AS memorandum2_date_sent');
@@ -106,6 +106,18 @@ class Memorandum1_model extends CI_Model {
 
         if (isset($data['memorandum_employe_name'])) {
             $this->db->set('memorandum_employe_name', $data['memorandum_employe_name']);
+        }
+
+        if (isset($data['memorandum_employe_position'])) {
+            $this->db->set('memorandum_employe_position', $data['memorandum_employe_position']);
+        }
+
+        if (isset($data['memorandum_employe_address'])) {
+            $this->db->set('memorandum_employe_address', $data['memorandum_employe_address']);
+        }
+
+        if (isset($data['memorandum_employe_phone'])) {
+            $this->db->set('memorandum_employe_phone', $data['memorandum_employe_phone']);
         }
 
         if (isset($data['user_id'])) {

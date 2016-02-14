@@ -26,7 +26,7 @@
                         <tr>         
                             <td>Karyawan</td>
                             <td>:</td>
-                            <td><?php echo $surat['employe_name'] ?></td>
+                            <td><?php echo $surat['sk_employe_name'] ?></td>
                         </tr>  
                         <tr>
                             <td>Tanggal Surat</td>

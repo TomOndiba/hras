@@ -35,7 +35,7 @@ class Memorandum1 extends CI_Controller {
 
         // Employe Nik
         if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
-            $params['employe_nik'] = $q['n'];
+            $params['memorandum_employe_nik'] = $q['n'];
         }
 
         $params['present'] = 0;
@@ -97,6 +97,9 @@ class Memorandum1 extends CI_Controller {
             $params['memorandum_call_date'] = $this->input->post('memorandum_call_date');
             $params['memorandum_employe_nik'] = $this->input->post('employe_nik');
             $params['memorandum_employe_name'] = $this->input->post('employe_name');
+            $params['memorandum_employe_position'] = $this->input->post('employe_position');
+            $params['memorandum_employe_address'] = $this->input->post('employe_address');
+            $params['memorandum_employe_phone'] = $this->input->post('employe_phone');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['memorandum_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Memorandum1_model->add($params);

@@ -180,6 +180,9 @@ CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
   `memorandum_employe_nik` INT NULL ,
   `memorandum_employe_name` VARCHAR(255) NULL ,
+  `memorandum_employe_position` VARCHAR(100) NULL ,
+  `memorandum_employe_address` TEXT NULL ,
+  `memorandum_employe_phone` VARCHAR(45) NULL ,
   `memorandum_number` VARCHAR(45) NULL ,
   `memorandum_email_date` DATE NULL ,
   `memorandum_absent_date` DATE NULL ,
@@ -296,20 +299,17 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `sk` (
   `sk_id` INT NOT NULL AUTO_INCREMENT ,
+  `sk_employe_nik` INT NULL ,
+  `sk_employe_name` VARCHAR(255) NULL ,
+  `sk_employe_position` VARCHAR(100) NULL ,
+  `sk_employe_date_register` DATE NULL ,
   `sk_number` VARCHAR(45) NULL ,
   `sk_description` TEXT NULL ,
   `sk_date` DATE NULL ,
-  `employe_employe_id` INT NULL ,
   `user_user_id` INT NULL ,
   `sk_input_date` TIMESTAMP NULL ,
   `sk_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`sk_id`) ,
-  INDEX `fk_sk_employe1_idx` (`employe_employe_id` ASC) ,
-  CONSTRAINT `fk_sk_employe1`
-    FOREIGN KEY (`employe_employe_id` )
-    REFERENCES `employe` (`employe_id` )
-    ON DELETE SET NULL
-    ON UPDATE SET NULL)
+  PRIMARY KEY (`sk_id`) )
 ENGINE = InnoDB;
 
 
@@ -318,20 +318,16 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `contract` (
   `contract_id` INT NOT NULL AUTO_INCREMENT ,
+  `contract_employe_nik` INT NULL ,
+  `contract_employe_name` VARCHAR(255) NULL ,
+  `contract_employe_position` VARCHAR(100) NULL ,
   `contract_number` VARCHAR(45) NULL ,
   `contract_ke` DECIMAL(10,0) NULL ,
   `contract_date` DATE NULL ,
-  `employe_employe_id` INT NULL ,
   `user_user_id` INT NULL ,
   `contract_input_date` TIMESTAMP NULL ,
   `contract_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`contract_id`) ,
-  INDEX `fk_contract_employe1_idx` (`employe_employe_id` ASC) ,
-  CONSTRAINT `fk_contract_employe1`
-    FOREIGN KEY (`employe_employe_id` )
-    REFERENCES `employe` (`employe_id` )
-    ON DELETE SET NULL
-    ON UPDATE SET NULL)
+  PRIMARY KEY (`contract_id`) )
 ENGINE = InnoDB;
 
 
@@ -340,22 +336,18 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `stl` (
   `stl_id` INT NOT NULL AUTO_INCREMENT ,
+  `stl_employe_nik` INT NULL ,
+  `stl_employe_name` VARCHAR(255) NULL ,
+  `stl_employe_position` VARCHAR(100) NULL ,
   `stl_number` VARCHAR(45) NULL ,
   `stl_date` DATE NULL ,
   `stl_batch` DECIMAL(10,0) NULL ,
   `stl_ipk` VARCHAR(45) NULL ,
   `stl_desc` VARCHAR(45) NULL ,
-  `employe_employe_id` INT NULL ,
   `user_user_id` INT NULL ,
   `stl_input_date` TIMESTAMP NULL ,
   `stl_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`stl_id`) ,
-  INDEX `fk_stl_employe1_idx` (`employe_employe_id` ASC) ,
-  CONSTRAINT `fk_stl_employe1`
-    FOREIGN KEY (`employe_employe_id` )
-    REFERENCES `employe` (`employe_id` )
-    ON DELETE SET NULL
-    ON UPDATE SET NULL)
+  PRIMARY KEY (`stl_id`) )
 ENGINE = InnoDB;
 
 

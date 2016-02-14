@@ -51,8 +51,8 @@
                         ?>
                         <tbody>
                             <tr>                                
-                                <td ><?php echo $row['employe_nik']; ?></td>
-                                <td ><?php echo $row['employe_name']; ?></td>
+                                <td ><?php echo $row['memorandum_employe_nik']; ?></td>
+                                <td ><?php echo $row['memorandum_employe_name']; ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_email_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo pretty_date($row['memorandum_absent_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo $row['memorandum_finished_desc']; ?></td>

@@ -9,6 +9,9 @@ if (isset($memorandum)) {
     $inputCallDate = $memorandum['memorandum_call_date'];
     $inputEmployeNik = $memorandum['memorandum_employe_nik'];
     $inputEmployeName = $memorandum['memorandum_employe_name'];
+    $inputEmployePos = $memorandum['memorandum_employe_position'];
+    $inputEmployeAdd = $memorandum['memorandum_employe_address'];
+    $inputEmployePho = $memorandum['memorandum_employe_phone'];
 } else {
     $inputEmailDate = set_value('memorandum_email_date');
     $inputAbsentDate = set_value('memorandum_absent_date');
@@ -16,6 +19,10 @@ if (isset($memorandum)) {
     $inputCallDate = set_value('memorandum_call_date');
     $inputEmployeNik = set_value('employe_nik');
     $inputEmployeName = set_value('employe_name');
+    $inputEmployePos = set_value('employe_position');
+    $inputEmployeAdd = set_value('employe_address');
+    $inputEmployePho = set_value('employe_phone');
+
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -33,7 +40,10 @@ if (isset($memorandum)) {
                 <?php endif; ?>
                 <label >Karyawan *</label>
                 <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
-                <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
+                <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">                
+                <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
+                <input name="employe_address" id="field_add" type="hidden" class="form-control"  value="<?php echo $inputEmployeAdd ?>">
+                <input name="employe_phone" id="field_phone" type="hidden" class="form-control"  value="<?php echo $inputEmployePho ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal email *</label>
@@ -99,9 +109,11 @@ if (isset($memorandum)) {
         var employe_list = [
         <?php foreach ($employe as $row): ?>
         {
-            "id": "<?php echo $row['employe_id'] ?>",
+            "id": "<?php echo $row['employe_position'] ?>",
             "value": "<?php echo $row['employe_name'] ?>",
             "label": "<?php echo $row['employe_name'] ?>",
+            "adr": "<?php echo $row['employe_address'] ?>",
+            "pho": "<?php echo $row['employe_phone'] ?>",
             "label_nik": "<?php echo $row['employe_nik'] ?>"
         },
     <?php endforeach; ?>
@@ -121,6 +133,9 @@ if (isset($memorandum)) {
                 // feed hidden id field
                 $("#field_id").val(ui.item.label_nik);
                 $("#field_name").val(ui.item.value);
+                $("#field_pos").val(ui.item.id);
+                $("#field_phone").val(ui.item.pho);
+                $("#field_add").val(ui.item.adr);
                 // update number of returned rows
             },
             open: function(event, ui) {

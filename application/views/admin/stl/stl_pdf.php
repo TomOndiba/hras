@@ -163,9 +163,9 @@
                 </tr>
                 <tr>
                   <td style="border:1px solid"><div align="center">1</div></td>
-                  <td style="border:1px solid"><div align="center" class="cap"><?php echo $stl['employe_name'] ?></div></td>
-                  <td style="border:1px solid"><div align="center"><?php echo $stl['employe_nik'] ?></div></td>
-                  <td style="border:1px solid"><div align="center"><?php echo $stl['employe_position'] ?></div></td>
+                  <td style="border:1px solid"><div align="center" class="cap"><?php echo $stl['stl_employe_name'] ?></div></td>
+                  <td style="border:1px solid"><div align="center"><?php echo $stl['stl_employe_nik'] ?></div></td>
+                  <td style="border:1px solid"><div align="center"><?php echo $stl['stl_employe_position'] ?></div></td>
                   <td style="border:1px solid"><div align="center"><?php echo $stl['stl_ipk'] ?></div></td>
                   <td style="border:1px solid"><div align="center"><?php echo $stl['stl_desc'] ?></div></td>
                 </tr>

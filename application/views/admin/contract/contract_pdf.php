@@ -31,7 +31,7 @@
       <tr>
         <td>Hal</td>
         <td>:</td>
-        <td><strong><u>Pemberihatuan Berakhirnya Masa Kontrak <?php $this->load->helper('tanggal'); 
+        <td><strong><u>Pemberihatuan Berakhirnya Masa Kontrak <?php $this->load->helper('tanggal');  
           $namaBulan=konversiBulan($contract['contract_ke']); echo $namaBulan; ?> <u></strong></td>
         </tr>
       </table>
@@ -41,17 +41,17 @@
         <tr>
           <td width="67" scope="col">Nama</td>
           <td width="13" scope="col">:</td>
-          <td width="464" scope="col"><span class="cap"><?php echo $contract['employe_name'] ?></span></td>
+          <td width="464" scope="col"><span class="cap"><?php echo $contract['contract_employe_name'] ?></span></td>
         </tr>
         <tr>
           <td>NIK</td>
           <td>:</td>
-          <td><?php echo $contract['employe_nik'] ?></td>
+          <td><?php echo $contract['contract_employe_nik'] ?></td>
         </tr>
         <tr>
           <td>Jabatan</td>
           <td>:</td>
-          <td><?php echo $contract['employe_position'] ?></td>
+          <td><?php echo $contract['contract_employe_position'] ?></td>
         </tr>
       </table>
       <p>&nbsp;</p>

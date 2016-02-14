@@ -21,12 +21,12 @@
                         <tr>         
                             <td>NIK</td>
                             <td>:</td>
-                            <td><?php echo $memorandum['employe_nik'] ?></td>
+                            <td><?php echo $memorandum['memorandum_employe_nik'] ?></td>
                         </tr>  
                         <tr>         
                             <td>Nama Karyawan</td>
                             <td>:</td>
-                            <td><?php echo $memorandum['employe_name'] ?></td>
+                            <td><?php echo $memorandum['memorandum_employe_name'] ?></td>
                         </tr>  
                         <tr>
                             <td>Tanggal Email</td>

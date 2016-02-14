@@ -26,7 +26,7 @@
                         <tr>         
                             <td>Karyawan</td>
                             <td>:</td>
-                            <td><?php echo $contract['employe_name'] ?></td>
+                            <td><?php echo $contract['contract_employe_name'] ?></td>
                         </tr>  
                         <tr>
                             <td>Tanggal Habis Kontrak</td>

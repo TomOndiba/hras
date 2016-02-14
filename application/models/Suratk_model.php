@@ -22,6 +22,11 @@ class Suratk_model extends CI_Model {
         {
             $this->db->where('sk.sk_id', $params['id']);
         }
+
+        if(isset($params['employe_nik']))
+        {
+            $this->db->where('employe.sk_employe_nik', $params['employe_nik']);
+        }
         
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
@@ -48,10 +53,10 @@ class Suratk_model extends CI_Model {
             $this->db->order_by('sk_last_update', 'desc');
         }
 
-        $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, employe_employe_id,  employe_name,            
-            sk.user_user_id,   user_name, user_full_name, employe_nik, employe_position, employe_date_register,
+        $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, sk_employe_name,            
+            sk.user_user_id,   user_name, user_full_name, sk_employe_nik, sk_employe_position, sk_employe_date_register,
             sk_input_date, sk_last_update');
-        $this->db->join('employe', 'employe.employe_id = employe_employe_id', 'left'); 
+        $this->db->join('employe', 'employe.employe_nik = sk_employe_nik', 'left'); 
         $this->db->join('user', 'user.user_id = sk.user_user_id', 'left');       
         $res = $this->db->get('sk');
 
@@ -84,8 +89,20 @@ class Suratk_model extends CI_Model {
             $this->db->set('sk_date', $data['sk_date']);
         }        
            
-         if(isset($data['employe_id'])) {
-            $this->db->set('employe_employe_id', $data['employe_id']);
+         if(isset($data['sk_employe_nik'])) {
+            $this->db->set('sk_employe_nik', $data['sk_employe_nik']);
+        }
+
+        if(isset($data['sk_employe_name'])) {
+            $this->db->set('sk_employe_name', $data['sk_employe_name']);
+        }
+
+        if(isset($data['sk_employe_position'])) {
+            $this->db->set('sk_employe_position', $data['sk_employe_position']);
+        }
+
+        if(isset($data['sk_employe_date_register'])) {
+            $this->db->set('sk_employe_date_register', $data['sk_employe_date_register']);
         }
         
          if(isset($data['user_id'])) {

@@ -12,6 +12,7 @@
                 <thead>
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>
+                        <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
                         <th class="controls" align="center">TGL HABIS KONTRAK</th>
                         <th class="controls" align="center">KONTRAK KE-</th>                        
@@ -25,7 +26,8 @@
                         <tbody>
                             <tr>
                                 <td ><?php echo $row['contract_number']; ?></td>
-                                <td ><?php echo $row['employe_name']; ?></td>
+                                <td ><?php echo $row['contract_employe_nik']; ?></td>
+                                <td ><?php echo $row['contract_employe_name']; ?></td>
                                 <td ><?php echo pretty_date($row['contract_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo ($row['contract_ke'] == '1') ? 'Pertama' : 'Kedua' ?></td>                                
                                 <td>

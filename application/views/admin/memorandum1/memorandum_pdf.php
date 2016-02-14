@@ -51,12 +51,12 @@
       <tr>
         <td>Jabatan</td>
         <td>:</td>
-        <td><?php echo $memorandum['employe_position'] ?></td>
+        <td><?php echo $memorandum['memorandum_employe_position'] ?></td>
       </tr>
       <tr>
         <td>Alamat</td>
         <td>:</td>
-        <td><span class="cap"><?php echo $memorandum['employe_address'] ?></span></td>
+        <td><span class="cap"><?php echo $memorandum['memorandum_employe_address'] ?></span></td>
       </tr>
     </table><br>
     <p>Dengan Hormat,</p>

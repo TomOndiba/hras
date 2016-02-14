@@ -66,7 +66,9 @@ class Contract extends CI_Controller {
 
             $params['contract_date'] = $this->input->post('contract_date');
             $params['contract_ke'] = $this->input->post('contract_ke');             
-            $params['employe_id'] = $this->input->post('employe_id');
+            $params['contract_employe_nik'] = $this->input->post('employe_nik');
+            $params['contract_employe_name'] = $this->input->post('employe_name');
+            $params['contract_employe_position'] = $this->input->post('employe_position');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['contaract_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Contract_model->add($params);

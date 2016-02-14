@@ -6,15 +6,19 @@ if (isset($stl)) {
     $inputBatch = $stl['stl_batch'];
     $inputIpk = $stl['stl_ipk'];
     $inputDesc = $stl['stl_desc'];
-    $inputDate = $stl['stl_date'];    
-    $inputEmploye = $stl['employe_employe_id'];
+    $inputDate = $stl['stl_date'];     
+    $inputEmployeNik = $stl['stl_employe_nik'];
+    $inputEmployeName = $stl['stl_employe_name'];
+    $inputEmployePos = $stl['stl_employe_position'];
 } else {
     $inputNumber = set_value('stl_number');
     $inputBatch = set_value('stl_batch');
     $inputIpk = set_value('stl_ipk');
     $inputDesc = set_value('stl_desc');
     $inputDate = set_value('stl_date');    
-    $inputEmploye = set_value('employe_employe_id');
+    $inputEmployeNik = set_value('employe_nik');
+    $inputEmployeName = set_value('employe_name');
+    $inputEmployePos = set_value('employe_position');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -31,7 +35,9 @@ if (isset($stl)) {
                     <input type="hidden" name="stl_id" value="<?php echo $stl['stl_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
+                <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
+                <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($stl)) ? $stl['employe_name'] : '' ?>">
                 <br>
                 <label >Periode Studi *</label>
@@ -105,7 +111,7 @@ if (isset($stl)) {
         var employe_list = [
         <?php foreach ($employe as $row): ?>
         {
-            "id": "<?php echo $row['employe_id'] ?>",
+            "id": "<?php echo $row['employe_position'] ?>",
             "value": "<?php echo $row['employe_name'] ?>",
             "label": "<?php echo $row['employe_name'] ?>",
             "label_nik": "<?php echo $row['employe_nik'] ?>"
@@ -125,7 +131,9 @@ if (isset($stl)) {
         minLength: 1,
         select: function(event, ui) {
                 // feed hidden id field
-                $("#field_id").val(ui.item.id);
+                $("#field_id").val(ui.item.label_nik);  
+                $("#field_name").val(ui.item.value);
+                $("#field_pos").val(ui.item.id);
                 // update number of returned rows
             },
             open: function(event, ui) {

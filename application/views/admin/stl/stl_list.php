@@ -26,8 +26,8 @@
                         <tbody>
                             <tr>
                                 <td ><?php echo $row['stl_number']; ?></td>
-                                <td ><?php echo $row['employe_nik']; ?></td>
-                                <td ><?php echo $row['employe_name']; ?></td>
+                                <td ><?php echo $row['stl_employe_nik']; ?></td>
+                                <td ><?php echo $row['stl_employe_name']; ?></td>
                                 <td ><?php echo pretty_date($row['stl_date'], 'd F Y', false); ?></td>
                                 <td ><?php echo $row['stl_batch']; ?></td>                                                          
                                 <td>

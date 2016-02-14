@@ -35,7 +35,7 @@ class Memorandum extends CI_Controller {
 
         // Employe Nik
         if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
-            $params['employe_nik'] = $q['n'];
+            $params['memorandum_employe_nik'] = $q['n'];
         }
 
         // Date start
@@ -113,7 +113,7 @@ class Memorandum extends CI_Controller {
         $data['memorandum'] = $this->Memorandum1_model->get($params);        
         $csv = array(
             0 => array(
-                'NO.', 'NIK', 'NAMA', 'EMAIL', 'MANGKIR', 'SP 1', 'PANGGILAN 1', 'SP 2',
+                'NO.', 'NIK', 'NAMA', 'JABATAN', 'EMAIL', 'MANGKIR', 'SP 1', 'PANGGILAN 1', 'SP 2',
                 'PANGGILAN 2', 'SP 3', 'PANGGILAN 3', 'KETERANGAN'
             
                 )
@@ -121,7 +121,7 @@ class Memorandum extends CI_Controller {
         $i = 1;
         foreach ($data['memorandum'] as $row) {
             $csv[] = array( $i,
-                $row['employe_nik'], $row['employe_name'],
+                $row['memorandum_employe_nik'], $row['memorandum_employe_name'], $row['memorandum_employe_position'],
                 pretty_date($row['memorandum_email_date'], 'm/d/Y', FALSE),
                 pretty_date($row['memorandum_absent_date'], 'm/d/Y', FALSE),
                 pretty_date($row['memorandum_date_sent'], 'm/d/Y', FALSE),
@@ -134,10 +134,10 @@ class Memorandum extends CI_Controller {
                 );
             $i++;
         }
-       // echo "<pre>";
-        // echo print_r($csv);
-        // echo "</pre>";
-        // die();
+        // echo "<pre>";
+       // echo print_r($csv);
+         // echo "</pre>";
+         // die();
         array_to_csv($csv, 'Report_Surat_Panggilan.csv');
     }
 

@@ -5,12 +5,16 @@ if (isset($contract)) {
     $inputNumber = $contract['contract_number'];
     $inputKe = $contract['contract_ke'];
     $inputDate = $contract['contract_date'];    
-    $inputEmploye = $contract['employe_employe_id'];
+    $inputEmployeNik = $contract['contract_employe_nik'];
+    $inputEmployeName = $contract['contract_employe_name'];
+    $inputEmployePos = $contract['contract_employe_position'];
 } else {
     $inputNumber = set_value('contract_number');
     $inputKe = set_value('contract_ke');
     $inputDate = set_value('contract_date');    
-    $inputEmploye = set_value('employe_id');
+    $inputEmployeNik = set_value('employe_nik');
+    $inputEmployeName = set_value('employe_name');
+    $inputEmployePos = set_value('employe_position');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -27,8 +31,10 @@ if (isset($contract)) {
                     <input type="hidden" name="contract_id" value="<?php echo $contract['contract_id']; ?>" />
                 <?php endif; ?>
                 <label >Karyawan *</label>
-                <input name="employe_id" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmploye ?>">
-                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($contract)) ? $contract['employe_name'] : '' ?>">
+                <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
+                <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
+                <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
+                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($contract)) ? $contract['contract_employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal Habis Kontrak *</label>
                 <input name="contract_date" placeholder="Tanggal Habis" type="text" class="form-control datepicker" value="<?php echo $inputDate; ?>"><br>
@@ -74,11 +80,11 @@ if (isset($contract)) {
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <?php if ($this->session->flashdata('delete')) { ?>
-        <script type="text/javascript">
-            $(window).load(function() {
-                $('#confirm-del').modal('show');
-            });
-        </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('#confirm-del').modal('show');
+        });
+    </script>
     <?php }
     ?>
 <?php endif; ?>
@@ -87,29 +93,34 @@ if (isset($contract)) {
     $(function() {
 
         var employe_list = [
-<?php foreach ($employe as $row): ?>
-                {
-                    "id": "<?php echo $row['employe_id'] ?>",
-                    "value": "<?php echo $row['employe_name'] ?>",
-                    "label": "<?php echo $row['employe_name'] ?>",
-                    "label_nik": "<?php echo $row['employe_nik'] ?>"
-                },
-<?php endforeach; ?>
-        ];
-        function custom_source(request, response) {
-            var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
-            response($.grep(employe_list, function(value) {
-                return matcher.test(value.label)
-                        || matcher.test(value.label_nik);
-            }));
-        }
+        <?php foreach ($employe as $row): ?>
+        {
+            "id": "<?php echo $row['employe_position'] ?>",
+            "value": "<?php echo $row['employe_name'] ?>",
+            "label": "<?php echo $row['employe_name'] ?>",
+            "label_nik": "<?php echo $row['employe_nik'] ?>"
+                       
+        },
+    <?php endforeach; ?>
+    ];
+    function custom_source(request, response) {
+        var matcher = new RegExp($.ui.autocomplete.escapeRegex(request.term), "i");
+        response($.grep(employe_list, function(value) {
+            return matcher.test(value.label)
+            || matcher.test(value.label_nik);
+        }));
+    }
 
-        $("#field").autocomplete({
-            source: custom_source,
-            minLength: 1,
-            select: function(event, ui) {
-                // feed hidden id field
-                $("#field_id").val(ui.item.id);
+    $("#field").autocomplete({
+        source: custom_source,
+        minLength: 1,
+        select: function(event, ui) {
+                // feed hidden id field                
+                $("#field_id").val(ui.item.label_nik);  
+                $("#field_name").val(ui.item.value);
+                $("#field_pos").val(ui.item.id);
+                                  
+
                 // update number of returned rows
             },
             open: function(event, ui) {
