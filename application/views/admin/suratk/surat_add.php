@@ -37,7 +37,7 @@ if (isset($surat)) {
                 <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
                 <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
                 <input name="employe_date_register" id="field_date" type="hidden" class="form-control"  value="<?php echo $inputEmployeReg ?>">
-                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($surat)) ? $surat['employe_name'] : '' ?>">
+                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($surat)) ? $surat['sk_employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal Surat *</label>
                 <input name="sk_date" placeholder="Tanggal Surat" type="text" class="form-control datepicker" value="<?php echo $inputSkDate; ?>"><br>

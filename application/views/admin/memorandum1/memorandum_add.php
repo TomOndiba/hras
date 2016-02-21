@@ -44,7 +44,7 @@ if (isset($memorandum)) {
                 <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
                 <input name="employe_address" id="field_add" type="hidden" class="form-control"  value="<?php echo $inputEmployeAdd ?>">
                 <input name="employe_phone" id="field_phone" type="hidden" class="form-control"  value="<?php echo $inputEmployePho ?>">
-                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['employe_name'] : '' ?>">
+                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($memorandum)) ? $memorandum['memorandum_employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal email *</label>
                 <input name="memorandum_email_date" placeholder="Tanggal Email" type="text" class="form-control datepicker" value="<?php echo $inputEmailDate; ?>"><br>

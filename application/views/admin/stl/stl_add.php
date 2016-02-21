@@ -38,7 +38,7 @@ if (isset($stl)) {
                 <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
                 <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
                 <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
-                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($stl)) ? $stl['employe_name'] : '' ?>">
+                <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($stl)) ? $stl['stl_employe_name'] : '' ?>">
                 <br>
                 <label >Periode Studi *</label>
                 <input name="stl_date" placeholder="Periode" type="text" class="form-control datepicker" value="<?php echo $inputDate; ?>"><br>

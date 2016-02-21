@@ -176,7 +176,7 @@ class User_model extends CI_Model {
     }
 
     function delete($id) {
-        $this->db->set('user_is_deleted', 1);
+        $this->db->set('user_is_deleted', 1 );
         $this->db->where('user_id', $id);
         $this->db->update('user');
     }

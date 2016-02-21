@@ -25,6 +25,7 @@
             <select name="action">
                 <option value="null">Pilih Action</option>
                 <option value="delete">Delete</option>
+                <option value="printPdf">Print</option>
             </select>
             <input type="submit" name="submit" value="Action">          
             <!-- Indicates a successful or positive action -->
