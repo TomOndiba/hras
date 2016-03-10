@@ -23,6 +23,10 @@ class Suratk_model extends CI_Model {
             $this->db->where('sk.sk_id', $params['id']);
         }
 
+        if (isset($params['multiple_id'])) {
+            $this->db->where_in('sk.sk_id', $params['multiple_id']);
+        }
+
         if(isset($params['employe_nik']))
         {
             $this->db->where('employe.sk_employe_nik', $params['employe_nik']);

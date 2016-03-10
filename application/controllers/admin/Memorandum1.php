@@ -179,6 +179,18 @@ class Memorandum1 extends CI_Controller {
             $html = $this->load->view('admin/memorandum1/memorandum_multiple_pdf', $data, true);
             $data = pdf_create($html, '$paper', TRUE);
         }
+        elseif ($action == "printEnvl") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $memo = $this->input->post('msg');
+            for ($i = 0; $i < count($memo); $i++) {
+                $print[] = $memo[$i];
+            }
+            $data['memorandum'] = $this->Memorandum1_model->get(array('multiple_id' => $print));
+
+            $html = $this->load->view('admin/memorandum1/memorandum_multi_envelope', $data, true);
+            $data = pdf_create($html, '$paper', TRUE);
+        }
         redirect('admin/memorandum1');
     }
 

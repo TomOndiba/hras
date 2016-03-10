@@ -125,6 +125,28 @@ class Suratk extends CI_Controller {
             $this->session->set_flashdata('delete', 'Delete');
             redirect('admin/suratk/edit/' . $id);
         }
+    } 
+
+    function multiple() {
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i = 0; $i < count($delete); $i++) {
+                $this->Suratk_model->delete($delete[$i]);
+            }
+        } elseif ($action == "printPdf") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $sk = $this->input->post('msg');
+            for ($i = 0; $i < count($sk); $i++) {
+                $print[] = $sk[$i];
+            }
+            $data['sk'] = $this->Suratk_model->get(array('multiple_id' => $print));
+
+            $html = $this->load->view('admin/suratk/sk_multiple_pdf', $data, true);
+            $data = pdf_create($html, '$paper', TRUE);
+        }        
+        redirect('admin/suratk');
     }
 
     function printPdf($id = NULL) {

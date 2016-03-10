@@ -18,7 +18,7 @@
                     <input type="submit" class="btn btn-success" value="Cari">
                 </div>
             </div>
-            <?php echo form_close() ?>
+            <?php echo form_close() ?> 
         </div>
         <?php echo validation_errors() ?>    </h3>                  
         <form action="<?php echo site_url('admin/memorandum1/multiple'); ?>" method="post">
@@ -26,6 +26,7 @@
                 <option value="null">Pilih Action</option>
                 <option value="delete">Delete</option>
                 <option value="printPdf">Print</option>
+                <option value="printEnvl">Amplop</option>
             </select>
             <input type="submit" name="submit" value="Action">          
             <!-- Indicates a successful or positive action -->
