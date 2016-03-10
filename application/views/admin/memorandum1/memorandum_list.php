@@ -21,7 +21,7 @@
             <?php echo form_close() ?>
         </div>
         <?php echo validation_errors() ?>    </h3>                  
-        <form action="<?php echo site_url('admin/memorandum1/delete_multiple'); ?>" method="post">
+        <form action="<?php echo site_url('admin/memorandum1/multiple'); ?>" method="post">
             <select name="action">
                 <option value="null">Pilih Action</option>
                 <option value="delete">Delete</option>

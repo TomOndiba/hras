@@ -148,13 +148,24 @@ class Memorandum2 extends CI_Controller {
         }
     }
 
-    function delete_multiple() { 
+    function multiple() {
         $action = $this->input->post('action');
         if ($action == "delete") {
             $delete = $this->input->post('msg');
             for ($i = 0; $i < count($delete); $i++) {
                 $this->Memorandum2_model->delete($delete[$i]);
             }
+        } elseif ($action == "printPdf") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $memo = $this->input->post('msg');
+            for ($i = 0; $i < count($memo); $i++) {
+                $print[] = $memo[$i];
+            }
+            $data['memorandum'] = $this->Memorandum2_model->get(array('multiple_id' => $print));
+
+            $html = $this->load->view('admin/memorandum2/memorandum_multiple_pdf', $data, true);
+            $data = pdf_create($html, '$paper', TRUE);
         }
         redirect('admin/memorandum2');
     }
