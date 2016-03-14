@@ -107,7 +107,7 @@ class Memorandum3 extends CI_Controller {
                 redirect('admin/Memorandum2/detail/' . $params['memorandum2_id']);
             } else {
                 $this->session->set_flashdata('success', $data['operation'] . ' Surat Panggilan berhasil');
-                redirect('admin/memorandum3');
+                redirect('admin/memorandum2');
             }
         } else {
             if ($this->input->post('memorandum_id')) {
