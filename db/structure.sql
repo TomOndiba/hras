@@ -178,7 +178,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
-  `memorandum_employe_nik` INT NULL ,
+  `memorandum_employe_nik` VARCHAR(8) NULL ,
   `memorandum_employe_name` VARCHAR(255) NULL ,
   `memorandum_employe_position` VARCHAR(100) NULL ,
   `memorandum_employe_address` TEXT NULL ,
@@ -299,7 +299,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `sk` (
   `sk_id` INT NOT NULL AUTO_INCREMENT ,
-  `sk_employe_nik` INT NULL ,
+  `sk_employe_nik` VARCHAR(8) NULL ,
   `sk_employe_name` VARCHAR(255) NULL ,
   `sk_employe_position` VARCHAR(100) NULL ,
   `sk_employe_date_register` DATE NULL ,
@@ -318,7 +318,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `contract` (
   `contract_id` INT NOT NULL AUTO_INCREMENT ,
-  `contract_employe_nik` INT NULL ,
+  `contract_employe_nik` VARCHAR(8) NULL ,
   `contract_employe_name` VARCHAR(255) NULL ,
   `contract_employe_position` VARCHAR(100) NULL ,
   `contract_number` VARCHAR(45) NULL ,
@@ -336,7 +336,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `stl` (
   `stl_id` INT NOT NULL AUTO_INCREMENT ,
-  `stl_employe_nik` INT NULL ,
+  `stl_employe_nik` VARCHAR(8) NULL ,
   `stl_employe_name` VARCHAR(255) NULL ,
   `stl_employe_position` VARCHAR(100) NULL ,
   `stl_number` VARCHAR(45) NULL ,

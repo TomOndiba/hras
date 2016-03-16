@@ -53,7 +53,7 @@ class Memorandum1 extends CI_Controller {
         $data['title'] = 'Surat Panggilan 1';
         $data['main'] = 'admin/memorandum1/memorandum_list';
         $this->load->view('admin/layout', $data);
-    }
+    }    
 
     function detail($id = NULL) {
         if ($this->Memorandum1_model->get(array('id' => $id)) == NULL) {

@@ -32,6 +32,10 @@ class Memorandum3_model extends CI_Model {
             $this->db->where('memorandum3.memorandum_is_present', $params['present']);
         }
 
+        if (isset($params['memorandum_employe_nik'])) {
+            $this->db->where('memorandum1.memorandum_employe_nik', $params['memorandum_employe_nik']);
+        }
+        
         if(isset($params['employe_nik']))
         {
             $this->db->where('employe1.memorandum_employe_nik', $params['employe_nik']);
