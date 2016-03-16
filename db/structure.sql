@@ -159,16 +159,12 @@ CREATE  TABLE IF NOT EXISTS `employe` (
   `employe_id` INT NOT NULL AUTO_INCREMENT ,
   `employe_nik` VARCHAR(100) NULL ,
   `employe_name` VARCHAR(255) NULL ,
-  `employe_phone` VARCHAR(45) NULL ,
   `employe_address` TEXT NULL ,
-  `employe_divisi` VARCHAR(255) NULL ,
-  `employe_position` VARCHAR(100) NULL ,
-  `employe_departement` VARCHAR(255) NULL ,
-  `employe_is_active` TINYINT(1) NULL DEFAULT 0 ,
   `employe_date_register` DATE NULL ,
-  `employe_input_date` TIMESTAMP NULL ,
-  `employe_last_update` TIMESTAMP NULL ,
-  `user_user_id` INT NULL ,
+  `employe_position` VARCHAR(100) NULL ,
+  `employe_divisi` VARCHAR(255) NULL ,
+  `employe_departement` VARCHAR(255) NULL ,
+  `employe_phone` VARCHAR(45) NULL ,
   PRIMARY KEY (`employe_id`) )
 ENGINE = InnoDB;
 

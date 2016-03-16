@@ -8,8 +8,7 @@ if (isset($employe)) {
     $inputDivisi = $employe['employe_divisi'];
     $inputPosition = $employe['employe_position'];
     $inputDepartement = $employe['employe_departement'];
-    $inputRegister = $employe['employe_date_register'];
-    $inputStatus = $employe['employe_is_active'];
+    $inputRegister = $employe['employe_date_register'];   
 } else {
     $inputName = set_value('employe_name');
     $inputPhone = set_value('employe_phone');
@@ -17,8 +16,7 @@ if (isset($employe)) {
     $inputDivisi = set_value('employe_divisi');
     $inputPosition = set_value('employe_position');
     $inputDepartement = set_value('employe_departement');
-    $inputRegister = set_value('employe_date_register');
-    $inputStatus = set_value('employe_is_active');
+    $inputRegister = set_value('employe_date_register');    
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -54,18 +52,7 @@ if (isset($employe)) {
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
             </div>
             <div class="col-sm-9 col-md-3">
-                <div class="form-group">
-                    <label>Status</label>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="employe_is_active" value="0" <?php echo ($inputStatus == 0) ? 'checked' : ''; ?>> Non-Aktif
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="employe_is_active" value="1" <?php echo ($inputStatus == 1) ? 'checked' : ''; ?>> Aktif
-                        </label>
-                    </div>
+                <div class="form-group">                    
                     <br>
                     <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button>
                     <a href="<?php echo site_url('admin/employe'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a>

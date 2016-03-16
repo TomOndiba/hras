@@ -27,12 +27,7 @@ class Employe_model extends CI_Model {
         {
             $this->db->where('employe.employe_nik', $params['employe_nik']);
         }
-        
-        if(isset($params['status']))
-        {
-            $this->db->where('employe_is_active', $params['status']);
-        }
-        
+                        
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
             $this->db->where('employe_published_date >=', $params['date_start'] . ' 00:00:00');
@@ -55,14 +50,11 @@ class Employe_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('employe_last_update', 'desc');
+            $this->db->order_by('employe_id', 'desc');
         }
 
         $this->db->select('employe.employe_id, employe_nik, employe_name, employe_phone, employe_address,
-            employe_divisi, employe_position, employe_departement, employe_date_register, employe_is_active,
-            user_name,
-            employe_input_date, employe_last_update');
-        $this->db->join('user', 'user.user_id = employe.user_user_id', 'left');
+            employe_divisi, employe_position, employe_departement, employe_date_register');        
         $res = $this->db->get('employe');
 
         if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['member_nip']))) {
@@ -106,27 +98,11 @@ class Employe_model extends CI_Model {
          if(isset($data['employe_departement'])) {
             $this->db->set('employe_departement', $data['employe_departement']);
         }
-        
-         if(isset($data['employe_is_active'])) {
-            $this->db->set('employe_is_active', $data['employe_is_active']);
-        }
-        
+                         
          if(isset($data['employe_date_register'])) {
             $this->db->set('employe_date_register', $data['employe_date_register']);
         }
-        
-         if(isset($data['user_id'])) {
-            $this->db->set('user_user_id', $data['user_id']);
-        }
-        
-         if(isset($data['employe_input_date'])) {
-            $this->db->set('employe_input_date', $data['employe_input_date']);
-        }
-        
-         if(isset($data['employe_last_update'])) {
-            $this->db->set('employe_last_update', $data['employe_last_update']);
-        }
-        
+                
         if (isset($data['employe_id'])) {
             $this->db->where('employe_id', $data['employe_id']);
             $this->db->update('employe');
@@ -144,26 +120,6 @@ class Employe_model extends CI_Model {
     function delete($id) {
         $this->db->where('employe_id', $id);
         $this->db->delete('employe');
-    }
-   
-   //import
-   function importkaryawan($dataarray)
-    {
-        for($i=0;$i<count($dataarray);$i++){
-            $data = array(
-                'employe_nik'           =>$dataarray[$i]['employe_nik'],
-                'employe_name'          =>$dataarray[$i]['employe_name'],
-                'employe_position'      =>$dataarray[$i]['employe_position'],
-                'employe_departement'   =>$dataarray[$i]['employe_departement'],
-                'employe_divisi'        =>$dataarray[$i]['employe_divisi'],
-                'employe_phone'         =>$dataarray[$i]['employe_phone'],
-                'employe_date_register' =>$dataarray[$i]['employe_date_register'],
-                'employe_address'       =>$dataarray[$i]['employe_address']
-            );
-            $this->db->insert('employe', $data);
-        }
-    }
-
-            
+    }            
  
 }

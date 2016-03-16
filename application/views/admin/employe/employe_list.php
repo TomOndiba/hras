@@ -30,8 +30,7 @@
                     <th class="controls" align="center">NIK</th>
                     <th class="controls" align="center">NAMA</th>
                     <th class="controls" align="center">JABATAN</th>
-                    <th class="controls" align="center">DEPARTEMEN</th>
-                    <th class="controls" align="center">STATUS</th>
+                    <th class="controls" align="center">DEPARTEMEN</th>                    
                     <th class="controls" align="center">AKSI</th>
                 </tr>
             </thead>
@@ -44,8 +43,7 @@
                             <td ><?php echo $row['employe_nik']; ?></td> 
                             <td ><?php echo $row['employe_name']; ?></td>
                             <td ><?php echo $row['employe_position']; ?></td>
-                            <td ><?php echo $row['employe_departement']; ?></td>
-                            <td ><?php echo $row['employe_is_active'] == 1 ? 'Aktif' : 'Non-Aktif'; ?></td>
+                            <td ><?php echo $row['employe_departement']; ?></td>                           
                             <td>
                                 <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/employe/detail/' . $row['employe_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                 <a class="btn btn-success btn-xs" href="<?php echo site_url('admin/employe/edit/' . $row['employe_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>

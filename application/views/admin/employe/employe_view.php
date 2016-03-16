@@ -50,27 +50,12 @@
                         <tr>
                             <td>Tanggal Bekerja</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($employe['employe_date_register'], 'd F Y', False) ?></td>
-                        </tr>
-                        <tr>
-                            <td>Status</td>
-                            <td>:</td>
-                            <td><?php echo $employe['employe_is_active'] == 1? 'Aktif' : 'Non-Aktif'; ?></td>
-                        </tr>
-                        <tr>
-                            <td>Tanggal Input</td>
-                            <td>:</td>
-                            <td><?php echo pretty_date($employe['employe_input_date']) ?></td>
-                        </tr>
-                        <tr>
-                            <td>Penulis</td>
-                            <td>:</td>
-                            <td><?php echo $employe['user_name']; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                            <td><?php echo pretty_date($employe['employe_date_register'], 'd F Y', False) ?></td>                 </tr>                        
 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
