@@ -1,0 +1,129 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/** 
+* BPJS Model Class
+ *
+ * @package     HRA CMS
+ * @subpackage  Models
+ * @category    Models
+ * @author      Achyar Anshorie
+ */
+
+class Bpjs_model extends CI_Model {
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    // Get From Databases
+    function get($params = array())
+    {
+        if(isset($params['id']))
+        {
+            $this->db->where('bpjs.bpjs_id', $params['id']);
+        }
+        
+        if(isset($params['bpjs_noka']))
+        {
+            $this->db->where('bpjs.bpjs_noka', $params['bpjs_noka']);
+        }
+                        
+        if(isset($params['date_start']) AND isset($params['date_end']))
+        {
+            $this->db->where('bpjs_published_date >=', $params['date_start'] . ' 00:00:00');
+            $this->db->where('bpjs_published_date <=', $params['date_end'] . ' 23:59:59');
+        }
+
+        if(isset($params['limit']))
+        {
+            if(!isset($params['offset']))
+            {
+                $params['offset'] = NULL;
+            }
+
+            $this->db->limit($params['limit'], $params['offset']);
+        }
+
+        if(isset($params['order_by']))
+        {
+            $this->db->order_by($params['order_by'], 'desc');
+        }
+        else
+        {
+            $this->db->order_by('bpjs_id', 'desc');
+        }
+
+        $this->db->select('bpjs.bpjs_id, bpjs_noka, bpjs_ktp, bpjs_npp, bpjs_name,
+            bpjs_hub, bpjs_date, bpjs_tmt, bpjs_faskes, bpjs_kelas');        
+        $res = $this->db->get('bpjs');
+
+        if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['bpjs_npp']))) {
+            return $res->row_array();
+        } else {
+            return $res->result_array();
+        }
+    }
+
+    // Add and update to database
+    function add($data = array()) {
+        
+         if(isset($data['bpjs_id'])) {
+            $this->db->set('bpjs_id', $data['bpjs_id']);
+        }
+        
+         if(isset($data['bpjs_noka'])) {
+            $this->db->set('bpjs_noka', $data['bpjs_noka']);
+        }
+        
+         if(isset($data['bpjs_ktp'])) {
+            $this->db->set('bpjs_ktp', $data['bpjs_ktp']);
+        }
+        
+         if(isset($data['bpjs_npp'])) {
+            $this->db->set('bpjs_npp', $data['bpjs_npp']);
+        }
+        
+         if(isset($data['bpjs_name'])) {
+            $this->db->set('bpjs_name', $data['bpjs_name']);
+        }
+        
+         if(isset($data['bpjs_hub'])) {
+            $this->db->set('bpjs_hub', $data['bpjs_hub']);
+        }
+        
+         if(isset($data['bpjs_date'])) {
+            $this->db->set('bpjs_date', $data['bpjs_date']);
+        }
+        
+         if(isset($data['bpjs_tmt'])) {
+            $this->db->set('bpjs_tmt', $data['bpjs_tmt']);
+        }
+                         
+         if(isset($data['bpjs_faskes'])) {
+            $this->db->set('bpjs_faskes', $data['bpjs_faskes']);
+        }
+          
+        if(isset($data['bpjs_kelas'])) {
+            $this->db->set('bpjs_kelas', $data['bpjs_kelas']);
+        }
+
+        if (isset($data['bpjs_id'])) {
+            $this->db->where('bpjs_id', $data['bpjs_id']);
+            $this->db->update('bpjs');
+            $id = $data['bpjs_id'];
+        } else {
+            $this->db->insert('bpjs');
+            $id = $this->db->insert_id();
+        }
+
+        $status = $this->db->affected_rows();
+        return ($status == 0) ? FALSE : $id;
+    }
+    
+    // Delete to database
+    function delete($id) {
+        $this->db->where('bpjs_id', $id);
+        $this->db->delete('bpjs');
+    }            
+ 
+}
