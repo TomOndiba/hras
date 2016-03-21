@@ -64,14 +64,21 @@ class Employe extends CI_Controller {
         $this->load->view('admin/layout', $data);
     }
 
-    function upload($id = NULL) {
-        if ($this->Employe_model->get(array('id' => $id)) == NULL) {
+    function upload() {
+        if ($_FILES) {
+            $sql_file = $this->do_upload('userfile');
+            $file_restore = $this->load->file(FCPATH . 'uploads/sql_file/' . $sql_file, true);
+            $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
+            $this->db->query($file_restore);
+            $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
+
+            $this->session->set_flashdata('success', 'Upload data karyawan berhasil');
             redirect('admin/employe');
+        } else {
+            $data['title'] = 'Upload Karyawan';
+            $data['main'] = 'admin/employe/employe_upload';
+            $this->load->view('admin/layout', $data);
         }
-        $data['employe'] = $this->Employe_model->get(array('id' => $id));
-        $data['title'] = 'Detail Karyawan';
-        $data['main'] = 'admin/employe/employe_upload';
-        $this->load->view('admin/layout', $data);
     }
 
     // Add Employe and Update
@@ -91,7 +98,7 @@ class Employe extends CI_Controller {
 
             if ($this->input->post('employe_id')) {
                 $params['employe_id'] = $this->input->post('employe_id');
-            } else {                
+            } else {
                 $params['employe_nik'] = $this->input->post('employe_nik');
             }
 
@@ -100,21 +107,21 @@ class Employe extends CI_Controller {
             $params['employe_address'] = stripslashes($this->input->post('employe_address'));
             $params['employe_divisi'] = stripslashes($this->input->post('employe_divisi'));
             $params['employe_position'] = $this->input->post('employe_position');
-            $params['employe_departement'] = $this->input->post('employe_departement');            
-            $params['employe_date_register'] = $this->input->post('employe_date_register');          
+            $params['employe_departement'] = $this->input->post('employe_departement');
+            $params['employe_date_register'] = $this->input->post('employe_date_register');
             $status = $this->Employe_model->add($params);
 
 
             // activity log
             $this->Activity_log_model->add(
-                array(
-                    'log_date' => date('Y-m-d H:i:s'),
-                    'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'Karyawan',
-                    'log_action' => $data['operation'],
-                    'log_info' => 'ID:'.$status.';Title:' . $params['employe_name']
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'Karyawan',
+                        'log_action' => $data['operation'],
+                        'log_info' => 'ID:' . $status . ';Title:' . $params['employe_name']
                     )
-                );
+            );
 
             $this->session->set_flashdata('success', $data['operation'] . ' Karyawan berhasil');
             redirect('admin/employe');
@@ -139,14 +146,14 @@ class Employe extends CI_Controller {
             $this->Employe_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                array(
-                    'log_date' => date('Y-m-d H:i:s'),
-                    'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'Karyawan',
-                    'log_action' => 'Hapus',
-                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'Karyawan',
+                        'log_action' => 'Hapus',
+                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-                );
+            );
             $this->session->set_flashdata('success', 'Hapus Karyawan berhasil');
             redirect('admin/employe');
         } elseif (!$_POST) {
@@ -154,7 +161,31 @@ class Employe extends CI_Controller {
             redirect('admin/employe/edit/' . $id);
         }
     }
-   
+
+    public function do_upload($file) {
+        $this->load->library('upload');
+        $config['upload_path'] = FCPATH . 'uploads/sql_file';
+
+        /* create directory if not exist */
+        if (!is_dir($config['upload_path'])) {
+            mkdir($config['upload_path'], 0777, TRUE);
+        }
+
+        $config['allowed_types'] = 'sql|csv';
+        $config['max_size'] = '32000';
+        //$this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload($file)) {
+            $this->session->set_flashdata('failed', $this->upload->display_errors(''));
+            redirect(uri_string());
+        }
+
+        $upload_data = $this->upload->data();
+
+        return $upload_data['file_name'];
+    }
+
 }
 
 /* End of file employe.php */
