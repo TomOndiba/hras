@@ -8,8 +8,8 @@ Aplikasi ini menggunakan
 3. Jquery
 4. Dompdf
 5. Csv
-6. CMS Opensources
+6. SYSCMS
 
 Developer by
 1. Achyar Anshorie
-2. Sistiandy Syahbana Nugraha
+2. Sistiandy Syahbana Nugraha (sistiandy.web.id)
