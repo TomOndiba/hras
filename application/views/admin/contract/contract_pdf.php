@@ -31,7 +31,7 @@
       <tr>
         <td>Hal</td>
         <td>:</td>
-        <td><strong><u>Pemberihatuan Berakhirnya Masa Kontrak <?php $this->load->helper('tanggal');  
+        <td><strong><u>Pemberitahuan Berakhirnya Masa Kontrak <?php $this->load->helper('tanggal');  
           $namaBulan=konversiBulan($contract['contract_ke']); echo $namaBulan; ?> <u></strong></td>
         </tr>
       </table>

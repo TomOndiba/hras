@@ -60,7 +60,7 @@ class Contract_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('contract_last_update', 'desc');
+            $this->db->order_by('contract_id', 'desc');
         }
 
         $this->db->select('contract.contract_id, contract_number, contract_ke, contract_date,  contract_employe_name,            
