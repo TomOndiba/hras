@@ -27,6 +27,12 @@
                     </li>
                 </ul>
             </li>
+            <li><a><i class="fa fa-medkit"></i> BPJS Kesehatan <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/bpjs') ?>">List BPJS Kesehatan</a>                    
+                    </li>
+                </ul>
+            </li>
             <li><a><i class="fa fa-graduation-cap"></i> Surat Tanda Lulus <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/stl') ?>">Daftar Surat Tanda Lulus</a>                    

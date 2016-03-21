@@ -9,7 +9,7 @@
  * @author      Achyar Anshorie
  */
 
-class Spm_model extends CI_Model {
+class Spm_model extends CI_Model { 
 
     function __construct() {
         parent::__construct();

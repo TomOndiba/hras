@@ -8,4 +8,14 @@ function konversiBulan($angka){
 	
 	return $bulan[$index];
 }
+
+function konversiKelas($angka){
+
+	$kelas=array('I (SATU)', 'II (DUA)', 'III (TIGA)', 'IV (EMPAT)', 'V (LIMA)', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII');
+	
+	$index=$angka-1;
+	
+	return $kelas[$index];
+}
+
 ?>

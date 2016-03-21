@@ -174,7 +174,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `memorandum1` (
   `memorandum_id` INT NOT NULL AUTO_INCREMENT ,
-  `memorandum_employe_nik` VARCHAR(8) NULL ,
+  `memorandum_employe_nik` VARCHAR(100) NULL ,
   `memorandum_employe_name` VARCHAR(255) NULL ,
   `memorandum_employe_position` VARCHAR(100) NULL ,
   `memorandum_employe_address` TEXT NULL ,
@@ -344,6 +344,60 @@ CREATE  TABLE IF NOT EXISTS `stl` (
   `stl_input_date` TIMESTAMP NULL ,
   `stl_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`stl_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bpjs`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `bpjs` (
+  `bpjs_id` INT NOT NULL AUTO_INCREMENT ,
+  `bpjs_noka` VARCHAR(100) NULL ,
+  `bpjs_ktp` VARCHAR(16) NULL ,
+  `bpjs_npp` VARCHAR(8) NULL ,
+  `bpjs_name` VARCHAR(255) NULL ,
+  `bpjs_hub` VARCHAR(45) NULL ,
+  `bpjs_date` DATE NULL ,
+  `bpjs_tmt` DATE NULL ,
+  `bpjs_faskes` VARCHAR(255) NULL ,
+  `bpjs_kelas` DECIMAL(10,0) NULL ,
+  PRIMARY KEY (`bpjs_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `spm`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `spm` (
+  `spm_id` INT NOT NULL AUTO_INCREMENT ,
+  `spm_number` VARCHAR(45) NULL ,
+  `spm_date` DATE NULL ,
+  `spm_employe_name` VARCHAR(255) NULL ,
+  `spm_employe_nik` VARCHAR(8) NULL ,
+  `spm_employe_position` VARCHAR(100) NULL ,
+  `spm_branch` VARCHAR(100) NULL ,
+  `user_user_id` INT NULL ,
+  `spm_input_date` TIMESTAMP NULL ,
+  `spm_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`spm_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `procuration`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `procuration` (
+  `procuration_id` INT NOT NULL AUTO_INCREMENT ,
+  `procuration_number` VARCHAR(45) NULL ,
+  `procuration_employe_nik` VARCHAR(8) NULL ,
+  `procuration_employe_name` VARCHAR(255) NULL ,
+  `procuration_employe_position` VARCHAR(100) NULL ,
+  `procuration_desc` TEXT NULL ,
+  `procuration_date` DATE NULL ,
+  `user_user_id` INT NULL ,
+  `procuration_input_date` TIMESTAMP NULL ,
+  `procuration_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`procuration_id`) )
 ENGINE = InnoDB;
 
 
