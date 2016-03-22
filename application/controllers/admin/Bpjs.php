@@ -184,7 +184,7 @@ class Bpjs extends CI_Controller {
         $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/bpjs/bpjs_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE, [0,0,257,470], 'landscape');
+        $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
     }
 
 
