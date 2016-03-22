@@ -170,7 +170,7 @@ class Bpjs extends CI_Controller {
             $data['bpjs'] = $this->Bpjs_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
-            $data = pdf_create($html, '', TRUE, [0,0,257,470], 'landscape');
+            $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
         }
         redirect('admin/bpjs');
     }
