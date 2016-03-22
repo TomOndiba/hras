@@ -1,8 +1,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
         <h3>
-            Daftar BPJS Kesehatan 
-            <a href="<?php echo site_url('admin/bpjs/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+            Daftar Cetak Kartu BPJS Kesehatan             
         </h3>
         <span class="pulll-left">
             <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>
@@ -22,13 +21,11 @@
             </div>
             <?php echo form_close() ?> 
         </div>
-        <form action="<?php echo site_url('admin/bpjs/multiple'); ?>" method="post">
-            <select name="action">
-                <option value="null">Pilih Action</option>
-                <option value="delete">Delete</option>
-                <option value="printPdf">Print</option>
+        <form action="<?php echo site_url('admin/cetak/multiple'); ?>" method="post">
+            <select name="action">                               
+                <option value="printPdf">Check</option>
             </select>
-            <input type="submit" name="submit" value="Action">          
+            <input type="submit"  class="btn btn-sm btn-primary" name="submit" value="Print All">          
             <!-- Indicates a successful or positive action -->
 
 
@@ -49,7 +46,7 @@
                     if (!empty($bpjs)) {
                         foreach ($bpjs as $row) {
                             ?>
-                            <tbody> 
+                            <tbody>
                                <tr>
                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
                                     <td ><?php echo $row['bpjs_npp']; ?></td>
@@ -58,10 +55,7 @@
                                     <td ><?php echo $row['bpjs_hub']; ?></td>
                                     <td ><?php echo $row['bpjs_faskes']; ?></td>                                
                                     <td>
-                                        <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bpjs/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success btn-xs" href="<?php echo site_url('admin/bpjs/edit/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/bpjs/printPdf/' . $row['bpjs_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="Daftar Cetak" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/bpjs/cetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-check"></span></a>
+                                        <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/cetak/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                        
                                     </td>
                                 </tr>
                             </tbody>

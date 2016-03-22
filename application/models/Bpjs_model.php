@@ -27,6 +27,11 @@ class Bpjs_model extends CI_Model {
             $this->db->where_in('bpjs.bpjs_id', $params['multiple_id']);
         }
         
+        if(isset($params['bpjs_cetak']))
+        {
+            $this->db->where('bpjs.bpjs_cetak', $params['bpjs_cetak']);
+        }
+
         if(isset($params['bpjs_noka']))
         {
             $this->db->where('bpjs.bpjs_noka', $params['bpjs_noka']);
@@ -67,7 +72,7 @@ class Bpjs_model extends CI_Model {
             $this->db->order_by('bpjs_id', 'desc');
         }
 
-        $this->db->select('bpjs.bpjs_id, bpjs_noka, bpjs_ktp, bpjs_npp, bpjs_name,
+        $this->db->select('bpjs.bpjs_id, bpjs_noka, bpjs_ktp, bpjs_npp, bpjs_name, bpjs_cetak,
             bpjs_hub, bpjs_date, bpjs_tmt, bpjs_faskes, bpjs_kelas');        
         $res = $this->db->get('bpjs');
 
@@ -119,6 +124,10 @@ class Bpjs_model extends CI_Model {
           
         if(isset($data['bpjs_kelas'])) {
             $this->db->set('bpjs_kelas', $data['bpjs_kelas']);
+        }
+
+        if(isset($data['bpjs_cetak'])) {
+            $this->db->set('bpjs_cetak', $data['bpjs_cetak']);
         }
 
         if (isset($data['bpjs_id'])) {

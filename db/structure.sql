@@ -361,6 +361,7 @@ CREATE  TABLE IF NOT EXISTS `bpjs` (
   `bpjs_tmt` DATE NULL ,
   `bpjs_faskes` VARCHAR(255) NULL ,
   `bpjs_kelas` DECIMAL(10,0) NULL ,
+  `bpjs_cetak` TINYINT(1) NULL DEFAULT 0 ,
   PRIMARY KEY (`bpjs_id`) )
 ENGINE = InnoDB;
 

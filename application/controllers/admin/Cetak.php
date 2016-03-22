@@ -39,7 +39,7 @@ class Cetak extends CI_Controller {
         }
 
         
-        $params['cetak'] = 1;
+        $params['bpjs_cetak'] = 1;
         $paramsPage = $params;
         $params['limit'] = 10;
         $params['offset'] = $offset;
@@ -50,7 +50,7 @@ class Cetak extends CI_Controller {
         $config['total_rows'] = count($this->Bpjs_model->get($paramsPage));
         $this->pagination->initialize($config);
 
-        $data['title'] = 'Surat Panggilan Selesai';
+        $data['title'] = 'Cetak Kartu BPJS';
         $data['main'] = 'admin/cetak/cetak_list';
         $this->load->view('admin/layout', $data);
     }
@@ -59,22 +59,32 @@ class Cetak extends CI_Controller {
         if ($this->Bpjs_model->get(array('id' => $id)) == NULL) {
             redirect('admin/cetak');
         }
-        $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));        
+        $data['cetak'] = $this->Bpjs_model->get(array('id' => $id));        
         $data['title'] = 'Cetak Selesai';
         $data['main'] = 'admin/cetak/cetak_view';
         $this->load->view('admin/layout', $data);
     }
 
-    function printPdf($id = NULL) {
-        $this->load->helper(array('dompdf'));
-        $this->load->helper(array('tanggal'));
-        if ($id == NULL)
-            redirect('admin/cetak');
+    function multiple() {
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i = 0; $i < count($delete); $i++) {
+                $this->Bpjs_model->delete($delete[$i]);
+            }
+        } elseif ($action == "printPdf") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $bpjsk = $this->input->post('msg');
+            for ($i = 0; $i < count($bpjsk); $i++) {
+                $print[] = $bpjsk[$i];
+            }
+            $data['bpjs'] = $this->Bpjs_model->get(array('multiple_id' => $print));
 
-        $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));
-
-        $html = $this->load->view('admin/memorandum/memorandum_pdf', $data, true);
-        $data = pdf_create($html, '$paper', TRUE);
+            $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
+            $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
+        }
+        redirect('admin/cetak');
     }
     
 }

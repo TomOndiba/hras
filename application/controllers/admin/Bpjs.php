@@ -41,7 +41,7 @@ class Bpjs extends CI_Controller {
         if (isset($f['k']) && !empty($f['k']) && $f['k'] != '') {
             $params['bpjs_ktp'] = $f['k'];
         }
-
+        
         $paramsPage = $params;
         $params['limit'] = 10;
         $params['offset'] = $offset;
@@ -175,7 +175,7 @@ class Bpjs extends CI_Controller {
         redirect('admin/bpjs');
     }
 
-     function printPdf($id = NULL) {
+    function printPdf($id = NULL) {
         $this->load->helper(array('dompdf'));
         $this->load->helper(array('tanggal'));
         if ($id == NULL)
@@ -187,8 +187,12 @@ class Bpjs extends CI_Controller {
         $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
     }
 
+    function cetak($id = NULL) {
+        $this->Bpjs_model->add(array('bpjs_id' => $id, 'bpjs_cetak' => 1));
+        $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
+        redirect('admin/bpjs');
+    }
 
-   
 }
 
 /* End of file bpjs.php */
