@@ -4,12 +4,12 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * Memorandum1 controllers class
+ * Cetak controllers class
  * 
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Cetak extends CI_Controller {
 
@@ -22,7 +22,7 @@ class Cetak extends CI_Controller {
         $this->load->helper('string');
     }
 
-    // Memorandum view in list
+    // Cetak view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
 
@@ -86,8 +86,14 @@ class Cetak extends CI_Controller {
         }
         redirect('admin/cetak');
     }
+
+    function uncetak($id = NULL) {
+        $this->Bpjs_model->add(array('bpjs_id' => $id, 'bpjs_cetak' => 0));
+        $this->session->set_flashdata('success', 'Sunting Hapus berhasil');
+        redirect('admin/cetak');
+    }
     
 }
 
-/* End of file memorandum.php */
-/* Location: ./application/controllers/admin/memorandum.php */
+/* End of file cetak.php */
+/* Location: ./application/controllers/admin/cetak.php */

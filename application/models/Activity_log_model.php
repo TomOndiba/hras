@@ -3,10 +3,10 @@
 /** 
 * Log_activitas Model Class
  *
- * @package     SYSCMS
- * @subpackage  Models
- * @category    Models
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @package     HRA CMS
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Achyar Anshorie
  */
 
 class Activity_log_model extends CI_Model {

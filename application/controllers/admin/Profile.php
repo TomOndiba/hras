@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * User controllers class
  *
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Profile extends CI_Controller {
 

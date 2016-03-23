@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 /**
  * Spm controllers class 
  *
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
  * @author      Achyar Anshorie

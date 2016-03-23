@@ -5,8 +5,10 @@ if (!defined('BASEPATH'))
 
 /**
  * stl controllers class 
- *
- * 
+ * @package     HRA CMS
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Achyar Anshorie
  */
 class Stl extends CI_Controller {
 

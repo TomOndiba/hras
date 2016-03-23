@@ -55,7 +55,8 @@
                                     <td ><?php echo $row['bpjs_hub']; ?></td>
                                     <td ><?php echo $row['bpjs_faskes']; ?></td>                                
                                     <td>
-                                        <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/cetak/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>                                        
+                                        <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/cetak/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a> 
+                                        <a data-toggle="tooltip" data-placement="top" title="Hapus Cetak" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/cetak/uncetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-times"></span></a>                                       
                                     </td>
                                 </tr>
                             </tbody>

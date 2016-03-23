@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * Auth controllers class
  *
- * @package     SYSCMS
+ ** @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Auth extends CI_Controller {
 

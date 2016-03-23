@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * Memorandum1 controllers class
  * 
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Memorandum extends CI_Controller {
 

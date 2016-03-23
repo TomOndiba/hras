@@ -26,6 +26,7 @@
             <select name="action">
                 <option value="null">Pilih Action</option>
                 <option value="delete">Delete</option>
+                <option value="cetak">List Cetak</option>
                 <option value="printPdf">Print</option>
             </select>
             <input type="submit" name="submit" value="Action">          
@@ -60,7 +61,7 @@
                                     <td>
                                         <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bpjs/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                         <a data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success btn-xs" href="<?php echo site_url('admin/bpjs/edit/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/bpjs/printPdf/' . $row['bpjs_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                        <a data-toggle="tooltip" data-placement="top" title="Print Kartu" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/bpjs/printPdf/' . $row['bpjs_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
                                         <a data-toggle="tooltip" data-placement="top" title="Daftar Cetak" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/bpjs/cetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-check"></span></a>
                                     </td>
                                 </tr>

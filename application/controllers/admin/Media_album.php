@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * Media album controllers class
  *
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 ini_set('display_errors', true);
 

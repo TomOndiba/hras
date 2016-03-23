@@ -171,9 +171,17 @@ class Bpjs extends CI_Controller {
 
             $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
             $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
+        }   
+        elseif ($action == "cetak") {
+            $cetak = $this->input->post('msg');
+            for ($i = 0; $i < count($cetak); $i++) {
+                $this->Bpjs_model->add(array('bpjs_id' => $cetak[$i], 'bpjs_cetak' => 1));
+                $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
+            }
         }
         redirect('admin/bpjs');
     }
+
 
     function printPdf($id = NULL) {
         $this->load->helper(array('dompdf'));

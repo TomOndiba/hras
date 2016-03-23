@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * Memorandum1 controllers class
  * 
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Memorandum1 extends CI_Controller {
 
@@ -194,7 +194,7 @@ class Memorandum1 extends CI_Controller {
         redirect('admin/memorandum1');
     }
 
-    function printPdf($id = NULL) {
+    function printPdf($id = NULL) { 
         $this->load->helper(array('dompdf'));
         $this->load->helper(array('tanggal'));
         if ($id == NULL)

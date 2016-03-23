@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * Contract controllers class 
  *
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 class Contract extends CI_Controller {
 

@@ -81,7 +81,7 @@
                                         <?php } ?>
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tbody> 
 
                         </form>
                         <div class="modal fade" id="modal<?php echo $row['memorandum_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

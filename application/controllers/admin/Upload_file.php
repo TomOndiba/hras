@@ -6,10 +6,10 @@ if (!defined('BASEPATH'))
 /**
  * user Model Class
  *
- * @package     SYSCMS
- * @subpackage  Controller
- * @category    Controller
- * @author      Andi Dwi Saputro 
+ * @package     HRA CMS
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Achyar Anshorie
  */
 class Upload_file extends CI_Controller {
 

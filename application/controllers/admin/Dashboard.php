@@ -3,10 +3,10 @@
 /** 
 * Dashboard controllers class
  *
- * @package     SYSCMS
+ * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @author      Achyar Anshorie
  */
 
 class Dashboard extends CI_Controller {

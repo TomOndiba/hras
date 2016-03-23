@@ -3,10 +3,10 @@
 /** 
 * Bank Model Class
  *
- * @package     SYSCMS
- * @subpackage  Models
- * @category    Models
- * @author      Sistiandy Syahbana nugraha <sistiandy.web.id>
+ * @package     HRA CMS
+ * @subpackage  Controllers
+ * @category    Controllers
+ * @author      Achyar Anshorie
  */
 
 class Bank_model extends CI_Model {
