@@ -11,7 +11,7 @@
                 <option value="delete">Delete</option>
                 <option value="printPdf">Print</option>
             </select>
-            <input type="submit" name="submit" value="Action">          
+            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">          
             <!-- Indicates a successful or positive action -->
 
 

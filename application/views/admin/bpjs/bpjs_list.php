@@ -27,9 +27,10 @@
                 <option value="null">Pilih Action</option>
                 <option value="delete">Delete</option>
                 <option value="cetak">List Cetak</option>
-                <option value="printPdf">Print</option>
+                <option value="printPdf">Cetak Kartu</option>
             </select>
-            <input type="submit" name="submit" value="Action">          
+            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">
+            <input type="submit" name="submit" value="List">          
             <!-- Indicates a successful or positive action -->
 
 

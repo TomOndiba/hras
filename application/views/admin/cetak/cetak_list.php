@@ -25,7 +25,7 @@
             <select name="action">                               
                 <option value="printPdf">Check</option>
             </select>
-            <input type="submit"  class="btn btn-sm btn-primary" name="submit" value="Print All">          
+            <input type="submit"  class="btn btn-sm btn-primary" name="submit" value="Print All" onclick="$('form').attr('target', '_blank');">          
             <!-- Indicates a successful or positive action -->
 
 
