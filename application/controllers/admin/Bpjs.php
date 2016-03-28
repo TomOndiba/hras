@@ -201,6 +201,20 @@ class Bpjs extends CI_Controller {
         redirect('admin/bpjs');
     }
 
+    function barcode($kode) {
+        
+    //kita load library nya ini membaca file Zend.php yang berisi loader
+    //untuk file yang ada pada folder Zend
+    $this->load->library('zend');
+ 
+    //load yang ada di folder Zend
+    $this->zend->load('Zend/Barcode');
+ 
+    //generate barcodenya
+    //$kode = 12345abc;
+    Zend_Barcode::render('code128', 'image', array('text'=>$kode), array());
+    }
+
 }
 
 /* End of file bpjs.php */

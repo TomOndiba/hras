@@ -10,7 +10,7 @@
             <br>
             <br>
             
-            <img width=360 height=260 src="<?php echo media_url() ?>/images/logo.jpg" alt="">
+            <img width=380 height=320 src="<?php echo media_url() ?>/images/logo.jpg" alt="">
   
             <br><br><br>
             <br>

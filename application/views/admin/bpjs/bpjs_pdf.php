@@ -3,7 +3,7 @@
 <html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Style-Type" content="text/css" />
-    <title>target</title>
+    <title>target</title>    
     <link href="<?php echo media_url() ?>/images/bpjs/target.css" type="text/css" rel="stylesheet">
     <!--[if IE]><script type="text/javascript" src="<?php echo media_url() ?>/images/bpjs/excanvas-compiled.js"></script><![endif]-->
     <script type="text/javascript" src="<?php echo media_url() ?>/images/bpjs/target.js"></script>
@@ -47,7 +47,7 @@ body {
         </table>
       </div> 
         <div style="position:absolute;left:0pt;top:0pt;width:100%;height:100%;clip:rect(0pt,612pt,325pt,0pt);" class="fmt-2">
-        <span class="fmt-5" style="white-space:pre;">
+        <span class="fmt-5" style="white-space:pre;">     
         <div style="position:absolute;top:33.58pt;left:34pt;z-index:46;">e</div></span>
         <img style="position:absolute;left:16pt;top:10pt;width:273pt;height:3pt;z-index:39;" src="<?php echo media_url() ?>/images/bpjs/74c4000bfb0fb7c646874fb45f450f51.png" alt="__rendered_path__39" />
         <span class="fmt-0" style="white-space:pre;"><div <div class="style1" style="position:absolute;top:33.58pt;left:41pt;z-index:45;">-ID</div></span>
