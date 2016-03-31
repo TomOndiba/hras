@@ -23,6 +23,10 @@ class Contract_model extends CI_Model {
             $this->db->where('contract.contract_id', $params['id']);
         }
 
+        if (isset($params['multiple_id'])) {
+            $this->db->where_in('contract.contract_id', $params['multiple_id']);
+        }
+
         if(isset($params['employe_nik']))
         {
             $this->db->where('employe.contract_employe_nik', $params['employe_nik']);
@@ -64,7 +68,8 @@ class Contract_model extends CI_Model {
         }
 
         $this->db->select('contract.contract_id, contract_number, contract_ke, contract_date,  contract_employe_name,            
-            contract.user_user_id,   user_name, user_full_name, contract_employe_nik, contract_employe_position, 
+            contract.user_user_id,   user_name, user_full_name, contract_employe_nik, contract_employe_position,
+            contract_employe_address, contract_employe_phone, 
             contract_input_date, contract_last_update');
         $this->db->join('employe', 'employe.employe_nik = contract_employe_nik', 'left'); 
         $this->db->join('user', 'user.user_id = contract.user_user_id', 'left');       
@@ -109,6 +114,14 @@ class Contract_model extends CI_Model {
 
     if(isset($data['contract_employe_position'])) {
         $this->db->set('contract_employe_position', $data['contract_employe_position']);
+    }
+
+    if(isset($data['contract_employe_address'])) {
+        $this->db->set('contract_employe_address', $data['contract_employe_address']);
+    }
+
+    if(isset($data['contract_employe_phone'])) {
+        $this->db->set('contract_employe_phone', $data['contract_employe_phone']);
     }
 
     if(isset($data['user_id'])) {

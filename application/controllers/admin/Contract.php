@@ -10,7 +10,7 @@ if (!defined('BASEPATH'))
  * @subpackage  Controllers
  * @category    Controllers
  * @author      Achyar Anshorie
- */
+ */ 
 class Contract extends CI_Controller {
 
     public function __construct() {
@@ -69,6 +69,8 @@ class Contract extends CI_Controller {
             $params['contract_employe_nik'] = $this->input->post('employe_nik');
             $params['contract_employe_name'] = $this->input->post('employe_name');
             $params['contract_employe_position'] = $this->input->post('employe_position');
+            $params['contract_employe_address'] = $this->input->post('employe_address');
+            $params['contract_employe_phone'] = $this->input->post('employe_phone');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['contaract_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Contract_model->add($params);
@@ -136,6 +138,53 @@ class Contract extends CI_Controller {
         $html = $this->load->view('admin/contract/contract_pdf', $data, true);
         $data = pdf_create($html, '', TRUE, 'A4', TRUE);
     }
+
+    function printEnvl($id = NULL) {
+        $this->load->helper(array('dompdf'));
+        $this->load->helper(array('tanggal'));
+        if ($id == NULL)
+            redirect('admin/contract');
+
+        $data['contract'] = $this->Contract_model->get(array('id' => $id));
+
+        $html = $this->load->view('admin/contract/contract_envelope', $data, true);
+        $data = pdf_create($html, '', TRUE, 'A4', TRUE);
+    }
+
+    function multiple() {
+        $action = $this->input->post('action');
+        if ($action == "delete") {
+            $delete = $this->input->post('msg');
+            for ($i = 0; $i < count($delete); $i++) {
+                $this->Contract_model->delete($delete[$i]);
+            }
+        } elseif ($action == "printPdf") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $memo = $this->input->post('msg');
+            for ($i = 0; $i < count($memo); $i++) {
+                $print[] = $memo[$i];
+            }
+            $data['contract'] = $this->Contract_model->get(array('multiple_id' => $print));
+
+            $html = $this->load->view('admin/contract/contract_multiple_pdf', $data, true);
+            $data = pdf_create($html, 'A4', TRUE);
+        }
+        elseif ($action == "printEnvl") {
+            $this->load->helper(array('dompdf'));
+            $this->load->helper(array('tanggal'));
+            $memo = $this->input->post('msg');
+            for ($i = 0; $i < count($memo); $i++) {
+                $print[] = $memo[$i];
+            }
+            $data['contract'] = $this->Contract_model->get(array('multiple_id' => $print));
+
+            $html = $this->load->view('admin/contract/contract_multiple_envelope', $data, true);
+            $data = pdf_create($html, 'A4', TRUE);
+        }
+        redirect('admin/contract');
+    }
+
 
 }
 

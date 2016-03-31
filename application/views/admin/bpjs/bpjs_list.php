@@ -3,15 +3,11 @@
         <h3>
             Daftar BPJS Kesehatan 
             <a href="<?php echo site_url('admin/bpjs/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>
-        <span class="pulll-left">
-            <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>
-        </span>
-        <div class="collapse" id="collapseExample">
+        </h3>        
             <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
             <div class="row">                
                 <div class="col-md-2">
-                    <input type="text" name="n" placeholder="NIK" value="" class="form-control">
+                    <input autofocus type="text" name="n" placeholder="NIK" value="" class="form-control">
                 </div>  
                 <div class="col-md-2">
                     <input type="text" name="k" placeholder="KTP" value="" class="form-control">

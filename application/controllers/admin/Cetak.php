@@ -41,7 +41,7 @@ class Cetak extends CI_Controller {
         
         $params['bpjs_cetak'] = 1;
         $paramsPage = $params;
-        $params['limit'] = 10;
+        $params['limit'] = 100;
         $params['offset'] = $offset;
 
 

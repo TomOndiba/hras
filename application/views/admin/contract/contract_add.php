@@ -8,6 +8,8 @@ if (isset($contract)) {
     $inputEmployeNik = $contract['contract_employe_nik'];
     $inputEmployeName = $contract['contract_employe_name'];
     $inputEmployePos = $contract['contract_employe_position'];
+    $inputEmployeAdd = $contract['contract_employe_address'];
+    $inputEmployePho = $contract['contract_employe_phone'];
 } else {
     $inputNumber = set_value('contract_number');
     $inputKe = set_value('contract_ke');
@@ -15,6 +17,8 @@ if (isset($contract)) {
     $inputEmployeNik = set_value('employe_nik');
     $inputEmployeName = set_value('employe_name');
     $inputEmployePos = set_value('employe_position');
+    $inputEmployeAdd = set_value('employe_address');
+    $inputEmployePho = set_value('employe_phone');
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -34,6 +38,8 @@ if (isset($contract)) {
                 <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
                 <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
                 <input name="employe_position" id="field_pos" type="hidden" class="form-control"  value="<?php echo $inputEmployePos ?>">
+                <input name="employe_address" id="field_add" type="hidden" class="form-control"  value="<?php echo $inputEmployeAdd ?>">
+                <input name="employe_phone" id="field_phone" type="hidden" class="form-control"  value="<?php echo $inputEmployePho ?>">
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($contract)) ? $contract['contract_employe_name'] : '' ?>">
                 <br>
                 <label >Tanggal Habis Kontrak *</label>
@@ -98,6 +104,8 @@ if (isset($contract)) {
             "id": "<?php echo $row['employe_position'] ?>",
             "value": "<?php echo $row['employe_name'] ?>",
             "label": "<?php echo $row['employe_name'] ?>",
+            "adr": "<?php echo $row['employe_address'] ?>",
+            "pho": "<?php echo $row['employe_phone'] ?>",
             "label_nik": "<?php echo $row['employe_nik'] ?>"
                        
         },
@@ -119,6 +127,8 @@ if (isset($contract)) {
                 $("#field_id").val(ui.item.label_nik);  
                 $("#field_name").val(ui.item.value);
                 $("#field_pos").val(ui.item.id);
+                $("#field_phone").val(ui.item.pho);
+                $("#field_add").val(ui.item.adr);
                                   
 
                 // update number of returned rows

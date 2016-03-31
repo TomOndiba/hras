@@ -4,13 +4,37 @@
             Daftar Karyawan Habis Kontrak
             <a href="<?php echo site_url('admin/contract/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
         </h3>
+        <span class="pulll-left">
+            <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>
+        </span>
+        <div class="collapse" id="collapseExample">
+            <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
+            <div class="row">                
+                <div class="col-md-2">
+                    <input type="text" name="n" placeholder="NIK" value="" class="form-control">
+                </div>                            
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-success" value="Cari">
+                </div>
+            </div>
+            <?php echo form_close() ?> 
+        </div>
+         <form action="<?php echo site_url('admin/contract/multiple'); ?>" method="post">
+            <select name="action">
+                <option value="null">Pilih Action</option>
+                <option value="delete">Delete</option>
+                <option value="printPdf">Cetak</option> 
+                <option value="printEnvl">Amplop</option>                 
+            </select>
+            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">
 
-        <!-- Indicates a successful or positive action -->
+        <!-- Indicates a successful or positive action --> 
 
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                         <th class="controls" align="center">NO. SURAT</th>
                         <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
@@ -25,6 +49,7 @@
                         ?>
                         <tbody>
                             <tr>
+                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['contract_id']; ?>"></td>
                                 <td ><?php echo $row['contract_number']; ?></td>
                                 <td ><?php echo $row['contract_employe_nik']; ?></td>
                                 <td ><?php echo $row['contract_employe_name']; ?></td>
@@ -34,6 +59,7 @@
                                     <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/contract/detail/' . $row['contract_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success btn-xs" href="<?php echo site_url('admin/contract/edit/' . $row['contract_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
                                     <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/contract/printPdf/' . $row['contract_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>
+                                    <a data-toggle="tooltip" data-placement="top" title="Print Amplop" class="btn btn-info btn-xs" href="<?php echo site_url('admin/contract/printEnvl/' . $row['contract_id']) ?>"target="_blank"><span class="fa fa-envelope"></span></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -56,3 +82,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        $("#selectall").change(function() {
+            $(".checkbox").prop('checked', $(this).prop("checked"));
+        });
+    });
+</script>

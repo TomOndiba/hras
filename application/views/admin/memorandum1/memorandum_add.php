@@ -19,7 +19,7 @@ if (isset($memorandum)) {
     $inputCallDate = set_value('memorandum_call_date');
     $inputEmployeNik = set_value('employe_nik');
     $inputEmployeName = set_value('employe_name');
-    $inputEmployePos = set_value('employe_position');
+    $inputEmployePos = set_value('employe_position'); 
     $inputEmployeAdd = set_value('employe_address');
     $inputEmployePho = set_value('employe_phone');
 

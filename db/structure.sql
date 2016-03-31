@@ -317,6 +317,8 @@ CREATE  TABLE IF NOT EXISTS `contract` (
   `contract_employe_nik` VARCHAR(8) NULL ,
   `contract_employe_name` VARCHAR(255) NULL ,
   `contract_employe_position` VARCHAR(100) NULL ,
+  `contract_employe_address` TEXT NULL ,
+  `contract_employe_phone` VARCHAR(45) NULL ,
   `contract_number` VARCHAR(45) NULL ,
   `contract_ke` DECIMAL(10,0) NULL ,
   `contract_date` DATE NULL ,
