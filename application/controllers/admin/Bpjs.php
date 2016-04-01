@@ -190,6 +190,7 @@ class Bpjs extends CI_Controller {
             redirect('admin/bpjs');
 
         $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));
+//        $br = $this->barcode($data['bpjs']['bpjs_noka']);
 
         $html = $this->load->view('admin/bpjs/bpjs_pdf', $data, true);
         $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
@@ -205,7 +206,7 @@ class Bpjs extends CI_Controller {
         
     //kita load library nya ini membaca file Zend.php yang berisi loader
     //untuk file yang ada pada folder Zend
-    $this->load->library('zend');
+    $this->load->library('Zend');
  
     //load yang ada di folder Zend
     $this->zend->load('Zend/Barcode');
