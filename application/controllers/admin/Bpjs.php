@@ -173,7 +173,7 @@ class Bpjs extends CI_Controller {
             $this->barcode2($data['bpjs'][$i]['bpjs_noka'], '');
         }
             $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
-            $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
+            $data = pdf_create($html, 'HRD_BPJS_'.date('d_m_Y'), TRUE, [0,0,325,620], 'landscape');
         }   
         elseif ($action == "cetak") {
             $cetak = $this->input->post('msg');
@@ -196,7 +196,7 @@ class Bpjs extends CI_Controller {
         $this->barcode2($data['bpjs']['bpjs_noka'], '');
 
         $html = $this->load->view('admin/bpjs/bpjs_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE, [0,0,325,620], 'landscape');
+        $data = pdf_create($html, $data['bpjs']['bpjs_name'], TRUE, [0,0,325,620], 'landscape');
     }
 
     function cetak($id = NULL) {
