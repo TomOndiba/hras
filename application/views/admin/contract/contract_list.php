@@ -3,6 +3,7 @@
         <h3>
             Daftar Karyawan Habis Kontrak
             <a href="<?php echo site_url('admin/contract/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
+            <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/contract/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
         </h3>
         <span class="pulll-left">
             <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>

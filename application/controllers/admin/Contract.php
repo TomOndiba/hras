@@ -25,12 +25,40 @@ class Contract extends CI_Controller {
     // Surat Habis Kontrak view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-        $data['contract'] = $this->Contract_model->get(array('limit' => 10, 'offset' => $offset));
+
+        // Apply Filter
+        // Get $_GET variable
+        $q = $this->input->get(NULL, TRUE);
+
+        $data['q'] = $q;
+        $params = array(); 
+
+        // Employe Nik
+        if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
+            $params['contract_employe_nik'] = $q['n'];
+        }
+
+        // Date start
+        if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {
+            $params['date_start'] = $q['ds'];
+        }
+
+        // Date end
+        if (isset($q['de']) && !empty($q['de']) && $q['de'] != '') {
+            $params['date_end'] = $q['de'];
+        }
+        
+        $paramsPage = $params;
+        $params['limit'] = 10;
+        $params['offset'] = $offset;
+
+
+        $data['contract'] = $this->Contract_model->get($params);        
         $config['base_url'] = site_url('admin/contract/index');
-        $config['total_rows'] = count($this->Contract_model->get(array('status' => TRUE)));
+        $config['total_rows'] = count($this->Contract_model->get($paramsPage));
         $this->pagination->initialize($config);
 
-        $data['title'] = 'Surat Habis Kontrak';
+        $data['title'] = 'Surat Pemberitahuan Kontrak';
         $data['main'] = 'admin/contract/contract_list';
         $this->load->view('admin/layout', $data);
     }
@@ -183,6 +211,52 @@ class Contract extends CI_Controller {
             $data = pdf_create($html, 'A4', TRUE);
         }
         redirect('admin/contract');
+    }
+
+    public function export() {
+        $this->load->helper('csv');
+        // Apply Filter
+        // Get $_GET variable
+        $q = $this->input->get(NULL, TRUE);
+
+        $data['q'] = $q;
+
+        $params = array();
+        
+        // Date start
+        if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {
+            $params['date_start'] = $q['ds'];
+        }
+
+        // Date end
+        if (isset($q['de']) && !empty($q['de']) && $q['de'] != '') {
+            $params['date_end'] = $q['de'];
+        }
+        
+
+        $data['contract'] = $this->Contract_model->get($params);        
+        $csv = array(
+            0 => array(
+                'NO.', 'NIK', 'NAMA', 'JABATAN', 'TGL HABIS KONTRAK', 'KONTRAK KE', 'ALAMAT', 'NO TLP', 'KETERANGAN'
+            
+                )
+            );
+        $i = 1;
+        foreach ($data['contract'] as $row) {
+            $csv[] = array( $i,
+                $row['contract_employe_nik'], $row['contract_employe_name'], $row['contract_employe_position'],                
+                pretty_date($row['contract_date'], 'm/d/Y', FALSE), 
+                $row['contract_ke'],             
+                $row['contract_employe_address'],
+                $row['contract_employe_phone']
+                );
+            $i++;
+        }
+        // echo "<pre>";
+       // echo print_r($csv);
+         // echo "</pre>";
+         // die();
+        array_to_csv($csv, 'Report_Surat_Kontrak.csv');
     }
 
 
