@@ -46,7 +46,7 @@ class Bpjs extends CI_Controller {
         $params['limit'] = 10;
         $params['offset'] = $offset;
         $data['bpjs'] = $this->Bpjs_model->get($params);
-
+        
         $config['per_page'] = 10;
         $config['uri_segment'] = 4;
         $config['base_url'] = site_url('admin/bpjs/index');
@@ -63,7 +63,8 @@ class Bpjs extends CI_Controller {
         if ($this->Bpjs_model->get(array('id' => $id)) == NULL) {
             redirect('admin/bpjs');
         }
-        $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));        
+        $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id)); 
+        $this->barcode2($data['bpjs']['bpjs_noka'], '');       
         $data['title'] = 'Detail Bpjs';
         $data['main'] = 'admin/bpjs/bpjs_view';
         $this->load->view('admin/layout', $data);

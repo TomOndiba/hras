@@ -404,6 +404,23 @@ CREATE  TABLE IF NOT EXISTS `procuration` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `set`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `set` (
+  `set_id` INT NOT NULL AUTO_INCREMENT ,
+  `set_branch` VARCHAR(100) NULL ,
+  `set_address` TEXT NULL ,
+  `set_city` VARCHAR(45) NULL ,
+  `set_pic` VARCHAR(45) NULL ,
+  `set_employe_nik` VARCHAR(8) NULL ,
+  `set_employe_name` VARCHAR(255) NULL ,
+  `set_employe_position` VARCHAR(100) NULL ,
+  `set_initial` VARCHAR(45) NULL ,
+  PRIMARY KEY (`set_id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
