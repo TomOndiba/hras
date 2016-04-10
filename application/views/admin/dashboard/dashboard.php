@@ -5,7 +5,7 @@
 
         <div class="strong">
             <h1>Human Resources Administration System</h1>
-            <h4><p>PT. Sumber Alfaria Trijaya, Tbk - Branch Cileungsi 2</p><h4>
+            <h4><p>PT. Sumber Alfaria Trijaya, Tbk - Branch <span class="cap"><?php echo $setting_branch['setting_value'] ?></span></p><h4>
             <p>Web Based Application </p>
             <br>
             <br>
@@ -20,3 +20,9 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+   .upper { text-transform: uppercase; }
+   .lower { text-transform: lowercase; }
+   .cap   { text-transform: capitalize; }
+   .small { font-variant:   small-caps; }
+    </style>

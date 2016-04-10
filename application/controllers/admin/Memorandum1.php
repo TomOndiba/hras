@@ -18,7 +18,7 @@ class Memorandum1 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum1_model', 'Activity_log_model', 'Employe_model', 'Memorandum2_model'));
+        $this->load->model(array('Memorandum1_model', 'Activity_log_model', 'Employe_model', 'Memorandum2_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -107,14 +107,14 @@ class Memorandum1 extends CI_Controller {
 
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 1',
-                        'log_action' => $data['operation'],
-                        'log_info' => 'ID:' . $status . ';Title:NULL'
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 1',
+                    'log_action' => $data['operation'],
+                    'log_info' => 'ID:' . $status . ';Title:NULL'
                     )
-            );
+                );
             if ($this->input->post('from_finished')) {
                 $this->session->set_flashdata('success', ' Surat Panggilan Selesai');
                 redirect('admin/memorandum');
@@ -144,14 +144,14 @@ class Memorandum1 extends CI_Controller {
             $this->Memorandum1_model->delete($this->input->post('del_id'));
             // activity log
             $this->Activity_log_model->add(
-                    array(
-                        'log_date' => date('Y-m-d H:i:s'),
-                        'user_id' => $this->session->userdata('user_id'),
-                        'log_module' => 'Surat Panggilan 1',
-                        'log_action' => 'Hapus',
-                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                array(
+                    'log_date' => date('Y-m-d H:i:s'),
+                    'user_id' => $this->session->userdata('user_id'),
+                    'log_module' => 'Surat Panggilan 1',
+                    'log_action' => 'Hapus',
+                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
                     )
-            );
+                );
             $this->session->set_flashdata('success', 'Hapus Surat Panggilan berhasil');
             redirect('admin/memorandum1');
         } elseif (!$_POST) {
@@ -174,6 +174,11 @@ class Memorandum1 extends CI_Controller {
             for ($i = 0; $i < count($memo); $i++) {
                 $print[] = $memo[$i];
             }
+            $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
+            $data['setting_pic'] = $this->Setting_model->get(array('id' => 4));
+            $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+            $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+            $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
             $data['memorandum'] = $this->Memorandum1_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/memorandum1/memorandum_multiple_pdf', $data, true);
@@ -199,6 +204,12 @@ class Memorandum1 extends CI_Controller {
         $this->load->helper(array('tanggal'));
         if ($id == NULL)
             redirect('admin/memorandum1');
+
+        $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
+        $data['setting_pic'] = $this->Setting_model->get(array('id' => 4));
+        $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+        $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+        $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
 
         $data['memorandum'] = $this->Memorandum1_model->get(array('id' => $id));
 

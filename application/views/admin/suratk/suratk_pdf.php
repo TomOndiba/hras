@@ -23,24 +23,24 @@
     <body>
     <div style="padding:0px 0px;">      
         <p align="center"><span class="style13"><u>SURAT KETERANGAN</u></span><br>
-	<?php echo $suratk['sk_number'] ?>/S-Ket/CLS2/<?php $this->load->helper('tanggal'); 
+	<?php echo $suratk['sk_number'] ?>/S-Ket/<?php echo $setting_initial['setting_value'] ?>/<?php $this->load->helper('tanggal'); 
   $namaBulan=konversiBulan(pretty_date($suratk['sk_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $suratk['sk_date'],'Y',false) ?></td></p><br>
         <p align="left">Saya yang bertanda tangan dibawah ini :</p>
         <table width="558" border="0">
           <tr>
             <td width="67" scope="col">Nama</td>
             <td width="13" scope="col">:</td>
-            <td width="464" scope="col">Tati Nurhayati </td>
+            <td width="464" scope="col"><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
           </tr>
           <tr>
             <td>NIK</td>
             <td>:</td>
-            <td>03050129</td>
+            <td><?php echo $setting_employe_nik['setting_value'] ?></td>
           </tr>
           <tr>
             <td>Jabatan</td>
             <td>:</td>
-            <td>People Development Manager </td>
+            <td><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></td>
           </tr>
         </table><br>
         <p>Menerangkan bahwa atas nama karyawan berikut ini :</p>
@@ -63,7 +63,7 @@
         </table>
 		<br>
 		<p align="justify">Adalah benar sebagai karyawan PT. Sumber Alfaria Trijaya Tbk. Branch Cileungsi II yang aktif bekerja
-			sejak tanggal <?php echo pretty_date( $suratk['sk_employe_date_register'],'d F Y',false) ?> sampai dengan sekarang dengan status sebagai karyawan tetap.</p><br>
+			sejak tanggal <?php echo pretty_date( $suratk['sk_employe_date_register'],'d F Y',false) ?> sampai dengan sekarang dengan status sebagai karyawan <?php echo $suratk['sk_status'] ?>.</p><br>
 		<p align="justify">Demikian surat keterangan ini dibuat dengan sebenarnya dan dipergunakan sebagai <?php echo $suratk['sk_description'] ?>.</p>
        <br>
         
@@ -85,11 +85,11 @@
                 <table border="0">
                 <tbody>
                     <tr>
-                        <td><u><strong>( TATI NURHAYATI )</strong></u></td>
+                        <td><u><strong>( <span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span> )</strong></u></td>
                         <td></td>                        
                     </tr>
                     <tr>
-                        <td><em><strong>People Development Manager</strong></em></td>
+                        <td><em><strong><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></strong></em></td>
                         <td></td>                        
                     </tr>
                   </tbody></table><br>

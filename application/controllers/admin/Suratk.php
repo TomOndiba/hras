@@ -18,7 +18,7 @@ class Suratk extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Suratk_model', 'Activity_log_model', 'Employe_model'));
+        $this->load->model(array('Suratk_model', 'Activity_log_model', 'Employe_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -39,7 +39,7 @@ class Suratk extends CI_Controller {
         if ($this->Suratk_model->get(array('id' => $id)) == NULL) {
             redirect('admin/suratk');
         }
-        $data['surat'] = $this->Suratk_model->get(array('id' => $id));        
+        $data['surat'] = $this->Suratk_model->get(array('id' => $id));               
         $data['title'] = 'Surat Keterangan';
         $data['main'] = 'admin/suratk/surat_view';
         $this->load->view('admin/layout', $data);
@@ -71,6 +71,7 @@ class Suratk extends CI_Controller {
             $params['sk_employe_name'] = $this->input->post('employe_name');
             $params['sk_employe_position'] = $this->input->post('employe_position');
             $params['sk_employe_date_register'] = $this->input->post('employe_date_register');
+            $params['sk_status'] = $this->input->post('sk_status');
             $params['user_id'] = $this->session->userdata('user_id');
             $params['sk_last_update'] = date('Y-m-d H:i:s');
             $status = $this->Suratk_model->add($params);
@@ -141,10 +142,14 @@ class Suratk extends CI_Controller {
             for ($i = 0; $i < count($sk); $i++) {
                 $print[] = $sk[$i];
             }
+            $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+            $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+            $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+            $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
             $data['sk'] = $this->Suratk_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/suratk/sk_multiple_pdf', $data, true);
-            $data = pdf_create($html, '$paper', TRUE);
+            $data = pdf_create($html, 'A4', TRUE);
         }        
         redirect('admin/suratk');
     }
@@ -154,9 +159,11 @@ class Suratk extends CI_Controller {
         $this->load->helper(array('tanggal'));
         if ($id == NULL)
             redirect('admin/suratk');
-
+        $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+        $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+        $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+        $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
         $data['suratk'] = $this->Suratk_model->get(array('id' => $id));
-
         $html = $this->load->view('admin/suratk/suratk_pdf', $data, true);
         $data = pdf_create($html, '', TRUE, 'A4', TRUE);
     }

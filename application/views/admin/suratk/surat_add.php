@@ -12,7 +12,8 @@ if (isset($surat)) {
 } else {
     $inputNumber = set_value('sk_number');
     $inputDescription = set_value('sk_description');
-    $inputSkDate = set_value('sk_date');    
+    $inputSkDate = set_value('sk_date'); 
+    $inputSkSt = set_value('sk_status');       
     $inputEmployeNik = set_value('employe_nik');
     $inputEmployeName = set_value('employe_name');
     $inputEmployePos = set_value('employe_position');
@@ -41,6 +42,11 @@ if (isset($surat)) {
                 <br>
                 <label >Tanggal Surat *</label>
                 <input name="sk_date" placeholder="Tanggal Surat" type="text" class="form-control datepicker" value="<?php echo $inputSkDate; ?>"><br>
+                <label >Status Karyawan *</label>
+                <select name="sk_status" class="form-control">                
+                <option value="tetap">Tetap</option>
+                <option value="kontrak">Kontrak</option>                
+                </select><br> 
                 <label >Keterangan Untuk *</label>
                 <input name="sk_description" placeholder="Keterangan" type="text" class="form-control" value="<?php echo $inputDescription; ?>"><br>                
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>

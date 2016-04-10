@@ -20,9 +20,9 @@
     <tr>
       <td width="59">Nomor</td>
       <td width="10">:</td>
-      <td width="291"><?php echo $spb['spb_number'] ?>/SATHRD-CLS2/<?php $this->load->helper('tanggal'); 
+      <td width="291"><?php echo $spb['spb_number'] ?>/SATHRD-<span class="upper"><?php echo $setting_initial['setting_value'] ?></span>/<?php $this->load->helper('tanggal'); 
         $namaBulan=konversiBulan(pretty_date($spb['spb_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $spb['spb_date'],'Y',false) ?></td><td width="10"></p><td width="5"></td>
-        <td width="128" scope="col"><div align="left">Cileungsi, <?php echo pretty_date( $spb['spb_date'],'d F Y',false) ?></div></td>
+        <td width="128" scope="col"><div align="left"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $spb['spb_date'],'d F Y',false) ?></div></td>
       </tr>      
       <tr>
         <td>Hal</td>
@@ -39,17 +39,17 @@
         <tr>
           <td width="67" scope="col">Nama</td>
           <td width="13" scope="col">:</td>
-          <td width="464" scope="col">Tati Nurhayati</td>
+          <td width="464" scope="col"><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
         </tr>
         <tr>
           <td>NIK</td>
           <td>:</td>
-          <td>03050129</td>
+          <td><?php echo $setting_employe_nik['setting_value'] ?></td>
         </tr>
         <tr>
           <td>Jabatan</td>
           <td>:</td>
-          <td>People Development Manager</td>
+          <td><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
         </tr>
       </table><br>
       <p align="justify">Dengan ini mengajukan permohonan dispensasi pembukaan rekening BCA untuk karyawan-karyawan 

@@ -18,7 +18,7 @@ class Contract extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Contract_model', 'Activity_log_model', 'Employe_model'));
+        $this->load->model(array('Contract_model', 'Activity_log_model', 'Employe_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -161,6 +161,10 @@ class Contract extends CI_Controller {
         if ($id == NULL)
             redirect('admin/contract');
 
+        $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+        $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+        $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+        $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
         $data['contract'] = $this->Contract_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/contract/contract_pdf', $data, true);
@@ -193,6 +197,10 @@ class Contract extends CI_Controller {
             for ($i = 0; $i < count($memo); $i++) {
                 $print[] = $memo[$i];
             }
+            $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+            $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+            $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+            $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
             $data['contract'] = $this->Contract_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/contract/contract_multiple_pdf', $data, true);
@@ -238,7 +246,7 @@ class Contract extends CI_Controller {
         $csv = array(
             0 => array(
                 'NO.', 'NIK', 'NAMA', 'JABATAN', 'TGL HABIS KONTRAK', 'KONTRAK KE', 'ALAMAT', 'NO TLP', 'KETERANGAN'
-            
+
                 )
             );
         $i = 1;

@@ -48,20 +48,20 @@
                     <label>Nama PDM / GSM</label>
                 </div>
                 <div class="col-md-8">
-                    <input type="text" name="setting_employe_nik" value="<?php echo $setting_employe_nik['setting_value'] ?>" class="form-control">
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="col-md-4">
-                    <label>NIK PDM GSM</label>
-                </div>
-                <div class="col-md-8">
                     <input type="text" name="setting_employe_name" value="<?php echo $setting_employe_name['setting_value'] ?>" class="form-control">
                 </div>
             </div><br>
             <div class="row">
                 <div class="col-md-4">
-                    <label>Jabatan</label>
+                    <label>NIK PDM / GSM</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="setting_employe_nik" value="<?php echo $setting_employe_nik['setting_value'] ?>" class="form-control">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Jabatan PDM / GSM</label>
                 </div>
                 <div class="col-md-8">
                     <input type="text" name="setting_employe_position" value="<?php echo $setting_employe_position['setting_value'] ?>" class="form-control">
@@ -77,13 +77,13 @@
             </div><br>
             <div class="row">
                 <div class="col-md-12">
-                    <input type="submit" value="Simpan" class="btn btn-primary pull-right">
+                    <input type="submit" value="Simpan" class="btn btn-info pull-right">
                 </div>
             </div>
             <?php echo form_close() ?>
         </div>
         <div class="col-md-4">
-            <div class="alert alert-info">
+            <div class="alert alert-warning">
                 Kolom tidak boleh kosong, Jika ingin di nonaktifkan silakan beri tanda ( - ) pada kolom yang tersedia.
             </div>
         </div>

@@ -18,7 +18,7 @@ class Memorandum3 extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum2_model', 'Memorandum1_model'));
+        $this->load->model(array('Memorandum3_model', 'Activity_log_model', 'Memorandum2_model', 'Memorandum1_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -161,6 +161,12 @@ class Memorandum3 extends CI_Controller {
             for ($i = 0; $i < count($memo); $i++) {
                 $print[] = $memo[$i];
             }
+
+            $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
+            $data['setting_pic'] = $this->Setting_model->get(array('id' => 4));
+            $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+            $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+            $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
             $data['memorandum'] = $this->Memorandum3_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/memorandum3/memorandum_multiple_pdf', $data, true);
@@ -187,6 +193,11 @@ class Memorandum3 extends CI_Controller {
         if ($id == NULL)
             redirect('admin/memorandum3');
 
+        $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
+        $data['setting_pic'] = $this->Setting_model->get(array('id' => 4));
+        $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+        $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+        $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
         $data['memorandum'] = $this->Memorandum3_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/memorandum3/memorandum_pdf', $data, true);

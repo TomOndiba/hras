@@ -23,7 +23,7 @@
         <td width="48" scope="col"><div align="left">Nomor</div></td>
         <td width="10" scope="col"><div align="left">:</div></td>
         <td width="277" scope="col"><?php echo $memorandum['memorandum_number'] ?>/SAT-IR/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($memorandum['memorandum_date_sent'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $memorandum['memorandum_date_sent'],'Y',false) ?></td>
-        <td width="277" scope="col">Cileungsi, <?php echo pretty_date( $memorandum['memorandum_date_sent'],'d F Y',false) ?></td>
+        <td width="277" scope="col"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $memorandum['memorandum_date_sent'],'d F Y',false) ?></td>
         
         <td width="277" scope="col">&nbsp;</td>
       </tr>
@@ -82,12 +82,12 @@
       <tr>
         <td>&nbsp;</td>
         <td>&nbsp;</td>
-        <td>Kawasan Industri Menara Permai Kav.18 Cileungsi Bogor </td>
+        <td><span class="cap"><?php echo $setting_address['setting_value'] ?></span></td>
       </tr>
       <tr>
         <td>Keperluan</td>
         <td>:</td>
-        <td>1. Menghadap Bapak Sirat / Ibu Endang </td>
+        <td>1. Menghadap Ke Personalia (<span class="cap"><?php echo $setting_pic['setting_value'] ?></span>) </td>
       </tr>
       <tr>
         <td>&nbsp;</td>
@@ -115,11 +115,11 @@
       <table border="0">
         <tbody>
           <tr>
-            <td><u><strong>( TATI NURHAYATI )</strong></u></td>
+            <td><u><strong>( <span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span> )</strong></u></td>
             <td></td>                        
           </tr>
           <tr>
-            <td><em><strong>People Development Manager</strong></em></td>
+            <td><em><strong><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></strong></em></td>
             <td></td>                        
           </tr>
         </tbody></table>

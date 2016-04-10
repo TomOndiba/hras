@@ -20,7 +20,7 @@
     <tr>
       <td width="70">Nomor</td>
       <td width="10">:</td>
-      <td width="370"><?php echo $contract['contract_number'] ?>/SATHRD-CLS2/<?php $this->load->helper('tanggal'); 
+      <td width="370"><?php echo $contract['contract_number'] ?>/SATHRD-<span class="upper"><?php echo $setting_initial['setting_value'] ?>/<?php $this->load->helper('tanggal'); 
         $namaBulan=konversiBulan(pretty_date($contract['contract_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $contract['contract_date'],'Y',false) ?></td></p></td>
       </tr>
       <tr>
@@ -51,7 +51,7 @@
         <tr>
           <td>Jabatan</td>
           <td>:</td>
-          <td><?php echo $contract['contract_employe_position'] ?></td>
+          <td><span class="cap"><?php echo $contract['contract_employe_position'] ?></span></td>
         </tr>
       </table>
       <p>&nbsp;</p>
@@ -82,11 +82,11 @@
           <table border="0">
             <tbody>
               <tr>
-                <td><u><strong>( TATI NURHAYATI )</strong></u></td>
+                <td><u><strong>( <span class="upper"><?php echo $setting_employe_name['setting_value'] ?> )</strong></u></td>
                 <td></td>                        
               </tr>
               <tr>
-                <td><em><strong>People Development Manager</strong></em></td>
+                <td><em><strong><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></strong></em></td>
                 <td></td>                        
               </tr>
             </tbody></table><br>

@@ -47,7 +47,7 @@
                             <td>User Input</td>
                             <td>:</td>
                             <td><?php echo $surat['user_full_name']; ?></td>
-                        </tr>
+                        </tr>                        
                     </tbody>
                 </table>
             </div>
