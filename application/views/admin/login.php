@@ -3,7 +3,7 @@
 <?php $data['setting'] = $this->Setting_model->get(); ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
+    <!-- Meta, title, CSS, favicons, etc. --> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -233,7 +233,7 @@
     </div>
     <div class="row" style="margin-top:1px">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 text-header">
-            <marquee><h5>Human Resources Administration Application | People Development Branch Cileungsi 2</h5></marquee>
+            <marquee><h5>Human Resources Administration Application | People Development</h5></marquee>
         </div>
     </div>        
     <div class="row">

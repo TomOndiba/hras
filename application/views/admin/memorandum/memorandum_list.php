@@ -5,7 +5,7 @@
             Daftar History Surat Panggilan 
             <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
-                <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/memorandum/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
+                <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/memorandum/export_excel' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
 
             </span>
         </h3>

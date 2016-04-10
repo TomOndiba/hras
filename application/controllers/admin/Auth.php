@@ -21,7 +21,7 @@ class Auth extends CI_Controller {
         $this->load->helper('url');        
     }
 
-    function index() {
+    function index() {  
         redirect('admin/auth/login');
     }
 

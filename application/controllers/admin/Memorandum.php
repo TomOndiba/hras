@@ -141,6 +141,105 @@ class Memorandum extends CI_Controller {
         array_to_csv($csv, 'Report_Surat_Panggilan.csv');
     }
 
+    public function export_excel()
+    {
+        // Apply Filter
+        // Get $_GET variable
+        $q = $this->input->get(NULL, TRUE);
+
+        $data['q'] = $q;
+
+        $params = array();
+        
+        // Date start
+        if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {
+            $params['date_start'] = $q['ds'];
+        }
+
+        // Date end
+        if (isset($q['de']) && !empty($q['de']) && $q['de'] != '') {
+            $params['date_end'] = $q['de'];
+        }
+        
+
+        $data['memorandum'] = $this->Memorandum1_model->get($params);
+
+        $this->load->library("PHPExcel");
+        $objXLS   = new PHPExcel();
+        $objSheet = $objXLS->setActiveSheetIndex(0);            
+        $cell     = 2;        
+        $no       = 1;
+
+        $objSheet->setCellValue('A1', 'NO');
+        $objSheet->setCellValue('B1', 'NIK');
+        $objSheet->setCellValue('C1', 'NAMA');
+        $objSheet->setCellValue('D1', 'JABATAN');
+        $objSheet->setCellValue('E1', 'EMAIL');
+        $objSheet->setCellValue('F1', 'MANGKIR');
+        $objSheet->setCellValue('G1', 'SP 1');
+        $objSheet->setCellValue('H1', 'PANGGILAN 1');
+        $objSheet->setCellValue('I1', 'SP 2');
+        $objSheet->setCellValue('J1', 'PANGGILAN 2');
+        $objSheet->setCellValue('K1', 'SP 3');
+        $objSheet->setCellValue('L1', 'PANGGILAN 3');
+        $objSheet->setCellValue('M1', 'KETERANGAN');        
+
+        foreach ($data['memorandum'] as $row) {
+        
+            $objSheet->setCellValue('A'.$cell, $no);
+            $objSheet->setCellValue('B'.$cell, $row['memorandum_employe_nik']);
+            $objSheet->setCellValue('C'.$cell, $row['memorandum_employe_name']);
+            $objSheet->setCellValue('D'.$cell, $row['memorandum_employe_position']);
+            $objSheet->setCellValue('E'.$cell, pretty_date($row['memorandum_email_date'], 'd/m/Y', FALSE));
+            $objSheet->setCellValue('F'.$cell, pretty_date($row['memorandum_absent_date'], 'd/m/Y', FALSE));
+            $objSheet->setCellValue('G'.$cell, pretty_date($row['memorandum_date_sent'], 'd/m/Y', FALSE));
+            $objSheet->setCellValue('H'.$cell, pretty_date($row['memorandum_call_date'], 'd/m/Y', FALSE));
+            $objSheet->setCellValue('I'.$cell, ($row['memorandum2_date_sent'] != NULL) ? pretty_date($row['memorandum2_date_sent'], 'd/m/Y', FALSE):'');
+            $objSheet->setCellValue('J'.$cell, ($row['memorandum2_call_date'] != NULL) ? pretty_date($row['memorandum2_date_sent'], 'd/m/Y', FALSE):'');
+            $objSheet->setCellValue('K'.$cell, ($row['memorandum3_date_sent'] != NULL) ? pretty_date($row['memorandum2_date_sent'], 'd/m/Y', FALSE):'');
+            $objSheet->setCellValue('L'.$cell, ($row['memorandum3_call_date'] != NULL) ? pretty_date($row['memorandum2_date_sent'], 'd/m/Y', FALSE):'');
+            $objSheet->setCellValue('M'.$cell, $row['memorandum_finished_desc']);
+                     
+            $cell++;
+            $no++;    
+        }                    
+        
+        $objXLS->getActiveSheet()->getColumnDimension('A')->setWidth(5);
+        $objXLS->getActiveSheet()->getColumnDimension('B')->setWidth(10);
+        $objXLS->getActiveSheet()->getColumnDimension('C')->setWidth(30);
+ 
+        foreach(range('D', 'Z') as $alphabet)
+        {
+            $objXLS->getActiveSheet()->getColumnDimension($alphabet)->setWidth(20);
+        }
+
+        $objXLS->getActiveSheet()->getColumnDimension('M')->setWidth(20);
+
+        $font = array('font' => array( 'bold' => true));
+        $objXLS->getActiveSheet()
+               ->getStyle('A1:M1')
+               ->applyFromArray($font);
+
+        $objXLS->setActiveSheetIndex(0);        
+        $styleArray = array(
+                      'borders' => array(
+                                   'allborders' => array(
+                                                   'style' => PHPExcel_Style_Border::BORDER_THIN,
+                                                   'color' => array(
+                                                              'rgb'  => '111111' 
+                                                              ),
+                                                   ),
+                                   ),
+                      );
+        $objSheet->getStyle('A1:M'.$no)->applyFromArray($styleArray);
+        $objWriter = PHPExcel_IOFactory::createWriter($objXLS, 'Excel5'); 
+        header('Content-Type: application/vnd.ms-excel'); 
+        header('Content-Disposition: attachment;filename="HRAS_PS_'.date('dmY').'.xls"'); 
+        header('Cache-Control: max-age=0'); 
+        $objWriter->save('php://output'); 
+        exit();      
+    }
+
 }
 
 /* End of file memorandum.php */

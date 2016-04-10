@@ -18,7 +18,7 @@ class Dashboard extends CI_Controller {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));            
         }
     }
-
+ 
     // Dashboard View
     public function index()
     {
