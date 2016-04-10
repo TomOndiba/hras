@@ -39,7 +39,7 @@ class Suratk extends CI_Controller {
         if ($this->Suratk_model->get(array('id' => $id)) == NULL) {
             redirect('admin/suratk');
         }
-        $data['surat'] = $this->Suratk_model->get(array('id' => $id));
+        $data['surat'] = $this->Suratk_model->get(array('id' => $id));        
         $data['title'] = 'Surat Keterangan';
         $data['main'] = 'admin/suratk/surat_view';
         $this->load->view('admin/layout', $data);

@@ -58,10 +58,11 @@ class Suratk_model extends CI_Model {
         }
 
         $this->db->select('sk.sk_id, sk_number, sk_description, sk_date, sk_employe_name,            
-            sk.user_user_id,   user_name, user_full_name, sk_employe_nik, sk_employe_position, sk_employe_date_register,
+            sk.user_user_id,   user_name, user_full_name, set_employe_name, sk_employe_nik, sk_employe_position, sk_employe_date_register,
             sk_input_date, sk_last_update');
         $this->db->join('employe', 'employe.employe_nik = sk_employe_nik', 'left'); 
-        $this->db->join('user', 'user.user_id = sk.user_user_id', 'left');       
+        $this->db->join('user', 'user.user_id = sk.user_user_id', 'left'); 
+        $this->db->join('set', 'set.set_id = sk.set_set_id', 'left');       
         $res = $this->db->get('sk');
 
         if(isset($params['id']) OR (isset($params['limit']) AND $params['limit']==1))

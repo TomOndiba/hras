@@ -291,6 +291,23 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `set`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `set` (
+  `set_id` INT NOT NULL AUTO_INCREMENT ,
+  `set_branch` VARCHAR(100) NULL ,
+  `set_address` TEXT NULL ,
+  `set_city` VARCHAR(45) NULL ,
+  `set_pic` VARCHAR(45) NULL ,
+  `set_employe_nik` VARCHAR(8) NULL ,
+  `set_employe_name` VARCHAR(255) NULL ,
+  `set_employe_position` VARCHAR(100) NULL ,
+  `set_initial` VARCHAR(45) NULL ,
+  PRIMARY KEY (`set_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `sk`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `sk` (
@@ -302,10 +319,18 @@ CREATE  TABLE IF NOT EXISTS `sk` (
   `sk_number` VARCHAR(45) NULL ,
   `sk_description` TEXT NULL ,
   `sk_date` DATE NULL ,
+  `sk_status` VARCHAR(100) NULL ,
   `user_user_id` INT NULL ,
+  `set_set_id` INT NULL ,
   `sk_input_date` TIMESTAMP NULL ,
   `sk_last_update` TIMESTAMP NULL ,
-  PRIMARY KEY (`sk_id`) )
+  PRIMARY KEY (`sk_id`) ,
+  INDEX `fk_sk_set1_idx` (`set_set_id` ASC) ,
+  CONSTRAINT `fk_sk_set1`
+    FOREIGN KEY (`set_set_id` )
+    REFERENCES `set` (`set_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
@@ -401,23 +426,6 @@ CREATE  TABLE IF NOT EXISTS `procuration` (
   `procuration_input_date` TIMESTAMP NULL ,
   `procuration_last_update` TIMESTAMP NULL ,
   PRIMARY KEY (`procuration_id`) )
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `set`
--- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `set` (
-  `set_id` INT NOT NULL AUTO_INCREMENT ,
-  `set_branch` VARCHAR(100) NULL ,
-  `set_address` TEXT NULL ,
-  `set_city` VARCHAR(45) NULL ,
-  `set_pic` VARCHAR(45) NULL ,
-  `set_employe_nik` VARCHAR(8) NULL ,
-  `set_employe_name` VARCHAR(255) NULL ,
-  `set_employe_position` VARCHAR(100) NULL ,
-  `set_initial` VARCHAR(45) NULL ,
-  PRIMARY KEY (`set_id`) )
 ENGINE = InnoDB;
 
 
