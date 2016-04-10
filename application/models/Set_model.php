@@ -38,7 +38,7 @@ class Set_model extends CI_Model {
         }
 
         if (isset($params['employe_nik'])) {
-            $this->db->where('employe.memorandum_employe_nik', $params['employe_nik']);
+            $this->db->where('employe.set_employe_nik', $params['employe_nik']);
         }
 
         if(isset($params['date_start']) AND isset($params['date_end']))
@@ -69,12 +69,12 @@ class Set_model extends CI_Model {
         $this->db->select('set.set_id, set_branch, set_city, set_address, set_pic, set_employe_nik,
             set_employe_name, set_employe_position, set_initial');   
 
-        $this->db->join('employe', 'employe.employe_nik = memorandum_employe_nik', 'left');     
+        $this->db->join('employe', 'employe.employe_nik = set_employe_nik', 'left');     
         $res = $this->db->get('set');
 
 
 
-        if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['set_npp']))) {
+        if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['set_id']))) {
             return $res->row_array();
         } else {
             return $res->result_array();
@@ -120,10 +120,7 @@ class Set_model extends CI_Model {
             $this->db->set('set_initial', $data['set_initial']);
         }
           
-        if(isset($data['set_kelas'])) {
-            $this->db->set('set_kelas', $data['set_kelas']);
-        }
-
+        
         if (isset($data['set_id'])) {
             $this->db->where('set_id', $data['set_id']);
             $this->db->update('set');

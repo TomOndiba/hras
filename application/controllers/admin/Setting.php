@@ -22,23 +22,36 @@ class Setting extends CI_Controller {
     public function index() {
         $this->load->model('Setting_model');
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('class_name', 'Class Name', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('class_description', 'Class Description', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('class_cash', 'Class Cash', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_branch', 'Setting Branch', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_address', 'Setting Address', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_city', 'Setting Kota', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_pic', 'Setting PIC', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_employe_nik', 'Setting PDM', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_initial', 'Setting Inisial Branch', 'trim|required|xss_clean');        
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
             
-            $param['class_name'] = $this->input->post('class_name');
-            $param['class_description'] = $this->input->post('class_description');
-            $param['class_cash'] = $this->input->post('class_cash');
+            $param['setting_branch'] = $this->input->post('setting_branch');
+            $param['setting_address'] = $this->input->post('setting_address');
+            $param['setting_city'] = $this->input->post('setting_city');
+            $param['setting_pic'] = $this->input->post('setting_pic');
+            $param['setting_employe_nik'] = $this->input->post('setting_employe_nik');
+            $param['setting_employe_name'] = $this->input->post('setting_employe_name');
+            $param['setting_employe_position'] = $this->input->post('setting_employe_position');
+            $param['setting_initial'] = $this->input->post('setting_initial');
             $this->Setting_model->save($param);
             $this->session->set_flashdata('success', ' Sunting pengaturan berhasil');
             redirect('admin/setting');
         } else {
             $data['title'] = 'Pengaturan';
-            $data['class_name'] = $this->Setting_model->get(array('id' => CLASS_NAME));
-            $data['class_description'] = $this->Setting_model->get(array('id' => CLASS_DESC));
-            $data['class_cash'] = $this->Setting_model->get(array('id' => CLASS_CASH));
+            $data['setting_branch'] = $this->Setting_model->get(array('id' => 1));
+            $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
+            $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
+            $data['setting_pic'] = $this->Setting_model->get(array('id' => 4));
+            $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+            $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+            $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7));
+            $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
             $data['main'] = 'admin/setting/setting_list';
             $this->load->view('admin/layout', $data);
         }

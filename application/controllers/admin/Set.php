@@ -25,37 +25,9 @@ class Set extends CI_Controller {
     // Surat Habis Kontrak view in list
     public function index($offset = NULL) {
         $this->load->library('pagination');
-
-        // Apply Filter
-        // Get $_GET variable
-        $q = $this->input->get(NULL, TRUE);
-
-        $data['q'] = $q;
-        $params = array(); 
-
-        // Employe Nik
-        if (isset($q['n']) && !empty($q['n']) && $q['n'] != '') {
-            $params['set_employe_nik'] = $q['n'];
-        }
-
-        // Date start
-        if (isset($q['ds']) && !empty($q['ds']) && $q['ds'] != '') {
-            $params['date_start'] = $q['ds'];
-        }
-
-        // Date end
-        if (isset($q['de']) && !empty($q['de']) && $q['de'] != '') {
-            $params['date_end'] = $q['de'];
-        }
-        
-        $paramsPage = $params;
-        $params['limit'] = 10;
-        $params['offset'] = $offset;
-
-
-        $data['set'] = $this->Set_model->get($params);        
+        $data['set'] = $this->Set_model->get(array('limit' => 10, 'offset' => $offset));
         $config['base_url'] = site_url('admin/set/index');
-        $config['total_rows'] = count($this->Set_model->get($paramsPage));
+        $config['total_rows'] = count($this->Set_model->get(array('status' => TRUE)));
         $this->pagination->initialize($config);
 
         $data['title'] = 'Pengaturan';
@@ -76,21 +48,24 @@ class Set extends CI_Controller {
     // Add Surat and Update
     public function add($id = NULL) {
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('set_date', 'Tanggal Habis', 'trim|required|xss_clean');                 
+        $this->form_validation->set_rules('set_branch', 'branch', 'trim|required|xss_clean');                 
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
 
         if ($_POST AND $this->form_validation->run() == TRUE) {
 
             if ($this->input->post('set_id')) {
-                $params['set_id'] = $this->input->post('set_id');            
-            $params['set_branch'] = $this->input->post('set_branch');
-            $params['set_city'] = $this->input->post('set_city');             
-            $params['set_address'] = $this->input->post('set_pic');
-            $params['set_employe_nik'] = $this->input->post('set_employe_nik');
-            $params['set_employe_name'] = $this->input->post('set_employe_name');
-            $params['set_employe_position'] = $this->input->post('employe_position');
-            $params['set_employe_address'] = $this->input->post('employe_address');
+                $params['set_id'] = $this->input->post('set_id');
+            } else {                
+                $params['set_branch'] = $this->input->post('set_branch');
+            }           
+            
+            $params['set_city'] = $this->input->post('set_city'); 
+            $params['set_address'] = $this->input->post('set_address');            
+            $params['set_pic'] = $this->input->post('set_pic');
+            $params['set_employe_nik'] = $this->input->post('employe_nik');
+            $params['set_employe_name'] = $this->input->post('employe_name');
+            $params['set_employe_position'] = $this->input->post('employe_position');           
             $params['set_initial'] = $this->input->post('set_initial');            
             $status = $this->Set_model->add($params);
 
@@ -100,7 +75,7 @@ class Set extends CI_Controller {
                 array(
                     'log_date' => date('Y-m-d H:i:s'),
                     'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'Surat Habis Kontrak',
+                    'log_module' => 'Pengaturan',
                     'log_action' => $data['operation'],
                     'log_info' => 'ID:'.$status.';Title:NULL' 
                     )
@@ -150,5 +125,5 @@ class Set extends CI_Controller {
 
 
 
-/* End of file set.php */
+/* End of file Set.php */
 /* Location: ./application/controllers/admin/set.php */

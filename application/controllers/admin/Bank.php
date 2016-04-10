@@ -2,7 +2,7 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-
+ 
 /**
  * Bank controllers class
  *
@@ -18,7 +18,7 @@ class Bank extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Bank_model', 'Activity_log_model'));
+        $this->load->model(array('Bank_model', 'Activity_log_model', 'Setting_model'));
         $this->load->helper('string');
     }
 

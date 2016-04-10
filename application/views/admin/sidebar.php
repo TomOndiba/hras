@@ -79,7 +79,7 @@
 
             <li><a><i class="fa fa-gear"></i> Pengaturan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin/set') ?>">Pengaturan</a>                    
+                    <li><a href="<?php echo site_url('admin/setting') ?>">Pengaturan</a>                    
                     </li>
                 </ul>
             </li>

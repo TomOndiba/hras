@@ -18,7 +18,7 @@ class Spb extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Spb_model', 'Activity_log_model', 'Bank_model'));
+        $this->load->model(array('Spb_model', 'Activity_log_model', 'Bank_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -40,6 +40,7 @@ class Spb extends CI_Controller {
             redirect('admin/spb');
         }
         $data['spb'] = $this->Spb_model->get(array('id' => $id));
+        
         $data['title'] = 'Surat Pengantar Bank';
         $data['main'] = 'admin/spb/spb_view';
         $this->load->view('admin/layout', $data);
@@ -113,7 +114,7 @@ class Spb extends CI_Controller {
             if (!is_null($id)) {
                 $data['spb'] = $this->Spb_model->get(array('id' => $id));
             }
-            $data['bank'] = $this->Bank_model->get();
+            $data['bank'] = $this->Bank_model->get();           
             $data['title'] = $data['operation'] . ' Surat Pengantar Bank';
             $data['main'] = 'admin/spb/spb_add';
             $this->load->view('admin/layout', $data);
@@ -146,10 +147,8 @@ class Spb extends CI_Controller {
         $this->load->helper(array('dompdf'));
         $this->load->helper(array('tanggal'));
         if ($id == NULL)
-            redirect('admin/spb');
-
-        $data['spb'] = $this->Spb_model->get(array('id' => $id));
-
+            redirect('admin/spb');        
+        $data['spb'] = $this->Spb_model->get(array('id' => $id));        
         $html = $this->load->view('admin/spb/spb_pdf', $data, true);
         $data = pdf_create($html, '', TRUE, 'A4', TRUE);
     }

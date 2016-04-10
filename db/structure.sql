@@ -421,6 +421,18 @@ CREATE  TABLE IF NOT EXISTS `set` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `setting`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `setting` (
+  `setting_id` INT NOT NULL AUTO_INCREMENT ,
+  `setting_name` VARCHAR(255) NULL ,
+  `setting_value` TEXT NULL ,
+  `setting_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`setting_id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
