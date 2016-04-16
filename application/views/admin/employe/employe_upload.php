@@ -3,6 +3,7 @@
 
     <body>
         <div class="form-body">
+            <?php echo form_open_multipart(current_url()) ?>
             <div class="form-group"> 
                 <label class="col-md-3 control-label">Pilih File Excel</label>
                 <div class="col-md-9">
@@ -11,9 +12,10 @@
             </div>
             <div class="form-group">
                 <div class="col-md-offset-3 col-md-9">
-                    <button type="submit" name="submit" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i>&nbsp;&nbsp;&nbsp;<?=$button;?></button>
+                    <button type="submit" name="submit" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i> Upload</button>
                 </div>
             </div>
+            <?php echo form_close() ?>
         </div>
 </section>
 

@@ -64,7 +64,7 @@
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/employe') ?>">Daftar Karyawan</a>
                     <li><a href="<?php echo site_url('admin/employe/add') ?>">Tambah Karyawan</a>
-                    <li><a href="<?php echo site_url('admin/employe/upload') ?>">Upload Karyawan</a>
+                    <li><a href="<?php echo site_url('admin/employe/import') ?>">Upload Karyawan</a>
                     </li>
                 </ul>
             </li>

@@ -57,6 +57,11 @@
                         <td>:</td>
                         <td><?php echo $bpjs['bpjs_faskes'] ?></td>
                     </tr>       
+                    <tr>         
+                        <td>Barcode</td>
+                        <td>:</td>
+                        <td><?php echo barcode($bpjs['bpjs_noka']); ?></td>
+                    </tr>       
                     <td>Kelas Rawat</td>
                     <td>:</td>
                     <td><?php echo $bpjs['bpjs_kelas'] ?></td>

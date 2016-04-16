@@ -188,6 +188,7 @@ class Employe extends CI_Controller {
 
     public function import()
     { 
+        $this->load->library('excel_reader');
         if (isset($_POST['submit']))
         {
             if (empty($_FILES['file']['name']))
@@ -221,32 +222,32 @@ class Employe extends CI_Controller {
                         if($data['cells'][$i][1] == '') break;
                         $data_excel[$i-1]['employe_nik']            = $data['cells'][$i][1];
                         $data_excel[$i-1]['employe_name']            = $data['cells'][$i][2];
-                        @$data_excel[$i-1]['employe_address']   = $data['cells'][$i][3];
-                        @$data_excel[$i-1]['employe_date_register']  = $data['cells'][$i][4];
-                        @$data_excel[$i-1]['employe_position']  = $data['cells'][$i][5];
-                        @$data_excel[$i-1]['employe_divisi']  = $data['cells'][$i][6];
-                        @$data_excel[$i-1]['employe_departement']  = $data['cells'][$i][7];
-                        @$data_excel[$i-1]['employe_phone']  = $data['cells'][$i][8];
+                        $data_excel[$i-1]['employe_address']   = $data['cells'][$i][3];
+                        $data_excel[$i-1]['employe_date_register']  = $data['cells'][$i][4];
+                        $data_excel[$i-1]['employe_position']  = $data['cells'][$i][5];
+                        $data_excel[$i-1]['employe_divisi']  = $data['cells'][$i][6];
+                        $data_excel[$i-1]['employe_departement']  = $data['cells'][$i][7];
+                        $data_excel[$i-1]['employe_phone']  = $data['cells'][$i][8];
 
                     }
 
                     @unlink('./uploads/'.$upload_data['file_name']);
                     $this->Employe_model->import_employe($data_excel) ?                   
-                    $this->session->set_flashdata('alert', alert('success', 'Import data siswa berhasil !')) :
-                    $this->session->set_flashdata('alert', alert('info', 'Data siswa tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!'));
+                    $this->session->set_flashdata('success', 'Import data siswa berhasil !') :
+                    $this->session->set_flashdata('success', 'Data siswa tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
                     redirect(uri_string());
                 }
             }
         }
         else
         {
-            $this->data['title']   = 'Upload Data Karyawan';
-            $this->data['button']  = 'Upload';
-            $this->data['action']  = site_url(uri_string());
-            $this->data['employe'] = $this->data['import_employe'] = TRUE;
-            $this->data['alert']   = $this->session->flashdata('alert');
-            $this->data['query']   = FALSE;
-            $this->data['content'] = 'employe/import';
+            $data['title']   = 'Upload Data Karyawan';
+            $data['action']  = site_url(uri_string());
+//            $data['employe'] = $this->Employe_model->import_employe();
+            $data['main'] = 'admin/employe/employe_upload';
+            $data['alert']   = $this->session->flashdata('alert');
+            $data['query']   = FALSE;
+            $data['content'] = 'employe/import';
             $this->load->view('admin/layout', $data);
         }
     }
