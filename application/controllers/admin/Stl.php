@@ -14,7 +14,7 @@ class Stl extends CI_Controller {
 
     public function __construct() {
         parent::__construct(TRUE);
-        if ($this->session->userdata('logged') == NULL) {
+        if ($this->session->userdata('logged') == NULL OR $this->session->userdata('user_role') != ROLE_SUPER_ADMIN AND $this->session->userdata('user_role') != ROLE_TRAINNER) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model(array('Stl_model', 'Activity_log_model', 'Employe_model'));

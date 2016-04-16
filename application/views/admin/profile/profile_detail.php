@@ -2,13 +2,21 @@
     <div class="x_panel post-inherit">
         <div class="col-md-12 main">
             <h3>
-                Detail Profil
+                Detail Pengguna
                 <span class=" pull-right">
+                    <a href="<?php echo site_url('admin/profile') ?>" class="btn btn-info btn-sm"><span class="fa fa-arrow-left"></span>&nbsp; Kembali</a> 
                     <a href="<?php echo site_url('admin/profile/edit/') ?>" class="btn btn-success btn-sm"><span class="fa fa-edit"></span>&nbsp; Edit</a> 
                 </span>
             </h3><br>
         </div>
-        <div class="col-md-12">
+            <div class="col-md-2">
+            <?php if (!empty($user['user_image'])) { ?>
+            <img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="img-responsive ava-detail">
+            <?php } else { ?>
+                <img src="<?php echo base_url('media/image/missing-image.png') ?>" class="img-responsive ava-detail">
+            <?php } ?>
+        </div>
+        <div class="col-md-10">
             <table class="table table-striped">
                 <tbody>
                     <tr>

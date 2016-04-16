@@ -15,7 +15,7 @@ class User extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        if ($this->session->userdata('logged') == NULL OR $this->session->userdata('role') != ROLE_SUPER_ADMIN) {
+        if ($this->session->userdata('logged') == NULL OR $this->session->userdata('user_role') != ROLE_SUPER_ADMIN) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
         $this->load->model('User_model');

@@ -5,7 +5,8 @@
 
 INSERT INTO `user_role` (`role_id`, `role_name`) VALUES
 (1, 'Super Admin'),
-(2, 'Admin');
+(2, 'Admin'),
+(3, 'Train');
 
 --
 -- Dumping data for table `user`
