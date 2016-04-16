@@ -46,22 +46,18 @@
                         <tr>         
                             <td>Tanggal Lahir</td>
                             <td>:</td>
-                            <td><?php echo pretty_date($bpjs['bpjs_date'], 'd M Y') ?></td>
+                            <td><?php echo pretty_date($bpjs['bpjs_date'], 'd F Y',false) ?></td>
                         </tr>  
                         <td>TMT Date</td>
                         <td>:</td>
-                        <td><?php echo pretty_date($bpjs['bpjs_tmt'], 'd M Y') ?></td>
+                        <td><?php echo pretty_date($bpjs['bpjs_tmt'], 'd F Y',false) ?></td>
                     </tr>
                     <tr>         
                         <td>Faskes</td>
                         <td>:</td>
                         <td><?php echo $bpjs['bpjs_faskes'] ?></td>
-                    </tr>       
-                    <tr>         
-                        <td>Barcode</td>
-                        <td>:</td>
-                        <td><?php echo barcode($bpjs['bpjs_noka']); ?></td>
-                    </tr>       
+                    </tr>      
+                    <tr>       
                     <td>Kelas Rawat</td>
                     <td>:</td>
                     <td><?php echo $bpjs['bpjs_kelas'] ?></td>

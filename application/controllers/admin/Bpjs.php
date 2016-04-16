@@ -134,6 +134,12 @@ class Bpjs extends CI_Controller {
 
     // Delete Bpjs
     public function delete($id = NULL) {
+
+        if ($id == NULL) {
+            $this->Bpjs_model->delete_all();
+            redirect('admin/bpjs');
+        }
+
         if ($_POST) {
             $this->Bpjs_model->delete($this->input->post('del_id'));
             // activity log
@@ -262,6 +268,93 @@ class Bpjs extends CI_Controller {
 
     return $filename_img_barcode;
 }
+
+public function import()
+    { 
+        $this->load->library('excel_reader');
+        if ($this->input->post('upload'))   
+        {
+            if (empty($_FILES['file']['name']))
+            {
+                $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
+                redirect(uri_string());
+            }
+            else
+            {
+                $this->load->helper('file');
+                $config['upload_path']   = './uploads/';               
+                $config['allowed_types'] = 'xls';
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('file'))
+                {
+                    $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
+                    redirect(uri_string());
+                }
+                else
+                {
+                    $upload_data = $this->upload->data();
+                    $this->load->library('excel_reader');
+                    $this->excel_reader->setOutputEncoding('CP1251');
+                    $this->excel_reader->read($upload_data['full_path']);
+                    $data       = $this->excel_reader->sheets[0];
+                    $data_excel = array();
+
+                    for ($i = 1; $i <= $data['numRows']; $i++)
+                    {
+                        if($data['cells'][$i][1] == '') break;
+
+                        $var  = $data['cells'][$i][6];
+                        $date = str_replace('/', '-', $var);
+                        $var2  = $data['cells'][$i][7];
+                        $tmt = str_replace('/', '-', $var2);
+
+                        $data_excel[$i-1]['bpjs_noka']       = $data['cells'][$i][1];
+                        $data_excel[$i-1]['bpjs_ktp']        = $data['cells'][$i][2];
+                        $data_excel[$i-1]['bpjs_npp']        = $data['cells'][$i][3];
+                        $data_excel[$i-1]['bpjs_name']       = $data['cells'][$i][4];
+                        $data_excel[$i-1]['bpjs_hub']        = $data['cells'][$i][5];                        
+                        $data_excel[$i-1]['bpjs_date']       = date('Y-m-d', strtotime($date));
+                        $data_excel[$i-1]['bpjs_tmt']        = date('Y-m-d', strtotime($tmt));                        
+                        $data_excel[$i-1]['bpjs_faskes']     = $data['cells'][$i][8];
+                        $data_excel[$i-1]['bpjs_kelas']      = $data['cells'][$i][9];
+                        
+
+                    }
+
+                    // echo '<pre>';
+                    // print_r($data_excel);
+                    // echo '</pre>';
+                    // die();
+              
+                    @unlink('./uploads/'.$upload_data['file_name']);
+                    $this->Bpjs_model->import_bpjs($data_excel) ?                   
+                    $this->session->set_flashdata('success', 'Import Entitas berhasil !') :
+                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+                    redirect(uri_string());
+                }
+            }
+        }
+        else
+        {
+            $data['title']   = 'Upload Entitas';
+            $data['action']  = site_url(uri_string());
+            $data['main'] = 'admin/bpjs/bpjs_upload';
+            $data['alert']   = $this->session->flashdata('alert');
+            $data['query']   = FALSE;
+            $data['content'] = 'bpjs/import';
+            $this->load->view('admin/layout', $data);
+        }
+    }
+
+    public function download()
+    {
+        $data = file_get_contents("./media/template_excel/template_upload_Entitas.xls");
+        $name = 'Template_Entitas.xls';
+        $this->load->helper('download');
+        force_download($name, $data);
+    }
+
 
 }
 

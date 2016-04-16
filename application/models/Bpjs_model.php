@@ -147,6 +147,35 @@ class Bpjs_model extends CI_Model {
     function delete($id) {
         $this->db->where('bpjs_id', $id);
         $this->db->delete('bpjs');
-    }            
+    }     
+
+    // Delete all to database
+    function delete_all() {
+        $this->db->empty_table('bpjs');
+    }
+
+    public function import_bpjs($data_excel) {
+        $count = 0;
+
+        for ($i = 1; $i < count($data_excel); $i++) {
+            $data = array(
+                'bpjs_noka' => $data_excel[$i]['bpjs_noka'],
+                'bpjs_ktp' => $data_excel[$i]['bpjs_ktp'],
+                'bpjs_npp' => $data_excel[$i]['bpjs_npp'],
+                'bpjs_name' => $data_excel[$i]['bpjs_name'],
+                'bpjs_hub' => $data_excel[$i]['bpjs_hub'],
+                'bpjs_date' => $data_excel[$i]['bpjs_date'],
+                'bpjs_tmt' => $data_excel[$i]['bpjs_tmt'],
+                'bpjs_faskes' => $data_excel[$i]['bpjs_faskes'],
+                'bpjs_kelas' => $data_excel[$i]['bpjs_kelas'],
+            );
+
+            $this->db->insert('bpjs', $data);
+
+            $count++;
+        }
+
+        return $count > 0 ? TRUE : FALSE;
+    }       
  
 }

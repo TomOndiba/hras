@@ -12,8 +12,10 @@
                 <div class="col-md-2">
                     <input type="text" name="k" placeholder="KTP" value="" class="form-control">
                 </div>               
-                <div class="col-md-2">
+                
                     <input type="submit" class="btn btn-success" value="Cari">
+                    <span class="right">  
+                <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/bpjs/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data Entitas?')">Hapus Semua Entitas</a></span>
                 </div>
             </div>
             <?php echo form_close() ?> 
