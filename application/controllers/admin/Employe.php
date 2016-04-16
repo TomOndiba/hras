@@ -186,6 +186,71 @@ class Employe extends CI_Controller {
         return $upload_data['file_name'];
     }
 
+    public function import()
+    { 
+        if (isset($_POST['submit']))
+        {
+            if (empty($_FILES['file']['name']))
+            {
+                $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
+                redirect(uri_string());
+            }
+            else
+            {
+                $this->load->helper('file');
+                $config['upload_path']   = './uploads/';
+                $config['allowed_types'] = 'xls';
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('file'))
+                {
+                    $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
+                    redirect(uri_string());
+                }
+                else
+                {
+                    $upload_data = $this->upload->data();
+                    $this->load->library('excel_reader');
+                    $this->excel_reader->setOutputEncoding('CP1251');
+                    $this->excel_reader->read($upload_data['full_path']);
+                    $data       = $this->excel_reader->sheets[0];
+                    $data_excel = array();
+
+                    for ($i = 1; $i <= $data['numRows']; $i++)
+                    {
+                        if($data['cells'][$i][1] == '') break;
+                        $data_excel[$i-1]['employe_nik']            = $data['cells'][$i][1];
+                        $data_excel[$i-1]['employe_name']            = $data['cells'][$i][2];
+                        @$data_excel[$i-1]['employe_address']   = $data['cells'][$i][3];
+                        @$data_excel[$i-1]['employe_date_register']  = $data['cells'][$i][4];
+                        @$data_excel[$i-1]['employe_position']  = $data['cells'][$i][5];
+                        @$data_excel[$i-1]['employe_divisi']  = $data['cells'][$i][6];
+                        @$data_excel[$i-1]['employe_departement']  = $data['cells'][$i][7];
+                        @$data_excel[$i-1]['employe_phone']  = $data['cells'][$i][8];
+
+                    }
+
+                    @unlink('./uploads/'.$upload_data['file_name']);
+                    $this->Employe_model->import_employe($data_excel) ?                   
+                    $this->session->set_flashdata('alert', alert('success', 'Import data siswa berhasil !')) :
+                    $this->session->set_flashdata('alert', alert('info', 'Data siswa tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!'));
+                    redirect(uri_string());
+                }
+            }
+        }
+        else
+        {
+            $this->data['title']   = 'Upload Data Karyawan';
+            $this->data['button']  = 'Upload';
+            $this->data['action']  = site_url(uri_string());
+            $this->data['employe'] = $this->data['import_employe'] = TRUE;
+            $this->data['alert']   = $this->session->flashdata('alert');
+            $this->data['query']   = FALSE;
+            $this->data['content'] = 'employe/import';
+            $this->load->view('admin/layout', $data);
+        }
+    }
+
 }
 
 /* End of file employe.php */

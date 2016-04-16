@@ -27,7 +27,7 @@ class Employe_model extends CI_Model {
         {
             $this->db->where('employe.employe_nik', $params['employe_nik']);
         }
-                        
+
         if(isset($params['date_start']) AND isset($params['date_end']))
         {
             $this->db->where('employe_published_date >=', $params['date_start'] . ' 00:00:00');
@@ -66,60 +66,90 @@ class Employe_model extends CI_Model {
 
     // Add and update to database
     function add($data = array()) {
-        
-         if(isset($data['employe_id'])) {
-            $this->db->set('employe_id', $data['employe_id']);
-        }
-        
-         if(isset($data['employe_nik'])) {
-            $this->db->set('employe_nik', $data['employe_nik']);
-        }
-        
-         if(isset($data['employe_name'])) {
-            $this->db->set('employe_name', $data['employe_name']);
-        }
-        
-         if(isset($data['employe_phone'])) {
-            $this->db->set('employe_phone', $data['employe_phone']);
-        }
-        
-         if(isset($data['employe_address'])) {
-            $this->db->set('employe_address', $data['employe_address']);
-        }
-        
-         if(isset($data['employe_divisi'])) {
-            $this->db->set('employe_divisi', $data['employe_divisi']);
-        }
-        
-         if(isset($data['employe_position'])) {
-            $this->db->set('employe_position', $data['employe_position']);
-        }
-        
-         if(isset($data['employe_departement'])) {
-            $this->db->set('employe_departement', $data['employe_departement']);
-        }
-                         
-         if(isset($data['employe_date_register'])) {
-            $this->db->set('employe_date_register', $data['employe_date_register']);
-        }
-                
-        if (isset($data['employe_id'])) {
-            $this->db->where('employe_id', $data['employe_id']);
-            $this->db->update('employe');
-            $id = $data['employe_id'];
-        } else {
-            $this->db->insert('employe');
-            $id = $this->db->insert_id();
-        }
 
-        $status = $this->db->affected_rows();
-        return ($status == 0) ? FALSE : $id;
+       if(isset($data['employe_id'])) {
+        $this->db->set('employe_id', $data['employe_id']);
     }
-    
+
+    if(isset($data['employe_nik'])) {
+        $this->db->set('employe_nik', $data['employe_nik']);
+    }
+
+    if(isset($data['employe_name'])) {
+        $this->db->set('employe_name', $data['employe_name']);
+    }
+
+    if(isset($data['employe_phone'])) {
+        $this->db->set('employe_phone', $data['employe_phone']);
+    }
+
+    if(isset($data['employe_address'])) {
+        $this->db->set('employe_address', $data['employe_address']);
+    }
+
+    if(isset($data['employe_divisi'])) {
+        $this->db->set('employe_divisi', $data['employe_divisi']);
+    }
+
+    if(isset($data['employe_position'])) {
+        $this->db->set('employe_position', $data['employe_position']);
+    }
+
+    if(isset($data['employe_departement'])) {
+        $this->db->set('employe_departement', $data['employe_departement']);
+    }
+
+    if(isset($data['employe_date_register'])) {
+        $this->db->set('employe_date_register', $data['employe_date_register']);
+    }
+
+    if (isset($data['employe_id'])) {
+        $this->db->where('employe_id', $data['employe_id']);
+        $this->db->update('employe');
+        $id = $data['employe_id'];
+    } else {
+        $this->db->insert('employe');
+        $id = $this->db->insert_id();
+    }
+
+    $status = $this->db->affected_rows();
+    return ($status == 0) ? FALSE : $id;
+}
+
     // Delete to database
-    function delete($id) {
-        $this->db->where('employe_id', $id);
-        $this->db->delete('employe');
-    }            
- 
+function delete($id) {
+    $this->db->where('employe_id', $id);
+    $this->db->delete('employe');
+}   
+
+public function import_employe($data_excel)
+{
+    $count = 0;
+
+    for ($i = 1; $i < count($data_excel); $i++)
+    {
+        if ( ! $this->is_exist('employe_nik', $data_excel[$i]['employe_nik'], 'employe'))
+        {
+            $data = array(
+                'employe_nik'           => $data_excel[$i]['employe_nik'],
+                'employe_name'          => $data_excel[$i]['employe_name'],
+                'employe_address'       => $data_excel[$i]['employe_address'],
+                'employe_date_register' => $data_excel[$i]['employe_date_register'],
+                'employe_position'      => $data_excel[$i]['employe_position'],
+                'employe_divisi'        => $data_excel[$i]['employe_divisi'],                    
+                'employe_departement'   => $data_excel[$i]['employe_departement'],
+                'employe_phone'         => $data_excel[$i]['employe_phone'],
+
+                );
+
+            $this->db->insert('employe', $data);
+
+            $count++;
+        }
+    }
+
+    return $count > 0 ? TRUE : FALSE;
+}
+
+
 }
