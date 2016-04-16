@@ -84,12 +84,14 @@
                 </ul>
             </li>
 
+            <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN){ ?>
             <li><a><i class="fa fa-users"></i> User Management <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/user') ?>">Daftar User</a>
                     </li>
                 </ul>
             </li>
+            <?php } ?>
         </ul>
     </div>
 

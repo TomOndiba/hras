@@ -15,8 +15,12 @@
                     <input type="text" name="n" placeholder="NIK" class="form-control">
                 </div>                              
                 <input type="submit" class="btn btn-md btn-success" value="Cari">
-                <span class="pull-right">  
-                <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/employe/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data karyawan?')">Hapus Semua Karyawan</a></span>
+
+                <?php if ($this->session->userdata('user_role') == ROLE_SUPER_ADMIN) { ?>
+                    <span class="pull-right">  
+                        <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/employe/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data karyawan?')">Hapus Semua Karyawan</a>
+                    </span>
+                <?php } ?>
             </div>
         </div>
         <?php echo form_close() ?>

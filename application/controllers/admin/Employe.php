@@ -6,7 +6,7 @@ if (!defined('BASEPATH'))
 /**
  * Employe controllers class
  *
- ** @package     HRA CMS
+ * * @package     HRA CMS
  * @subpackage  Controllers
  * @category    Controllers
  * @author      Achyar Anshorie
@@ -63,7 +63,6 @@ class Employe extends CI_Controller {
         $data['main'] = 'admin/employe/employe_view';
         $this->load->view('admin/layout', $data);
     }
-    
 
     // Add Employe and Update
     public function add($id = NULL) {
@@ -128,8 +127,13 @@ class Employe extends CI_Controller {
     public function delete($id = NULL) {
 
         if ($id == NULL) {
-            $this->Employe_model->delete_all();
-            redirect('admin/employe');
+
+            if ($this->session->userdata('user_role') != ROLE_SUPER_ADMIN) {
+                redirect('admin/employe');
+            } else {
+                $this->Employe_model->delete_all();
+                redirect('admin/employe');
+            }
         }
 
         if ($_POST) {
@@ -151,84 +155,73 @@ class Employe extends CI_Controller {
             redirect('admin/employe/edit/' . $id);
         }
     }
-    
-    public function import()
-    { 
+
+    public function import() {
         $this->load->library('excel_reader');
-        if ($this->input->post('upload'))   
-        {
-            if (empty($_FILES['file']['name']))
-            {
+        if ($this->input->post('upload')) {
+            if (empty($_FILES['file']['name'])) {
                 $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
                 redirect(uri_string());
-            }
-            else
-            {
+            } else {
                 $this->load->helper('file');
-                $config['upload_path']   = './uploads/';               
+                $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'xls';
                 $this->load->library('upload', $config);
 
-                if ( ! $this->upload->do_upload('file'))
-                {
+                if (!$this->upload->do_upload('file')) {
                     $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
                     redirect(uri_string());
-                }
-                else
-                {
+                } else {
                     $upload_data = $this->upload->data();
                     $this->load->library('excel_reader');
                     $this->excel_reader->setOutputEncoding('CP1251');
                     $this->excel_reader->read($upload_data['full_path']);
-                    $data       = $this->excel_reader->sheets[0];
+                    $data = $this->excel_reader->sheets[0];
                     $data_excel = array();
 
-                    for ($i = 1; $i <= $data['numRows']; $i++)
-                    {
-                        if($data['cells'][$i][1] == '') break;
+                    for ($i = 1; $i <= $data['numRows']; $i++) {
+                        if ($data['cells'][$i][1] == '')
+                            break;
 
-                        $var  = $data['cells'][$i][4];
+                        $var = $data['cells'][$i][4];
                         $date = str_replace('/', '-', $var);
 
-                        $data_excel[$i-1]['employe_nik']            = $data['cells'][$i][1];
-                        $data_excel[$i-1]['employe_name']           = $data['cells'][$i][2];
-                        $data_excel[$i-1]['employe_address']        = $data['cells'][$i][3];
-                        $data_excel[$i-1]['employe_date_register']  = date('Y-m-d', strtotime($date));
-                        
-                        $data_excel[$i-1]['employe_position']       = $data['cells'][$i][5];
-                        $data_excel[$i-1]['employe_divisi']         = $data['cells'][$i][6];
-                        $data_excel[$i-1]['employe_departement']    = $data['cells'][$i][7];
-                        $data_excel[$i-1]['employe_phone']          = $data['cells'][$i][8];
+                        $data_excel[$i - 1]['employe_nik'] = $data['cells'][$i][1];
+                        $data_excel[$i - 1]['employe_name'] = $data['cells'][$i][2];
+                        $data_excel[$i - 1]['employe_address'] = $data['cells'][$i][3];
+                        $data_excel[$i - 1]['employe_date_register'] = date('Y-m-d', strtotime($date));
 
+                        $data_excel[$i - 1]['employe_position'] = $data['cells'][$i][5];
+                        $data_excel[$i - 1]['employe_divisi'] = $data['cells'][$i][6];
+                        $data_excel[$i - 1]['employe_departement'] = $data['cells'][$i][7];
+                        $data_excel[$i - 1]['employe_phone'] = $data['cells'][$i][8];
                     }
 
                     // echo '<pre>';
                     // print_r($data_excel);
                     // echo '</pre>';
                     // die();
-              
-                    @unlink('./uploads/'.$upload_data['file_name']);
-                    $this->Employe_model->import_employe($data_excel) ?                   
-                    $this->session->set_flashdata('success', 'Import data karyawan berhasil !') :
-                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+
+                    @unlink('./uploads/' . $upload_data['file_name']);
+                    $this->Employe_model->import_employe($data_excel) ?
+                                    $this->session->set_flashdata('success', 'Import data karyawan berhasil !') :
+                                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
                     redirect(uri_string());
                 }
             }
         }
-        else
-        {
-            $data['title']   = 'Upload Data Karyawan';
-            $data['action']  = site_url(uri_string());
+        else {
+            $data['title'] = 'Upload Data Karyawan';
+            $data['action'] = site_url(uri_string());
             $data['main'] = 'admin/employe/employe_upload';
-            $data['alert']   = $this->session->flashdata('alert');
-            $data['query']   = FALSE;
+            $data['alert'] = $this->session->flashdata('alert');
+            $data['query'] = FALSE;
             $data['content'] = 'employe/import';
             $this->load->view('admin/layout', $data);
         }
     }
 
-    public function download()
-    {
+    public function download() {
         $data = file_get_contents("./media/template_excel/template_upload_excel.xls");
         $name = 'Template_Data_Karyawan.xls';
         $this->load->helper('download');
