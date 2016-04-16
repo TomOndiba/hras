@@ -115,6 +115,11 @@ class Employe_model extends CI_Model {
         $this->db->delete('employe');
     }
 
+     // Delete all to database
+    function delete_all() {
+        $this->db->empty_table('employe');
+    }
+
     public function import_employe($data_excel) {
         $count = 0;
 

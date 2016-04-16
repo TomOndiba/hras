@@ -63,23 +63,7 @@ class Employe extends CI_Controller {
         $data['main'] = 'admin/employe/employe_view';
         $this->load->view('admin/layout', $data);
     }
-
-    function upload() {
-        if ($_FILES) {
-            $sql_file = $this->do_upload('userfile');
-            $file_restore = $this->load->file(FCPATH . 'uploads/sql_file/' . $sql_file, true);
-            $this->db->query("SET FOREIGN_KEY_CHECKS = 0");
-            $this->db->query($file_restore);
-            $this->db->query("SET FOREIGN_KEY_CHECKS = 1");
-
-            $this->session->set_flashdata('success', 'Upload data karyawan berhasil');
-            redirect('admin/employe');
-        } else {
-            $data['title'] = 'Upload Karyawan';
-            $data['main'] = 'admin/employe/employe_upload';
-            $this->load->view('admin/layout', $data);
-        }
-    }
+    
 
     // Add Employe and Update
     public function add($id = NULL) {
@@ -142,6 +126,12 @@ class Employe extends CI_Controller {
 
     // Delete Employe
     public function delete($id = NULL) {
+
+        if ($id == NULL) {
+            $this->Employe_model->delete_all();
+            redirect('admin/employe');
+        }
+
         if ($_POST) {
             $this->Employe_model->delete($this->input->post('del_id'));
             // activity log
@@ -161,35 +151,11 @@ class Employe extends CI_Controller {
             redirect('admin/employe/edit/' . $id);
         }
     }
-
-    public function do_upload($file) {
-        $this->load->library('upload');
-        $config['upload_path'] = FCPATH . 'uploads/sql_file';
-
-        /* create directory if not exist */
-        if (!is_dir($config['upload_path'])) {
-            mkdir($config['upload_path'], 0777, TRUE);
-        }
-
-        $config['allowed_types'] = 'sql|csv';
-        $config['max_size'] = '32000';
-        //$this->load->library('upload', $config);
-        $this->upload->initialize($config);
-
-        if (!$this->upload->do_upload($file)) {
-            $this->session->set_flashdata('failed', $this->upload->display_errors(''));
-            redirect(uri_string());
-        }
-
-        $upload_data = $this->upload->data();
-
-        return $upload_data['file_name'];
-    }
-
+    
     public function import()
     { 
         $this->load->library('excel_reader');
-        if (isset($_POST['submit']))
+        if ($this->input->post('upload'))   
         {
             if (empty($_FILES['file']['name']))
             {
@@ -199,7 +165,7 @@ class Employe extends CI_Controller {
             else
             {
                 $this->load->helper('file');
-                $config['upload_path']   = './uploads/';
+                $config['upload_path']   = './uploads/';               
                 $config['allowed_types'] = 'xls';
                 $this->load->library('upload', $config);
 
@@ -220,21 +186,31 @@ class Employe extends CI_Controller {
                     for ($i = 1; $i <= $data['numRows']; $i++)
                     {
                         if($data['cells'][$i][1] == '') break;
+
+                        $var  = $data['cells'][$i][4];
+                        $date = str_replace('/', '-', $var);
+
                         $data_excel[$i-1]['employe_nik']            = $data['cells'][$i][1];
-                        $data_excel[$i-1]['employe_name']            = $data['cells'][$i][2];
-                        $data_excel[$i-1]['employe_address']   = $data['cells'][$i][3];
-                        $data_excel[$i-1]['employe_date_register']  = $data['cells'][$i][4];
-                        $data_excel[$i-1]['employe_position']  = $data['cells'][$i][5];
-                        $data_excel[$i-1]['employe_divisi']  = $data['cells'][$i][6];
-                        $data_excel[$i-1]['employe_departement']  = $data['cells'][$i][7];
-                        $data_excel[$i-1]['employe_phone']  = $data['cells'][$i][8];
+                        $data_excel[$i-1]['employe_name']           = $data['cells'][$i][2];
+                        $data_excel[$i-1]['employe_address']        = $data['cells'][$i][3];
+                        $data_excel[$i-1]['employe_date_register']  = date('Y-m-d', strtotime($date));
+                        
+                        $data_excel[$i-1]['employe_position']       = $data['cells'][$i][5];
+                        $data_excel[$i-1]['employe_divisi']         = $data['cells'][$i][6];
+                        $data_excel[$i-1]['employe_departement']    = $data['cells'][$i][7];
+                        $data_excel[$i-1]['employe_phone']          = $data['cells'][$i][8];
 
                     }
 
+                    // echo '<pre>';
+                    // print_r($data_excel);
+                    // echo '</pre>';
+                    // die();
+              
                     @unlink('./uploads/'.$upload_data['file_name']);
                     $this->Employe_model->import_employe($data_excel) ?                   
-                    $this->session->set_flashdata('success', 'Import data siswa berhasil !') :
-                    $this->session->set_flashdata('success', 'Data siswa tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+                    $this->session->set_flashdata('success', 'Import data karyawan berhasil !') :
+                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
                     redirect(uri_string());
                 }
             }
@@ -243,13 +219,20 @@ class Employe extends CI_Controller {
         {
             $data['title']   = 'Upload Data Karyawan';
             $data['action']  = site_url(uri_string());
-//            $data['employe'] = $this->Employe_model->import_employe();
             $data['main'] = 'admin/employe/employe_upload';
             $data['alert']   = $this->session->flashdata('alert');
             $data['query']   = FALSE;
             $data['content'] = 'employe/import';
             $this->load->view('admin/layout', $data);
         }
+    }
+
+    public function download()
+    {
+        $data = file_get_contents("./media/template_excel/template_upload_excel.xls");
+        $name = 'Template_Data_Karyawan.xls';
+        $this->load->helper('download');
+        force_download($name, $data);
     }
 
 }

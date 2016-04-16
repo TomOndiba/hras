@@ -13,8 +13,10 @@
             <div class="row">                
                 <div class="col-md-3">
                     <input type="text" name="n" placeholder="NIK" class="form-control">
-                </div>                
-                <input type="submit" class="btn btn-success" value="Filter">
+                </div>                              
+                <input type="submit" class="btn btn-md btn-success" value="Cari">
+                <span class="pull-right">  
+                <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/employe/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data karyawan?')">Hapus Semua Karyawan</a></span>
             </div>
         </div>
         <?php echo form_close() ?>

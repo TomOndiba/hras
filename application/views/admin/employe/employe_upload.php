@@ -1,13 +1,24 @@
 <section class="content-header">
     <h1><i class="fa fa-file-excel-o text-green"></i> Upload Data Karyawan</h1>
 
-    <body>
+    <body><br>
+    <h4>Petunjuk Singkat</h4>
+            <p>Penginputan data karyawan bisa dilakukan melalui upload file excel. Format file excel harus sesuai kebutuhan aplikasi. Silahkan download formatnya <a href="<?=site_url('admin/employe/download');?>"><span class="label label-success">Disini</span></a>
+            <br>
+            <strong>CATATAN :</strong>
+            <ol>
+                <li>Pengisian data tanggal masuk pada kolom <strong>TANGGAL MASUK</strong> diisi dengan format <strong>DD/MM/YYYY.</strong><br> Contoh : Jika tanggal masuknya 21 September 2012 maka diisi dengan format :<strong> 21/09/2012</strong></li>                
+            </ol>
+            </p>
+        </div>
+        <br>
         <div class="form-body">
             <?php echo form_open_multipart(current_url()) ?>
             <div class="form-group"> 
-                <label class="col-md-3 control-label">Pilih File Excel</label>
+                <label class="col-md-3 control-label">Pilih File Excel (.xls)</label>
                 <div class="col-md-9">
                     <input type="file" name="file" required>
+                    <input type="hidden" name="upload" value="ok" >
                 </div>
             </div>
             <div class="form-group">
