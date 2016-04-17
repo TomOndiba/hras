@@ -20,7 +20,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td>Nama Singkat</td>
+                        <td>Username</td>
                         <td>:</td>
                         <td><?php echo $user['user_name'] ?></td>
                     </tr>
@@ -40,7 +40,7 @@
                         <td><?php echo pretty_date($user['user_input_date'], 'l, d m Y', FALSE) ?></td>
                     </tr>
                     <tr>
-                        <td>Jabatan</td>
+                        <td>Status User</td>
                         <td>:</td>
                         <td><?php echo $user['role_name']; ?></td>
                     </tr>

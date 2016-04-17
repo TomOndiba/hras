@@ -23,7 +23,7 @@
     <body>
     <div style="padding:0px 0px;">      
         <p align="center"><span class="style13"><u>SURAT KUASA</u></span><br>
-  <?php echo $procuration['procuration_number'] ?>/S-K/CLS2/<?php $this->load->helper('tanggal'); 
+  <?php echo $procuration['procuration_number'] ?>/S-K/<span class="upper"><?php echo $setting_initial['setting_value'] ?></span>/<?php $this->load->helper('tanggal'); 
   $namaBulan=konversiBulan(pretty_date($procuration['procuration_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $procuration['procuration_date'],'Y',false) ?></td></p><br>
       
         <p align="left">Saya yang bertanda tangan dibawah ini :</p>
@@ -31,17 +31,17 @@
           <tr>
             <td width="67" scope="col">Nama</td>
             <td width="13" scope="col">:</td>
-            <td width="464" scope="col">Tati Nurhayati </td>
+            <td width="464" scope="col"><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
           </tr>
           <tr>
             <td>NIK</td>
             <td>:</td>
-            <td>03050129</td>
+            <td><?php echo $setting_employe_nik['setting_value'] ?></td>
           </tr>
           <tr>
             <td>Jabatan</td>
             <td>:</td>
-            <td>People Development Manager </td>
+            <td><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
           </tr>
         </table><br>
         <p>Dengan ini memberikan kuasa kepada :</p>
@@ -68,7 +68,7 @@
     <p align="justify">Demikian surat kuasa ini saya buat dengan sebener-benarnya atas perhatian dan kerjasamanya saya ucapkan terima kasih.</p>
        <br>
         
-        <table border="0" align="right">
+        <table width="165" height="62" border="0" align="right">
           <tbody>
             <tr>              
               <td class="style18"><div align="center"></div></td>                        
@@ -79,22 +79,20 @@
             </tr>
           </tbody></table>        
 
-          <table width="166" border="0" align="left">
+          <table width="230" border="0" align="left">
             <tbody>
               <tr>
-                <td width="88" class="style18">&nbsp;</td>
-                <td width="20" class="style18"></td>
+                <td width="88" class="style18"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $procuration['procuration_date'],'d F Y',false) ?></td>
               </tr>
               <tr>
-                <td class="style18"><div align="left">Cileungsi, <?php echo pretty_date( $procuration['procuration_date'],'d F Y',false) ?> </div></td>
-                <td class="style18"><div align="center">Pemberi Kuasa</div></td>
-                <td class="style18"><div align="center"></div></td>
+                <td class="style18"><div align="left">Pemberi Kuasa</div></td>
+                <td width="10" class="style18">&nbsp;</td>
               </tr>
             </tbody>
           </table>
           <p class="style18"><br>
             <br>
-          </p>
+    </p>
           <p class="style18"><br>
           </p>
           <p class="style18">&nbsp;</p>
@@ -112,12 +110,12 @@
             <table border="0" align="left">
               <tbody>
                 <tr>
-                  <td class="style18"><div align="center"><u>( TATI NURHAYATI )</u></div></td>
+                  <td class="style18"><div align="left"><u>( <span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span> )</u></div></td>
                   <td class="style18"></td>
                 </tr>
                 <tr>
-                  <td class="style18"><div align="center"><em>People Development Manager</em></div></td>
-                  <td class="style18"><div align="center"></div></td>
+                  <td class="style18"><div align="left"><em><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></em></div></td>
+                  <td class="style18"><div align="left"></div></td>
                 </tr>
               </tbody>
             </table>

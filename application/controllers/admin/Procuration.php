@@ -18,7 +18,7 @@ class Procuration extends CI_Controller {
         if ($this->session->userdata('logged') == NULL) {
             header("Location:" . site_url('admin/auth/login') . "?location=" . urlencode($_SERVER['REQUEST_URI']));
         }
-        $this->load->model(array('Procuration_model', 'Activity_log_model', 'Employe_model'));
+        $this->load->model(array('Procuration_model', 'Activity_log_model', 'Employe_model', 'Setting_model'));
         $this->load->helper('string');
     }
 
@@ -131,6 +131,11 @@ class Procuration extends CI_Controller {
         if ($id == NULL)
             redirect('admin/procuration');
 
+        $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
+        $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
+        $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
+        $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
+        $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
         $data['procuration'] = $this->Procuration_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/procuration/procuration_pdf', $data, true);
