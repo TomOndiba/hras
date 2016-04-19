@@ -68,7 +68,7 @@
     <p align="justify">Demikian surat kuasa ini saya buat dengan sebener-benarnya atas perhatian dan kerjasamanya saya ucapkan terima kasih.</p>
        <br>
         
-        <table width="165" height="62" border="0" align="right">
+        <table width="120" height="62" border="0" align="right">
           <tbody>
             <tr>              
               <td class="style18"><div align="center"></div></td>                        

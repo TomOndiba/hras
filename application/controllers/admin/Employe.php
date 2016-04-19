@@ -13,6 +13,9 @@ if (!defined('BASEPATH'))
  */
 class Employe extends CI_Controller {
 
+    private $pk    = 'employe_nik';
+    private $table = 'employe';
+
     public function __construct() {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
@@ -213,6 +216,7 @@ class Employe extends CI_Controller {
         else {
             $data['title'] = 'Upload Data Karyawan';
             $data['action'] = site_url(uri_string());
+            $data['employe'] = $this->data['import_employe'] = TRUE;
             $data['main'] = 'admin/employe/employe_upload';
             $data['alert'] = $this->session->flashdata('alert');
             $data['query'] = FALSE;

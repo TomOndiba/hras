@@ -120,10 +120,24 @@ class Employe_model extends CI_Model {
         $this->db->empty_table('employe');
     }
 
+    public function is_exist($field, $value, $table, $pk = '', $id = '')
+    {
+        $this->db->where($field, $value);        
+
+        if ($id != '')
+        {
+            $this->db->where($pk . ' != ', $id);
+        }
+
+        return $this->db->count_all_results($table) > 0 ? TRUE : FALSE;
+    }
+
     public function import_employe($data_excel) {
         $count = 0;
 
         for ($i = 1; $i < count($data_excel); $i++) {
+            if ( ! $this->is_exist('employe_nik', $data_excel[$i]['employe_nik'], 'employe'))
+            {
             $data = array(
                 'employe_nik' => $data_excel[$i]['employe_nik'],
                 'employe_name' => $data_excel[$i]['employe_name'],
@@ -138,6 +152,7 @@ class Employe_model extends CI_Model {
             $this->db->insert('employe', $data);
 
             $count++;
+        }
         }
 
         return $count > 0 ? TRUE : FALSE;
