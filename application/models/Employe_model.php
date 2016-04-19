@@ -153,7 +153,7 @@ class Employe_model extends CI_Model {
 
             $count++;
         }
-        }
+    }
 
         return $count > 0 ? TRUE : FALSE;
     }

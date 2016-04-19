@@ -13,6 +13,9 @@ if (!defined('BASEPATH'))
  */
 class Bpjs extends CI_Controller {
 
+    private $pk    = 'bpjs_noka';
+    private $table = 'bpjs';
+
     public function __construct() {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
@@ -339,6 +342,7 @@ public function import()
         {
             $data['title']   = 'Upload Entitas';
             $data['action']  = site_url(uri_string());
+            $data['bpjs'] = $this->data['import_bpjs'] = TRUE;
             $data['main'] = 'admin/bpjs/bpjs_upload';
             $data['alert']   = $this->session->flashdata('alert');
             $data['query']   = FALSE;

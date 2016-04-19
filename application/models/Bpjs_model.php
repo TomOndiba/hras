@@ -154,10 +154,25 @@ class Bpjs_model extends CI_Model {
         $this->db->empty_table('bpjs');
     }
 
+    public function is_exist($field, $value, $table, $pk = '', $id = '')
+    {
+        $this->db->where($field, $value);        
+
+        if ($id != '')
+        {
+            $this->db->where($pk . ' != ', $id);
+        }
+
+        return $this->db->count_all_results($table) > 0 ? TRUE : FALSE;
+    }
+
+
     public function import_bpjs($data_excel) {
         $count = 0;
 
         for ($i = 1; $i < count($data_excel); $i++) {
+            if ( ! $this->is_exist('bpjs_noka', $data_excel[$i]['bpjs_noka'], 'bpjs'))
+            {
             $data = array(
                 'bpjs_noka' => $data_excel[$i]['bpjs_noka'],
                 'bpjs_ktp' => $data_excel[$i]['bpjs_ktp'],
@@ -174,6 +189,7 @@ class Bpjs_model extends CI_Model {
 
             $count++;
         }
+    }
 
         return $count > 0 ? TRUE : FALSE;
     }       
