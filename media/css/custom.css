@@ -6414,7 +6414,7 @@ ul.notifications {
 /*Style Notifikasi*/
 .notifikasi-error {
     opacity:0.9;
-    margin-left:0px;
+    margin-left:250px;
     color : #428bca;
 }
 
@@ -6426,7 +6426,7 @@ ul.notifications {
 
 .notifikasi-failed {
     opacity:0.9;
-    margin-left:450px;
+    margin-left:250px;
     color : #b94a48;
 }
 

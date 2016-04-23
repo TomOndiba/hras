@@ -34,7 +34,7 @@
         $("#effect").hide();
     </script>
 
-    <div class="toggler" style="position: absolute; width: 350px; margin: 0px 0px 0px 70px;">
+    <div class="toggler" style="position: fixed; width: 350px; margin: 0px 0px 0px 70px;">
         <div id="effect" class="ui-widget-content ui-corner-all">
             <p style="text-align:center;font-size: 13pt;margin-top: 13px; color: #b94a48;">
                 <?php echo isset($message) ? '<span class="fa fa-times-circle"></span> '.$message : null; ?>

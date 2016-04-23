@@ -13,9 +13,6 @@ if (!defined('BASEPATH'))
  */
 class Employe extends CI_Controller {
 
-    private $pk    = 'employe_nik';
-    private $table = 'employe';
-
     public function __construct() {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
@@ -208,7 +205,7 @@ class Employe extends CI_Controller {
                     @unlink('./uploads/' . $upload_data['file_name']);
                     $this->Employe_model->import_employe($data_excel) ?
                                     $this->session->set_flashdata('success', 'Import data karyawan berhasil !') :
-                                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+                                    $this->session->set_flashdata('failed', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
                     redirect(uri_string());
                 }
             }
