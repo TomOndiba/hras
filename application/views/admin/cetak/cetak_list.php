@@ -31,7 +31,7 @@
 
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="table-a">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NIK</th>
@@ -46,7 +46,7 @@
                     if (!empty($bpjs)) {
                         foreach ($bpjs as $row) {
                             ?>
-                            <tbody>
+                            <tbody class="table-a">
                                <tr>
                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
                                     <td ><?php echo $row['bpjs_npp']; ?></td>

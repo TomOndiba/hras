@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>HRA-APP <?php echo isset($title) ? ' | ' . $title : null; ?></title>
-    <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo media_url('ico/a.png'); ?>" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
 
@@ -24,6 +24,7 @@
 
     <!-- Custom styling plus plugins -->
     <link href="<?php echo media_url() ?>/css/custom.css" rel="stylesheet">
+    <link href="<?php echo media_url() ?>/css/font.css" rel="stylesheet">
 
     <script src="<?php echo media_url() ?>/js/jquery.min.js"></script>
     <script src="<?php echo media_url(); ?>/js/angular.min.js"></script>
@@ -56,8 +57,8 @@
                     <div class="col-md-3 left_col">
                         <div class="left_col scroll-view">
 
-                            <div class="navbar nav_title" style="border: 0;">
-                            <a href="#" class="site_title"><i class="fa fa-cube"></i> <span>HRA CMS</span></a>                                
+                            <div style="border: 0;">
+                            <a href="#" class="site_title"><img width="180" height="65" src="<?php echo media_url() ?>/images/alfa.png" alt=""></span></a>                                
                             </div>
                             <div class="clearfix"></div>
 

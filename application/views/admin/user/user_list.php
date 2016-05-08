@@ -7,7 +7,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead class="gradient">
+                <thead class="table-a">
                     <tr>
                         <th>Nama Singkat</th>
                         <th>Nama Lengkap</th>
@@ -20,7 +20,7 @@
                 if (!empty($user)) {
                     foreach ($user as $row) {
                         ?>
-                        <tbody>
+                        <tbody class="table-a">
                             <tr>
                                 <td ><?php echo $row['user_name']; ?></td>
                                 <td ><?php echo $row['user_full_name']; ?></td>

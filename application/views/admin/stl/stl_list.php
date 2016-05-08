@@ -9,7 +9,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-a">
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>
                         <th class="controls" align="center">NIK</th>
@@ -23,7 +23,7 @@
                 if (!empty($stl)) {
                     foreach ($stl as $row) {
                         ?>
-                        <tbody>
+                        <tbody class="table-a">
                             <tr>
                                 <td ><?php echo $row['stl_number']; ?></td>
                                 <td ><?php echo $row['stl_employe_nik']; ?></td>

@@ -9,7 +9,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-a">
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>                        
                         <th class="controls" align="center">TANGGAL KIRIM</th>
@@ -21,7 +21,7 @@
                 if (!empty($spb)) {
                     foreach ($spb as $row) {
                         ?>
-                        <tbody>
+                        <tbody class="table-a">
                             <tr>
                                 <td ><?php echo $row['spb_number']; ?></td>                                
                                 <td ><?php echo pretty_date($row['spb_date'], 'd F Y', false); ?></td>

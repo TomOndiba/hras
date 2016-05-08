@@ -31,7 +31,7 @@
 
     <div class="table-responsive">
         <table class="table table-striped">
-            <thead>
+            <thead class="table-a">
                 <tr>
                     <th class="controls" align="center">NIK</th>
                     <th class="controls" align="center">NAMA</th>
@@ -44,7 +44,7 @@
             if (!empty($employe)) {
                 foreach ($employe as $row) {
                     ?>
-                    <tbody>
+                    <tbody class="table-a">
                         <tr>
                             <td ><?php echo $row['employe_nik']; ?></td> 
                             <td ><?php echo $row['employe_name']; ?></td>

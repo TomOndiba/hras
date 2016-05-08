@@ -17,7 +17,7 @@
 
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="table-a">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NO. SURAT</th>
@@ -32,7 +32,7 @@
                     if (!empty($surat)) {
                         foreach ($surat as $row) {
                             ?>
-                            <tbody>
+                            <tbody class="table-a">
                                <tr>
                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['sk_id']; ?>"></td>                           
                                     <td ><?php echo $row['sk_number']; ?></td>

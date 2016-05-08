@@ -33,7 +33,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-a">
                     <tr>
                         <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                         <th class="controls" align="center">NO. SURAT</th>
@@ -48,7 +48,7 @@
                 if (!empty($contract)) {
                     foreach ($contract as $row) {
                         ?>
-                        <tbody>
+                        <tbody class="table-a">
                             <tr>
                                 <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['contract_id']; ?>"></td>
                                 <td ><?php echo $row['contract_number']; ?></td>

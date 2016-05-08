@@ -3,11 +3,8 @@
 
     <div class="menu_section">
         <ul class="nav side-menu">
-            <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu" style="display: none">
-                    <li><a href="<?php echo site_url('admin') ?>">Dashboard</a>
-                    </li>
-                </ul>
+            <li><a href="<?php echo site_url('admin') ?>"><i class="fa fa-home"></i> Home</a>
+                
             </li>
             <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN OR $this->session->userdata('user_role') == ROLE_ADMIN){ ?>
             <li><a><i class="fa fa-envelope"></i> Surat Panggilan <span class="fa fa-chevron-down"></span></a>

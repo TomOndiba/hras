@@ -33,7 +33,7 @@
 
             <div class="table-responsive">
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="table-a">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NO. SURAT</th>
@@ -49,7 +49,7 @@
                     if (!empty($memorandum)) {
                         foreach ($memorandum as $row) {
                             ?>
-                            <tbody>
+                            <tbody class="table-a">
                                 <tr>
                                     <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['memorandum_id']; ?>"></td>
                                     <td ><?php echo $row['memorandum_number']; ?></td>

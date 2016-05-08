@@ -35,7 +35,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead>
+                <thead class="table-a">
                     <tr>                    
                         <th class="controls" align="center">NIK</th>
                         <th class="controls" align="center">NAMA KARYAWAN</th>
@@ -49,7 +49,7 @@
                 if (!empty($memorandum)) {
                     foreach ($memorandum as $row) {
                         ?>
-                        <tbody>
+                        <tbody class="table-a">
                             <tr>                                
                                 <td ><?php echo $row['memorandum_employe_nik']; ?></td>
                                 <td ><?php echo $row['memorandum_employe_name']; ?></td>

@@ -7,7 +7,7 @@
 
         <div class="table-responsive">
             <table class="table table-striped">
-                <thead class="gradient">
+                <thead class="table-a">
                     <tr>
                         <th>No.</th>
                         <th>Nama Bank</th>                        
@@ -19,7 +19,7 @@
                 
                 foreach ($bank as $row): 
                     ?>
-                <tbody>
+                <tbody class="table-a">
                     <tr>
                         <td ><?php echo $i ?></td>
                         <td ><?php echo $row['bank_name']; ?></td>

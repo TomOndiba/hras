@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>HR Application</title>
-    <link rel="icon" href="<?php echo media_url('ico/favicon.jpg'); ?>" type="image/x-icon">
+    <link rel="icon" href="<?php echo media_url('ico/a.png'); ?>" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
 
