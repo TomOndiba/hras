@@ -139,107 +139,111 @@ class Bpjs extends CI_Controller {
     public function delete($id = NULL) {
 
         if ($id == NULL) {
-            $this->Bpjs_model->delete_all();
-            redirect('admin/bpjs');
-        }
-
-        if ($_POST) {
-            $this->Bpjs_model->delete($this->input->post('del_id'));
-            // activity log
-            $this->Activity_log_model->add(
-                array(
-                    'log_date' => date('Y-m-d H:i:s'),
-                    'user_id' => $this->session->userdata('user_id'),
-                    'log_module' => 'BPJS',
-                    'log_action' => 'Hapus',
-                    'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
-                    )
-                );
-            $this->session->set_flashdata('success', 'Hapus Bpjs berhasil');
-            redirect('admin/bpjs');
-        } elseif (!$_POST) {
-            $this->session->set_flashdata('delete', 'Delete');
-            redirect('admin/bpjs/edit/' . $id);
-        }
-    }
-
-    function multiple() {
-        $action = $this->input->post('action');
-        if ($action == "delete") {
-            $delete = $this->input->post('msg');
-            for ($i = 0; $i < count($delete); $i++) {
-                $this->Bpjs_model->delete($delete[$i]);
+            if ($this->session->userdata('user_role') != ROLE_SUPER_ADMIN) {
+                redirect('admin/employe');
+            } else {
+                $this->Bpjs_model->delete_all();
+                redirect('admin/bpjs');
             }
-        } elseif ($action == "printPdf") {
+        }
+
+            if ($_POST) {
+                $this->Bpjs_model->delete($this->input->post('del_id'));
+            // activity log
+                $this->Activity_log_model->add(
+                    array(
+                        'log_date' => date('Y-m-d H:i:s'),
+                        'user_id' => $this->session->userdata('user_id'),
+                        'log_module' => 'BPJS',
+                        'log_action' => 'Hapus',
+                        'log_info' => 'ID:' . $this->input->post('del_id') . ';Title:' . $this->input->post('del_name')
+                        )
+                    );
+                $this->session->set_flashdata('success', 'Hapus Bpjs berhasil');
+                redirect('admin/bpjs');
+            } elseif (!$_POST) {
+                $this->session->set_flashdata('delete', 'Delete');
+                redirect('admin/bpjs/edit/' . $id);
+            }
+        }
+
+        function multiple() {
+            $action = $this->input->post('action');
+            if ($action == "delete") {
+                $delete = $this->input->post('msg');
+                for ($i = 0; $i < count($delete); $i++) {
+                    $this->Bpjs_model->delete($delete[$i]);
+                }
+            } elseif ($action == "printPdf") {
+                $this->load->helper(array('dompdf'));
+                $this->load->helper(array('tanggal'));
+                $bpjsk = $this->input->post('msg');
+                for ($i = 0; $i < count($bpjsk); $i++) {
+                    $print[] = $bpjsk[$i];
+                }
+                $data['bpjs'] = $this->Bpjs_model->get(array('multiple_id' => $print));
+
+                for($i = 0; $i < count($data['bpjs']); $i++ ){
+                    $this->barcode2($data['bpjs'][$i]['bpjs_noka'], '');
+                }
+                $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
+                $data = pdf_create($html, 'HRD_BPJS_'.date('d_m_Y'), TRUE, [0,0,325,620], 'landscape');
+            }   
+            elseif ($action == "cetak") {
+                $cetak = $this->input->post('msg');
+                for ($i = 0; $i < count($cetak); $i++) {
+                    $this->Bpjs_model->add(array('bpjs_id' => $cetak[$i], 'bpjs_cetak' => 1));
+                    $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
+                }
+            }
+            redirect('admin/bpjs');
+        }
+
+
+        function printPdf($id = NULL) {
             $this->load->helper(array('dompdf'));
             $this->load->helper(array('tanggal'));
-            $bpjsk = $this->input->post('msg');
-            for ($i = 0; $i < count($bpjsk); $i++) {
-                $print[] = $bpjsk[$i];
-            }
-            $data['bpjs'] = $this->Bpjs_model->get(array('multiple_id' => $print));
+            if ($id == NULL)
+                redirect('admin/bpjs');
 
-            for($i = 0; $i < count($data['bpjs']); $i++ ){
-            $this->barcode2($data['bpjs'][$i]['bpjs_noka'], '');
+            $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));
+            $this->barcode2($data['bpjs']['bpjs_noka'], '');
+
+            $html = $this->load->view('admin/bpjs/bpjs_pdf', $data, true);
+            $data = pdf_create($html, $data['bpjs']['bpjs_name'], TRUE, [0,0,325,620], 'landscape');
         }
-            $html = $this->load->view('admin/bpjs/bpjs_multiple_pdf', $data, true);
-            $data = pdf_create($html, 'HRD_BPJS_'.date('d_m_Y'), TRUE, [0,0,325,620], 'landscape');
-        }   
-        elseif ($action == "cetak") {
-            $cetak = $this->input->post('msg');
-            for ($i = 0; $i < count($cetak); $i++) {
-                $this->Bpjs_model->add(array('bpjs_id' => $cetak[$i], 'bpjs_cetak' => 1));
-                $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
-            }
-        }
-        redirect('admin/bpjs');
-    }
 
-
-    function printPdf($id = NULL) {
-        $this->load->helper(array('dompdf'));
-        $this->load->helper(array('tanggal'));
-        if ($id == NULL)
+        function cetak($id = NULL) {
+            $this->Bpjs_model->add(array('bpjs_id' => $id, 'bpjs_cetak' => 1));
+            $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
             redirect('admin/bpjs');
+        }
 
-        $data['bpjs'] = $this->Bpjs_model->get(array('id' => $id));
-        $this->barcode2($data['bpjs']['bpjs_noka'], '');
 
-        $html = $this->load->view('admin/bpjs/bpjs_pdf', $data, true);
-        $data = pdf_create($html, $data['bpjs']['bpjs_name'], TRUE, [0,0,325,620], 'landscape');
-    }
-
-    function cetak($id = NULL) {
-        $this->Bpjs_model->add(array('bpjs_id' => $id, 'bpjs_cetak' => 1));
-        $this->session->set_flashdata('success', 'Sunting Cetak berhasil');
-        redirect('admin/bpjs');
-    }
-   
-
-    private function barcode2($sparepart_code, $barcode_type=39, $scale=6, $fontsize=1, $thickness=30,$dpi=72) {
+        private function barcode2($sparepart_code, $barcode_type=39, $scale=6, $fontsize=1, $thickness=30,$dpi=72) {
     // CREATE BARCODE GENERATOR
     // Including all required classes
-    require_once( APPPATH . 'libraries/barcodegen/BCGFontFile.php');
-    require_once( APPPATH . 'libraries/barcodegen/BCGColor.php');
-    require_once( APPPATH . 'libraries/barcodegen/BCGDrawing.php');
+            require_once( APPPATH . 'libraries/barcodegen/BCGFontFile.php');
+            require_once( APPPATH . 'libraries/barcodegen/BCGColor.php');
+            require_once( APPPATH . 'libraries/barcodegen/BCGDrawing.php');
 
     // Including the barcode technology
     // Ini bisa diganti-ganti mau yang 39, ato 128, dll, liat di folder barcodegen
-    require_once( APPPATH . 'libraries/barcodegen/BCGcode39.barcode.php');
+            require_once( APPPATH . 'libraries/barcodegen/BCGcode39.barcode.php');
 
     // Loading Font
     // kalo mau ganti font, jangan lupa tambahin dulu ke folder font, baru loadnya di sini
-    $font = new BCGFontFile(APPPATH . 'libraries/font/Arial.ttf', $fontsize);
-    
+            $font = new BCGFontFile(APPPATH . 'libraries/font/Arial.ttf', $fontsize);
+
     // Text apa yang mau dijadiin barcode, biasanya kode produk
-    $text = $sparepart_code;
+            $text = $sparepart_code;
 
     // The arguments are R, G, B for color.
-    $color_black = new BCGColor(0, 0, 0);
-    $color_white = new BCGColor(255, 255, 255);
+            $color_black = new BCGColor(0, 0, 0);
+            $color_white = new BCGColor(255, 255, 255);
 
-    $drawException = null;
-    try {
+            $drawException = null;
+            try {
         $code = new BCGcode39(); // kalo pake yg code39, klo yg lain mesti disesuaikan
         $code->setScale($scale); // Resolution
         $code->setThickness($thickness); // Thickness
@@ -273,91 +277,91 @@ class Bpjs extends CI_Controller {
 }
 
 public function import()
-    { 
-        $this->load->library('excel_reader');
-        if ($this->input->post('upload'))   
+{ 
+    $this->load->library('excel_reader');
+    if ($this->input->post('upload'))   
+    {
+        if (empty($_FILES['file']['name']))
         {
-            if (empty($_FILES['file']['name']))
+            $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
+            redirect(uri_string());
+        }
+        else
+        {
+            $this->load->helper('file');
+            $config['upload_path']   = './uploads/';               
+            $config['allowed_types'] = 'xls';
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('file'))
             {
-                $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
+                $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
                 redirect(uri_string());
             }
             else
             {
-                $this->load->helper('file');
-                $config['upload_path']   = './uploads/';               
-                $config['allowed_types'] = 'xls';
-                $this->load->library('upload', $config);
+                $upload_data = $this->upload->data();
+                $this->load->library('excel_reader');
+                $this->excel_reader->setOutputEncoding('CP1251');
+                $this->excel_reader->read($upload_data['full_path']);
+                $data       = $this->excel_reader->sheets[0];
+                $data_excel = array();
 
-                if ( ! $this->upload->do_upload('file'))
+                for ($i = 1; $i <= $data['numRows']; $i++)
                 {
-                    $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
-                    redirect(uri_string());
+                    if($data['cells'][$i][1] == '') break;
+
+                    $var  = $data['cells'][$i][6];
+                    $date = str_replace('/', '-', $var);
+                    $var2  = $data['cells'][$i][7];
+                    $tmt = str_replace('/', '-', $var2);
+
+                    $data_excel[$i-1]['bpjs_noka']       = $data['cells'][$i][1];
+                    $data_excel[$i-1]['bpjs_ktp']        = $data['cells'][$i][2];
+                    $data_excel[$i-1]['bpjs_npp']        = $data['cells'][$i][3];
+                    $data_excel[$i-1]['bpjs_name']       = $data['cells'][$i][4];
+                    $data_excel[$i-1]['bpjs_hub']        = $data['cells'][$i][5];                        
+                    $data_excel[$i-1]['bpjs_date']       = date('Y-m-d', strtotime($date));
+                    $data_excel[$i-1]['bpjs_tmt']        = date('Y-m-d', strtotime($tmt));                        
+                    $data_excel[$i-1]['bpjs_faskes']     = $data['cells'][$i][8];
+                    $data_excel[$i-1]['bpjs_kelas']      = $data['cells'][$i][9];
+
+
                 }
-                else
-                {
-                    $upload_data = $this->upload->data();
-                    $this->load->library('excel_reader');
-                    $this->excel_reader->setOutputEncoding('CP1251');
-                    $this->excel_reader->read($upload_data['full_path']);
-                    $data       = $this->excel_reader->sheets[0];
-                    $data_excel = array();
-
-                    for ($i = 1; $i <= $data['numRows']; $i++)
-                    {
-                        if($data['cells'][$i][1] == '') break;
-
-                        $var  = $data['cells'][$i][6];
-                        $date = str_replace('/', '-', $var);
-                        $var2  = $data['cells'][$i][7];
-                        $tmt = str_replace('/', '-', $var2);
-
-                        $data_excel[$i-1]['bpjs_noka']       = $data['cells'][$i][1];
-                        $data_excel[$i-1]['bpjs_ktp']        = $data['cells'][$i][2];
-                        $data_excel[$i-1]['bpjs_npp']        = $data['cells'][$i][3];
-                        $data_excel[$i-1]['bpjs_name']       = $data['cells'][$i][4];
-                        $data_excel[$i-1]['bpjs_hub']        = $data['cells'][$i][5];                        
-                        $data_excel[$i-1]['bpjs_date']       = date('Y-m-d', strtotime($date));
-                        $data_excel[$i-1]['bpjs_tmt']        = date('Y-m-d', strtotime($tmt));                        
-                        $data_excel[$i-1]['bpjs_faskes']     = $data['cells'][$i][8];
-                        $data_excel[$i-1]['bpjs_kelas']      = $data['cells'][$i][9];
-                        
-
-                    }
 
                     // echo '<pre>';
                     // print_r($data_excel);
                     // echo '</pre>';
                     // die();
-              
-                    @unlink('./uploads/'.$upload_data['file_name']);
-                    $this->Bpjs_model->import_bpjs($data_excel) ?                   
-                    $this->session->set_flashdata('success', 'Import Entitas berhasil !') :
-                    $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
-                    redirect(uri_string());
-                }
+
+                @unlink('./uploads/'.$upload_data['file_name']);
+                $this->Bpjs_model->import_bpjs($data_excel) ?                   
+                $this->session->set_flashdata('success', 'Import Entitas berhasil !') :
+                $this->session->set_flashdata('success', 'Data karyawan tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+                redirect(uri_string());
             }
         }
-        else
-        {
-            $data['title']   = 'Upload Entitas';
-            $data['action']  = site_url(uri_string());
-            $data['bpjs'] = $this->data['import_bpjs'] = TRUE;
-            $data['main'] = 'admin/bpjs/bpjs_upload';
-            $data['alert']   = $this->session->flashdata('alert');
-            $data['query']   = FALSE;
-            $data['content'] = 'bpjs/import';
-            $this->load->view('admin/layout', $data);
-        }
     }
-
-    public function download()
+    else
     {
-        $data = file_get_contents("./media/template_excel/template_upload_Entitas.xls");
-        $name = 'Template_Entitas.xls';
-        $this->load->helper('download');
-        force_download($name, $data);
+        $data['title']   = 'Upload Entitas';
+        $data['action']  = site_url(uri_string());
+        $data['bpjs'] = $this->data['import_bpjs'] = TRUE;
+        $data['main'] = 'admin/bpjs/bpjs_upload';
+        $data['alert']   = $this->session->flashdata('alert');
+        $data['query']   = FALSE;
+        $data['content'] = 'bpjs/import';
+        $this->load->view('admin/layout', $data);
     }
+}
+
+public function download()
+{
+    $data = file_get_contents("./media/template_excel/template_upload_Entitas.xls");
+    $name = 'Template_Entitas.xls';
+    $this->load->helper('download');
+    force_download($name, $data);
+}
 
 
 }

@@ -15,7 +15,9 @@
                 
                     <input type="submit" class="btn btn-success" value="Cari">
                     <span class="right">  
+                    <?php if ($this->session->userdata('user_role') == ROLE_SUPER_ADMIN) { ?>
                 <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/bpjs/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data Entitas?')">Hapus Semua Entitas</a></span>
+                 <?php } ?>
                 </div>
             </div>
             <?php echo form_close() ?> 

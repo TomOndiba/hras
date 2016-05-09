@@ -49,7 +49,7 @@
         <tr>
           <td>Jabatan</td>
           <td>:</td>
-          <td><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
+          <td><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></td>
         </tr>
       </table><br>
       <p align="justify">Dengan ini mengajukan permohonan dispensasi pembukaan rekening BCA untuk karyawan-karyawan 
