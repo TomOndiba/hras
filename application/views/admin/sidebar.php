@@ -36,6 +36,15 @@
                 </ul>
             </li>
             <?php } ?>
+            <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN OR $this->session->userdata('user_role') == ROLE_ADMIN){ ?>
+            <li><a><i class="fa fa-paper-plane"></i> BPJS Ketenagakerjaan <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu" style="display: none">
+                    <li><a href="<?php echo site_url('admin/bpjstk') ?>">Surat Pernyataan BPJS</a>                     
+                    <li><a href="<?php echo site_url('admin/disn') ?>">Surat Keterangan Disnaker</a>                 
+                    </li>
+                </ul>
+            </li>
+            <?php } ?>
             <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN OR $this->session->userdata('user_role') == ROLE_TRAINNER){ ?>
             <li><a><i class="fa fa-graduation-cap"></i> Surat Tanda Lulus <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
