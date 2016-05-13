@@ -32,7 +32,7 @@ if (isset($bpjstk)) {
                 <?php endif; ?>
                 <label >Nama *</label>
                 <input name="bpjstk_name" placeholder="Nama" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>
-                <label >Nama *</label>
+                <label >Nomor Kartu *</label>
                 <input name="bpjstk_card" placeholder="Nomor Kartu" type="text" class="form-control" value="<?php echo $inputCard; ?>"><br>
                 <label >NPP </label>
                 <input name="bpjstk_npp" placeholder="NPP" type="text" class="form-control" value="<?php echo $inputNpp; ?>"><br>

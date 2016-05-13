@@ -417,6 +417,36 @@ CREATE  TABLE IF NOT EXISTS `setting` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `bpjstk`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `bpjstk` (
+  `bpjstk_id` INT NOT NULL AUTO_INCREMENT ,
+  `bpjstk_name` VARCHAR(255) NULL ,
+  `bpjstk_card` VARCHAR(100) NULL ,
+  `bpjstk_npp` VARCHAR(45) NULL ,
+  `bpjstk_entry_date` DATE NULL ,
+  `bpjstk_desc` TEXT NULL ,
+  `bpjstk_date` DATE NULL ,
+  PRIMARY KEY (`bpjstk_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `disn`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `disn` (
+  `disn_id` INT NOT NULL AUTO_INCREMENT ,
+  `disn_number` VARCHAR(45) NULL ,
+  `disn_name` VARCHAR(255) NULL ,
+  `disn_nik` VARCHAR(8) NULL ,
+  `disn_position` VARCHAR(100) NULL ,
+  `disn_entry_date` DATE NULL ,
+  `disn_end_date` DATE NULL ,
+  PRIMARY KEY (`disn_id`) )
+ENGINE = InnoDB;
+
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

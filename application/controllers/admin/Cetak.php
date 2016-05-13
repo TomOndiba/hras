@@ -72,7 +72,15 @@ class Cetak extends CI_Controller {
             for ($i = 0; $i < count($delete); $i++) {
                 $this->Bpjs_model->delete($delete[$i]);
             }
-        } elseif ($action == "printPdf") {
+        } 
+        elseif ($action == "uncheck") {
+                $uncheck = $this->input->post('msg');
+                for ($i = 0; $i < count($uncheck); $i++) {
+                    $this->Bpjs_model->add(array('bpjs_id' => $uncheck[$i], 'bpjs_cetak' => 0));
+                    $this->session->set_flashdata('success', 'Sunting Remove berhasil');
+                }
+            }
+        elseif ($action == "printPdf") {
             $this->load->helper(array('dompdf'));
             $this->load->helper(array('tanggal'));
             $bpjsk = $this->input->post('msg');

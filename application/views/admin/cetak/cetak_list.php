@@ -22,10 +22,8 @@
             <?php echo form_close() ?> 
         </div>
         <form action="<?php echo site_url('admin/cetak/multiple'); ?>" method="post">
-            <select name="action">                               
-                <option value="printPdf">Check</option>
-            </select>
-            <input type="submit"  class="btn btn-sm btn-primary" name="submit" value="Print All" onclick="$('form').attr('target', '_blank');">          
+        <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-primary" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="fa fa-print"></span>&nbsp;Print All</button>
+            <button data-toggle="tooltip" data-placement="top" title="Hapus Daftar Cetak" class="btn btn-sm btn-warning" name="action" value="uncheck"><span class="fa fa-times"></span>&nbsp;Remove All</button>
             <!-- Indicates a successful or positive action -->
 
 
@@ -47,38 +45,38 @@
                         foreach ($bpjs as $row) {
                             ?>
                             <tbody class="table-a">
-                               <tr>
-                               <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
-                                    <td ><?php echo $row['bpjs_npp']; ?></td>
-                                    <td ><?php echo $row['bpjs_ktp']; ?></td>
-                                    <td ><?php echo $row['bpjs_name']; ?></td>
-                                    <td ><?php echo $row['bpjs_hub']; ?></td>
-                                    <td ><?php echo $row['bpjs_faskes']; ?></td>                                
-                                    <td>
-                                        <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/cetak/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a> 
-                                        <a data-toggle="tooltip" data-placement="top" title="Hapus Cetak" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/cetak/uncetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-times"></span></a>                                       
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <?php
-                        }
-                    } else {
-                        ?>
-                        <tbody>
-                        </form>
-                        <tr id="row">
-                            <td colspan="6" align="center">Data Kosong</td>
-                        </tr>
-                    </tbody>
-                    <?php
-                }
-                ?>   
-            </table>
-        </div>
-        <div >
-            <?php echo $this->pagination->create_links(); ?>
-        </div>
+                             <tr>
+                                 <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
+                                 <td ><?php echo $row['bpjs_npp']; ?></td>
+                                 <td ><?php echo $row['bpjs_ktp']; ?></td>
+                                 <td ><?php echo $row['bpjs_name']; ?></td>
+                                 <td ><?php echo $row['bpjs_hub']; ?></td>
+                                 <td ><?php echo $row['bpjs_faskes']; ?></td>                                
+                                 <td>
+                                    <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/cetak/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a> 
+                                    <a data-toggle="tooltip" data-placement="top" title="Hapus Cetak" class="btn btn-danger btn-xs" href="<?php echo site_url('admin/cetak/uncetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-times"></span></a>                                       
+                                </td>
+                            </tr>
+                        </tbody>
+                        <?php
+                    }
+                } else {
+                    ?>
+                    <tbody>
+                    </form>
+                    <tr id="row">
+                        <td colspan="6" align="center">Data Kosong</td>
+                    </tr>
+                </tbody>
+                <?php
+            }
+            ?>   
+        </table>
     </div>
+    <div >
+        <?php echo $this->pagination->create_links(); ?>
+    </div>
+</div>
 </div>
 
 <script>
