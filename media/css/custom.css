@@ -6509,6 +6509,7 @@ hr {
     border-top: 1px solid transparent;
     text-align:center;
     border:1.5px solid #fff;
+    border-radius:15px 0px 15px 0px;
 }
 
 .table-a td
@@ -6519,6 +6520,7 @@ hr {
     border-top: 1px solid transparent;
     text-align:left;
     border:1.5px solid #fff;
+    border-radius:15px 0px 15px 0px;
 }
 
 .table-a tr:hover td
