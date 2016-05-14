@@ -4,25 +4,7 @@
             Daftar BPJS Ketenagakerjaan
             <a href="<?php echo site_url('admin/bpjstk/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
         </h3>        
-            <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
-            <div class="row">                
-                <div class="col-md-2">
-                    <input autofocus type="text" name="n" placeholder="Name" value="" class="form-control">
-                </div>          
-                    <input type="submit" class="btn btn-success" value="Cari">
-                    <span class="right">                   
-                </div>
-            </div>
-            <?php echo form_close() ?> 
-        </div>
-        <form action="<?php echo site_url('admin/bpjstktk/multiple'); ?>" method="post">
-            <select name="action">
-                <option value="null">Pilih Action</option>
-                <option value="delete">Delete</option>                
-                <option value="printPdf">Cetak Surat</option>
-            </select>
-            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">
-            <input type="submit" name="submit" value="List">          
+                 
             <!-- Indicates a successful or positive action -->
 
 

@@ -16,14 +16,14 @@
                     <input type="text" name="k" placeholder="KTP" value="" class="form-control">
                 </div>               
                 <div class="col-md-2">
-                    <input type="submit" class="btn btn-success" value="Cari">
+                    <input type="submit" style="border-radius:10px 0px 10px 0px" class="btn btn-success" value="Cari">
                 </div>
             </div>
             <?php echo form_close() ?> 
         </div>
         <form action="<?php echo site_url('admin/cetak/multiple'); ?>" method="post">
-        <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-primary" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="fa fa-print"></span>&nbsp;Print All</button>
-            <button data-toggle="tooltip" data-placement="top" title="Hapus Daftar Cetak" class="btn btn-sm btn-warning" name="action" value="uncheck"><span class="fa fa-times"></span>&nbsp;Remove All</button>
+            <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-primary" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="fa fa-print"></span>&nbsp;Print All</button>
+            <button data-toggle="tooltip" data-placement="top" title="Hapus Daftar Cetak" class="btn btn-sm btn-warning" style="border-radius:10px 0px 10px 0px" name="action" value="uncheck"><span class="fa fa-times"></span>&nbsp;Remove All</button>
             <!-- Indicates a successful or positive action -->
 
 

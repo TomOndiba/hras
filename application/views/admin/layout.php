@@ -58,7 +58,7 @@
                         <div class="left_col scroll-view">
 
                             <div style="border: 0;">
-                            <a href="#" class="site_title"><img width="180" height="65" src="<?php echo media_url() ?>/images/alfa.png" alt=""></span></a>                                
+                                <a href="#" class="site_title"><img width="180" height="65" src="<?php echo media_url() ?>/images/alfa.png" alt=""></span></a>                                
                             </div>
                             <div class="clearfix"></div>
 
@@ -105,11 +105,15 @@
                                 <div class="nav toggle">
                                     <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                                 </div>
-
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="">
                                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                            <img src="<?php echo media_url() ?>/images/user.png" alt=""><?php echo $text = ucfirst($this->session->userdata('user_full_name')); ?>
+                                           <!-- <?php if (!empty($this->users['user_image'])) { ?>  -->
+                                            <img src="<?php echo upload_url('users/'. $this->session->userdata('user_image')); ?>" class="img-responsive ava-detail">
+                                            <!-- <?php } else { ?> -->
+                                            <!-- <img src="<?php echo media_url() ?>/images/user.png" alt=""> -->
+                                            <!-- <?php } ?> -->
+                                            <?php echo $text = ucfirst($this->session->userdata('user_full_name')); ?>
                                             <span class=" fa fa-angle-down"></span> 
                                         </a>
                                         <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">

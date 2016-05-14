@@ -3,15 +3,7 @@
         <h3>
             Daftar Surat Keterangan Disnaker
             <a href="<?php echo site_url('admin/disn/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>
-
-        <form action="<?php echo site_url('admin/disn/multiple'); ?>" method="post">
-            <select name="action">
-                <option value="null">Pilih Action</option>
-                <option value="delete">Delete</option>
-                <option value="printPdf">Print</option>
-            </select>
-            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">          
+        </h3>        
             <!-- Indicates a successful or positive action -->
 
 

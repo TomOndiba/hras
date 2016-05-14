@@ -4067,8 +4067,8 @@ html > body > .ui-pnotify {
 }
 
 .btn-danger {
-    background: #d9534f;
-    border-color: #d9534f;
+    background: #FF0000;
+    border-color: #FF0000;
 }
 
 .btn-primary:hover,
@@ -6503,13 +6503,13 @@ hr {
 
 .table-a th
 { padding: 8px;
-    background-color: skyblue;
+    background-color: #22A7F0;
     border-bottom: 1px solid #fff;
     color: #669;
     border-top: 1px solid transparent;
     text-align:center;
     border:1.5px solid #fff;
-    border-radius:15px 0px 15px 0px;
+    /* border-radius:15px 0px 15px 0px; */
 }
 
 .table-a td
@@ -6520,7 +6520,7 @@ hr {
     border-top: 1px solid transparent;
     text-align:left;
     border:1.5px solid #fff;
-    border-radius:15px 0px 15px 0px;
+    /* border-radius:15px 4px 15px 4px; */
 }
 
 .table-a tr:hover td

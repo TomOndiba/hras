@@ -13,7 +13,7 @@
                 <input type="text" name="k" placeholder="KTP" value="" class="form-control">
             </div>               
 
-            <input type="submit" class="btn btn-success" value="Cari">
+            <input type="submit" style="border-radius:10px 0px 10px 0px" class="btn btn-success" value="Cari">
             <span class="right">  
                 <?php if ($this->session->userdata('user_role') == ROLE_SUPER_ADMIN) { ?>
                 <a class ="btn btn-md btn-danger" href ="<?php echo site_url('admin/bpjs/delete'); ?>" onclick="return confirm('Apakah Anda akan menghapus semua data Entitas?')">Hapus Semua Entitas</a></span>
@@ -23,8 +23,8 @@
         <?php echo form_close() ?> 
     </div>
     <form action="<?php echo site_url('admin/bpjs/multiple'); ?>" method="post">
-        <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-success" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="fa fa-print"></span>&nbsp;Print</button>
-        <button data-toggle="tooltip" data-placement="top" title="Tambah ke daftar cetak" class="btn btn-sm btn-info" name="action" value="cetak"><span class="fa fa-check"></span>&nbsp;Daftar Cetak</button>       
+        <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-success" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="fa fa-print"></span>&nbsp;Print</button>
+        <button data-toggle="tooltip" data-placement="top" title="Tambah ke daftar cetak" class="btn btn-sm btn-info" style="border-radius:10px 0px 10px 0px" name="action" value="cetak"><span class="fa fa-check"></span>&nbsp;Daftar Cetak</button>       
         <!-- Indicates a successful or positive action -->
 
 

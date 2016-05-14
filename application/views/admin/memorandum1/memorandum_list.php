@@ -22,13 +22,9 @@
         </div>
         <?php echo validation_errors() ?>    </h3>                  
         <form action="<?php echo site_url('admin/memorandum1/multiple'); ?>" method="post">
-            <select name="action">
-                <option value="null">Pilih Action</option>
-                <option value="delete">Delete</option>
-                <option value="printPdf">Print</option>
-                <option value="printEnvl">Amplop</option>
-            </select>
-            <input type="submit" name="submit" value="Action" onclick="$('form').attr('target', '_blank');">          
+             <button data-toggle="tooltip" data-placement="top" title="Cetak surat yang di ceklis" class="btn btn-sm btn-success" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="glyphicon glyphicon-print"></span>&nbsp;Print Surat</button>
+            <button data-toggle="tooltip" data-placement="top" title="Cetak amplop yang di ceklis" class="btn btn-sm btn-info" style="border-radius:10px 0px 10px 0px" name="action" value="printEnvl" onclick="$('form').attr('target', '_blank');"><span class="fa fa-envelope"></span>&nbsp;Print Amplop</button> 
+            <button data-toggle="tooltip" data-placement="top" title="Hapus yang di ceklis" class="btn btn-sm btn-danger" style="border-radius:10px 0px 10px 0px" name="action" value="delete" onclick="return confirm('Apakah Anda akan menghapus data yang dipilih?')"><span class="fa fa-times"></span>&nbsp;Hapus</button>         
             <!-- Indicates a successful or positive action -->
 
             <div class="table-responsive">

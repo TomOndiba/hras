@@ -65,6 +65,7 @@ class Auth extends CI_Controller {
                 $this->session->set_userdata('user_role', $query->row('user_role_role_id'));
                 $this->session->set_userdata('user_email', $query->row('user_email'));
                 $this->session->set_userdata('user_full_name', $query->row('user_full_name'));
+                $this->session->set_userdata('user_image', $query->row('user_image'));
                 if ($lokasi != '') {
                     header("Location:" . htmlspecialchars($lokasi));
                 } else {
@@ -93,6 +94,7 @@ class Auth extends CI_Controller {
         $this->session->unset_userdata('user_role');
         $this->session->unset_userdata('user_email');
         $this->session->unset_userdata('user_full_name');
+        $this->session->unset_userdata('user_image');
         if ($this->input->post('location')) {
             $lokasi = $this->input->post('location');
         } else {
