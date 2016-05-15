@@ -9,7 +9,7 @@
             <table class="table table-striped">
                 <thead class="table-a">
                     <tr>
-                        <th>Nama Singkat</th>
+                        <th>NIK</th>
                         <th>Nama Lengkap</th>
                         <th>Email</th>
                         <th>Status</th>

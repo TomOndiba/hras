@@ -32,8 +32,8 @@ if (isset($user)) {
                     <input type="hidden" name="user_id" value="<?php echo $user['user_id'] ?>" />
                     <input type="hidden" name="user_input_date" value="<?php echo $user['user_input_date'] ?>" />
                 <?php endif; ?>
-                <label >Username *</label>
-                <input name="user_name" type="text" <?php echo (isset($user)) ? 'readonly' : '' ?> placeholder="Username" class="form-control" value="<?php echo $inputNameValue; ?>"><br>
+                <label >NIK *</label>
+                <input name="user_name" type="text" <?php echo (isset($user)) ? 'readonly' : '' ?> placeholder="NIK" class="form-control" value="<?php echo $inputNameValue; ?>"><br>
                 <label >Nama Lengkap *</label>
                 <input type="text" name="user_full_name" placeholder="Nama Lengkap" class="form-control" value="<?php echo $inputJudulValue; ?>"><br>
 

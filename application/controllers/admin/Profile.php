@@ -54,6 +54,12 @@ class Profile extends CI_Controller {
             $params['user_email'] = $this->input->post('user_email');
             $status = $this->User_model->add($params);
 
+            if (!empty($_FILES['user_image']['name'])) {
+                $paramsupdate['user_image'] = $this->do_upload($name = 'user_image', $fileName = $params['user_name']);
+            }
+            $paramsupdate['user_id'] = $status;
+            $this->User_model->add($paramsupdate);
+
             // activity log
             $this->Activity_log_model->add(
                     array(
@@ -110,6 +116,33 @@ class Profile extends CI_Controller {
             $data['main'] = 'admin/profile/change_pass';
             $this->load->view('admin/layout', $data);
         }
+    }
+
+    // Setting Upload File Requied
+    function do_upload($name=NULL, $fileName=NULL) {
+        $this->load->library('upload');
+
+        $config['upload_path'] = FCPATH . 'uploads/users/';
+
+        /* create directory if not exist */
+        if (!is_dir($config['upload_path'])) {
+            mkdir($config['upload_path'], 0777, TRUE);
+        }
+
+        $config['allowed_types'] = 'gif|jpg|jpeg|png';
+        $config['max_size'] = '32000';
+        $config['file_name'] = $fileName;
+                $this->upload->initialize($config);
+
+        if (!$this->upload->do_upload($name)) {
+            echo $config['upload_path'];
+            $this->session->set_flashdata('success', $this->upload->display_errors(''));
+            redirect(uri_string());
+        }
+
+        $upload_data = $this->upload->data();
+
+        return $upload_data['file_name'];
     }
 
 }

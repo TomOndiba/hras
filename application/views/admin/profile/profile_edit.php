@@ -13,7 +13,7 @@ $inputDescValue = $user['user_description'];
     <div class="x_panel post-inherit">
         <div class="col-lg-12">
             <h3><?php echo $operation ?> Profil</h3>
-            <br>
+            <br> 
         </div>
         <!-- /.col-lg-12 -->
 
@@ -22,8 +22,8 @@ $inputDescValue = $user['user_description'];
             <div class="row">
                 <div class="col-sm-9 col-md-9">
                     <input type="hidden" name="user_id" value="<?php echo $user['user_id'] ?>" />
-                    <label >Username *</label>
-                    <input name="user_name" type="text" <?php echo (isset($user)) ? 'readonly' : '' ?> placeholder="Username" class="form-control" value="<?php echo $inputNameValue; ?>"><br>
+                    <label >NIK *</label>
+                    <input name="user_name" type="text" <?php echo (isset($user)) ? 'readonly' : '' ?> placeholder="NIK" class="form-control" value="<?php echo $inputNameValue; ?>"><br>
                     <label >Nama Lengkap *</label>
                     <input type="text" name="user_full_name" placeholder="Nama Lengkap" class="form-control" value="<?php echo $inputJudulValue; ?>"><br>
                     <label >Email *</label>
@@ -35,6 +35,11 @@ $inputDescValue = $user['user_description'];
                 </div>
                 <div class="col-sm-9 col-md-3">
                     <div class="form-group">
+                        <label >Upload Photo </label>
+                        <input type="file" name="user_image" class="form-control" ><br>
+                        <?php if (isset($user) AND $user['user_image'] != NULL) { ?>
+                        <img src="<?php echo upload_url('users/'.$user['user_image']) ?>" class="img-responsive ava-detail"><br>
+                        <?php } ?>             
                         <button name="action" type="submit" value="save" class="btn btn-success btn-form"><i class="fa fa-check"></i> Simpan</button><br>
                         <a href="<?php echo site_url('admin/profile'); ?>" class="btn btn-info btn-form"><i class="fa fa-arrow-left"></i> Batal</a><br>
                         <?php if (isset($user)): ?>

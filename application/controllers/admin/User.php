@@ -108,7 +108,7 @@ class User extends CI_Controller {
             $data['main'] = 'admin/user/user_add';
             $this->load->view('admin/layout', $data);
         }
-    }
+    } 
 
     function detail($id = NULL) {
         if ($this->User_model->get(array('id' => $id)) == NULL) {

@@ -49,7 +49,7 @@ class Memorandum extends CI_Controller {
         }
         $params['present'] = 1;
         $paramsPage = $params;
-        $params['limit'] = 10;
+        $params['limit'] = 100;
         $params['offset'] = $offset;
 
 

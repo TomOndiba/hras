@@ -20,7 +20,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td>Nama Singkat</td>
+                        <td>NIK</td>
                         <td>:</td>
                         <td><?php echo $user['user_name'] ?></td>
                     </tr>
