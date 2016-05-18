@@ -108,11 +108,9 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="">
                                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                           <?php if (!empty($this->session->userdata('user_image'))) { ?> 
+                                            
                                             <img src="<?php echo upload_url().'/users/'. $this->session->userdata('user_image'); ?>"class="img-responsive ava-detail">
-                                            <?php } else { ?> 
-                                            <img src="<?php echo media_url() ?>/images/user.png" alt=""> 
-                                            <?php } ?>
+                                            
                                             <?php echo $text = ucfirst($this->session->userdata('user_full_name')); ?>
                                             <span class=" fa fa-angle-down"></span> 
                                         </a>

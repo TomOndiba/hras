@@ -69,6 +69,9 @@ class Employe extends CI_Controller {
         $this->load->library('form_validation');
         $this->form_validation->set_rules('employe_name', 'Name', 'trim|required|xss_clean');
         $this->form_validation->set_rules('employe_phone', 'Phone', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('employe_account', 'Account', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('employe_unit', 'unit', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('employe_bussiness', 'Bussiness', 'trim|required|xss_clean');
         $this->form_validation->set_rules('employe_address', 'Address', 'trim|required|xss_clean');
         $this->form_validation->set_rules('employe_divisi', 'Divisi', 'trim|required|xss_clean');
         $this->form_validation->set_rules('employe_position', 'Position', 'trim|required|xss_clean');
@@ -87,6 +90,9 @@ class Employe extends CI_Controller {
 
             $params['employe_name'] = $this->input->post('employe_name');
             $params['employe_phone'] = $this->input->post('employe_phone');
+            $params['employe_account'] = $this->input->post('employe_account');
+            $params['employe_unit'] = $this->input->post('employe_unit');
+            $params['employe_bussiness'] = $this->input->post('employe_bussiness');
             $params['employe_address'] = stripslashes($this->input->post('employe_address'));
             $params['employe_divisi'] = stripslashes($this->input->post('employe_divisi'));
             $params['employe_position'] = $this->input->post('employe_position');
@@ -183,18 +189,21 @@ class Employe extends CI_Controller {
                         if ($data['cells'][$i][1] == '')
                             break;
 
-                        $var = $data['cells'][$i][4];
+                        $var = $data['cells'][$i][5];
                         $date = str_replace('/', '-', $var);
 
                         $data_excel[$i - 1]['employe_nik'] = $data['cells'][$i][1];
                         $data_excel[$i - 1]['employe_name'] = $data['cells'][$i][2];
-                        $data_excel[$i - 1]['employe_address'] = $data['cells'][$i][3];
+                        $data_excel[$i - 1]['employe_account'] = $data['cells'][$i][3];
+                        $data_excel[$i - 1]['employe_address'] = $data['cells'][$i][4];
                         $data_excel[$i - 1]['employe_date_register'] = date('Y-m-d', strtotime($date));
 
-                        $data_excel[$i - 1]['employe_position'] = $data['cells'][$i][5];
-                        $data_excel[$i - 1]['employe_divisi'] = $data['cells'][$i][6];
-                        $data_excel[$i - 1]['employe_departement'] = $data['cells'][$i][7];
-                        $data_excel[$i - 1]['employe_phone'] = $data['cells'][$i][8];
+                        $data_excel[$i - 1]['employe_position'] = $data['cells'][$i][6];
+                        $data_excel[$i - 1]['employe_divisi'] = $data['cells'][$i][7];
+                        $data_excel[$i - 1]['employe_departement'] = $data['cells'][$i][8];
+                        $data_excel[$i - 1]['employe_unit'] = $data['cells'][$i][9];
+                        $data_excel[$i - 1]['employe_bussiness'] = $data['cells'][$i][10];
+                        $data_excel[$i - 1]['employe_phone'] = $data['cells'][$i][11];
                     }
 
                     // echo '<pre>';

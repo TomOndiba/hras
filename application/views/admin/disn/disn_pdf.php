@@ -77,7 +77,7 @@
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td width="104">Jabatan terakhir</td>
             <td>:</td>
-            <td width="380">&nbsp;&nbsp;<?php echo $disn['disn_position']  ?></td>
+            <td width="380"><span class="cap">&nbsp;&nbsp;<?php echo $disn['disn_position']  ?></span></td>
           </tr>
         </table>
         <p>&nbsp;<br>

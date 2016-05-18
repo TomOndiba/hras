@@ -15,7 +15,7 @@
         margin-right: 5.0em;
         } .style12 {font-size: 10px}
     .style13 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
 }
     </style>
@@ -41,7 +41,7 @@
           <tr>
             <td>Jabatan</td>
             <td>:</td>
-            <td><span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span></td>
+            <td><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></td>
           </tr>
         </table><br>
         <p>Dengan ini memberikan kuasa kepada :</p>
@@ -68,57 +68,27 @@
     <p align="justify">Demikian surat kuasa ini saya buat dengan sebener-benarnya atas perhatian dan kerjasamanya saya ucapkan terima kasih.</p>
        <br>
         
-        <table width="120" height="62" border="0" align="right">
-          <tbody>
-            <tr>              
-              <td class="style18"><div align="center"></div></td>                        
-            </tr>
-            <tr>
-              <td height="19" class="style18"><div align="center">Penerima Kuasa</div></td>
-              <td class="style18"><div align="center"></div></td>                        
-            </tr>
-          </tbody></table>        
+        <table width ="100%" border="0">
+                    <tr>
+                        <td>Bogor, <?php echo pretty_date($procuration['procuration_date'], 'd F Y',false)?></td>
+                        <td width="180">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Mengetahui,</td>
+                        <td>Yang Bersangkutan</td>
+                    </tr>
+                </table>
+                <br><br><br><br>
+                <table width="100%" border="0">
+                    <tr>
+                        <td>( <span class="cap"><?php echo $setting_employe_name['setting_value'] ?></span> )</td>
+                        <td width="180">( <span class="cap"><?php echo $procuration['procuration_employe_name'] ?></span> )</td>
+                    </tr>
+                    <tr>
+                        <td><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></td>
+                        <td width="180">&nbsp;</td>
 
-          <table width="230" border="0" align="left">
-            <tbody>
-              <tr>
-                <td width="88" class="style18"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $procuration['procuration_date'],'d F Y',false) ?></td>
-              </tr>
-              <tr>
-                <td class="style18"><div align="left">Pemberi Kuasa</div></td>
-                <td width="10" class="style18">&nbsp;</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="style18"><br>
-            <br>
-    </p>
-          <p class="style18"><br>
-          </p>
-          <p class="style18">&nbsp;</p>
-          <table border="0" align="right">
-            <tbody>
-              <tr>
-                <td class="style18"><div align="center"><u>(<?php echo $procuration['procuration_employe_name'] ?>)</u></div></td>
-                <td class="style18"></td>                        
-              </tr>
-              <tr>
-                <td class="style18"><div align="center"><em></em></div></td>
-                <td class="style18"></td>                        
-              </tr>
-            </tbody></table>
-            <table border="0" align="left">
-              <tbody>
-                <tr>
-                  <td class="style18"><div align="left"><u>( <span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span> )</u></div></td>
-                  <td class="style18"></td>
-                </tr>
-                <tr>
-                  <td class="style18"><div align="left"><em><span class="cap"><?php echo $setting_employe_position['setting_value'] ?></span></em></div></td>
-                  <td class="style18"><div align="left"></div></td>
-                </tr>
-              </tbody>
-            </table>
+                    </table>
             <p class="style18"><br>
   
     

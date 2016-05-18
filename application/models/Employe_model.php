@@ -47,7 +47,7 @@ class Employe_model extends CI_Model {
         }
 
         $this->db->select('employe.employe_id, employe_nik, employe_name, employe_phone, employe_address,
-            employe_divisi, employe_position, employe_departement, employe_date_register');
+            employe_divisi, employe_account, employe_unit, employe_bussiness, employe_position, employe_departement, employe_date_register');
         $res = $this->db->get('employe');
 
         if (isset($params['id']) OR (isset($params['limit']) AND $params['limit'] == 1) OR (isset($params['date']) AND isset($params['member_nip']))) {
@@ -86,6 +86,18 @@ class Employe_model extends CI_Model {
 
         if (isset($data['employe_position'])) {
             $this->db->set('employe_position', $data['employe_position']);
+        }
+
+        if (isset($data['employe_account'])) {
+            $this->db->set('employe_account', $data['employe_account']);
+        }
+
+        if (isset($data['employe_unit'])) {
+            $this->db->set('employe_unit', $data['employe_unit']);
+        }
+
+        if (isset($data['employe_bussiness'])) {
+            $this->db->set('employe_bussiness', $data['employe_bussiness']);
         }
 
         if (isset($data['employe_departement'])) {
@@ -136,11 +148,14 @@ class Employe_model extends CI_Model {
             $data = array(
                 'employe_nik' => $data_excel[$i]['employe_nik'],
                 'employe_name' => $data_excel[$i]['employe_name'],
+                'employe_account' => $data_excel[$i]['employe_account'],
                 'employe_address' => $data_excel[$i]['employe_address'],
                 'employe_date_register' => $data_excel[$i]['employe_date_register'],
                 'employe_position' => $data_excel[$i]['employe_position'],
                 'employe_divisi' => $data_excel[$i]['employe_divisi'],
                 'employe_departement' => $data_excel[$i]['employe_departement'],
+                'employe_unit' => $data_excel[$i]['employe_unit'],
+                'employe_bussiness' => $data_excel[$i]['employe_bussiness'],
                 'employe_phone' => $data_excel[$i]['employe_phone'],
             );
 
