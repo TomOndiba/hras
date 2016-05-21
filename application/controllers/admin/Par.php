@@ -169,19 +169,7 @@ class Par extends CI_Controller {
         $data['par'] = $this->Par_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/par/par_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE, 'A4', TRUE);
-    }
-
-    function printEnvl($id = NULL) {
-        $this->load->helper(array('dompdf'));
-        $this->load->helper(array('tanggal'));
-        if ($id == NULL)
-            redirect('admin/par');
-
-        $data['par'] = $this->Par_model->get(array('id' => $id));
-
-        $html = $this->load->view('admin/par/par_envelope', $data, true);
-        $data = pdf_create($html, '', TRUE, 'A4', TRUE);
+        $data = pdf_create($html, '', TRUE, TRUE, TRUE);
     }
 
     function multiple() {
