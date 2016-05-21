@@ -63,7 +63,7 @@
                     ?>
                     <tbody>
                         <tr id="row">
-                            <td colspan="6" align="center">Data Kosong</td>
+                            <td colspan="7" align="center">Data Kosong</td>
                         </tr>
                     </tbody>
                     <?php

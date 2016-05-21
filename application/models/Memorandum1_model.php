@@ -32,7 +32,7 @@ class Memorandum1_model extends CI_Model {
         }
 
         if (isset($params['finish'])) {
-            $this->db->where('memorandum1.memorandum_finished_desc', $params['finish']);
+            $this->db->where('memorandum1.memorandum_finished_desc', NULL);
         }
 
         if (isset($params['memorandum_employe_nik'])) {

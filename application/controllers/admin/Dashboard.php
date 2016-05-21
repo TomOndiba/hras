@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller {
     // Dashboard View
     public function index()
     {
-        $this->load->model('Setting_model');
+        $this->load->model('Setting_model'); 
         $this->load->model('Employe_model');
         $this->load->model('Memorandum3_model');
         $this->load->model('Memorandum1_model');
@@ -32,8 +32,8 @@ class Dashboard extends CI_Controller {
         $data['employe'] = count($this->Employe_model->get());
         $data['bpjs'] = count($this->Bpjs_model->get());
         $data['sk'] = count($this->Suratk_model->get());
-        $data['memorandum3'] = count($this->Memorandum3_model->get(array('present' => 0)));
-        $data['memorandum1'] = count($this->Memorandum1_model->get(array('present' => 1, 'finish' => 0)));
+        $data['memorandum3'] = count($this->Memorandum3_model->get(array('present' => FALSE)));
+        $data['memorandum1'] = count($this->Memorandum1_model->get(array('present' => TRUE, 'finish' => TRUE)));
         $data['title'] = 'Dashboard';
         $data['main'] = 'admin/dashboard/dashboard';
         $this->load->view('admin/layout', $data);
