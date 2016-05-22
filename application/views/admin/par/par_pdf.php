@@ -1,32 +1,252 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta http-equiv="Content-Style-Type" content="text/css" />
-  <title>TES</title>    
-  <link href="<?php echo media_url() ?>/images/par/target.css" type="text/css" rel="stylesheet">
-  <!--[if IE]><script type="text/javascript" src="<?php echo media_url() ?>/images/bpjs/excanvas-compiled.js"></script><![endif]-->
-  <script type="text/javascript" src="<?php echo media_url() ?>/images/par/target.js"></script> 
+<title><?php echo $par['par_employe_name'] ?></title> 
+<link rel="icon" href="<?php echo media_url('ico/a.png'); ?>" type="image/x-icon">
   <style type="text/css">
-        body {
-            font-family: sans-serif;
-        }
-        @page {
-            margin-top: 0.1cm;
-            margin-bottom: 0.2cm;
-            margin-left: 0.1cm; 
-            margin-right: 0.1cm;
-        } .style1 {
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
+   .upper { text-transform: uppercase; }
+   .lower { text-transform: lowercase; }
+   .cap   { text-transform: capitalize; }
+   .small { font-variant:   small-caps; }
+ </style>
+ <style type="text/css">
+  @page {
+    margin-top: 0.4cm;
+    margin-bottom: 0.1em;
+    margin-left: 0.5cm;
+    margin-right: 0.3cm;
+  }
+  body {
+    font-family: sans-serif;
+  }
+  table {
+    border-collapse: collapse;
+  }
+
+  fieldset {
+    border: 2px solid;
+  }
+</style>
 </head>
 <body>
-<fieldset>
-    <div style="position:relative;width:612pt;height:792pt;">
-      <div style="position:absolute;left:0pt;top:0pt;width:100%;height:100%;clip:rect(0pt,612pt,792pt,0pt);" class="fmt-2"><span class="fmt-25" style="white-space:pre;"><div style="position:absolute;top:154.28pt;left:124.43pt;z-index:71;letter-spacing:.001em;">Biaya Sumbangan Nikah Karyawan a.n : ACHYAR ANSHORIE (12096398) - Branch Personnel Administrator 6 / Branch </div></span><img style="position:absolute;left:21.8pt;top:23.2pt;width:569pt;height:3pt;z-index:110;" src="<?php echo media_url() ?>/images/par/725e1160c5cfa23362b64579fbf4d0f9.png" alt="__rendered_path__110" /><span class="fmt-0" style="white-space:pre;"><div style="position:absolute;top:31.765pt;left:38.6pt;z-index:1;letter-spacing:.001em;">PT SUMBER ALFARIA TRIJAYA Tbk</div></span><span class="fmt-1" style="white-space:pre;"><div style="position:absolute;top:40.9494pt;left:38.8pt;z-index:2;letter-spacing:-.009em;">Program Approval Request (PAR) - JASA</div></span><img style="position:absolute;left:79.825pt;top:49.43pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span style="white-space:pre;"><div style="position:absolute;top:53.965pt;left:38.4pt;z-index:68;letter-spacing:.001em;">No. PAR </div><div style="position:absolute;top:52.874pt;left:81.025pt;z-index:68;letter-spacing:-.002em;" class="fmt-21">0543/SAT_HRD/CLS2/X/2014</div><div style="position:absolute;top:53.965pt;left:227.88pt;z-index:68;letter-spacing:.006em;">Cost Center</div><div style="position:absolute;top:52.5394pt;left:265.88pt;z-index:68;letter-spacing:.013em;" class="fmt-22">H060</div></span><img style="position:absolute;left:79.825pt;top:49.42pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span style="white-space:pre;"><div style="position:absolute;top:67.165pt;left:38.4pt;z-index:69;letter-spacing:-.004em;">Kode Unit Usaha</div><div style="position:absolute;top:66.3394pt;left:81.225pt;z-index:69;letter-spacing:.01em;" class="fmt-3">JZ01</div><div style="position:absolute;top:65.7394pt;left:103.62pt;z-index:69;letter-spacing:-.002em;" class="fmt-23">Branch Cileungsi 2</div><div style="position:absolute;top:67.466pt;left:222.88pt;z-index:69;" class="fmt-4">No. PAR, Kode Unit Usaha dan Cost Center diisi oleh Dep Pengguna / Pemohon</div></span><img style="position:absolute;left:79.825pt;top:58.02pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span class="fmt-5" style="white-space:pre;"><div style="position:absolute;top:96.765pt;left:38.6pt;z-index:8;letter-spacing:.004em;">Diisi oleh Pemohon</div></span><img style="position:absolute;left:79.825pt;top:58.03pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><img style="position:absolute;left:79.625pt;top:52.02pt;width:3pt;height:9pt;z-index:77;" src="<?php echo media_url() ?>/images/par/67a52b27c0335d29348a4b088a32a642.png" alt="__rendered_path__77" /><span style="white-space:pre;"><div style="position:absolute;top:115.38pt;left:38.4pt;z-index:70;letter-spacing:.004em;">Nama</div><div style="position:absolute;top:115.38pt;left:119.82pt;z-index:70;letter-spacing:-.005em;">:  <span class="fmt-24">TATI NURHAYATI</span></div></span><img style="position:absolute;left:79.625pt;top:52.02pt;width:3pt;height:9pt;z-index:77;" src="<?php echo media_url() ?>/images/par/67a52b27c0335d29348a4b088a32a642.png" alt="__rendered_path__77" /><img style="position:absolute;left:211.28pt;top:52.02pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><span style="white-space:pre;"><div style="position:absolute;top:128.8pt;left:38.4pt;z-index:12;letter-spacing:-.003em;">Ref. Project / Program</div><div style="position:absolute;top:128.8pt;left:119.82pt;z-index:12;letter-spacing:.001em;">:</div></span><img style="position:absolute;left:211.28pt;top:52.02pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><span style="white-space:pre;"><div style="position:absolute;top:142.2pt;left:38.4pt;z-index:73;letter-spacing:.003em;">Departemen / Cabang</div><div style="position:absolute;top:142.2pt;left:119.82pt;z-index:73;letter-spacing:-.008em;">:  <span class="fmt-26">Human Capital/ CLS 2</span></div></span><img style="position:absolute;left:20.8pt;top:24.62pt;width:3pt;height:61pt;z-index:79;" src="<?php echo media_url() ?>/images/par/fe13e6b5755f74ba29031ebfd250eec1.png" alt="__rendered_path__79" /><img style="position:absolute;left:211.28pt;top:65.22pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><img style="position:absolute;left:257.48pt;top:51.23pt;width:3pt;height:10pt;z-index:103;" src="<?php echo media_url() ?>/images/par/51dc7b7fbf27a826e3c13f7123eb3452.png" alt="__rendered_path__103" /><span style="white-space:pre;"><div style="position:absolute;top:156.8pt;left:38.4pt;z-index:16;letter-spacing:.001em;">Maksud PAR</div><div style="position:absolute;top:156.8pt;left:119.82pt;z-index:16;letter-spacing:.001em;">:</div></span><img style="position:absolute;left:122.62pt;top:112.42pt;width:3pt;height:11pt;z-index:81;" src="<?php echo media_url() ?>/images/par/07c7e2f3deb25aac1be45ca9f47e3beb.png" alt="__rendered_path__81" /><img style="position:absolute;left:211.28pt;top:65.22pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><img style="position:absolute;left:102.02pt;top:65.22pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><img style="position:absolute;left:79.825pt;top:62.63pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span class="fmt-25" style="white-space:pre;"><div style="position:absolute;top:163.68pt;left:124.43pt;z-index:72;letter-spacing:-.002em;">People Development</div></span><img style="position:absolute;left:122.62pt;top:125.85pt;width:3pt;height:11pt;z-index:81;" src="<?php echo media_url() ?>/images/par/07c7e2f3deb25aac1be45ca9f47e3beb.png" alt="__rendered_path__81" /><img style="position:absolute;left:102.02pt;top:65.22pt;width:3pt;height:9pt;z-index:78;" src="<?php echo media_url() ?>/images/par/c5ed31c94a3c51902d466c638680b943.png" alt="__rendered_path__78" /><img style="position:absolute;left:79.625pt;top:65.22pt;width:3pt;height:9pt;z-index:77;" src="<?php echo media_url() ?>/images/par/67a52b27c0335d29348a4b088a32a642.png" alt="__rendered_path__77" /><img style="position:absolute;left:79.825pt;top:62.62pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span style="white-space:pre;"><div style="position:absolute;top:184.39pt;left:38.4pt;z-index:74;letter-spacing:-.006em;">Total Dana </div><div style="position:absolute;top:184.39pt;left:119.82pt;z-index:74;letter-spacing:.006em;">:   Rp   <span class="fmt-27">600,000</span></div><div style="position:absolute;top:184.39pt;left:310.5pt;z-index:74;letter-spacing:.001em;">,00   INC PPN 10 %</div></span><img style="position:absolute;left:122.62pt;top:139.25pt;width:3pt;height:11pt;z-index:81;" src="<?php echo media_url() ?>/images/par/07c7e2f3deb25aac1be45ca9f47e3beb.png" alt="__rendered_path__81" /><img style="position:absolute;left:199.85pt;top:125.85pt;width:3pt;height:11pt;z-index:85;" src="<?php echo media_url() ?>/images/par/f36ff793875c754ac418be1614a3461e.png" alt="__rendered_path__85" /><img style="position:absolute;left:79.625pt;top:65.22pt;width:3pt;height:9pt;z-index:77;" src="<?php echo media_url() ?>/images/par/67a52b27c0335d29348a4b088a32a642.png" alt="__rendered_path__77" /><img style="position:absolute;left:79.825pt;top:71.22pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span style="white-space:pre;"><div style="position:absolute;top:198.8pt;left:124.02pt;z-index:75;letter-spacing:-.012em;">Terbilang</div><div style="position:absolute;top:197.37pt;left:162.45pt;z-index:75;letter-spacing:-.008em;" class="fmt-28">Enam Ratus Ribu  Rupiah</div></span><img style="position:absolute;left:122.62pt;top:152.85pt;width:3pt;height:27pt;z-index:83;" src="<?php echo media_url() ?>/images/par/e02febedf2b93c56bb910df8d64c0abc.png" alt="__rendered_path__83" /><img style="position:absolute;left:242.28pt;top:140.25pt;width:3pt;height:10pt;z-index:92;" src="<?php echo media_url() ?>/images/par/79a380e0f977bd7c88b66aeafd5c0466.png" alt="__rendered_path__92" /><img style="position:absolute;left:298.7pt;top:113.42pt;width:3pt;height:10pt;z-index:92;" src="<?php echo media_url() ?>/images/par/79a380e0f977bd7c88b66aeafd5c0466.png" alt="__rendered_path__92" /><img style="position:absolute;left:79.825pt;top:71.23pt;width:132pt;height:3pt;z-index:76;" src="<?php echo media_url() ?>/images/par/a8b8a0ba8d8e12f1ed9521f8f3d92f79.png" alt="__rendered_path__76" /><span style="white-space:pre;"><div style="position:absolute;top:223.8pt;left:38.4pt;z-index:29;letter-spacing:-.005em;">Cara Realisasi Dana</div><div style="position:absolute;top:223.8pt;left:119.82pt;z-index:29;letter-spacing:.003em;">:    <span class="fmt-6">A</span>    Tunai</div><div style="position:absolute;top:223.8pt;left:191.05pt;z-index:29;letter-spacing:.009em;"><span class="fmt-6">B </span>   <span class="fmt-7"> Bertahap, </span><span class="fmt-8">beri keterangan : </span></div></span><img style="position:absolute;left:123.22pt;top:217.85pt;width:12pt;height:3pt;z-index:84;" src="<?php echo media_url() ?>/images/par/1fdd488f1542e0ca6d073cda952b523c.png" alt="__rendered_path__84" /><img style="position:absolute;left:160.85pt;top:195.05pt;width:3pt;height:21pt;z-index:90;" src="<?php echo media_url() ?>/images/par/0a622a4afbd6bfdd4775aff2cd54ed44.png" alt="__rendered_path__90" /><img style="position:absolute;left:21.8pt;top:82.62pt;width:569pt;height:3pt;z-index:110;" src="<?php echo media_url() ?>/images/par/725e1160c5cfa23362b64579fbf4d0f9.png" alt="__rendered_path__110" /><span class="fmt-9" style="white-space:pre;"><div style="position:absolute;top:235.11pt;left:124.02pt;z-index:30;letter-spacing:.006em;">Beri tanda "X" (silang) di kotak pilihan</div></span><img style="position:absolute;left:187.25pt;top:217.85pt;width:14pt;height:3pt;z-index:86;" src="<?php echo media_url() ?>/images/par/9c97bf3bd1b0584ae705de0df9d57f7a.png" alt="__rendered_path__86" /><img style="position:absolute;left:160.85pt;top:195.05pt;width:3pt;height:21pt;z-index:90;" src="<?php echo media_url() ?>/images/par/0a622a4afbd6bfdd4775aff2cd54ed44.png" alt="__rendered_path__90" /><img style="position:absolute;left:21.8pt;top:86.42pt;width:569pt;height:3pt;z-index:110;" src="<?php echo media_url() ?>/images/par/725e1160c5cfa23362b64579fbf4d0f9.png" alt="__rendered_path__110" /><span style="white-space:pre;"><div style="position:absolute;top:248.01pt;left:38.4pt;z-index:39;letter-spacing:.001em;">Cara Pembayaran</div><div style="position:absolute;top:248.01pt;left:118.02pt;z-index:39;letter-spacing:.001em;">:</div><div style="position:absolute;top:248.01pt;left:127.02pt;z-index:39;letter-spacing:.007em;"><span class="fmt-6">A</span>   Giro</div><div style="position:absolute;top:248.01pt;left:164.45pt;z-index:39;letter-spacing:.012em;"><span class="fmt-6">B</span>   Cheque</div><div style="position:absolute;top:248.01pt;left:214.88pt;z-index:39;letter-spacing:-.006em;"><span class="fmt-6">C</span>   Transfer</div><div style="position:absolute;top:248.52pt;left:254.08pt;z-index:39;letter-spacing:.005em;" class="fmt-10">Beri tanda "X" (silang) di kotak pilihan</div></span><img style="position:absolute;left:123.22pt;top:229.65pt;width:12pt;height:3pt;z-index:84;" src="<?php echo media_url() ?>/images/par/1fdd488f1542e0ca6d073cda952b523c.png" alt="__rendered_path__84" /><img style="position:absolute;left:37.2pt;top:104.82pt;width:506pt;height:3pt;z-index:112;" src="<?php echo media_url() ?>/images/par/d2113c2d0aa51a1d7dc38f927209c6dd.png" alt="__rendered_path__112" /><span style="white-space:pre;"><div style="position:absolute;top:262.41pt;left:38.4pt;z-index:41;letter-spacing:-.009em;">Tanggal Realisasi Dana</div><div style="position:absolute;top:262.41pt;left:119.82pt;z-index:41;letter-spacing:.001em;">:</div></span><img style="position:absolute;left:122.62pt;top:219.65pt;width:3pt;height:13pt;z-index:88;" src="<?php echo media_url() ?>/images/par/38129b2945fdda0b6563b1745ce3308b.png" alt="__rendered_path__88" /><img style="position:absolute;left:37.2pt;top:105.82pt;width:506pt;height:3pt;z-index:112;" src="<?php echo media_url() ?>/images/par/d2113c2d0aa51a1d7dc38f927209c6dd.png" alt="__rendered_path__112" /><span class="fmt-0" style="white-space:pre;"><div style="position:absolute;top:282.62pt;left:38.6pt;z-index:44;letter-spacing:-.001em;">Pemohon</div><div style="position:absolute;top:282.62pt;left:103.43pt;z-index:44;letter-spacing:-.001em;">Atasan Pemohon</div><div style="position:absolute;top:282.62pt;left:201.45pt;z-index:44;letter-spacing:-.007em;">Menyetujui</div></span><img style="position:absolute;left:134.23pt;top:220.65pt;width:3pt;height:12pt;z-index:89;" src="<?php echo media_url() ?>/images/par/84c01b5314349693152b57d6349a4b0b.png" alt="__rendered_path__89" /><img style="position:absolute;left:123.22pt;top:110.42pt;width:177pt;height:3pt;z-index:113;" src="<?php echo media_url() ?>/images/par/a1d33cc99b1e5690f6e13ad9e38920c7.png" alt="__rendered_path__113" /><span class="fmt-13" style="white-space:pre;"><div style="position:absolute;top:290.11pt;left:38.4pt;z-index:50;letter-spacing:-.013em;" class="fmt-11">Mgr/BM/GM/Direktur</div><div style="position:absolute;top:290.11pt;left:103.22pt;z-index:50;letter-spacing:-.002em;"><span class="fmt-12">BM/GM/Direktur/</span><span>sesuai proxy</span></div><div style="position:absolute;top:289.62pt;left:201.25pt;z-index:50;letter-spacing:-.008em;" class="fmt-14">BM/GM/Direktur</div><div style="position:absolute;top:290.11pt;left:279.3pt;z-index:50;letter-spacing:.006em;">Pejabat lain sesuai</div></span><img style="position:absolute;left:123.22pt;top:242.47pt;width:12pt;height:3pt;z-index:84;" src="<?php echo media_url() ?>/images/par/1fdd488f1542e0ca6d073cda952b523c.png" alt="__rendered_path__84" /><img style="position:absolute;left:186.65pt;top:219.65pt;width:3pt;height:13pt;z-index:88;" src="<?php echo media_url() ?>/images/par/38129b2945fdda0b6563b1745ce3308b.png" alt="__rendered_path__88" /><img style="position:absolute;left:123.22pt;top:120.42pt;width:177pt;height:3pt;z-index:113;" src="<?php echo media_url() ?>/images/par/a1d33cc99b1e5690f6e13ad9e38920c7.png" alt="__rendered_path__113" /><span class="fmt-9" style="white-space:pre;"><div style="position:absolute;top:296.92pt;left:279.3pt;z-index:52;letter-spacing:.003em;">proxy</div></span><img style="position:absolute;left:161.25pt;top:242.47pt;width:11pt;height:3pt;z-index:91;" src="<?php echo media_url() ?>/images/par/cfbf34e7666ebb5bbf1521a479bcd2ce.png" alt="__rendered_path__91" /><img style="position:absolute;left:199.85pt;top:220.65pt;width:3pt;height:12pt;z-index:89;" src="<?php echo media_url() ?>/images/par/84c01b5314349693152b57d6349a4b0b.png" alt="__rendered_path__89" /><img style="position:absolute;left:123.22pt;top:123.82pt;width:78pt;height:3pt;z-index:114;" src="<?php echo media_url() ?>/images/par/67e67d2a734d0efb9eeca9efbcdf74fc.png" alt="__rendered_path__114" /><span class="fmt-15" style="white-space:pre;"><div style="position:absolute;top:315.95pt;left:38.8pt;z-index:57;letter-spacing:.003em;">TNI</div><div style="position:absolute;top:317.92pt;left:59.2pt;z-index:57;letter-spacing:-.002em;" class="fmt-16">tgl _________</div><div style="position:absolute;top:315.95pt;left:103.62pt;z-index:57;letter-spacing:.003em;">TNI</div><div style="position:absolute;top:317.92pt;left:151.65pt;z-index:57;letter-spacing:-.002em;" class="fmt-16">tgl _________</div><div style="position:absolute;top:316.31pt;left:201.65pt;z-index:57;letter-spacing:-.001em;" class="fmt-17">SNH/SNO</div></span><img style="position:absolute;left:123.22pt;top:253.68pt;width:12pt;height:3pt;z-index:84;" src="<?php echo media_url() ?>/images/par/1fdd488f1542e0ca6d073cda952b523c.png" alt="__rendered_path__84" /><img style="position:absolute;left:134.23pt;top:244.67pt;width:3pt;height:12pt;z-index:107;" src="<?php echo media_url() ?>/images/par/1f84daa324fd61624da09b114b3865a4.png" alt="__rendered_path__107" /><img style="position:absolute;left:288.3pt;top:219.87pt;width:3pt;height:23pt;z-index:109;" src="<?php echo media_url() ?>/images/par/7e68008aafe236b86dfa91bd94d89baa.png" alt="__rendered_path__109" /><img style="position:absolute;left:123.22pt;top:133.85pt;width:78pt;height:3pt;z-index:114;" src="<?php echo media_url() ?>/images/par/67e67d2a734d0efb9eeca9efbcdf74fc.png" alt="__rendered_path__114" /><span class="fmt-19" style="white-space:pre;"><div style="position:absolute;top:327.17pt;left:103.22pt;z-index:61;letter-spacing:.006em;">Lembar ke-1 (asli) untuk Dep TAF</div><div style="position:absolute;top:327.38pt;left:201.25pt;z-index:61;" class="fmt-20">PERHATIAN : WAJIB melampirkan dokumen</div></span><img style="position:absolute;left:161.25pt;top:253.68pt;width:11pt;height:3pt;z-index:91;" src="<?php echo media_url() ?>/images/par/cfbf34e7666ebb5bbf1521a479bcd2ce.png" alt="__rendered_path__91" /><img style="position:absolute;left:171.05pt;top:244.67pt;width:3pt;height:12pt;z-index:107;" src="<?php echo media_url() ?>/images/par/1f84daa324fd61624da09b114b3865a4.png" alt="__rendered_path__107" /><img style="position:absolute;left:123.22pt;top:137.25pt;width:120pt;height:3pt;z-index:115;" src="<?php echo media_url() ?>/images/par/2d55bee5806e63d03cbaa1124c31264b.png" alt="__rendered_path__115" /><span class="fmt-19" style="white-space:pre;"><div style="position:absolute;top:337.77pt;left:103.22pt;z-index:64;letter-spacing:.01em;">Lembar ke-2 untuk Dep Pemohon</div><div style="position:absolute;top:337.98pt;left:201.25pt;z-index:64;" class="fmt-20">yang diperlukan / semestinya.</div></span><img style="position:absolute;left:122.62pt;top:244.68pt;width:3pt;height:12pt;z-index:89;" src="<?php echo media_url() ?>/images/par/84c01b5314349693152b57d6349a4b0b.png" alt="__rendered_path__89" /><img style="position:absolute;left:221.48pt;top:244.67pt;width:3pt;height:12pt;z-index:107;" src="<?php echo media_url() ?>/images/par/1f84daa324fd61624da09b114b3865a4.png" alt="__rendered_path__107" /><img style="position:absolute;left:123.22pt;top:147.25pt;width:120pt;height:3pt;z-index:115;" src="<?php echo media_url() ?>/images/par/2d55bee5806e63d03cbaa1124c31264b.png" alt="__rendered_path__115" /><span class="fmt-11" style="white-space:pre;"><div style="position:absolute;top:358.34pt;left:38.4pt;z-index:66;letter-spacing:-.003em;">NRA : SAT/FRM/GA/019_Rev:002_231109</div></span><img style="position:absolute;left:589.8pt;top:25.62pt;width:3pt;height:60pt;z-index:80;" src="<?php echo media_url() ?>/images/par/0cc8c2878b844a6d3276e33166770400.png" alt="__rendered_path__80" /><img style="position:absolute;left:390.73pt;top:52.22pt;width:3pt;height:9pt;z-index:104;" src="<?php echo media_url() ?>/images/par/593b64ee397ff871b6fbda1f66a98fe6.png" alt="__rendered_path__104" /><img style="position:absolute;left:258.08pt;top:49.62pt;width:134pt;height:3pt;z-index:111;" src="<?php echo media_url() ?>/images/par/16c09ca86ac8c11a3b4f023ef336bbf4.png" alt="__rendered_path__111" /><span class="fmt-0" style="white-space:pre;"><div style="position:absolute;top:282.62pt;left:402.73pt;z-index:45;letter-spacing:-.001em;">Verifikasi Dep TAF</div></span><img style="position:absolute;left:541.98pt;top:153.85pt;width:3pt;height:26pt;z-index:82;" src="<?php echo media_url() ?>/images/par/c820d81ecf477ce0bc19eaa4bb0f00fe.png" alt="__rendered_path__82" /><img style="position:absolute;left:258.08pt;top:58.22pt;width:134pt;height:3pt;z-index:111;" src="<?php echo media_url() ?>/images/par/16c09ca86ac8c11a3b4f023ef336bbf4.png" alt="__rendered_path__111" /><span class="fmt-14" style="white-space:pre;"><div style="position:absolute;top:289.62pt;left:402.52pt;z-index:51;letter-spacing:-.003em;"> HO / Branch Fin Spv</div></span><img style="position:absolute;left:542.18pt;top:196.05pt;width:3pt;height:20pt;z-index:87;" src="<?php echo media_url() ?>/images/par/6b6a607843ff6a2d038d5cd8a7433ead.png" alt="__rendered_path__87" /><img style="position:absolute;left:123.22pt;top:151.05pt;width:420pt;height:3pt;z-index:116;" src="<?php echo media_url() ?>/images/par/be55ed32a0d7c299fd3fe070e0c1d5ea.png" alt="__rendered_path__116" /><span class="fmt-18" style="white-space:pre;"><div style="position:absolute;top:317.62pt;left:402.73pt;z-index:59;letter-spacing:.001em;"> PAR LUNAS</div><div style="position:absolute;top:317.92pt;left:444.15pt;z-index:59;letter-spacing:-.003em;" class="fmt-16">tgl _____________</div></span><img style="position:absolute;left:542.17pt;top:196.05pt;width:3pt;height:20pt;z-index:87;" src="<?php echo media_url() ?>/images/par/6b6a607843ff6a2d038d5cd8a7433ead.png" alt="__rendered_path__87" /><img style="position:absolute;left:122.62pt;top:177.45pt;width:420pt;height:3pt;z-index:117;" src="<?php echo media_url() ?>/images/par/08c0a51eb028bfe9e9a91eba8472052a.png" alt="__rendered_path__117" /><span class="fmt-19" style="white-space:pre;"><div style="position:absolute;top:327.17pt;left:402.52pt;z-index:62;letter-spacing:.008em;">PAR LUNAS tidak dapat digunakan </div></span><img style="position:absolute;left:37.6pt;top:286.27pt;width:150pt;height:3pt;z-index:93;" src="<?php echo media_url() ?>/images/par/4ed9fd8d1ddf192057729d2a43c3a366.png" alt="__rendered_path__93" /><img style="position:absolute;left:200.45pt;top:286.27pt;width:155pt;height:3pt;z-index:94;" src="<?php echo media_url() ?>/images/par/9db1a2c9e95f19b518a8fea3d9ad49ea.png" alt="__rendered_path__94" /><img style="position:absolute;left:541.98pt;top:219.87pt;width:3pt;height:23pt;z-index:95;" src="<?php echo media_url() ?>/images/par/45ac01bb168d0fa1530f37cf08f123ff.png" alt="__rendered_path__95" /><img style="position:absolute;left:37.6pt;top:321.48pt;width:80pt;height:3pt;z-index:96;" src="<?php echo media_url() ?>/images/par/f5b4b8f8aa0cf4af4903e483beff9a37.png" alt="__rendered_path__96" /><img style="position:absolute;left:116.83pt;top:321.48pt;width:71pt;height:3pt;z-index:97;" src="<?php echo media_url() ?>/images/par/adb7caf05e73ba8770c3289d82fc8ff7.png" alt="__rendered_path__97" /><img style="position:absolute;left:200.45pt;top:321.48pt;width:53pt;height:3pt;z-index:98;" src="<?php echo media_url() ?>/images/par/c10b03c440b4c2f061177483ca358928.png" alt="__rendered_path__98" /><img style="position:absolute;left:253.08pt;top:321.28pt;width:25pt;height:3pt;z-index:99;" src="<?php echo media_url() ?>/images/par/47733701423123894ea3c3a6a4d435a1.png" alt="__rendered_path__99" /><img style="position:absolute;left:253.08pt;top:321.27pt;width:25pt;height:3pt;z-index:99;" src="<?php echo media_url() ?>/images/par/47733701423123894ea3c3a6a4d435a1.png" alt="__rendered_path__99" /><img style="position:absolute;left:278.5pt;top:321.48pt;width:77pt;height:3pt;z-index:100;" src="<?php echo media_url() ?>/images/par/657fbb2e99580482a5235350ae08a566.png" alt="__rendered_path__100" /><img style="position:absolute;left:20.8pt;top:87.5pt;width:3pt;height:289pt;z-index:101;" src="<?php echo media_url() ?>/images/par/1818566471718ee65252397f0cd6baa3.png" alt="__rendered_path__101" /><img style="position:absolute;left:589.8pt;top:88.5pt;width:3pt;height:288pt;z-index:102;" src="<?php echo media_url() ?>/images/par/3410a7a88e82e00a877d841ad0f3b1e1.png" alt="__rendered_path__102" /><img style="position:absolute;left:211.08pt;top:244.68pt;width:3pt;height:12pt;z-index:89;" src="<?php echo media_url() ?>/images/par/84c01b5314349693152b57d6349a4b0b.png" alt="__rendered_path__89" /><img style="position:absolute;left:101.83pt;top:288.48pt;width:3pt;height:36pt;z-index:105;" src="<?php echo media_url() ?>/images/par/1d0e7753d8ae2d65e953a1747b64036f.png" alt="__rendered_path__105" /><img style="position:absolute;left:122.62pt;top:259.47pt;width:3pt;height:11pt;z-index:81;" src="<?php echo media_url() ?>/images/par/07c7e2f3deb25aac1be45ca9f47e3beb.png" alt="__rendered_path__81" /><img style="position:absolute;left:199.85pt;top:288.48pt;width:3pt;height:36pt;z-index:106;" src="<?php echo media_url() ?>/images/par/45e7948ffb0b400b84ed0b579fce828e.png" alt="__rendered_path__106" /><img style="position:absolute;left:242.28pt;top:260.47pt;width:3pt;height:10pt;z-index:92;" src="<?php echo media_url() ?>/images/par/79a380e0f977bd7c88b66aeafd5c0466.png" alt="__rendered_path__92" /><img style="position:absolute;left:541.98pt;top:288.48pt;width:3pt;height:36pt;z-index:105;" src="<?php echo media_url() ?>/images/par/1d0e7753d8ae2d65e953a1747b64036f.png" alt="__rendered_path__105" /><img style="position:absolute;left:160.65pt;top:244.68pt;width:3pt;height:12pt;z-index:89;" src="<?php echo media_url() ?>/images/par/84c01b5314349693152b57d6349a4b0b.png" alt="__rendered_path__89" /><img style="position:absolute;left:186.65pt;top:288.87pt;width:3pt;height:35pt;z-index:108;" src="<?php echo media_url() ?>/images/par/a6adc8d0b13b97e0287b8d3d84033e90.png" alt="__rendered_path__108" /><img style="position:absolute;left:37pt;top:288.48pt;width:3pt;height:36pt;z-index:106;" src="<?php echo media_url() ?>/images/par/45e7948ffb0b400b84ed0b579fce828e.png" alt="__rendered_path__106" /><img style="position:absolute;left:277.9pt;top:288.48pt;width:3pt;height:36pt;z-index:105;" src="<?php echo media_url() ?>/images/par/1d0e7753d8ae2d65e953a1747b64036f.png" alt="__rendered_path__105" /><img style="position:absolute;left:354.33pt;top:288.48pt;width:3pt;height:36pt;z-index:105;" src="<?php echo media_url() ?>/images/par/1d0e7753d8ae2d65e953a1747b64036f.png" alt="__rendered_path__105" /><img style="position:absolute;left:401.13pt;top:288.48pt;width:3pt;height:36pt;z-index:106;" src="<?php echo media_url() ?>/images/par/45e7948ffb0b400b84ed0b579fce828e.png" alt="__rendered_path__106" /><img style="position:absolute;left:134.43pt;top:189.05pt;width:176pt;height:3pt;z-index:118;" src="<?php echo media_url() ?>/images/par/3aa582b9f75a238210475eb3c05f8e97.png" alt="__rendered_path__118" /><img style="position:absolute;left:161.05pt;top:193.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:161.05pt;top:193.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:161.05pt;top:204.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:161.05pt;top:204.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:161.05pt;top:213.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:161.05pt;top:213.05pt;width:382pt;height:3pt;z-index:119;" src="<?php echo media_url() ?>/images/par/c3c6fd96b31666e1f7c83189f1afecc8.png" alt="__rendered_path__119" /><img style="position:absolute;left:288.3pt;top:217.85pt;width:254pt;height:3pt;z-index:120;" src="<?php echo media_url() ?>/images/par/895ea68c15e5d5fc11f29b6f58426aab.png" alt="__rendered_path__120" /><img style="position:absolute;left:187.25pt;top:229.65pt;width:14pt;height:3pt;z-index:86;" src="<?php echo media_url() ?>/images/par/9c97bf3bd1b0584ae705de0df9d57f7a.png" alt="__rendered_path__86" /><img style="position:absolute;left:288.9pt;top:239.87pt;width:254pt;height:3pt;z-index:120;" src="<?php echo media_url() ?>/images/par/895ea68c15e5d5fc11f29b6f58426aab.png" alt="__rendered_path__120" /><img style="position:absolute;left:211.68pt;top:242.47pt;width:11pt;height:3pt;z-index:91;" src="<?php echo media_url() ?>/images/par/cfbf34e7666ebb5bbf1521a479bcd2ce.png" alt="__rendered_path__91" /><img style="position:absolute;left:211.68pt;top:253.68pt;width:11pt;height:3pt;z-index:91;" src="<?php echo media_url() ?>/images/par/cfbf34e7666ebb5bbf1521a479bcd2ce.png" alt="__rendered_path__91" /><img style="position:absolute;left:123.22pt;top:257.47pt;width:120pt;height:3pt;z-index:115;" src="<?php echo media_url() ?>/images/par/2d55bee5806e63d03cbaa1124c31264b.png" alt="__rendered_path__115" /><img style="position:absolute;left:123.22pt;top:267.47pt;width:120pt;height:3pt;z-index:115;" src="<?php echo media_url() ?>/images/par/2d55bee5806e63d03cbaa1124c31264b.png" alt="__rendered_path__115" /><img style="position:absolute;left:37.2pt;top:272.87pt;width:506pt;height:3pt;z-index:112;" src="<?php echo media_url() ?>/images/par/d2113c2d0aa51a1d7dc38f927209c6dd.png" alt="__rendered_path__112" /><img style="position:absolute;left:37.2pt;top:273.87pt;width:506pt;height:3pt;z-index:112;" src="<?php echo media_url() ?>/images/par/d2113c2d0aa51a1d7dc38f927209c6dd.png" alt="__rendered_path__112" /><img style="position:absolute;left:401.73pt;top:286.27pt;width:141pt;height:3pt;z-index:121;" src="<?php echo media_url() ?>/images/par/5eb947196d9534c6ab2eeead48f0b130.png" alt="__rendered_path__121" /><img style="position:absolute;left:401.73pt;top:321.48pt;width:141pt;height:3pt;z-index:121;" src="<?php echo media_url() ?>/images/par/5eb947196d9534c6ab2eeead48f0b130.png" alt="__rendered_path__121" /><img style="position:absolute;left:21.8pt;top:373.5pt;width:569pt;height:3pt;z-index:110;" src="<?php echo media_url() ?>/images/par/725e1160c5cfa23362b64579fbf4d0f9.png" alt="__rendered_path__110" /><img style="position:absolute;left:121.59pt;top:215.39pt;width:13pt;height:14pt;z-index:122;" src="<?php echo media_url() ?>/images/par/8edc2521e29e4312405f683b2eb118e2.png" alt="__rendered_path__122" /><img style="position:absolute;left:119.25pt;top:214.75pt;width:15pt;height:15pt;z-index:123;" src="<?php echo media_url() ?>/images/par/03bd6c2b725f6b8f79f63353205b91a6.png" alt="__rendered_path__123" /><span class="fmt-19" style="white-space:pre;"><div style="position:absolute;top:317.62pt;left:402.73pt;z-index:59;letter-spacing:.001em;">kembali untuk pembayaran</div></span></div>
-    </div>
-  </div>
+  <fieldset>
+    <table width="100%">
+      <tr>
+        <td style="font-size: 10px"><strong>PT SUMBER ALFARIA TRIJAYA Tbk</strong></td>
+      </tr>
+      <tr>
+        <td style="font-size: 13px"><strong>Program Approval Request (PAR) - JASA</strong></td>
+      </tr>
+      <tr>
+        <td style="font-size: 1px">&nbsp;</td>
+      </tr>
+    </table>  
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td width="16%" style="font-size: 10px">No. PAR</td>
+          <td width="29%" style="border-style: solid; font-size: 12px"><strong><?php echo $par['par_number'] ?>/SAT-HRD/<?php echo $setting_initial['setting_value'] ?>/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($par['par_input_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $par['par_input_date'],'Y',false) ?></strong></td>
+          <td width="10%" style="font-size: 10px">&nbsp;Cost Center</td>
+          <td width="45%" style="border-style: solid;font-size: 12px"><strong><?php echo $par['cost_code'] ?></strong></td>
+        </tr>
+        <tr>
+          <td style="font-size: 10px">Kode Unit Usaha</td>
+          <td style="border-style: solid;font-size: 12px"><strong><?php echo $setting_unit['setting_value'] ?> - DC&nbsp;<span class="upper"><?php echo $setting_branch['setting_value'] ?></span></strong></td>
+          <td style="font-size: 8px" colspan="2"><i>&nbsp;No. PAR, Kode Unit Usaha dan Cost Center diisi oleh Dep Pengguna / Pemohon<i></td>
+        </tr>
+      </tbody>
+    </table>
   </fieldset>
-</body>
-</html>
+  <p style="font-size: 1px">&nbsp;</p>
+  <fieldset>
+    <table>
+      <tr>
+        <td style="font-size: 10px"><i>Di isi Oleh Pemohon</i></td>
+      </tr>
+    </table>
+    <hr style="border-style: solid;">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td style="font-size: 10px">Nama</td>
+          <td style="font-size: 10px">:</td>
+          <td style="border-style: solid;font-size: 13px"><?php echo $setting_employe_name['setting_value'] ?></td>
+        </tr>
+        <tr>
+          <td style="font-size: 10px">Ref. Project / Program</td>
+          <td style="font-size: 10px">:</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td style="font-size: 10px">Departemen / Cabang</td>
+          <td style="font-size: 10px">:</td>
+          <td style="border-style: solid;font-size: 13px">Human Capital / <span class="cap"> <?php echo $setting_branch['setting_value'] ?></span></td>
+        </tr>
+        <tr>
+          <td style="font-size: 7px">&nbsp;</td>
+          <td style="font-size: 7px">&nbsp;</td>
+          <td style="font-size: 7px">&nbsp;</td>
+        </tr>
+
+        <tr>
+          <td style="font-size: 10px">Maksud PAR</td>
+          <td style="font-size: 10px">:</td>
+          <td valign="top" style="border-style: solid;font-size: 13px">Biaya Sumbangan Nikah Karyawan a.n : <?php echo $par['par_employe_name'] ?> (<?php echo $par['par_employe_nik'] ?>) <?php echo ($par['par_employe_unit'] == $setting_unit['setting_value']) ? '-'.' '. $par['par_employe_position'].' '.'/'.' '.$par['par_employe_departement'] : 'di toko'.' '. $par['par_employe_unit'].' '.'-'.$par['par_employe_bussiness'] ?>. Transfer ke no rek : <?php echo $par['par_employe_account'] ?></td>
+        </tr>
+        <tr>
+          <td style="font-size: 10px">Total Dana</td>
+          <td style="font-size: 10px">:</td>
+          <td style="font-size: 15px">Rp. <u><?php echo number_format($par['par_paid'], 0, ',', '.');?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u>
+            <span style="font-size: 9px">,00 INC PPN 10 %</span></td>
+          </tr>
+          <tr>
+            <td style="font-size: 7px">&nbsp;</td>
+            <td style="font-size: 7px">&nbsp;</td>
+            <td style="font-size: 7px">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td width="16%">&nbsp;</td>
+            <td style="font-size: 10px" width="12%">Terbilang</td>
+            <td style="border-style: solid;font-size: 13px" width="69%" rowspan="2" valign="top"><span class="cap"><strong><?php $this->load->helper('tanggal'); echo to_word($par['par_paid'])?> Rupiah</strong></span></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="font-size: 7px">&nbsp;</td>
+            <td style="font-size: 7px">&nbsp;</td>
+            <td style="font-size: 7px">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td width="16%" style="font-size: 10px">Cara Realisasi Dana</td>
+            <td width="5%" style="font-size: 10px">:</td>
+            <td width="3%" style="border-style: solid; font-size: 12px; text-align: center;">A</td>
+            <td width="9%" style="font-size: 10px">&nbsp;&nbsp; Tunai</td>
+            <td width="3%" style="border-style: solid; font-size: 12px; text-align: center;">B</td>
+            <td width="21%" style="font-size: 10px">&nbsp;&nbsp; Bertahap, beri keterangan :</td>
+            <td width="41%" style="border-style: solid" rowspan="2">&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td colspan="4" style="font-size: 8px"><i>Beri tanda &quot;X&quot; (silang) di kotak pilihan</i></td>
+          </tr>
+        </tbody>
+      </table>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td width="91" style="font-size: 10px">Cara Pembayaran</td>
+            <td width="27" style="font-size: 10px">:</td>
+            <td width="13" style="border-style: solid; font-size: 12px; text-align: center;">A</td>
+            <td width="45" style="font-size: 10px">&nbsp;Giro</span></td>
+            <td width="13" style="border-style: solid; font-size: 12px; text-align: center;">B</td>
+            <td width="60" style="font-size: 10px">&nbsp;Cheque</span></td>
+            <td width="13" style="border-style: solid; font-size: 12px; text-align: center;">C</td>
+            <td width="600" style="font-size: 10px">&nbsp;Transfer&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 8px"><i>Beri tanda &quot;X&quot; (silang) di kotak pilihan</i></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td style="font-size: 5px">&nbsp;</td>
+            <td style="font-size: 5px">&nbsp;</td>
+            <td style="font-size: 5px">&nbsp;</td>
+          </tr>
+          <tr>
+            <td width="16%" style="font-size: 10px">Tanggal Realisasi Dana</td>
+            <td width="5%" style="font-size: 10px">:</td>
+            <td width="31%" style="border-style: solid;font-size: 15px">&nbsp;</td>
+            <td width="47%" style="font-size: 10px">&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size: 1px">&nbsp;</p>
+      <hr style="border-style: solid;">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td width="22%"><span style="font-size: 10px"><strong>Pemohon</strong></span></td>
+            <td width="20%"><span style="font-size: 10px"><strong>Atasan Pemohon</strong></span></td>
+            <td width="4%" style="font-size: 5px">&nbsp;</td>
+            <td width="21%"><span style="font-size: 10px"><strong>Menyetujui</strong></span></td>
+            <td width="13%"style="font-size: 5px">&nbsp;</td>
+            <td width="2%" style="font-size: 5px">&nbsp;</td>
+            <td width="18%" style="font-size: 5px"><span style="font-size: 10px"><strong>Verifikasi Dept TAF</strong></span></td>
+          </tr>
+          <tr>
+            <td valign="top" style="border-style: solid;font-size: 8px">&nbsp;Mgr/BM/GM/Direktur<br>
+              &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+              <span class="upper" style="font-size: 12px"><strong>&nbsp;<?php echo $setting_initial_pdm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+              <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p></td>
+                <td valign="top" style="border-style: solid;font-size: 8px">BM/GM/Direktur/sesuai proxy <br>
+                  &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                  <span style="font-size: 12px"><strong>&nbsp;</strong></span>&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                  <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u><</td>
+                    <td valign="top" style="font-size: 5px">&nbsp;</td>
+                    <td valign="top" style="border-style: solid;font-size: 8px">BM/GM/Direktur <br>
+                      &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                      <span class="upper" style="font-size: 12px"><strong>&nbsp;<?php echo $setting_initial_bm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+                      <td valign="top" style="border-style: solid;font-size: 8px">Pejabat lain sesuai Proxy<br>
+                        &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                        <span style="font-size: 12px"><strong>&nbsp;&nbsp;</strong></span>
+                        <td valign="top" style="font-size: 5px">&nbsp;</td>
+                        <td valign="top" style="border-style: solid;font-size: 8px">HO / Branch Fin Spv <br>
+                          &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                          <span style="font-size: 10px">&nbsp;PAR LUNAS</span>&nbsp;
+                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                          <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%">
+                      <tbody>
+                        <tr>
+                          <td width="23%" style="font-size: 5px">&nbsp;</td>
+                          <td width="18%" style="font-size: 5px"><span style="font-size: 8px">Lembar ke-1 (asli) untuk Dept TAF</span></td>
+                          <td width="5%" style="font-size: 5px">&nbsp;</td>
+                          <td width="27%" style="font-size: 5px"><span style="font-size: 8px">PERHATIAN : Wajib melampirkan dokumen</span></td>
+                          <td width="7%" style="font-size: 5px">&nbsp;</td>
+                          <td width="2%" style="font-size: 5px">&nbsp;</td>
+                          <td width="18%" style="font-size: 5px"><span style="font-size: 8px">PAR Lunas tidak dapat digunakan </span></td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 5px">&nbsp;</td>
+                          <td style="font-size: 5px"><span style="font-size: 8px">Lembar ke-2  untuk Dept Pemohon</span></td>
+                          <td style="font-size: 5px">&nbsp;</td>
+                          <td style="font-size: 5px"><span style="font-size: 8px">yang diperlukan / semestinya</span></td>
+                          <td style="font-size: 5px">&nbsp;</td>
+                          <td style="font-size: 5px">&nbsp;</td>
+                          <td style="font-size: 5px"><span style="font-size: 8px">kembali untuk pembayaran</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table width="100%">
+                      <tr>
+                        <td style="font-size: 7px">NRA : SAT/FRM/GA/019_Rev:002_231109</td>
+                      </tr>
+                    </table>  
+                  </fieldset>
+
+                </body>
+                </html>

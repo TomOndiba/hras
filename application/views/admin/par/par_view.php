@@ -29,10 +29,20 @@
                             <td><?php echo $par['par_employe_nik'] ?></td>
                         </tr>
                         <tr>         
-                            <td>Karyawan</td>
+                            <td>Nama Karyawan</td>
                             <td>:</td>
                             <td><?php echo $par['par_employe_name'] ?></td>
-                        </tr>            
+                        </tr> 
+                        <tr>         
+                            <td>Departement</td>
+                            <td>:</td>
+                            <td><?php echo $par['par_employe_departement'] ?></td>
+                        </tr> 
+                        <tr>         
+                            <td>Nominal</td>
+                            <td>:</td>
+                            <td><?php echo number_format($par['par_paid'], 2, ',', '.');?></td>
+                        </tr>              
                         <tr>
                             <td>Tanggal Input</td>
                             <td>:</td>

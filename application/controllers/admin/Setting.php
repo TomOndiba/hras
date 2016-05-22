@@ -27,7 +27,10 @@ class Setting extends CI_Controller {
         $this->form_validation->set_rules('setting_city', 'Setting Kota', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_pic', 'Setting PIC', 'trim|required|xss_clean');
         $this->form_validation->set_rules('setting_employe_nik', 'Setting PDM', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('setting_initial', 'Setting Inisial Branch', 'trim|required|xss_clean');        
+        $this->form_validation->set_rules('setting_initial', 'Setting Inisial Branch', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_initial_bm', 'Setting Inisial BM', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_initial_pdm', 'Setting Inisial PDM', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('setting_unit', 'Setting Kode Branch', 'trim|required|xss_clean');        
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
         if ($_POST AND $this->form_validation->run() == TRUE) {
             
@@ -39,6 +42,9 @@ class Setting extends CI_Controller {
             $param['setting_employe_name'] = $this->input->post('setting_employe_name');
             $param['setting_employe_position'] = $this->input->post('setting_employe_position');
             $param['setting_initial'] = $this->input->post('setting_initial');
+            $param['setting_initial_bm'] = $this->input->post('setting_initial_bm');
+            $param['setting_initial_pdm'] = $this->input->post('setting_initial_pdm');
+            $param['setting_unit'] = $this->input->post('setting_unit');
             $this->Setting_model->save($param);
             $this->session->set_flashdata('success', ' Sunting pengaturan berhasil');
             redirect('admin/setting');
@@ -52,6 +58,9 @@ class Setting extends CI_Controller {
             $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
             $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7));
             $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
+            $data['setting_initial_bm'] = $this->Setting_model->get(array('id' => 9));
+            $data['setting_initial_pdm'] = $this->Setting_model->get(array('id' => 10));
+            $data['setting_unit'] = $this->Setting_model->get(array('id' => 11));
             $data['main'] = 'admin/setting/setting_list';
             $this->load->view('admin/layout', $data);
         }

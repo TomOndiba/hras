@@ -8,7 +8,10 @@ if (isset($employe)) {
     $inputDivisi = $employe['employe_divisi'];
     $inputPosition = $employe['employe_position'];
     $inputDepartement = $employe['employe_departement'];
-    $inputRegister = $employe['employe_date_register'];   
+    $inputRegister = $employe['employe_date_register'];
+    $inputAcc = $employe['employe_account']; 
+    $inputUnit = $employe['employe_unit']; 
+    $inputBuss = $employe['employe_bussiness'];    
 } else {
     $inputName = set_value('employe_name');
     $inputPhone = set_value('employe_phone');
@@ -16,7 +19,10 @@ if (isset($employe)) {
     $inputDivisi = set_value('employe_divisi');
     $inputPosition = set_value('employe_position');
     $inputDepartement = set_value('employe_departement');
-    $inputRegister = set_value('employe_date_register');    
+    $inputRegister = set_value('employe_date_register'); 
+    $inputAcc = set_value('employe_account'); 
+    $inputUnit = set_value('employe_unit'); 
+    $inputBuss = set_value('employe_bussiness');    
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
@@ -43,6 +49,12 @@ if (isset($employe)) {
                 <input name="employe_departement" placeholder="Departement" type="text" class="form-control" value="<?php echo $inputDepartement; ?>"><br>
                 <label >Divisi *</label>
                 <input name="employe_divisi" placeholder="Divisi" type="text" class="form-control" value="<?php echo $inputDivisi; ?>"><br>
+                <label >Kode Unit *</label>
+                <input name="employe_unit" placeholder="Unit" type="text" class="form-control" value="<?php echo $inputUnit ?>"><br>
+                <label >Nama Unit *</label>
+                <input name="employe_bussiness" placeholder="Nama Unit" type="text" class="form-control" value="<?php echo $inputBuss ?>"><br>
+                <label >No. Rekening *</label>
+                <input name="employe_account" placeholder="No rekening" type="text" class="form-control" value="<?php echo $inputAcc ?>"><br>
                 <label >No. Telepon *</label>
                 <input name="employe_phone" placeholder="No. telepon" type="text" class="form-control" value="<?php echo $inputPhone; ?>"><br>                           
                 <label >Tanggal Bekerja *</label>

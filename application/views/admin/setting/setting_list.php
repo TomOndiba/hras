@@ -76,6 +76,30 @@
                 </div>
             </div><br>
             <div class="row">
+                <div class="col-md-4">
+                    <label>Inisial DBM / BM</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="setting_initial_bm" value="<?php echo $setting_initial_bm['setting_value'] ?>" class="form-control">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Inisial PDM / GSM</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="setting_initial_pdm" value="<?php echo $setting_initial_pdm['setting_value'] ?>" class="form-control">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <label>Kode Branch</label>
+                </div>
+                <div class="col-md-8">
+                    <input type="text" name="setting_unit" value="<?php echo $setting_unit['setting_value'] ?>" class="form-control">
+                </div>
+            </div><br>
+            <div class="row">
                 <div class="col-md-12">
                     <input type="submit" value="Simpan" class="btn btn-info pull-right">
                 </div>

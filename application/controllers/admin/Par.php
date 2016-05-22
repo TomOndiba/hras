@@ -158,18 +158,22 @@ class Par extends CI_Controller {
 
     function printPdf($id = NULL) {
         $this->load->helper(array('dompdf'));
-        $this->load->helper(array('tanggal'));
+        $this->load->helper(array('tanggal')); 
+        $this->load->helper(array('terbilang')); 
         if ($id == NULL)
             redirect('admin/par');
-
+        $data['setting_branch'] = $this->Setting_model->get(array('id' => 1));
         $data['setting_employe_nik'] = $this->Setting_model->get(array('id' => 5));
         $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
         $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
         $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
+        $data['setting_initial_bm'] = $this->Setting_model->get(array('id' => 9));
+        $data['setting_initial_pdm'] = $this->Setting_model->get(array('id' => 10));
+        $data['setting_unit'] = $this->Setting_model->get(array('id' => 11));
         $data['par'] = $this->Par_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/par/par_pdf', $data, true);
-        $data = pdf_create($html, '', TRUE, TRUE, TRUE);
+        $data = pdf_create($html, $data['par']['par_employe_name'], TRUE, [0,0,615,468], TRUE);
     }
 
     function multiple() {

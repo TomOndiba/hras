@@ -78,6 +78,24 @@ class Setting_model extends CI_Model {
             $this->db->update('setting');
         }
 
+        if (isset($param['setting_initial_bm'])) {
+            $this->db->set('setting_value', $param['setting_initial_bm']);
+            $this->db->where('setting_id', 9);
+            $this->db->update('setting');
+        }
+
+        if (isset($param['setting_initial_pdm'])) {
+            $this->db->set('setting_value', $param['setting_initial_pdm']);
+            $this->db->where('setting_id', 10);
+            $this->db->update('setting');
+        }
+
+        if (isset($param['setting_unit'])) {
+            $this->db->set('setting_value', $param['setting_unit']);
+            $this->db->where('setting_id', 11);
+            $this->db->update('setting');
+        }
+
     }
 
 }
