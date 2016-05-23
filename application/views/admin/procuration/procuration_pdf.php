@@ -65,7 +65,7 @@
     <br>
     <p align="justify">Untuk melakukan proses pelaporan kepada pihak kepolisian atas <?php echo $procuration['procuration_desc'] ?>.</p><br>
        
-    <p align="justify">Demikian surat kuasa ini saya buat dengan sebener-benarnya atas perhatian dan kerjasamanya saya ucapkan terima kasih.</p>
+    <p align="justify">Demikian surat kuasa ini saya buat dengan sebenar-benarnya atas perhatian dan kerjasamanya saya ucapkan terima kasih.</p>
        <br>
         
         <table width ="100%" border="0">

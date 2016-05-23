@@ -30,12 +30,15 @@ if (isset($bpjstk)) {
                 <?php if (isset($bpjstk)): ?>
                     <input type="hidden" name="bpjstk_id" value="<?php echo $bpjstk['bpjstk_id']; ?>" />
                 <?php endif; ?>
-                <label >Nama *</label>
+                <label >Nama *</label> 
                 <input name="bpjstk_name" placeholder="Nama" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>
                 <label >Nomor Kartu *</label>
                 <input name="bpjstk_card" placeholder="Nomor Kartu" type="text" class="form-control" value="<?php echo $inputCard; ?>"><br>
                 <label >NPP </label>
-                <input name="bpjstk_npp" placeholder="NPP" type="text" class="form-control" value="<?php echo $inputNpp; ?>"><br>
+                <select name="bpjstk_npp" class="form-control">
+                <option value="">--- Pilih NPP ---</option>
+                <option value="KK041803">REG</option>
+                <option value="KK044024">FRC</option></select><br>
                 <label >Tanggal Kepesertaan Awal *</label>
                 <input name="bpjstk_entry_date" placeholder="Tanggal Kepesertaan" type="text" class="form-control datepicker" value="<?php echo $inputEntry; ?>"><br>
                 <label >Pilih Tujuan *</label>
