@@ -173,7 +173,7 @@ class Par extends CI_Controller {
         $data['par'] = $this->Par_model->get(array('id' => $id));
 
         $html = $this->load->view('admin/par/par_pdf', $data, true);
-        $data = pdf_create($html, $data['par']['par_employe_name'], TRUE, [0,0,615,468], TRUE);
+        $data = pdf_create($html, $data['par']['par_employe_name'], TRUE, TRUE, TRUE);
     }
 
     function multiple() {
