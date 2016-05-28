@@ -25,6 +25,7 @@
 
   fieldset {
     border: 2px solid;
+    border-width:thin;
   }
 </style>
 </head>
@@ -45,13 +46,13 @@
       <tbody>
         <tr>
           <td width="16%" style="font-size: 10px">No. PAR</td>
-          <td width="29%" style="border-style: solid; font-size: 10px"><strong><?php echo $par['par_number'] ?>/SAT-HRD/<?php echo $setting_initial['setting_value'] ?>/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($par['par_input_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $par['par_input_date'],'Y',false) ?></strong></td>
+          <td width="29%" style="border-style: solid; border-width:thin; font-size: 10px"><strong><?php echo $par['par_number'] ?>/SAT-HRD/<?php echo $setting_initial['setting_value'] ?>/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($par['par_input_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $par['par_input_date'],'Y',false) ?></strong></td>
           <td width="10%" style="font-size: 10px">&nbsp;Cost Center</td>
-          <td width="45%" style="border-style: solid;font-size: 10px"><strong><?php echo $par['cost_code'] ?></strong></td>
+          <td width="45%" style="border-style: solid; border-width:thin;font-size: 10px"><strong><?php echo $par['cost_code'] ?></strong></td>
         </tr>
         <tr>
           <td style="font-size: 10px">Kode Unit Usaha</td>
-          <td style="border-style: solid;font-size: 10px"><strong><?php echo $setting_unit['setting_value'] ?> - DC&nbsp;<span class="upper"><?php echo $setting_branch['setting_value'] ?></span></strong></td>
+          <td style="border-style: solid; border-width:thin;font-size: 10px"><strong><?php echo $setting_unit['setting_value'] ?> - DC&nbsp;<span class="upper"><?php echo $setting_branch['setting_value'] ?></span></strong></td>
           <td style="font-size: 8px" colspan="2"><i>&nbsp;No. PAR, Kode Unit Usaha dan Cost Center diisi oleh Dep Pengguna / Pemohon<i></td>
         </tr>
       </tbody>
@@ -64,13 +65,13 @@
         <td style="font-size: 10px"><i>Di isi Oleh Pemohon</i></td>
       </tr>
     </table>
-    <hr style="border-style: solid;">
+    <hr style="border-style: solid; border-width:thin;">
     <table width="100%">
       <tbody>
         <tr>
           <td style="font-size: 10px">Nama</td>
           <td style="font-size: 10px">:</td>
-          <td style="border-style: solid;font-size: 10px"><?php echo $setting_employe_name['setting_value'] ?></td>
+          <td style="border-style: solid; border-width:thin;font-size: 10px"><?php echo $setting_employe_name['setting_value'] ?></td>
         </tr>
         <tr>
           <td style="font-size: 10px">Ref. Project / Program</td>
@@ -80,7 +81,7 @@
         <tr>
           <td style="font-size: 10px">Departemen / Cabang</td>
           <td style="font-size: 10px">:</td>
-          <td style="border-style: solid;font-size: 10px">Human Capital / <span class="cap"> <?php echo $setting_branch['setting_value'] ?></span></td>
+          <td style="border-style: solid; border-width:thin;font-size: 10px">Human Capital / <span class="cap"> <?php echo $setting_branch['setting_value'] ?></span></td>
         </tr>
         <tr>
           <td style="font-size: 5px">&nbsp;</td>
@@ -91,7 +92,7 @@
         <tr>
           <td style="font-size: 10px">Maksud PAR</td>
           <td style="font-size: 10px">:</td>
-          <td valign="top" style="border-style: solid;font-size: 12px">Biaya Sumbangan Nikah Karyawan a.n : <?php echo $par['par_employe_name'] ?> (<?php echo $par['par_employe_nik'] ?>) <?php echo ($par['par_employe_unit'] == $setting_unit['setting_value']) ? '-'.' '. $par['par_employe_position'].' '.'/'.' '.$par['par_employe_departement'] : 'di toko'.' '. $par['par_employe_unit'].' '.'-'.$par['par_employe_bussiness'] ?>. Transfer ke no rek : <?php echo $par['par_employe_account'] ?></td>
+          <td valign="top" style="border-style: solid; border-width:thin;font-size: 12px">Biaya Sumbangan Nikah Karyawan a.n : <?php echo $par['par_employe_name'] ?> (<?php echo $par['par_employe_nik'] ?>) <?php echo ($par['par_employe_unit'] == $setting_unit['setting_value']) ? '-'.' '. $par['par_employe_position'].' '.'/'.' '.$par['par_employe_departement'] : 'di toko'.' '. $par['par_employe_unit'].' '.'-'.$par['par_employe_bussiness'] ?>. Transfer ke no rek : <?php echo $par['par_employe_account'] ?></td>
         </tr>
         <tr>
           <td style="font-size: 10px">Total Dana</td>
@@ -115,7 +116,7 @@
           <tr>
             <td width="16%">&nbsp;</td>
             <td style="font-size: 10px" width="12%">Terbilang</td>
-            <td style="border-style: solid;font-size: 10px" width="69%" rowspan="2" height="2" valign="top"><span class="cap"><strong><?php $this->load->helper('tanggal'); echo to_word($par['par_paid'])?> Rupiah</strong></span></td>
+            <td style="border-style: solid; border-width:thin;font-size: 10px" width="69%" rowspan="2" height="2" valign="top"><span class="cap"><strong><?php $this->load->helper('tanggal'); echo to_word($par['par_paid'])?> Rupiah</strong></span></td>
           </tr>
           <tr>
             <td style="font-size: 4px">&nbsp;</td>
@@ -133,11 +134,11 @@
           <tr>
             <td width="16%" style="font-size: 10px">Cara Realisasi Dana</td>
             <td width="5%" style="font-size: 10px">:</td>
-            <td width="3%" style="border-style: solid; font-size: 10px; text-align: center;">A</td>
+            <td width="3%" style="border-style: solid; border-width:thin; font-size: 10px; text-align: center;">A</td>
             <td width="9%" style="font-size: 10px">&nbsp;&nbsp; Tunai</td>
-            <td width="3%" style="border-style: solid; font-size: 10px; text-align: center;">B</td>
+            <td width="3%" style="border-style: solid;border-width:thin; font-size: 10px; text-align: center;">B</td>
             <td width="21%" style="font-size: 10px">&nbsp;&nbsp; Bertahap, beri keterangan :</td>
-            <td width="41%" style="border-style: solid; font-size: 2px" rowspan="2">&nbsp;</td>
+            <td width="41%" style="border-style: solid;border-width:thin; font-size: 2px" rowspan="2">&nbsp;</td>
           </tr>
           <tr>
             <td style="font-size: 4px">&nbsp;>&nbsp;</td>
@@ -151,11 +152,11 @@
           <tr>
             <td width="91" style="font-size: 10px">Cara Pembayaran</td>
             <td width="27" style="font-size: 10px">:</td>
-            <td width="13" style="border-style: solid; font-size: 10px; text-align: center;">A</td>
+            <td width="13" style="border-style: solid;border-width:thin; font-size: 10px; text-align: center;">A</td>
             <td width="45" style="font-size: 10px">&nbsp;Giro</span></td>
-            <td width="13" style="border-style: solid; font-size: 10px; text-align: center;">B</td>
+            <td width="13" style="border-style: solid;border-width:thin; font-size: 10px; text-align: center;">B</td>
             <td width="60" style="font-size: 10px">&nbsp;Cheque</span></td>
-            <td width="13" style="border-style: solid; font-size: 10px; text-align: center;">C</td>
+            <td width="13" style="border-style: solid;border-width:thin; font-size: 10px; text-align: center;">C</td>
             <td width="600" style="font-size: 10px">&nbsp;Transfer&nbsp;&nbsp;&nbsp;&nbsp; <span style="font-size: 8px"><i>Beri tanda &quot;X&quot; (silang) di kotak pilihan</i></span></td>
           </tr>
         </tbody>
@@ -170,13 +171,13 @@
           <tr>
             <td width="16%" style="font-size: 10px">Tanggal Realisasi Dana</td>
             <td width="5%" style="font-size: 10px">:</td>
-            <td width="31%" style="border-style: solid;font-size: 5px">&nbsp;</td>
+            <td width="31%" style="border-style: solid;border-width:thin;font-size: 5px">&nbsp;</td>
             <td width="47%" style="font-size: 5px">&nbsp;</td>
           </tr>
         </tbody>
       </table>
       <p style="font-size: 1px">&nbsp;</p>
-      <hr style="border-style: solid;">
+      <hr style="border-style: solid;border-width:thin;">
       <table width="100%">
         <tr>
         <td style="font-size: 1px">&nbsp;</td>
@@ -193,29 +194,29 @@
             <td width="18%" style="font-size: 5px"><span style="font-size: 9px"><strong>Verifikasi Dept TAF</strong></span></td>
           </tr>
           <tr>
-            <td valign="top" style="border-style: solid;font-size: 8px">&nbsp;Mgr/BM/GM/Direktur<br>
+            <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">&nbsp;Mgr/BM/GM/Direktur<br>
               &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
               <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_pdm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
               <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p></td>
-                <td valign="top" style="border-style: solid;font-size: 8px">BM/GM/Direktur/sesuai proxy <br>
+                <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur/sesuai proxy <br>
                   &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
                   <span style="font-size: 11px"><strong>&nbsp;</strong></span>&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
                   <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
                     <td valign="top" style="font-size: 5px">&nbsp;</td>
-                    <td valign="top" style="border-style: solid;font-size: 8px">BM/GM/Direktur <br>
+                    <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur <br>
                       &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
                       <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_bm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
                       <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-                      <td valign="top" style="border-style: solid;font-size: 8px">Pejabat lain sesuai Proxy<br>
+                      <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">Pejabat lain sesuai Proxy<br>
                         &nbsp;<br>&nbsp;<br>&nbsp;<br>
                         <span style="font-size: 11px"><strong>&nbsp;&nbsp;</strong></span>
                         <td valign="top" style="font-size: 5px">&nbsp;</td>
-                        <td valign="top" style="border-style: solid;font-size: 8px">HO / Branch Fin Spv <br>
+                        <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">HO / Branch Fin Spv <br>
                           &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
                           <span style="font-size: 10px">&nbsp;PAR LUNAS</span>&nbsp;
                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
