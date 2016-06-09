@@ -129,7 +129,7 @@ class Employe_model extends CI_Model {
 
      // Delete all to database
     function delete_all() {
-        $this->db->empty_table('employe');
+        $this->db->truncate('employe');
     }
 
     public function is_exist($field, $value)

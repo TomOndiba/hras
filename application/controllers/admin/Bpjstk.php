@@ -72,6 +72,7 @@ class Bpjstk extends CI_Controller {
         $this->form_validation->set_rules('bpjstk_name', 'Nama', 'trim|required|xss_clean'); 
         $this->form_validation->set_rules('bpjstk_desc', 'Keterangan', 'trim|required|xss_clean');
         $this->form_validation->set_rules('bpjstk_date', 'Tanggal', 'trim|required|xss_clean'); 
+        $this->form_validation->set_rules('bpjstk_npp', 'NPP', 'trim|required|xss_clean'); 
         $this->form_validation->set_rules('bpjstk_entry_date', 'Tanggal Awal', 'trim|required|xss_clean');          
         $this->form_validation->set_error_delimiters('<div class="alert alert-danger"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>', '</div>');
         $data['operation'] = is_null($id) ? 'Tambah' : 'Sunting';
