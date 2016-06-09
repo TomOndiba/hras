@@ -69,7 +69,7 @@ class Bpjs_model extends CI_Model {
         }
         else
         {
-            $this->db->order_by('bpjs_id', 'desc');
+            $this->db->order_by('bpjs_cetak', 'desc');
         }
 
         $this->db->select('bpjs.bpjs_id, bpjs_noka, bpjs_ktp, bpjs_npp, bpjs_name, bpjs_cetak,

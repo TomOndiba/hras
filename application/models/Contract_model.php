@@ -15,7 +15,7 @@ class Contract_model extends CI_Model {
         parent::__construct();
     }
 
-    // Get From Databases
+    // Get From Databases 
     function get($params = array())
     {
         if(isset($params['id']))
@@ -32,9 +32,14 @@ class Contract_model extends CI_Model {
             $this->db->where('employe.contract_employe_nik', $params['employe_nik']);
         }
 
+        if(isset($params['contract_employe_nik']))
+        {
+            $this->db->where('contract.contract_employe_nik', $params['contract_employe_nik']);
+        }
+
         if(isset($params['contract_employe_name']))
         {
-            $this->db->where('employe.contract_employe_name', $params['employe_name']);
+            $this->db->where('employe.contract_employe_name', $params['contract_employe_name']);
         }
 
         if(isset($params['employe_position']))
@@ -42,10 +47,9 @@ class Contract_model extends CI_Model {
             $this->db->where('employe.contract_employe_position', $params['employe_position']);
         }
         
-        if(isset($params['date_start']) AND isset($params['date_end']))
-        {
-            $this->db->where('contract_date', $params['date_start']);
-            $this->db->or_where('contract_date', $params['date_end']);
+        if (isset($params['date_start']) AND isset($params['date_end'])) {
+            $this->db->where('contract_date >=', $params['date_start'] . ' 00:00:00');
+            $this->db->where('contract_date <=', $params['date_end'] . ' 23:59:59');
         }
 
         if(isset($params['limit']))

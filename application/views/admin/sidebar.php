@@ -81,11 +81,11 @@
             <li><a><i class="fa fa-bank"></i> Surat BANK <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/bank') ?>">Master BANK</a> 
-                    <li><a href="<?php echo site_url('admin/spb') ?>">Daftar Surat Pengantar</a>                   
+                    <li><a href="<?php echo site_url('admin/spb') ?>">Daftar Surat Pengantar</a>                    
                     </li>
                 </ul>
             </li>
-            <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN OR $this->session->userdata('user_role') == ROLE_ADMIN){ ?>
+            <?php if($this->session->userdata('user_role') == ROLE_SUPER_ADMIN OR $this->session->userdata('user_role') == ROLE_ADMIN AND ROLE_TRAINNER){ ?>
             <li><a><i class="fa fa-user"></i> Karyawan <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu" style="display: none">
                     <li><a href="<?php echo site_url('admin/employe') ?>">List Karyawan</a>                   
