@@ -85,61 +85,61 @@ if (isset($spb)) {
                     </div>
                     <div class="col-md-6">
                         <label >Nomor KTP *</label>
-                        <input name="spb_nik1" placeholder="NIK 1" type="text" class="form-control" value="<?php echo $inputNik1; ?>"><br>
+                        <input name="spb_nik1" placeholder="NIK 1" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik1; ?>"><br>
                     </div>
                     <div class="col-md-6">
                         <input name="spb_name2" placeholder="Nama 2" type="text" class="form-control" value="<?php echo $inputName2; ?>"><br>
                     </div>
                     <div class="col-md-6">
-                        <input name="spb_nik2" placeholder="NIK 2" type="text" class="form-control" value="<?php echo $inputNik2; ?>"><br>
+                        <input name="spb_nik2" placeholder="NIK 2" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik2; ?>"><br>
                     </div>
                     <div class="col-md-6">
                         <input name="spb_name3" placeholder="Nama 3" type="text" class="form-control" value="<?php echo $inputName3; ?>"><br>
                     </div>
                     <div class="col-md-6">
-                        <input name="spb_nik3" placeholder="Nik 3" type="text" class="form-control" value="<?php echo $inputNik3; ?>"><br>
+                        <input name="spb_nik3" placeholder="Nik 3" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik3; ?>"><br>
                     </div>
                     <div class="col-md-6">    
                         <input name="spb_name4" placeholder="Nama 4" type="text" class="form-control" value="<?php echo $inputName4; ?>"><br>
                     </div>
                     <div class="col-md-6"> 
-                        <input name="spb_nik4" placeholder="Nik 4" type="text" class="form-control" value="<?php echo $inputNik4; ?>"><br>
+                        <input name="spb_nik4" placeholder="Nik 4" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik4; ?>"><br>
                     </div>
                     <div class="col-md-6">   
                         <input name="spb_name5" placeholder="Nama 5" type="text" class="form-control" value="<?php echo $inputName5; ?>"><br>
                     </div>
                     <div class="col-md-6">                        
-                        <input name="spb_nik5" placeholder="Nik 5" type="text" class="form-control" value="<?php echo $inputNik5; ?>"><br>
+                        <input name="spb_nik5" placeholder="Nik 5" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik5; ?>"><br>
                     </div>
                     <div class="col-md-6">    
                         <input name="spb_name6" placeholder="Nama 6" type="text" class="form-control" value="<?php echo $inputName6; ?>"><br>
                     </div>
                     <div class="col-md-6">    
-                        <input name="spb_nik6" placeholder="Nik 6" type="text" class="form-control" value="<?php echo $inputNik6; ?>"><br>
+                        <input name="spb_nik6" placeholder="Nik 6" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik6; ?>"><br>
                     </div>
                     <div class="col-md-6">    
                         <input name="spb_name7" placeholder="Nama 7" type="text" class="form-control" value="<?php echo $inputName7; ?>"><br>
                     </div>
                     <div class="col-md-6">    
-                        <input name="spb_nik7" placeholder="Nik 7" type="text" class="form-control" value="<?php echo $inputNik7; ?>"><br>
+                        <input name="spb_nik7" placeholder="Nik 7" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik7; ?>"><br>
                     </div>
                     <div class="col-md-6">  
                         <input name="spb_name8" placeholder="Nama 8" type="text" class="form-control" value="<?php echo $inputName8; ?>"><br>
                     </div>
                     <div class="col-md-6">   
-                        <input name="spb_nik8" placeholder="Nik 8" type="text" class="form-control" value="<?php echo $inputNik8; ?>"><br>
+                        <input name="spb_nik8" placeholder="Nik 8" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik8; ?>"><br>
                     </div>
                     <div class="col-md-6">    
                         <input name="spb_name9" placeholder="Nama 9" type="text" class="form-control" value="<?php echo $inputName9; ?>"><br>
                     </div>
                     <div class="col-md-6">   
-                        <input name="spb_nik9" placeholder="Nik 9" type="text" class="form-control" value="<?php echo $inputNik9; ?>"><br>
+                        <input name="spb_nik9" placeholder="Nik 9" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik9; ?>"><br>
                     </div>
                     <div class="col-md-6"> 
                         <input name="spb_name10" placeholder="Nama 10" type="text" class="form-control" value="<?php echo $inputName10; ?>"><br>
                     </div>
                     <div class="col-md-6">   
-                        <input name="spb_nik10" placeholder="Nik 10" type="text" class="form-control" value="<?php echo $inputNik10; ?>"><br>
+                        <input name="spb_nik10" placeholder="Nik 10" maxlength="16" onkeypress="validate(event)" type="text" class="form-control" value="<?php echo $inputNik10; ?>"><br>
                         <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
                     </div></div></div><br>
                     <div class="col-sm-9 col-md-3">
@@ -188,3 +188,17 @@ if (isset($spb)) {
             <?php }
             ?>
         <?php endif; ?>
+
+
+<script type="text/javascript">
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+</script>

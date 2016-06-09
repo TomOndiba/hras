@@ -39,7 +39,7 @@ if (isset($par)) {
                     <input type="hidden" name="par_id" value="<?php echo $par['par_id']; ?>" />
                 <?php endif; ?>
                 <label >Nomor PAR *</label>
-                <input name="par_number" placeholder="Contoh: 001" type="text" class="form-control" value="<?php echo $inputNumber; ?>"><br>  
+                <input name="par_number" placeholder="Contoh: 001" type="text" class="form-control" onkeypress="validate(event)" value="<?php echo $inputNumber; ?>"><br>  
                 <label >Karyawan *</label>
                 <input name="employe_nik" id="field_id" type="hidden" class="form-control"  value="<?php echo $inputEmployeNik ?>">
                 <input name="employe_name" id="field_name" type="hidden" class="form-control"  value="<?php echo $inputEmployeName ?>">
@@ -63,7 +63,7 @@ if (isset($par)) {
                     ?>
                 </select><br> 
                 <label >Nominal *</label>
-                <input name="par_paid" placeholder="Nominal PAR (Hanya Angka)" type="text" class="form-control" value="<?php echo $inputPaid; ?>"><br>                
+                <input name="par_paid" placeholder="Nominal PAR" type="text" class="form-control" onkeypress="validate(event)" value="<?php echo $inputPaid; ?>"><br>                
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
             </div>
             <div class="col-sm-9 col-md-3">
@@ -178,4 +178,17 @@ if (isset($par)) {
             }
         });
     });
+</script>
+
+<script type="text/javascript">
+function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
 </script>
