@@ -128,4 +128,41 @@ class Disn_model extends CI_Model {
         $this->db->empty_table('disn');
     }
  
+public function is_exist($field, $value, $table, $pk = '', $id = '')
+    {
+        $this->db->where($field, $value);        
+
+        if ($id != '')
+        {
+            $this->db->where($pk . ' != ', $id);
+        }
+
+        return $this->db->count_all_results($table) > 0 ? TRUE : FALSE;
+    }
+
+
+    public function import_disn($data_excel) {
+        $count = 0;
+
+        for ($i = 1; $i < count($data_excel); $i++) {
+            if ( ! $this->is_exist('disn_nik', $data_excel[$i]['disn_nik'], 'disn'))
+            {
+            $data = array(
+                'disn_number' => $data_excel[$i]['disn_number'],
+                'disn_name' => $data_excel[$i]['disn_name'],
+                'disn_nik' => $data_excel[$i]['disn_nik'],
+                'disn_position' => $data_excel[$i]['disn_position'],
+                'disn_entry_date' => $data_excel[$i]['disn_entry_date'],
+                'disn_end_date' => $data_excel[$i]['disn_end_date'],
+            );
+
+            $this->db->insert('disn', $data);
+
+            $count++;
+        }
+    }
+
+        return $count > 0 ? TRUE : FALSE;
+    }       
+ 
 }

@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/datepicker'); $this->load->view('admin/tinymce_init');?>
+<?php $this->load->view('admin/datepicker');?>
 
 
 <?php
@@ -38,7 +38,7 @@ if (isset($procuration)) {
                 <input id="field" type="text" class="form-control" placeholder="Ketik NIK atau Nama karyawan.." value="<?php echo (isset($procuration)) ? $procuration['procuration_employe_name'] : '' ?>">
                 <br>
                 <label >Deskripsi *</label>
-                <textarea name="procuration_desc" rows="5" placeholder="Keterangan" type="text" class="form-control mce-init"><?php echo $inputDesc; ?></textarea><br>                                
+                <textarea name="procuration_desc" rows="5" placeholder="Keterangan" type="text" class="form-control"><?php echo $inputDesc; ?></textarea><br>                                
                 <label>Tanggal Surat *</label>
                 <input name="procuration_date" placeholder="Tanggal Surat" type="text" class="form-control datepicker" value="<?php echo $inputDate; ?>"></input><br>
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>

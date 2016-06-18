@@ -52,7 +52,7 @@
                                     <td ><?php echo $row['memorandum_employe_name']; ?></td>                                
                                     <td ><?php echo pretty_date($row['memorandum_date_sent'], 'd F Y',false); ?></td>
                                     <td ><?php echo pretty_date($row['memorandum_call_date'], 'd F Y',false); ?></td>
-                                    <td ><?php echo pretty_date($row['memorandum2_call_date'], 'd F Y',false); ?></td>
+                                    <td ><?php echo pretty_date($row['memorandum1_absent_date'], 'd F Y',false); ?></td>
                                     <td>
                                         <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/memorandum3/detail/' . $row['memorandum_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
                                         <a data-toggle="tooltip" data-placement="top" title="Print Surat" class="btn btn-success btn-xs" href="<?php echo site_url('admin/memorandum3/printPdf/' . $row['memorandum_id']) ?>"target="_blank"><span class="glyphicon glyphicon-print"></span></a>

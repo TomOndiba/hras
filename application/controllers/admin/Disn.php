@@ -13,6 +13,9 @@ if (!defined('BASEPATH'))
  */
 class Disn extends CI_Controller {
 
+    private $pk    = 'disn_nik';
+    private $table = 'disn';
+
     public function __construct() {
         parent::__construct(TRUE);
         if ($this->session->userdata('logged') == NULL) {
@@ -167,9 +170,93 @@ class Disn extends CI_Controller {
         $data = pdf_create($html, '', TRUE, 'A4', TRUE);
     }
 
+
+
+    public function import()
+    { 
+        $this->load->library('excel_reader');
+        if ($this->input->post('upload'))   
+        {
+            if (empty($_FILES['file']['name']))
+            {
+                $this->session->set_flashdata('alert', alert('warning', 'Anda belum memilih file untuk diupload !'));
+                redirect(uri_string());
+            }
+            else
+            {
+                $this->load->helper('file');
+                $config['upload_path']   = './uploads/';               
+                $config['allowed_types'] = 'xls';
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('file'))
+                {
+                    $this->session->set_flashdata('alert', alert('error', 'Data tidak sesuai !'));
+                    redirect(uri_string());
+                }
+                else
+                {
+                    $upload_data = $this->upload->data();
+                    $this->load->library('excel_reader');
+                    $this->excel_reader->setOutputEncoding('CP1251');
+                    $this->excel_reader->read($upload_data['full_path']);
+                    $data       = $this->excel_reader->sheets[0];
+                    $data_excel = array();
+
+                    for ($i = 1; $i <= $data['numRows']; $i++)
+                    {
+                        if($data['cells'][$i][1] == '') break;
+
+                        $var  = $data['cells'][$i][5];
+                        $entry = str_replace('/', '-', $var);
+                        $var2  = $data['cells'][$i][6];
+                        $end = str_replace('/', '-', $var2);
+
+                        $data_excel[$i-1]['disn_nember']     = $data['cells'][$i][1];
+                        $data_excel[$i-1]['disn_name']       = $data['cells'][$i][2];
+                        $data_excel[$i-1]['disn_nik']        = $data['cells'][$i][3];
+                        $data_excel[$i-1]['disn_position']   = $data['cells'][$i][4];
+                        $data_excel[$i-1]['disn_entry_date'] = date('Y-m-d', strtotime($entry));                       
+                        $data_excel[$i-1]['disn_end_date']   = date('Y-m-d', strtotime($end));
+
+
+
+                    }
+
+                    // echo '<pre>';
+                    // print_r($data_excel);
+                    // echo '</pre>';
+                    // die();
+
+                    @unlink('./uploads/'.$upload_data['file_name']);
+                    $this->Disn_model->import_disn($data_excel) ?                   
+                    $this->session->set_flashdata('success', 'Import Disnaker Berhasil !') :
+                    $this->session->set_flashdata('success', 'Data tidak tersimpan dan/atau data sudah ada dalam database. Periksa kembali data anda!');
+                    redirect(uri_string());
+                }
+            }
+        }
+        else
+        {
+            $data['title']   = 'Upload Disnaker';
+            $data['action']  = site_url(uri_string());
+            $data['disn'] = $this->data['import_disn'] = TRUE;
+            $data['main'] = 'admin/disn/disn_upload';
+            $data['alert']   = $this->session->flashdata('alert');
+            $data['query']   = FALSE;
+            $data['content'] = 'disn/import';
+            $this->load->view('admin/layout', $data);
+        }
+    }
+
+    public function download()
+    {
+        $data = file_get_contents("./media/template_excel/template_upload_disnaker.xls");
+        $name = 'Template_Disnaker.xls';
+        $this->load->helper('download');
+        force_download($name, $data);
+    }
 }
-
-
 
 /* End of file disn.php */
 /* Location: ./application/controllers/admin/disn.php */

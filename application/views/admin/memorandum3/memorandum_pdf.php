@@ -62,7 +62,7 @@
     <p>Dengan Hormat,</p>
     <p align="justify">Menindaklanjuti Surat Panggilan ke-I (satu) No: <?php echo $memorandum['memorandum1_number'] ?>/SAT-IR/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($memorandum['memorandum1_date_sent'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $memorandum['memorandum1_date_sent'],'Y',false) ?> dan Surat Panggilan ke-II (dua) No: <?php echo $memorandum['memorandum2_number'] ?>/SAT-IR/<?php $this->load->helper('tanggal'); $namaBulan=konversiBulan(pretty_date($memorandum['memorandum2_date_sent'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $memorandum['memorandum2_date_sent'],'Y',false) ?> yang sudah kami kirimkan kepada Sdr/i dan belum mendapatkan tanggapan, maka sesuai Pasal 168 Ayat 1 (satu) Undang-undang Nomor 13 Tahun 2003
       tentang Ketenagakerjaan, jo Pasal 43 Ayat 3 (tiga) Peraturan Perusahaan PT Sumber Alfaria Trijaya Tbk. Tahun 2013-2015 Sdr/i Akan dikualifikasikan mengundurkan diri.</p>
-      <p align="justify">Dengan demikian maka terhitung mulai <?php echo pretty_date( $memorandum['memorandum2_call_date'],'d F Y',false) ?> hubungan kerja dengan Sdr/i dinyatakan berakhir. Sehubungan dengan hal tersebut diatas maka dengan ini kami meminta kehadiran Sdr.i untuk hadir pada :</p>
+      <p align="justify">Dengan demikian maka terhitung mulai <?php echo pretty_date( $memorandum['memorandum1_absent_date'],'d F Y',false) ?> hubungan kerja dengan Sdr/i dinyatakan berakhir. Sehubungan dengan hal tersebut diatas maka dengan ini kami meminta kehadiran Sdr.i untuk hadir pada :</p>
       
       
       <table width="669" border="0">

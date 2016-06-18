@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><?php echo $par['par_employe_name'] ?></title> 
-<link rel="icon" href="<?php echo media_url('ico/a.png'); ?>" type="image/x-icon">
+  <title><?php echo $par['par_employe_name'] ?></title> 
+  <link rel="icon" href="<?php echo media_url('ico/a.png'); ?>" type="image/x-icon">
   <style type="text/css">
    .upper { text-transform: uppercase; }
    .lower { text-transform: lowercase; }
@@ -180,78 +180,148 @@
       <hr style="border-style: solid;border-width:thin;">
       <table width="100%">
         <tr>
-        <td style="font-size: 1px">&nbsp;</td>
-      </table>
-      <table width="100%">
-        <tbody>
-          <tr>
-            <td width="22%"><span style="font-size: 9px"><strong>Pemohon</strong></span></td>
-            <td width="20%"><span style="font-size: 9px"><strong>Atasan Pemohon</strong></span></td>
-            <td width="4%" style="font-size: 5px">&nbsp;</td>
-            <td width="21%"><span style="font-size: 9px"><strong>Menyetujui</strong></span></td>
-            <td width="13%"style="font-size: 5px">&nbsp;</td>
-            <td width="2%" style="font-size: 5px">&nbsp;</td>
-            <td width="18%" style="font-size: 5px"><span style="font-size: 9px"><strong>Verifikasi Dept TAF</strong></span></td>
-          </tr>
-          <tr>
-            <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">&nbsp;Mgr/BM/GM/Direktur<br>
-              &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
-              <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_pdm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
-              <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p></td>
-                <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur/sesuai proxy <br>
-                  &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
-                  <span style="font-size: 11px"><strong>&nbsp;</strong></span>&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
-                  <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-                    <td valign="top" style="font-size: 5px">&nbsp;</td>
-                    <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur <br>
-                      &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
-                      <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_bm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
-                      <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-                      <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">Pejabat lain sesuai Proxy<br>
-                        &nbsp;<br>&nbsp;<br>&nbsp;<br>
-                        <span style="font-size: 11px"><strong>&nbsp;&nbsp;</strong></span>
-                        <td valign="top" style="font-size: 5px">&nbsp;</td>
-                        <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">HO / Branch Fin Spv <br>
-                          &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
-                          <span style="font-size: 10px">&nbsp;PAR LUNAS</span>&nbsp;
-                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
-                          <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <table width="100%">
-                      <tbody>
+          <td style="font-size: 1px">&nbsp;</td>
+        </table>
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td width="22%"><span style="font-size: 9px"><strong>Pemohon</strong></span></td>
+              <td width="20%"><span style="font-size: 9px"><strong>Atasan Pemohon</strong></span></td>
+              <td width="4%" style="font-size: 5px">&nbsp;</td>
+              <td width="21%"><span style="font-size: 9px"><strong>Menyetujui</strong></span></td>
+              <td width="13%"style="font-size: 5px">&nbsp;</td>
+              <td width="2%" style="font-size: 5px">&nbsp;</td>
+              <td width="18%" style="font-size: 5px"><span style="font-size: 9px"><strong>Verifikasi Dept TAF</strong></span></td>
+            </tr>
+            <tr>
+              <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">&nbsp;Mgr/BM/GM/Direktur<br>
+                &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_pdm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></p></td>
+                  <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur/sesuai proxy <br>
+                    &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                    <span style="font-size: 11px"><strong>&nbsp;</strong></span>&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                    <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+                      <td valign="top" style="font-size: 5px">&nbsp;</td>
+                      <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">BM/GM/Direktur <br>
+                        &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                        <span class="upper" style="font-size: 11px"><strong>&nbsp;<?php echo $setting_initial_bm['setting_value'] ?></strong></span>&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                        <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+                        <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">Pejabat lain sesuai Proxy<br>
+                          &nbsp;<br>&nbsp;<br>&nbsp;<br>
+                          <span style="font-size: 11px"><strong>&nbsp;&nbsp;</strong></span>
+                          <td valign="top" style="font-size: 5px">&nbsp;</td>
+                          <td valign="top" style="border-style: solid;border-width:thin;font-size: 8px">HO / Branch Fin Spv <br>
+                            &nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>
+                            <span style="font-size: 10px">&nbsp;PAR LUNAS</span>&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tgl&nbsp;&nbsp;
+                            <u>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</u></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table width="100%">
+                        <tbody>
+                          <tr>
+                            <td width="23%" style="font-size: 5px">&nbsp;</td>
+                            <td width="18%" style="font-size: 5px"><span style="font-size: 7px">Lembar ke-1 (asli) untuk Dept TAF</span></td>
+                            <td width="5%" style="font-size: 5px">&nbsp;</td>
+                            <td width="27%" style="font-size: 5px"><span style="font-size: 7px">PERHATIAN : Wajib melampirkan dokumen</span></td>
+                            <td width="7%" style="font-size: 5px">&nbsp;</td>
+                            <td width="2%" style="font-size: 5px">&nbsp;</td>
+                            <td width="18%" style="font-size: 5px"><span style="font-size: 7px">PAR Lunas tidak dapat digunakan </span></td>
+                          </tr>
+                          <tr>
+                            <td style="font-size: 5px">&nbsp;</td>
+                            <td style="font-size: 5px"><span style="font-size: 7px">Lembar ke-2  untuk Dept Pemohon</span></td>
+                            <td style="font-size: 5px">&nbsp;</td>
+                            <td style="font-size: 5px"><span style="font-size: 7px">yang diperlukan / semestinya</span></td>
+                            <td style="font-size: 5px">&nbsp;</td>
+                            <td style="font-size: 5px">&nbsp;</td>
+                            <td style="font-size: 5px"><span style="font-size: 7px">kembali untuk pembayaran</span></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table width="100%">
                         <tr>
-                          <td width="23%" style="font-size: 5px">&nbsp;</td>
-                          <td width="18%" style="font-size: 5px"><span style="font-size: 7px">Lembar ke-1 (asli) untuk Dept TAF</span></td>
-                          <td width="5%" style="font-size: 5px">&nbsp;</td>
-                          <td width="27%" style="font-size: 5px"><span style="font-size: 7px">PERHATIAN : Wajib melampirkan dokumen</span></td>
-                          <td width="7%" style="font-size: 5px">&nbsp;</td>
-                          <td width="2%" style="font-size: 5px">&nbsp;</td>
-                          <td width="18%" style="font-size: 5px"><span style="font-size: 7px">PAR Lunas tidak dapat digunakan </span></td>
+                          <td style="font-size: 7px">NRA : SAT/FRM/GA/019_Rev:002_231109</td>
+                        </tr>
+                      </table>  
+                    </fieldset>
+                    <br><br>
+                    <fieldset>
+                      <table width="100%">
+                        <tr>
+                          <td style="font-size: 10px"><strong>PT SUMBER ALFARIA TRIJAYA Tbk</strong></td>
+                        </tr>
+                      </table><br>
+                      <table width="100%">
+                        <tr>
+                          <td align="center" style="font-size: 12px"><strong>BUKTI PENGELUARAN UANG</strong></td>
+                        </tr>
+                      </table><br>
+                      <table width="100%">
+                        <tr>
+                          <td style="font-size: 11px">Untuk keperluan</td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px" >Biaya Sumbangan Nikah Karyawan a.n : <?php echo $par['par_employe_name'] ?> (<?php echo $par['par_employe_nik'] ?>) <?php echo ($par['par_employe_unit'] == $setting_unit['setting_value']) ? '-'.' '. $par['par_employe_position'].' '.'/'.' '.$par['par_employe_departement'] : 'di toko'.' '. $par['par_employe_unit'].' '.'-'.$par['par_employe_bussiness'] ?>.</td>
                         </tr>
                         <tr>
-                          <td style="font-size: 5px">&nbsp;</td>
-                          <td style="font-size: 5px"><span style="font-size: 7px">Lembar ke-2  untuk Dept Pemohon</span></td>
-                          <td style="font-size: 5px">&nbsp;</td>
-                          <td style="font-size: 5px"><span style="font-size: 7px">yang diperlukan / semestinya</span></td>
-                          <td style="font-size: 5px">&nbsp;</td>
-                          <td style="font-size: 5px">&nbsp;</td>
-                          <td style="font-size: 5px"><span style="font-size: 7px">kembali untuk pembayaran</span></td>
+                          <td style="font-size: 11px">&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px">&nbsp;</td>
                         </tr>
-                      </tbody>
-                    </table>
-                    <table width="100%">
-                      <tr>
-                        <td style="font-size: 7px">NRA : SAT/FRM/GA/019_Rev:002_231109</td>
-                      </tr>
-                    </table>  
-                  </fieldset>
+                        <tr>
+                          <td style="font-size: 11px">Jumlah</td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px">Rp. <strong><?php echo number_format($par['par_paid'], 0, ',', '.');?></strong>,-</td>
+                        </tr>
+                        <tr>
+                          <td style="font-size: 11px">Terbilang</td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px"><span class="cap"><?php $this->load->helper('tanggal'); echo to_word($par['par_paid'])?> Rupiah</span></td>
+                        </tr>
+                      </table>
+                      <table width="100%">
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td width="320">&nbsp;</td>
+                          <td style="font-size: 11px">&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px">Cileungsi, <span class="cap"><?php echo pretty_date($par['par_input_date'],'d F Y',False)?></span></td>
+                        </tr>
+                      </table><br>
+                      <table width="100%">
+                        <tr align="center">
+                          <td>&nbsp;</td>
+                          <td width="9">&nbsp;</td>
+                          <td style="font-size: 11px">Dibuat oleh,</td>
+                          <td>&nbsp;</td>
+                          <td style="font-size: 11px">Mengetahui,</td>
+                          <td>&nbsp;</td>
+                          <td style="font-size: 11px">Menyetujui,</td>
+                        </tr>
+                      </table><br><br><br>
+                      <table width="100%">
+                        <tr align="center">
+                          <td>&nbsp;</td>
+                          
+                          <td width="100" style="border-bottom-style: solid;border-width:thin; font-size: 11px">&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px"><span class="upper"><strong><?php echo $setting_initial_pdm['setting_value'] ?></strong></span></td>
+                          <td>&nbsp;</td>
+                          <td style="border-bottom-style: solid;border-width:thin; font-size: 11px"><span class="upper"><strong><?php echo $setting_initial_bm['setting_value'] ?></strong></span></td>
+                        </tr>
+                      </table><br>
+                      <table width="100%">
+                        <tr>
+                          <td style="font-size: 9px">No. NRA : SAT/FRM/FA/004</td>
+                          </tr>
+                          </table>
+                    </fieldset>
 
-                </body>
-                </html>
+                  </body>
+                  </html>
