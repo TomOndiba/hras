@@ -34,10 +34,10 @@
       <p align="left">Yang bertanda tangan dibawah ini :</p>
       <table width="100%" border="0">
         <tr>
-          <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          <td>Nama</td>
-          <td>:</td>
-          <td><span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span></td>
+          <td width="36">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td width="117">Nama</td>
+          <td width="10">:</td>
+          <td width="911"><span class="upper"><?php echo $setting_employe_name['setting_value'] ?></span></td>
         </tr>
         <tr>
           <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -62,22 +62,22 @@
         Dengan ini menerangkan bahwa :</p>
         <table width="100%" border="0">
           <tr>
-          <td width="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td width="36">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>Nama</td>
-            <td>:</td>
-            <td><span class="upper">&nbsp;&nbsp;<?php echo $disn['disn_name'] ?></span></td>
+            <td width="10">:</td>
+            <td><span class="upper"><?php echo $disn['disn_name'] ?></span></td>
           </tr>
           <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td>NIK</td>
             <td>:</td>
-            <td>&nbsp;&nbsp;<?php echo $disn['disn_nik']  ?></td>
+            <td><?php echo $disn['disn_nik']  ?></td>
           </tr>
           <tr>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td width="104">Jabatan terakhir</td>
+            <td width="117">Jabatan terakhir</td>
             <td>:</td>
-            <td width="380"><span class="cap">&nbsp;&nbsp;<?php echo $disn['disn_position']  ?></span></td>
+            <td width="913"><span class="cap"><?php echo $disn['disn_position']  ?></span></td>
           </tr>
         </table>
         <p>&nbsp;<br>

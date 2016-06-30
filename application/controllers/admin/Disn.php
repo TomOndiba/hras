@@ -144,7 +144,9 @@ class Disn extends CI_Controller {
             $data['setting_employe_name'] = $this->Setting_model->get(array('id' => 6));
             $data['setting_employe_position'] = $this->Setting_model->get(array('id' => 7)); 
             $data['setting_initial'] = $this->Setting_model->get(array('id' => 8));
+            $data['setting_address'] = $this->Setting_model->get(array('id' => 2));
             $data['setting_branch'] = $this->Setting_model->get(array('id' => 1));
+            $data['setting_city'] = $this->Setting_model->get(array('id' => 3));
             $data['disn'] = $this->Disn_model->get(array('multiple_id' => $print));
 
             $html = $this->load->view('admin/disn/disn_multiple_pdf', $data, true);
