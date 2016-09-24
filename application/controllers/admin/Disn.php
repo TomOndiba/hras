@@ -214,9 +214,9 @@ class Disn extends CI_Controller {
                         $var2  = $data['cells'][$i][6];
                         $end = str_replace('/', '-', $var2);
 
-                        $data_excel[$i-1]['disn_nember']     = $data['cells'][$i][1];
-                        $data_excel[$i-1]['disn_name']       = $data['cells'][$i][2];
-                        $data_excel[$i-1]['disn_nik']        = $data['cells'][$i][3];
+                        $data_excel[$i-1]['disn_number']     = $data['cells'][$i][1];
+                        $data_excel[$i-1]['disn_nik']       = $data['cells'][$i][2];
+                        $data_excel[$i-1]['disn_name']        = $data['cells'][$i][3];
                         $data_excel[$i-1]['disn_position']   = $data['cells'][$i][4];
                         $data_excel[$i-1]['disn_entry_date'] = date('Y-m-d', strtotime($entry));                       
                         $data_excel[$i-1]['disn_end_date']   = date('Y-m-d', strtotime($end));

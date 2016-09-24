@@ -18,11 +18,11 @@
 <body>
   <table width="535" border="0">
     <tr>
-      <td width="59">Nomor</td>
+      <td width="57">Nomor</td>
       <td width="10">:</td>
-      <td width="291"><?php echo $spb['spb_number'] ?>/SATHRD-<span class="upper"><?php echo $setting_initial['setting_value'] ?></span>/<?php $this->load->helper('tanggal'); 
+      <td width="280"><?php echo $spb['spb_number'] ?>/SATHRD-<span class="upper"><?php echo $setting_initial['setting_value'] ?></span>/<?php $this->load->helper('tanggal'); 
         $namaBulan=konversiBulan(pretty_date($spb['spb_date'],'m',false)); echo $namaBulan; ?>/<?php echo pretty_date( $spb['spb_date'],'Y',false) ?></td><td width="10"></p><td width="5"></td>
-        <td width="128" scope="col"><div align="left"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $spb['spb_date'],'d F Y',false) ?></div></td>
+        <td width="200" scope="col"><div align="left"><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date( $spb['spb_date'],'d F Y',false) ?></div></td>
       </tr>      
       <tr>
         <td>Hal</td>

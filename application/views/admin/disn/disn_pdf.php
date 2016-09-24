@@ -26,7 +26,7 @@
 <body>
   <div style="padding:0px 0px;">      
     <p align="center"><span class="style13"><u>SURAT KETERANGAN BEKERJA</u></span><br>
-     <span class="style12"><?php echo $disn['disn_number'] ?>/SDM-SAT<?php echo $setting_initial['setting_value'] ?>-Ref/<?php echo pretty_date( $disn['disn_end_date'],'m',false) ?>-<?php echo pretty_date( $disn['disn_end_date'],'y',false) ?></td></p><br>
+     <span class="style12"><?php echo $disn['disn_number'] ?>/SDM-SAT<?php echo $setting_initial['setting_value'] ?>-Ref/<?php echo pretty_date(date('Y-m-d'), 'm',FALSE) ?>-<?php echo pretty_date(date('Y-m-d'), 'y',FALSE) ?></td></p><br>
       <p align="left">Kepada Yth :<br>
     Dinas Ketenagakerjaan<br>
     Di<br>

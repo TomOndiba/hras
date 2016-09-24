@@ -45,15 +45,24 @@ if (isset($bpjs)) {
                 <label >Nama *</label>
                 <input name="bpjs_name" placeholder="Nama" type="text" class="form-control" value="<?php echo $inputName; ?>"><br>
                 <label >Hubungan Keluarga *</label>
-                <input name="bpjs_hub" placeholder="Hubungan" type="text" class="form-control" value="<?php echo $inputHub; ?>"><br>
+                <select name="bpjs_hub" class="form-control">
+                <option value="">--- PISA ---</option>
+                <option value="PESERTA">PESERTA</option>
+                <option value="SUAMI">SUAMI</option>
+                <option value="ISTRI">ISTRI</option>
+                <option value="ANAK">ANAK</option>
+                </select><br>
                 <label >Tanggal Lahir *</label>
-                <input name="bpjs_date" placeholder="Tanggal Lahir" type="text" class="form-control datepicker" value="<?php echo $inputDate; ?>"><br>
+                <input name="bpjs_date" placeholder="Tanggal Lahir" class="form-control datepicker" value="<?php echo $inputDate; ?>"><br>
                 <label >TMT Date *</label>
-                <input name="bpjs_tmt" placeholder="TMT Date" type="text" class="form-control datepicker" value="<?php echo $inputTmt; ?>"><br>
+                <input name="bpjs_tmt" placeholder="TMT Date" class="form-control datepicker" value="<?php echo $inputTmt; ?>"><br>
                 <label >Faskes *</label>
                 <input name="bpjs_faskes" placeholder="Faskes" type="text" class="form-control" value="<?php echo $inputFaskes; ?>"><br>
                 <label >Kelas Rawat *</label>
-                <input name="bpjs_kelas" placeholder="Kelas Rawat" type="text" class="form-control" value="<?php echo $inputKelas; ?>"><br>                               
+                <select name="bpjs_kelas" class="form-control">
+                <option value="">--- Pilih Kelas Rawat ---</option>
+                <option value="1">I  (SATU)</option>
+                <option value="2">II (DUA)</option></select><br>                             
                 <p style="color:#9C9C9C;margin-top: 5px"><i>*) Field Wajib Diisi</i></p>
             </div>
             <div class="col-sm-9 col-md-3">

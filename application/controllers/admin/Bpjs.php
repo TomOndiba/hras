@@ -220,7 +220,7 @@ class Bpjs extends CI_Controller {
         }
 
 
-        private function barcode2($sparepart_code, $barcode_type=39, $scale=6, $fontsize=1, $thickness=30,$dpi=72) {
+        private function barcode2($sparepart_code, $barcode_type=11, $scale=6, $fontsize=1, $thickness=30,$dpi=72) {
     // CREATE BARCODE GENERATOR
     // Including all required classes
             require_once( APPPATH . 'libraries/barcodegen/BCGFontFile.php');
@@ -229,7 +229,7 @@ class Bpjs extends CI_Controller {
 
     // Including the barcode technology
     // Ini bisa diganti-ganti mau yang 39, ato 128, dll, liat di folder barcodegen
-            require_once( APPPATH . 'libraries/barcodegen/BCGcode39.barcode.php');
+            require_once( APPPATH . 'libraries/barcodegen/BCGcode11.barcode.php');
 
     // Loading Font
     // kalo mau ganti font, jangan lupa tambahin dulu ke folder font, baru loadnya di sini
@@ -244,7 +244,7 @@ class Bpjs extends CI_Controller {
 
             $drawException = null;
             try {
-        $code = new BCGcode39(); // kalo pake yg code39, klo yg lain mesti disesuaikan
+        $code = new BCGcode11(); // kalo pake yg code39, klo yg lain mesti disesuaikan
         $code->setScale($scale); // Resolution
         $code->setThickness($thickness); // Thickness
         $code->setForegroundColor($color_black); // Color of bars

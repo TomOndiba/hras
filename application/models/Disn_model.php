@@ -149,8 +149,8 @@ public function is_exist($field, $value, $table, $pk = '', $id = '')
             {
             $data = array(
                 'disn_number' => $data_excel[$i]['disn_number'],
-                'disn_name' => $data_excel[$i]['disn_name'],
                 'disn_nik' => $data_excel[$i]['disn_nik'],
+                'disn_name' => $data_excel[$i]['disn_name'],
                 'disn_position' => $data_excel[$i]['disn_position'],
                 'disn_entry_date' => $data_excel[$i]['disn_entry_date'],
                 'disn_end_date' => $data_excel[$i]['disn_end_date'],

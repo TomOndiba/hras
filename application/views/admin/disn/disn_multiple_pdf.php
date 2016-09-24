@@ -88,7 +88,7 @@
           <br><br>
           <table>
             <tr>
-              <td><strong><i><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, <?php echo pretty_date(date('Y-m-d'), 'd F Y',FALSE) ?></i></strong></td>
+              <td><strong><i><span class="cap"><?php echo $setting_city['setting_value'] ?></span>, 27 Juli 2016</i></strong></td>
             </tr>
             <tr>
               <td><strong><i>PT. Sumber Alfaria Trijaya Tbk</i></strong></td>

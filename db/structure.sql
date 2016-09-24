@@ -159,11 +159,14 @@ CREATE  TABLE IF NOT EXISTS `employe` (
   `employe_id` INT NOT NULL AUTO_INCREMENT ,
   `employe_nik` VARCHAR(100) NULL ,
   `employe_name` VARCHAR(255) NULL ,
+  `employe_account` VARCHAR(25) NULL ,
   `employe_address` TEXT NULL ,
   `employe_date_register` DATE NULL ,
   `employe_position` VARCHAR(100) NULL ,
   `employe_divisi` VARCHAR(255) NULL ,
   `employe_departement` VARCHAR(255) NULL ,
+  `employe_unit` VARCHAR(4) NULL ,
+  `employe_bussiness` VARCHAR(100) NULL ,
   `employe_phone` VARCHAR(45) NULL ,
   PRIMARY KEY (`employe_id`) )
 ENGINE = InnoDB;
@@ -444,6 +447,45 @@ CREATE  TABLE IF NOT EXISTS `disn` (
   `disn_entry_date` DATE NULL ,
   `disn_end_date` DATE NULL ,
   PRIMARY KEY (`disn_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `cost`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `cost` (
+  `cost_id` INT NOT NULL AUTO_INCREMENT ,
+  `cost_code` VARCHAR(10) NULL ,
+  `cost_name` VARCHAR(255) NULL ,
+  PRIMARY KEY (`cost_id`) )
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `par`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `par` (
+  `par_id` INT NOT NULL AUTO_INCREMENT ,
+  `par_number` VARCHAR(45) NULL ,
+  `cost_cost_id` INT NULL ,
+  `par_employe_nik` VARCHAR(8) NULL ,
+  `par_employe_name` VARCHAR(255) NULL ,
+  `par_employe_position` VARCHAR(100) NULL ,
+  `par_employe_unit` VARCHAR(4) NULL ,
+  `par_employe_bussiness` VARCHAR(100) NULL ,
+  `par_employe_departement` VARCHAR(255) NULL ,
+  `par_employe_account` VARCHAR(20) NULL ,
+  `par_paid` DECIMAL NULL ,
+  `user_user_id` INT NULL ,
+  `par_input_date` TIMESTAMP NULL ,
+  `par_last_update` TIMESTAMP NULL ,
+  PRIMARY KEY (`par_id`) ,
+  INDEX `fk_par_cost1_idx` (`cost_cost_id` ASC) ,
+  CONSTRAINT `fk_par_cost1`
+    FOREIGN KEY (`cost_cost_id` )
+    REFERENCES `cost` (`cost_id` )
+    ON DELETE SET NULL
+    ON UPDATE SET NULL)
 ENGINE = InnoDB;
 
 
