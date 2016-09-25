@@ -1,15 +1,14 @@
 <?php $this->load->view('admin/datepicker') ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
+       
             Daftar History Surat Panggilan 
             <span class="pull-right">
                 <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>
                 <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/memorandum/export_excel' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
 
             </span>
-        </h3>
-        </h3>
+       </div>
         <div class="collapse" id="collapseExample">
             <?php echo form_open(current_url(), array('method' => 'get')) ?>
             <div class="row">                

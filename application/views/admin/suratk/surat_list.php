@@ -1,9 +1,13 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
             Daftar Surat Keterangan
-            <a href="<?php echo site_url('admin/suratk/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>
+            <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/suratk/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/suratk/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
 
         <form action="<?php echo site_url('admin/suratk/multiple'); ?>" method="post">
             <button data-toggle="tooltip" data-placement="top" title="Cetak surat yang di ceklis" class="btn btn-sm btn-success" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf" onclick="$('form').attr('target', '_blank');"><span class="glyphicon glyphicon-print"></span>&nbsp;Print Surat</button>
@@ -12,8 +16,8 @@
 
 
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-a">
+                <table class="table table-condensed">
+                    <thead class="thed">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NO. SURAT</th>
@@ -28,7 +32,7 @@
                     if (!empty($surat)) {
                         foreach ($surat as $row) {
                             ?>
-                            <tbody class="table-a">
+                            <tbody class="tbodies">
                              <tr>
                                  <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['sk_id']; ?>"></td>                           
                                  <td ><?php echo $row['sk_number']; ?></td>

@@ -1,15 +1,18 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar Surat Pengantar Bank
-            <a href="<?php echo site_url('admin/spb/add'); ?>" ><span class="fa fa-plus-square"></span></a>
-        </h3>
-
+        Daftar Surat Pengantar Bank
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/spb/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/spb/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
         <!-- Indicates a successful or positive action -->
 
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="table-a">
+            <table class="table table-condensed">
+                <thead class="thed">
                     <tr>
                         <th class="controls" align="center">NO. SURAT</th>                        
                         <th class="controls" align="center">TANGGAL KIRIM</th>
@@ -21,7 +24,7 @@
                 if (!empty($spb)) {
                     foreach ($spb as $row) {
                         ?>
-                        <tbody class="table-a">
+                        <tbody class="tbodies">
                             <tr>
                                 <td ><?php echo $row['spb_number']; ?></td>                                
                                 <td ><?php echo pretty_date($row['spb_date'], 'd F Y', false); ?></td>

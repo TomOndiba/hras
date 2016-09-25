@@ -1,6 +1,6 @@
 <?php $this->load->view('admin/datepicker') ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
-    <div class="x_panel post-inherit">
+    <div class="post-inherit">
         <div class="row">
             <div class="col-md-8">
                 <h3>

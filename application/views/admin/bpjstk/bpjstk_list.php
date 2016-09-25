@@ -1,16 +1,20 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar BPJS Ketenagakerjaan
-            <a href="<?php echo site_url('admin/bpjstk/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>        
+        Daftar Surat Pernyataan BPJS Ketenagakerjaan
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/bpjstk/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/bpjstk/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>  
                  
             <!-- Indicates a successful or positive action -->
 
 
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-a">
+                <table class="table table-condensed">
+                    <thead class="thed">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NAMA</th>
@@ -24,7 +28,7 @@
                     if (!empty($bpjstk)) {
                         foreach ($bpjstk as $row) {
                             ?>
-                            <tbody class="table-a"> 
+                            <tbody class="tbodies"> 
                                <tr>
                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjstk_id']; ?>"></td>                           
                                     <td ><?php echo $row['bpjstk_name']; ?></td>

@@ -1,13 +1,17 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3 class="">
-            Daftar Cost Center
-            <a href="<?php echo site_url('admin/cost/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3><br>
+        Daftar Cost Center
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/cost/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/cost/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
 
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="table-a">
+            <table class="table table-condensed">
+                <thead class="thed">
                     <tr>
                         <th>No.</th>
                         <th>Kode Cost Center</th> 
@@ -20,7 +24,7 @@
                 
                 foreach ($cost as $row): 
                     ?>
-                <tbody class="table-a">
+                <tbody class="tbodies">
                     <tr>
                         <td ><?php echo $i ?></td>
                         <td ><?php echo $row['cost_code']; ?></td>

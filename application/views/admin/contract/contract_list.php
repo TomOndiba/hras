@@ -1,13 +1,13 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar Karyawan Habis Kontrak
-            <a href="<?php echo site_url('admin/contract/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-            <a data-toggle="tooltip" data-placement="top" title="Download xls" class="btn btn-sm btn-primary" href="<?php echo site_url('admin/contract/export' . '/?' . http_build_query($q)) ?>" ><span class="glyphicon glyphicon-print"></span></a>
-        </h3>
-        <span class="pulll-left">
-            <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>
+        Daftar Habis Kontrak
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/contract/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
         </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/contract/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
         <div class="collapse" id="collapseExample">
             <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
             <div class="row">                
@@ -28,8 +28,8 @@
         <!-- Indicates a successful or positive action --> 
 
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="table-a">
+            <table class="table table-condensed">
+                <thead class="thed">
                     <tr>
                         <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                         <th class="controls" align="center">NO. SURAT</th>
@@ -44,7 +44,7 @@
                 if (!empty($contract)) {
                     foreach ($contract as $row) {
                         ?>
-                        <tbody class="table-a">
+                        <tbody class="tbodies">
                             <tr>
                                 <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['contract_id']; ?>"></td>
                                 <td ><?php echo $row['contract_number']; ?></td>

@@ -1,9 +1,13 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar Surat Keterangan Disnaker
-            <a href="<?php echo site_url('admin/disn/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>        
+        Daftar Disnaker
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/disn/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/disn/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>      
             <!-- Indicates a successful or positive action -->
 
             <form action="<?php echo site_url('admin/disn/multiple'); ?>" method="post">
@@ -12,8 +16,8 @@
 
 
             <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-a">
+                <table class="table table-condensed">
+                    <thead class="thed">
                         <tr>
                             <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                             <th class="controls" align="center">NO. SURAT</th>
@@ -27,7 +31,7 @@
                     if (!empty($disn)) {
                         foreach ($disn as $row) {
                             ?>
-                            <tbody class="table-a">
+                            <tbody class="tbodies">
                                <tr>
                                <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['disn_id']; ?>"></td>                           
                                     <td ><?php echo $row['disn_number']; ?></td>

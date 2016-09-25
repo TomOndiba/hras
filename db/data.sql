@@ -27,7 +27,7 @@ INSERT INTO `setting` (`setting_id`, `setting_name`, `setting_value`, `setting_l
 (5, 'setting_employe_nik', '-', NOW()),
 (6, 'setting_employe_name', '-', NOW()),
 (7, 'setting_employe_position', '-', NOW()),
-(8, 'setting_initial', '-', NOW());
-(9, 'setting_initial_bm', '-', NOW());
-(10, 'setting_initial_pdm', '-', NOW());
+(8, 'setting_initial', '-', NOW()),
+(9, 'setting_initial_bm', '-', NOW()),
+(10, 'setting_initial_pdm', '-', NOW()),
 (11, 'setting_unit', '-', NOW());

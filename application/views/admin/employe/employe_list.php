@@ -1,13 +1,13 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar Karyawan
-            <a href="<?php echo site_url('admin/employe/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-            <span class="pull-right">
-                <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="glyphicon glyphicon-align-justify"></span></a>               
-            </span>
-        </h3>       
-        </h3>
+        Daftar Karyawan
+        <span class="pull-right add-btn hidden-xs">
+            <a href="<?php echo site_url('admin/employe/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="<?php echo site_url('admin/employe/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
         <div class="collapse" id="collapseExample">
             <?php echo form_open(current_url(), array('method' => 'get')) ?>
             <div class="row">                
@@ -30,8 +30,8 @@
     <!-- Indicates a successful or positive action -->
 
     <div class="table-responsive">
-        <table class="table table-striped">
-            <thead class="table-a">
+        <table class="table table-condensed">
+            <thead class="thed">
                 <tr>
                     <th class="controls" align="center">NIK</th>
                     <th class="controls" align="center">NAMA</th>
@@ -44,7 +44,7 @@
             if (!empty($employe)) {
                 foreach ($employe as $row) {
                     ?>
-                    <tbody class="table-a">
+                    <tbody class="tbodies">
                         <tr>
                             <td ><?php echo $row['employe_nik']; ?></td> 
                             <td ><?php echo $row['employe_name']; ?></td>

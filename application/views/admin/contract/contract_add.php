@@ -22,7 +22,7 @@ if (isset($contract)) {
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
-    <div class="x_panel post-inherit">
+    <div class="post-inherit">
         <?php if (!isset($contract)) echo validation_errors(); ?>
         <?php echo form_open_multipart(current_url()); ?>
         <div>

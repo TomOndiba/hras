@@ -10,7 +10,7 @@ if (isset($cost)) {
 }
 ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
-    <div class="x_panel post-inherit">
+    <div class="post-inherit">
         <?php if (!isset($cost)) echo validation_errors(); ?>
         <?php echo form_open_multipart(current_url()); ?>
         <div>

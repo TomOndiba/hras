@@ -18,7 +18,7 @@ if (isset($user)) {
 <?php echo isset($alert) ? ' ' . $alert : null; ?>
 <?php echo validation_errors(); ?>
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
-    <div class="x_panel post-inherit">
+    <div class="post-inherit">
         <div class="col-lg-12">
             <h3><?php echo $operation ?> Pengguna</h3>
             <br>

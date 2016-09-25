@@ -14,6 +14,7 @@
     <!-- Bootstrap core CSS -->
 
     <link href="<?php echo media_url() ?>/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo media_url() ?>/css/ionicons.min.css" rel="stylesheet">
     <link href="<?php echo media_url() ?>/css/jquery-ui.min.css" rel="stylesheet">
     <link href="<?php echo media_url() ?>/css/jquery-ui.structure.min.css" rel="stylesheet">
     <link href="<?php echo media_url() ?>/css/jquery-ui.theme.min.css" rel="stylesheet">

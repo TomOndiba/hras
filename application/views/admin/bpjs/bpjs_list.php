@@ -1,9 +1,19 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar BPJS Kesehatan 
-            <a href="<?php echo site_url('admin/bpjs/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>        
+
+        Daftar BPJS Kesehatan 
+        <span class="pull-right add-btn hidden-xs">
+            <a href="#collapseFilter" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFilter"><span class="fa fa-search"> Cari</span></a> |
+            <a href="<?php echo site_url('admin/bpjs/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
+        </span>
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="#collapseFilter" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFilter"><span class="fa fa-search"></span></a> |
+            <a href="<?php echo site_url('admin/bpjs/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
+     
+   
+    <div class="collapse" id="collapseFilter">
         <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
         <div class="row">                
             <div class="col-md-2">
@@ -20,65 +30,66 @@
                     <?php } ?>
                 </div>
             </div>
-            <?php echo form_close() ?> 
         </div>
-        <form action="<?php echo site_url('admin/bpjs/multiple'); ?>.pdf" method="post">
-            <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-success view-pdf" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf";"><span class="fa fa-print"></span>&nbsp;Print</button>
-            <button data-toggle="tooltip" data-placement="top" title="Tambah ke daftar cetak" class="btn btn-sm btn-info" style="border-radius:10px 0px 10px 0px" name="action" value="cetak"><span class="fa fa-check"></span>&nbsp;Daftar Cetak</button>       
+        <?php echo form_close() ?> 
+    </div>
+    <form action="<?php echo site_url('admin/bpjs/multiple'); ?>" method="post">
+        <button data-toggle="tooltip" data-placement="top" title="Cetak" class="btn btn-sm btn-success" style="border-radius:10px 0px 10px 0px" name="action" value="printPdf";"><span class="fa fa-print"></span>&nbsp;Print</button>
+        <button data-toggle="tooltip" data-placement="top" title="Tambah ke daftar cetak" class="btn btn-sm btn-info" style="border-radius:10px 0px 10px 0px" name="action" value="cetak"><span class="fa fa-check"></span>&nbsp;Daftar Cetak</button>       
 
-           
-            <!-- Indicates a successful or positive action -->
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead class="table-a">
-                        <tr>
-                            <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
-                            <th class="controls" align="center">NIK</th>
-                            <th class="controls" align="center">NIK KTP</th>
-                            <th class="controls" align="center">NAMA</th>
-                            <th class="controls" align="center">HUB KELUARGA</th>
-                            <th class="controls" align="center">FASKES</th>                        
-                            <th class="controls" align="center">AKSI</th>
-                        </tr> 
-                    </thead>
-                    <?php
-                    if (!empty($bpjs)) {
-                        foreach ($bpjs as $row) {
-                            ?>
-                            <tbody class="table-a"> 
-                             <tr>
-                                 <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
-                                 <td ><?php echo $row['bpjs_npp']; ?></td>
-                                 <td ><?php echo $row['bpjs_ktp']; ?></td>
-                                 <td ><?php echo $row['bpjs_name']; ?></td>
-                                 <td ><?php echo $row['bpjs_hub']; ?></td>
-                                 <td ><?php echo $row['bpjs_faskes']; ?></td>                                
-                                 <td>
-                                    <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bpjs/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
-                                    <a data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success btn-xs" href="<?php echo site_url('admin/bpjs/edit/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
-                                        <a data-toggle="tooltip" data-placement="top" title="Print Kartu" class="btn btn-danger btn-xs view-pdf" href="<?php echo site_url('admin/bpjs/printPdf/' . $row['bpjs_id']) ?> " ><span class="glyphicon glyphicon-print"></span></a>
-                                    <a data-toggle="tooltip" data-placement="top" title="Daftar Cetak" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/bpjs/cetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-check"></span></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <?php
-                    }
-                } else {
-                    ?>
-                    <tbody>
-                    </form>
-                    <tr id="row">
-                        <td colspan="6" align="center">Data Kosong</td>
-                    </tr>
-                </tbody>
+
+        <!-- Indicates a successful or positive action -->
+        <div class="table-responsive">
+            <table class="table table-condensed">
+                <thead class="thed">
+                    <tr>
+                        <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
+                        <th>NIK</th>
+                        <th>NIK KTP</th>
+                        <th>NAMA</th>
+                        <th>HUB KELUARGA</th>
+                        <th>FASKES</th>                        
+                        <th>AKSI</th>
+                    </tr> 
+                </thead>
                 <?php
-            }
-            ?>   
-        </table>
-    </div>
-    <div >
-        <?php echo $this->pagination->create_links(); ?>
-    </div>
+                if (!empty($bpjs)) {
+                    foreach ($bpjs as $row) {
+                        ?>
+                        <tbody class="tbodies"> 
+                         <tr>
+                             <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['bpjs_id']; ?>"></td>                           
+                             <td class="tabls" ><?php echo $row['bpjs_npp']; ?></td>
+                             <td class="tabls" ><?php echo $row['bpjs_ktp']; ?></td>
+                             <td class="tabls" ><?php echo $row['bpjs_name']; ?></td>
+                             <td class="tabls" ><?php echo $row['bpjs_hub']; ?></td>
+                             <td class="tabls" ><?php echo $row['bpjs_faskes']; ?></td>                                
+                             <td>
+                                <a data-toggle="tooltip" data-placement="top" title="Detail" class="btn btn-warning btn-xs" href="<?php echo site_url('admin/bpjs/detail/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-eye-open"></span></a>
+                                <a data-toggle="tooltip" data-placement="top" title="Edit" class="btn btn-success btn-xs" href="<?php echo site_url('admin/bpjs/edit/' . $row['bpjs_id']); ?>" ><span class="glyphicon glyphicon-edit"></span></a>
+                                <a data-toggle="tooltip" data-placement="top" title="Print Kartu" class="btn btn-danger btn-xs view-pdf" href="<?php echo site_url('admin/bpjs/printPdf/' . $row['bpjs_id']) ?> " ><span class="glyphicon glyphicon-print"></span></a>
+                                <a data-toggle="tooltip" data-placement="top" title="Daftar Cetak" class="btn btn-primary btn-xs" href="<?php echo site_url('admin/bpjs/cetak/' . $row['bpjs_id']); ?>" ><span class="fa fa-check"></span></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <?php
+                }
+            } else {
+                ?>
+                <tbody>
+                </form>
+                <tr id="row">
+                    <td colspan="6" align="center">Data Kosong</td>
+                </tr>
+            </tbody>
+            <?php
+        }
+        ?>   
+    </table>
+</div>
+<div >
+    <?php echo $this->pagination->create_links(); ?>
+</div>
 </div>
 </div>
 

@@ -1,13 +1,16 @@
 <div class="col-md-12 col-sm-12 col-xs-12 main post-inherit">
     <div class="x_panel post-inherit">
-        <h3>
-            Daftar PAR Nikah
-            <a href="<?php echo site_url('admin/par/add'); ?>" ><span class="glyphicon glyphicon-plus-sign"></span></a>
-        </h3>
-        <span class="pulll-left">
-            <a class="btn btn-sm btn-default" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ><span class="fa fa-search"> Search</span></a>
+       Daftar PAR  
+        <span class="pull-right add-btn hidden-xs">
+            <a href="#collapseFilter" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFilter"><span class="fa fa-search"> Cari</span></a> |
+            <a href="<?php echo site_url('admin/par/add'); ?>" role="button"><span class="fa fa-plus"> Tambah</span></a>
         </span>
-        <div class="collapse" id="collapseExample">
+        <span class="pull-right add-btn hidden-lg hidden-md hidden-sm">
+            <a href="#collapseFilter" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseFilter"><span class="fa fa-search"></span></a> |
+            <a href="<?php echo site_url('admin/par/add'); ?>" role="button"><span class="fa fa-plus"></span></a>
+        </span>
+    </div>
+        <div class="collapse" id="collapseFilter">
             <?php echo form_open(current_url(), array('method' => 'get')) ?> <br>
             <div class="row">                
                 <div class="col-md-2">
@@ -26,8 +29,8 @@
         <!-- Indicates a successful or positive action --> 
 
         <div class="table-responsive">
-            <table class="table table-striped">
-                <thead class="table-a">
+            <table class="table table-condensed">
+                <thead class="thed">
                     <tr>
                         <th><input type="checkbox" id="selectall" value="checkbox" name="checkbox"></th>
                         <th class="controls" align="center">NO. PAR</th>
@@ -42,7 +45,7 @@
                 if (!empty($par)) {
                     foreach ($par as $row) {
                         ?>
-                        <tbody class="table-a">
+                        <tbody class="tbodies">
                             <tr>
                                 <td><input type="checkbox" class="checkbox" name="msg[]" value="<?php echo $row['par_id']; ?>"></td>
                                 <td ><?php echo $row['par_number']; ?></td>
